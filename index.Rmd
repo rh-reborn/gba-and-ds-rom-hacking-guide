@@ -12,6 +12,8 @@ github-repo: rh-reborn/gba-and-ds-rom-hacking-guide
 description: "The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles."
 ---
 
+# Sections
+
 |     |     |
 | --- | --- |
 | * * * | * * * |

@@ -235,7 +235,7 @@ VGMtrans (DLS) [Download mirror](http://filetrip.net/nds-downloads/utilities/dow
 
 Arrived around the same time as NDS Sound extractor and eventually got more stable. Still used today primarily as it has the ability to create DLS files although certain programs can have issues (awave studio usually cuts through it and can put things in rmi format which carries instruments) which some midi playback methods can use to make the sounds match more closely to the original hardware; the trained ear can still tell the difference between hardware and midi DLS but it is not the night and day different the other methods often exhibit. It does also feature graphical parsing of SSEQ and similar files which is invaluable when actually editing SSEQ tracks even if you have to actually edit thing in another editor. Usage is drag and drop onto the file (SDAT or NDS) and right click on various sections to get what the allow for. GUI is quite customisable as well with toolboxes able to be dragged around at will.
 
-![PIC](136_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackguidevgmtrans.png)
+![PIC](images/136_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackguidevgmtrans.png)
 
 vgmtoolbox [Homepage](http://sourceforge.net/projects/vgmtoolbox/files/vgmtoolbox/)
 
@@ -257,7 +257,7 @@ DLS files from VGMtrans are very useful so it sticks around to this day but in m
 
 Also features the ability to generate SMAP files and other such niceties (also highlighted green on the picture below).
 
-![PIC](137_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackguidevgmtoolbox1.png)
+![PIC](images/137_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackguidevgmtoolbox1.png)
 
 NCSF This was a replacement made in 2013 to cater to some of the failings of the ageing 2sf format. Still aimed at the SDAT format it adopts a high level approach which works better in some instances.
 
@@ -287,7 +287,7 @@ Rebuilding Rebuilding a SDAT file after a minor edit (that changed a file length
 
 More recently [Tinke](https://github.com/pleonex/tinke) has gained a measure of injection ability (with the ability to repoint) so it is worth having a look here. Usage is quite similar to the rest of the program but the general order of operations is open the SDAT file and view it, press “Change file”, find the replacement file, repeat as necessary and finally press “Save SDAT”.
 
-![PIC](138_home_fast6191_romhackingguide_unrenamed_fil____borders_romhackguidesoundtinkereplacement1.png)
+![PIC](images/138_home_fast6191_romhackingguide_unrenamed_fil____borders_romhackguidesoundtinkereplacement1.png)
 
 ### 4.1.2 Others
 
@@ -364,7 +364,7 @@ There are all sorts of methods but step zero is finding out what tracks you want
 
 You could generate an SMAP file if you wanted but an output from something like Crystaltile2 is often just as helpful
 
-![PIC](139_home_fast6191_romhackingguide_unrenamed_fil___original_borders_crystaltile2sdatrelinking1.png)
+![PIC](images/139_home_fast6191_romhackingguide_unrenamed_fil___original_borders_crystaltile2sdatrelinking1.png)
 
 The crude method sees that the relative addresses and size values contain the relevant information
 
@@ -372,7 +372,7 @@ Now either because you read the value from SMAP, read it from the file itself (a
 
 Going to a hex editor
 
-![PIC](140_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop1.png)
+![PIC](images/140_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop1.png)
 
 007C
 
@@ -388,7 +388,7 @@ If you look back at the SDAT file readout from Crystaltile2 you will see that is
 
 The crude method which often works well simply copies and pastes the location and size values over the files to be changed.
 
-![PIC](141_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop2.png)
+![PIC](images/141_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop2.png)
 
 The more complex method takes the idea of multiple banks into account and will change those as well else the game might try to play with a different bank which could well make for a very interesting “cover” so to speak but maybe not what you are searching for here.
 
@@ -404,7 +404,7 @@ The pointer section it at 40h (technically there is a pointer but it should alwa
 
 You will end up with something like the following picture (note for the sake of readability the address was shifted to the start of the INFO block)
 
-![PIC](142_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop3.png)
+![PIC](images/142_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop3.png)
 
 Pulling some information from it
 
@@ -416,7 +416,7 @@ Looking back at crystaltile2 and accounting for hex to decimal conversions it al
 
 Now you do not want to replace the fileID as the SSEQ engine might use it to address the file but the rest needs sorting.
 
-![PIC](143_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop4.png)
+![PIC](images/143_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_relinkinghexworkshop4.png)
 
 In this case it does not matter but SWAR archives contain the actually wave form representations of instructions and sound effects, they are however somewhat apart from the rest of the SDAT and will need to be handled separately. Fortunately other than relative pointers they are quite simple archives and all data on files is contained within the files themselves so no need to edit things beyond the pointers.
 
@@ -436,11 +436,11 @@ There are of course several ways to approach this but as one file is being repla
 
 Basic file replacement with tinke was already covered but here is what the Phoenix Wright Justice for All SDAT will look like
 
-![PIC](144_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_1.png)
+![PIC](images/144_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_1.png)
 
 Name and location of the track that wishes to be gone and the track being used to replace it. With things known it is but a few basic clicks.... it will probably play but will not sound anything like the original. This is as the SSEQ format is not standalone and in this case has three helper files (see bottom left box).
 
-![PIC](145_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_2.png)
+![PIC](images/145_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_2.png)
 
 No problem just replace the other files in the same manner; the trouble comes in that the SWAR “wave\_agb\_bgm” is common to a few files in both games and it providing a fair few samples (the ones that match the names in this case merely seem to be house a few longer samples). Replace and damn the consequences works well enough and does indeed net the promised change and as it would seem the games are quite similar at least the opening track which is a rendition of Bach’s “Toccata and Fugue” and has only a couple of small samples works well enough with the replaced file.
 
@@ -450,29 +450,29 @@ Getting back to the matter at hand the track SE0B8 is the sacrifice today and re
 
 After the SSEQ info section seen earlier and one for SEQARC there comes the list of files associated with banks
 
-![PIC](146_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_3.png)
+![PIC](images/146_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_3.png)
 
 Sample from the SMAP file (alas fileID is in decimal here but 181 dec =B5 hex)
 
-![PIC](147_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_4.png)
+![PIC](images/147_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_4.png)
 
 Sample of the wavearc listing
 
-![PIC](148_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_5.png)
+![PIC](images/148_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_5.png)
 
 Format is internal file number for bank (16 bits, flipped), 0000 (unknown) and then the bank numbers and FFFF if there is no need to link it (very few games have more than two associated wavearc files but it can go to four). As noted before many BGM tracks are linked to file 0 (WAVE\_AGB\_BGM) and they often have their own wavearc as well for a couple of samples but stripping the other data from the smap to leave what is necessary for this hack
 
-![PIC](149_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_6.png)
+![PIC](images/149_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_6.png)
 
 219 decimal = DB hex
 
 163 decimal = A3 hex
 
-![PIC](150_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_7.png)
+![PIC](images/150_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_7.png)
 
 Replacing the second 0000 with A300 (flipped as usual)
 
-![PIC](151_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_8.png)
+![PIC](images/151_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_8.png)
 
 Music creation and injection Injection from another source just means making a SSEQ or some other file, tools like midi2SSEQ which admittedly have some of the same pitfalls as the original SSEQ2midi tools do exist though (different instruments leading to a different sound), on the GBA some people created an instrument library from the standard midi controller and allowed that where some on the DS use the DLS format VGMtrans (and MK DS course editor) can create to guide Anvil studio to do things (DLS files from VGMtrans and open MPT have some issues). On top of this looping is common thing for tracker/sequenced audio and even some wave files to do and will have to be taken care of. There are various ways to get looping done and some of the later versions of midi2sseq did support looping flags after a fashion.
 
@@ -484,7 +484,7 @@ Note that quite often if an undub fails it is more likely to be the fault of the
 
 Castlevania portrait of ruin The game actually features the hidden option to change voices to Japanese (hold L and press A to make a selection at the menu with an audio cue for doing it successfully[14](romhacking202015.html#fn14x0) ) but for the sake of this example it will be assumed that the setup there is sub optimal as maybe only a minor remix is wanted/only a select few things want to be undubbed. As they are quite long voices (sometimes several seconds in length) SSEQ and such is probably not the order of the day and indeed the STRM files were chosen. A quick sample from Crystaltile2
 
-![PIC](152_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguideSDATcomplexundub_1.png)
+![PIC](images/152_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguideSDATcomplexundub_1.png)
 
 A nice developer left extra in 3710 (it is the voice presumably from the E3 video that said available Fall). Either way as STRM files they are effectively full wave files there and can be tweaked as per a conventional relinking hack, or injection if you really want. To make life more interesting though not all the voiced audio is there and buried within the nearly 1600 sound effects are a few voiced sections (broken up rather nicely into BGM and sound effects here). These mainly line up with the 380 hex to 560 hex range (ndssndext conversion) from “WAVE\_SE\_ALL.SWAR” (3665 in the main SDAT file) which will also want to be remapped accordingly, the SWAR file type is fairly basic and all data is contained within the files it houses rather than any header so the bigger problem is figuring out what is what (sadly names are lacking in SWAR).
 
@@ -496,7 +496,7 @@ Tetris DS zelda victory sounds Tetris DS featured a bunch of minigames based on 
 
 VGMtrans shot (ignore the later highlighting as it breaks down later on although actual worked breakdown on the right is OK).
 
-![PIC](153_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_1.png)
+![PIC](images/153_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_1.png)
 
 There are a couple of schools of thought here with the two main ones being “what are those other tracks for?” and “just edit the notes”. If it was just for ripping they are in fact mixed for at least one hit so a simple chop in a more conventional editor would not do, removing tracks would probably help (indeed converting it to midi and removing some of the later channels does exactly this) but this is more for an example of a technique than the end results at this point.
 
@@ -506,31 +506,31 @@ The C700 command means it is polyphonic (notes can happen at the same time, C701
 
 On the picture above that means everything after 204B80 was replaced accordingly to give
 
-![PIC](154_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_2.png)
+![PIC](images/154_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_2.png)
 
 Good news is that it did indeed remove the drum hits from the end of the sample but it changes things for the worse and part of the strings was what was ended up with (edited version on the bottom)
 
-![PIC](155_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_3.png)
+![PIC](images/155_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_3.png)
 
 Editing once more but with the knowledge that the drum hits are 5 beats and the zelda sound is four beats; it led to track 5 being edited which turned out perfect. The classic test of such things is to invert the second signal and play it back which highlights any differences or in the case of two otherwise identical tracks cancels out the main track and leaves only the differences and doing so left just the drum hits.
 
-![PIC](156_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_4.png)
+![PIC](images/156_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_4.png)
 
 Tetris DS Korobeiniki speed change A good starting place for audio hacking is the crystaltile2 SDAT information.
 
-![PIC](157_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_1.png)
+![PIC](images/157_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_1.png)
 
 As mentioned for reasons unknown Korobeiniki (ancient tetris in the game itself) is called Karinka (Kalinka) in this but that is what needs to be edited.
 
-![PIC](158_home_fast6191_romhackingguide_unrenamed_fil___ders_romhackguideSDATSSEQedit_speedchange_1.png)
+![PIC](images/158_home_fast6191_romhackingguide_unrenamed_fil___ders_romhackguideSDATSSEQedit_speedchange_1.png)
 
 Even in the SDAT viewer double clicking a file in Crystaltile2 sets the hex editor window to the location in question but if not there are several other tools that can help and if you decide to change the file length (remember there are jumps/branches that might be broken) other tools have already been covered to help here. Some however consider it a bit too fast (and it is slightly faster than many classic renditions in tetris) so changing the tempo is in order. E1BE it is. E1 hex is the command for tempo and BE (190 decimal) is the payload so it was changed to something a bit slower at 78 (120 decimal) which might be a bit slow but does make for a very clear result. Here none of the others had a tempo command but repetition is easy enough.
 
-![PIC](159_home_fast6191_romhackingguide_unrenamed_fil___ders_romhackguideSDATSSEQedit_speedchange_2.png)
+![PIC](images/159_home_fast6191_romhackingguide_unrenamed_fil___ders_romhackguideSDATSSEQedit_speedchange_2.png)
 
 The resulting wave files (modified slower version clearly on the bottom)
 
-![PIC](160_home_fast6191_romhackingguide_unrenamed_fil___ders_romhackguideSDATSSEQedit_speedchange_3.png)
+![PIC](images/160_home_fast6191_romhackingguide_unrenamed_fil___ders_romhackguideSDATSSEQedit_speedchange_3.png)
 
 Although it is quite possible to do this with a wave file to do it in real time on the DS hardware would push it to the limit where just modifying a sequenced piece of audio is not only easy it is catered for.
 
@@ -538,7 +538,7 @@ Tetris DS Korobeiniki looping At one point looping was mostly done for those inj
 
 Although the song itself is a classic for this example hack the first few bars are all that is desired.
 
-![PIC](157_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_1.png)
+![PIC](images/157_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_1.png)
 
 There are several loop commands available to the would be SSEQ composer
 
@@ -567,9 +567,9 @@ Various commands are used for various things depending upon the composer althoug
 
 This was done for several tracks as there are multiple tracks that can work at once; this can be quite tricky if you are facing multiple tracks but persevere and things start to make sense. It is not immediately obvious in the wave form but some interesting things did happen and at points it sounds like a badly conducted piece as others attempt to start a section.
 
-![PIC](161_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_3.png)
+![PIC](images/161_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_3.png)
 
-![PIC](162_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_2.png)
+![PIC](images/162_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_2.png)
 
 ### 4.1.6 GBA audio
 
@@ -587,9 +587,9 @@ The 200? line does technically have the ability to insert audio but many will pr
 
 1.6, 2006 and 2006 mod screenshots
 
-![PIC](163_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackingguidesappy1_6_1.png)![PIC](164_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackingguidesappy2006_1.png)
+![PIC](images/163_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackingguidesappy1_6_1.png)![PIC](images/164_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackingguidesappy2006_1.png)
 
-![PIC](165_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidesappy2006_mod16_1.png)
+![PIC](images/165_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidesappy2006_mod16_1.png)
 
 Quick overview of format [Romhacking.net’s copy of Bregalad’s sappy audio notes](http://www.romhacking.net/documents/462/)
 
@@ -619,7 +619,7 @@ GBA audio ripper [Filetrip download](http://filetrip.net/gba-downloads/tools-uti
 
 Atrius made a simple tool somewhat in line with saptapper above that aims to rip audio for 1:1 playback (in this case in the author’s GBAjukebox program.
 
-![PIC](166_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideGBAaudio_GBAaudioripper_1.png)
+![PIC](images/166_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideGBAaudio_GBAaudioripper_1.png)
 
 VGMtrans VGMtrans supposedly features a measure of support for the Sappy audio format.
 

@@ -47,7 +47,7 @@ Mario 64 The DS got an enhanced port of the N64 version of Mario 64 and level ed
 
 The image below shows a nice test map which are always good to search for as they will often be quite simple and contain most, if not all, the items available for a game.
 
-![PIC](167_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackguideleveleditingMario64.png)
+![PIC](images/167_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackguideleveleditingMario64.png)
 
 Mario kart [MKDS course modifier](http://gbatemp.net/topic/299444-mkds-course-modifier/)
 
@@ -73,21 +73,21 @@ N+ (N plus) is a DS port/remake of a popular flash game and features a lot of le
 
 Screenshots of levels 0 and 1 (episode 0 in the game).
 
-![PIC](168_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus1.png)![PIC](169_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus2.png)
+![PIC](images/168_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus1.png)![PIC](images/169_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus2.png)
 
 Rather nicely the game provides files named nds000.lvl and nds001.lvl in the level directory.
 
-![PIC](170_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus3.png)
+![PIC](images/170_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus3.png)
 
 Both start with something similar, have a lot of 0,4 and 1 nibbles (no idea if it is a 4 bit system) and then end on something else entirely which is actually shorter in the case of nds001.lvl although the level is somewhat simpler. The big difference between the levels though is the addition of the moving hazard (the level editor calls it a floor drone). This might be the E that is not present in the original level.
 
 Still a bit of corruption to see if the levels are indeed what they claim to be. Guided corruption for this one rather than simply replacing things with random data so a bunch of what were mainly 0 at 10 hex though 1F hex were replaced with 4 hex. Giving
 
-![PIC](171_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus4.png)
+![PIC](images/171_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus4.png)
 
 That would be the entire bottom row and another one at the bottom left of the level. Going back to the main menu though gives
 
-![PIC](172_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus6.png)
+![PIC](images/172_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus6.png)
 
 That it is a copy of the next level and there is no gold, trap information, hazard information, door or switch locations in the images there it would appear to indicate a layered level design (parsing and removing data is doable but not ideal for low powered systems) but more on that later.
 
@@ -95,23 +95,23 @@ Replacing the 20 hex to 2F hex this time with a run of 2 hex changed the next ro
 
 One full dump and a search for the new 44444422222222 hex (not assured to work by any means but not compressed in game means probably not compressed in ram either) netted a single location at 37CFD0 or in the DS memory 0237CFD0.
 
-![PIC](173_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus5.png)
+![PIC](images/173_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus5.png)
 
 Before the ram editing could commence though the memory/level was seen to be refreshed from the ROM itself between that view and the level itself and the level was not regenerated in real time. However the level overview/layout was regenerated from ram if a refresh was forced[15](romhacking202016.html#fn15x0) and the level was not fetched from the ROM itself between those, a refresh could be forced by changing the map preview (L and R buttons) or allowing it to scroll round.
 
-![PIC](174_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus7.png)
+![PIC](images/174_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus7.png)
 
 Some experimentation said each “line” in the level was about 18 hex long although it could vary between levels. 00 appeared to be the blank/default state and zeroing out everything to what would be 188 hex in the original level (where the E0 is located) left a blank screen. Further experimentation said 4 bits was not the way forward (playing with the level editor provides an 8 by 8 grid so 64 potential options, although a few of those looked to be duplicates and maybe rotations) and maybe even 8 bits was not it, or at least the level might change depending upon what is next to it or with alignment.
 
 Before going on with the items now that we armed with the knowledge that things might be 18 hex long. Looking at nds001.lvl in a hex editor, deleting the presumed objects list, the header section and colouring some of the non 0 pixels before flipping the resulting image.
 
-![PIC](175_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus8.png)![PIC](169_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus2.png)
+![PIC](images/175_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus8.png)![PIC](images/169_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus2.png)
 
 It is well worth a try to look for such things/patterns in memory if you can.
 
 Items The level editor also made mention of the potential for items and the above work would seem to confirm that they were elsewhere but checking anyway the fully zeroed out level section (here presumed to be where the 0,4 and 1 stuff stopped being the norm) still had items and continuing to zero things out after the end of the level broke it and removed some of the items.
 
-![PIC](176_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus9.png)
+![PIC](images/176_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus9.png)
 
 As everything that survived was still in place but location shifted it says things
 
@@ -123,7 +123,7 @@ The shift of everything could probably be explained if the origin of a coordinat
 
 Another more precise edit caused a crash (odd as the corrupt state on the right hand image above could be exited via normal in game commands and return you to the menu) and another edit leaving the initial bytes of the items section intact made for a working level but with a few changes (3 bytes at 1D4 changed from 4947 1C to 0000 00 or about 4C into the items location section) messed up everything after the door switch shifting things and creating new items. Suspecting an alignment issue the lone 00 of the three bytes was changed back creating the right hand image.
 
-![PIC](168_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus1.png)![PIC](177_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus10.png)![PIC](178_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus11.png)
+![PIC](images/168_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus1.png)![PIC](images/177_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus10.png)![PIC](images/178_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus11.png)
 
 Even if corruption had not revealed the item layout location then with the pre level stuff not being anywhere near enough to store the relevant amount like the locations of the gold that leaves the end of the level file and the somewhat different data there. Equally the next level (nds001) has few items and it is smaller.
 
@@ -137,11 +137,11 @@ With two bytes there is only room for 66 items from the first level and this pro
 
 Corruption, minor alteration and pondering how someone should do it is rapidly getting troublesome but episode 0 level 4 (nds004.lvl) has a simple repeating pattern
 
-![PIC](179_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus12.png)
+![PIC](images/179_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus12.png)
 
 The level in question (highlighted section being the item data)
 
-![PIC](180_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus13.png)
+![PIC](images/180_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus13.png)
 
 14 instances of mines of each arrangement
 
@@ -159,21 +159,21 @@ Changing a couple of the 53 hex values to 54 hex netted a minor change (the blue
 
 54 hex = 0101 0100 binary
 
-![PIC](181_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus14.png)
+![PIC](images/181_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus14.png)
 
 Changing the start from C0 to E0 (1100 0000 to 1110 0000), ignore the timer.
 
-![PIC](182_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus15.png)
+![PIC](images/182_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus15.png)
 
 Editing the start makes for odd changes to the end of the items section and was looked at.
 
 The final FC was changed to FD to produce the leftmost image and then FB which produced the rightmost image
 
-![PIC](183_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus16.png)![PIC](184_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus17.png)
+![PIC](images/183_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus16.png)![PIC](images/184_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus17.png)
 
 That it changes a single piece does not do well for the grouping theory, although it is technically the rightmost top piece that has been changed (there is no item that is both higher and further right). A single value (note not binary) change changes location by 25 pixels with right on the level being positive. This speaks more to items being defined bottom up, line by line (but with the ability to “skip” lines unlike the obstacles) and left to right. FE however stuck it above the rightmost gold pieces (a change of 57 pixels) but changing to F simply moved 25 more pixels from there to the right so maybe a different type of grouping. This pattern held until 7 was picked, at which point the following happened
 
-![PIC](185_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus18.png)
+![PIC](images/185_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideleveleditingworkedNplus18.png)
 
 It should be noted 7 does not have the upper bit as a 1 where the others did and looking at what happened to the image the upper piece of gold does appear to be on the rightmost part of the level again (7 hex = 0111 binary, F= 1111 binary).
 
@@ -283,25 +283,25 @@ Compression searching will probably become more obvious after the worked example
 
 NLZ-GBA Advance (which doubles up as a graphics editor)
 
-![PIC](186_home_fast6191_romhackingguide_unrenamed_fil___ngguidecompressionsearching_NLZGBAadvance_1.png)
+![PIC](images/186_home_fast6191_romhackingguide_unrenamed_fil___ngguidecompressionsearching_NLZGBAadvance_1.png)
 
 unLZ-GBA
 
-![PIC](187_home_fast6191_romhackingguide_unrenamed_fil___mhackingguidecompressionsearching_unLZGBA_1.png)
+![PIC](images/187_home_fast6191_romhackingguide_unrenamed_fil___mhackingguidecompressionsearching_unLZGBA_1.png)
 
 Crystaltile2
 
 Crystaltile2 also features compression searching support and can do it for custom flags of various forms as well. It is available on the tools pulldown menu of the hex editor window but be warned that mass decompression has a tendency to make the program crash if it encounters too many false hits for compression.
 
-![PIC](188_home_fast6191_romhackingguide_unrenamed_fil___ingguidecompressionsearching_crystaltile2_1.png)
+![PIC](images/188_home_fast6191_romhackingguide_unrenamed_fil___ingguidecompressionsearching_crystaltile2_1.png)
 
-![PIC](189_home_fast6191_romhackingguide_unrenamed_fil___ingguidecompressionsearching_crystaltile2_2.png)
+![PIC](images/189_home_fast6191_romhackingguide_unrenamed_fil___ingguidecompressionsearching_crystaltile2_2.png)
 
 Lz77Restructor 2
 
 A relatively new tool but a nice one; you may want to play with the filters option as it can restrict by pointers, widths, sizes and as well as deal with text (using custom tables if necessary).
 
-![PIC](190_home_fast6191_romhackingguide_unrenamed_fil___gguidecompressionsearching_LZ77restructor_1.png)
+![PIC](images/190_home_fast6191_romhackingguide_unrenamed_fil___gguidecompressionsearching_LZ77restructor_1.png)
 
 GBACrusher Decompression tools were fairly common and they did a fair bit of compression as well but for most the dominant tool for generated compressed files was known as GBA Crusher. It should be able to do all the BIOS compatible methods.
 
@@ -344,7 +344,7 @@ The instruction component is usually a two part operation merged into one. One p
 
 Worked example The following is the text output from simply running the gbacrusher program from WRAM LZ.
 
-![PIC](191_home_fast6191_romhackingguide_unrenamed_fil___omhackingguidecompressionsLZworkedexample_1.png)
+![PIC](images/191_home_fast6191_romhackingguide_unrenamed_fil___omhackingguidecompressionsLZworkedexample_1.png)
 
 The first part is not strictly necessary for manual decompression but it is nice to have and quite useful when programming a decompression function.
 
@@ -364,11 +364,11 @@ The second 4 bits are 0, technically these are the most significant bits but as 
 
 The next 8 bits are one less than the distance to count backwards (in this case 9 meaning A hex) which starts from the compression instruction value (or if you prefer the exact value back from the “next non decoded” symbol.
 
-![PIC](192_home_fast6191_romhackingguide_unrenamed_fil___omhackingguidecompressionsLZworkedexample_2.png)
+![PIC](images/192_home_fast6191_romhackingguide_unrenamed_fil___omhackingguidecompressionsLZworkedexample_2.png)
 
 The next few blocks are uncompressed but another compressed chunk soon appears
 
-![PIC](193_home_fast6191_romhackingguide_unrenamed_fil___omhackingguidecompressionsLZworkedexample_3.png)
+![PIC](images/193_home_fast6191_romhackingguide_unrenamed_fil___omhackingguidecompressionsLZworkedexample_3.png)
 
 A020
 
@@ -432,11 +432,11 @@ Exotic codes and terms Various cheat devices allow for some quite custom and far
 
 VBA has a basic cheat option which should be available in nearly all versions (notably the VBA-SDL-H version does not although if you really wanted you could use its debugging abilities to do something instead) and the brand new window of the basic VBA cheat options looks like.
 
-![PIC](194_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguideGBAcheat.png)
+![PIC](images/194_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguideGBAcheat.png)
 
 VBA-H has some slightly expanded options in cheats and elsewhere.
 
-![PIC](195_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidegbavbahcheats1.png)
+![PIC](images/195_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidegbavbahcheats1.png)
 
 Regardless of the version most of it is fairly obvious if you have a basic understanding of the basic ideas of cheats and value representation with hexadecimal.
 
@@ -464,7 +464,7 @@ Desmume Should be available in all versions of the program (no need for the dev 
 
 Main window, exact and comparative search
 
-![PIC](196_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguideDSdesmumecheat.png)![PIC](197_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidedsdesmumecheat3.png)![PIC](198_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackingguidedsdesmumecheats2.png)
+![PIC](images/196_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguideDSdesmumecheat.png)![PIC](images/197_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidedsdesmumecheat3.png)![PIC](images/198_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackingguidedsdesmumecheats2.png)
 
 It is split across a few screens although for the most part it is fairly obvious once more.
 
@@ -484,7 +484,7 @@ Emuhaste [Emuhaste project homepage](http://i486.client.jp/emuhaste/)
 
 Realistically you will probably only use it with desmume but none the less it is a powerful cheat searching engine and includes the ability to dump memory.
 
-![PIC](199_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackingguidendsemuhaste.png)
+![PIC](images/199_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackingguidendsemuhaste.png)
 
 Basic usage is after you set up the ini file to run the emulator, press snap process. You do not need to search for a value to begin.
 
@@ -546,7 +546,7 @@ RenegadeEX [Filetrip download](http://filetrip.net/pc-downloads/applications/dow
 
 A general program also geared towards editing with support for several emulators but only no$gba for the DS (although it does support several GBA emulators). The previous incarnation known as Renegade64 was also a no$gba specific program but for a long time far more stable than HasteDS and emuhaste.
 
-![PIC](200_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidecheatsrenegadeEX1.png)
+![PIC](images/200_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidecheatsrenegadeEX1.png)
 
 Emucheat [Emucheat homepage](http://www.emucheat.com/)
 
@@ -560,33 +560,33 @@ Datel’s Trainer Toolkit This one is actually something more than a memory view
 
 Regardless of the tools or system it is intended for cheat making uses the same methods. To then end making an infinite life cheat for Summon Night Swordcraft Story 2 on the GBA
 
-![PIC](201_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_1.png)
+![PIC](images/201_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_1.png)
 
-![PIC](202_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_2.png)
+![PIC](images/202_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_2.png)
 
 A couple of health was lost and the search button was pressed
 
-![PIC](203_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_3.png)
+![PIC](images/203_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_3.png)
 
 A few more points of health was lost which made things better but still not there
 
-![PIC](204_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_4.png)
+![PIC](images/204_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_4.png)
 
 The process was repeated a few more times
 
-![PIC](205_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_5.png)
+![PIC](images/205_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_5.png)
 
-![PIC](206_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_6.png)
+![PIC](images/206_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_6.png)
 
 30608 decimal = 7790 hex so 8 bit was probably a bad choice but as the health was only going down by 1 it worked today.
 
 This led to 0300060C so selecting that address and pressing add cheat
 
-![PIC](207_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_7.png)
+![PIC](images/207_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_7.png)
 
 Adding a value of FFFF and a description so as not to forget when other cheats were made gives the end result as
 
-![PIC](208_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_8.png)
+![PIC](images/208_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_8.png)
 
 ### 5.3.5 Cheat prevention methods and frustrations
 
@@ -611,11 +611,11 @@ Pointers within pointers are not only possible but seen on several occasions and
 
 There are a few tools to handle pointers for cheats with the most notable one on the DS being Kenobi’s pointer tool which you feed memory dumps and the basic codes into to get the full codes out of (pointers and the initial cheats used to fix yours).
 
-![PIC](209_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidendspointerkenobi1.png)
+![PIC](images/209_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidendspointerkenobi1.png)
 
 Another nice tool is available in [Demonic722’s hacking toolkit](http://filetrip.net/nds-downloads/applications/latest-nds-hacking-kit-f29363.html).
 
-![PIC](210_home_fast6191_romhackingguide_unrenamed_fil___ckguidecheatmakingdemonic722hackingtoolkit1.png)
+![PIC](images/210_home_fast6191_romhackingguide_unrenamed_fil___ckguidecheatmakingdemonic722hackingtoolkit1.png)
 
 The idea behind it should you have to go manual is in each game there will be an instruction or memory value addressing the location you are looking at for your cheats, find this place referencing the varying location and it is fairly easy going from there. It is easier to and indeed most tools want to use a couple of dumps from plays of the game that use the different locations (they are for the most part generated at runtime/boot/launch so it should just be a matter of reloading the game save but it is easy enough to test) for similar reasons that to doing multiple rounds of tests to narrow down the possibilities is when making basic cheats. Most of the time the pointer location is fixed so finding the thing that points at the would be cheat location will usually solve the problem although again pointers pointing to other pointers has been seen several times in the wild. Equally there is nothing stopping a game from calculating a pointer by adding a simple number to an address as per C style pointer arithmetic; technically this is pointer in a pointer but if the base value is used in several other places you might not be able to change it so easily.
 
@@ -647,7 +647,7 @@ The former is a lot easier to deal with (it amounting to running a program and p
 
 The latter option was chosen for this. Shortly before the first battle F11 (the VBA-SDL-h jump to debugging command) was pressed
 
-![PIC](211_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_1.png)
+![PIC](images/211_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_1.png)
 
 A scary looking window if you do not know what is covered in the following sections but most of it means very little to this process, and even if it did it is not so bad if you try to work through what each section means. 0300060C is the cheat location and it is 32 bits or 4 bytes so to this end when 0300060C or any of the subsequent 4 bytes are written it needs to be known about or indeed a breakpoint on a write needs to be set.
 
@@ -657,7 +657,7 @@ bpw 0300060C 4
 
 Typing c continues the program after it “breaks” and it took a few goes to get to the battle. Once in battle letting a few hits be landed and continuing each time
 
-![PIC](212_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_2.png)
+![PIC](images/212_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_2.png)
 
 Here it is possible to observe the game logic
 
@@ -683,7 +683,7 @@ FF20 is what it comes out as.
 
 One edit later
 
-![PIC](213_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_4.png)
+![PIC](images/213_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_4.png)
 
 It can go an awful lot further than this. Also as mentioned elsewhere if you especially want then in the case of the DS the binary itself is usually found uncompressed in RAM so you can actually do a binary hack via a conventional cheat, as indeed several of the more in depth cheats have done in the case of the DS, and effectively turning an action replay on the DS into a game genie.
 
@@ -867,7 +867,7 @@ Some games like Phantasy star collection will have multiple executables in the g
 
 Screenshot of VBA’s dissassembler showing how to find the binary The image displayed below shows what the basic disassembly looks like with a few extras to help you out. The data bounded by the yellow box (which has been shrunk for the purposes of readability) is what the disassembler makes of the header and is a nice reminder that disassemblers, for all they might allow, are just like hex editor ASCII windows in that any good they display is luck, good standards (which do not apply so much here) or the end user guiding it to display something useful. The general process in words is the start of the ROM houses a jump, usually to the end of the header but otherwise slightly later in the ROM, which is the start of the real binary but most of what immediately follows that is basic setup so the first thing to deal with something in the GBA binary region (that is to say not the stuff setting the stack pointer) is where the meat of the binary is.
 
-![PIC](214_home_fast6191_romhackingguide_unrenamed_fil___borders_romhackingguidegbabinarylocationVBA.png)
+![PIC](images/214_home_fast6191_romhackingguide_unrenamed_fil___borders_romhackingguidegbabinarylocationVBA.png)
 
 Tracing Tracing is the process of finding out where something started out at in the ROM and how it got to where it is which is usually just a read of some form but there is occasionally compression in the way meaning you will have to find where the compressed data got into memory from and then repeat the process with that.
 
@@ -972,7 +972,7 @@ The format allows you to assign names to memory locations (be they variables, na
 
 SRL/download play SRL files are binaries output by debugging tools. For the most part if they are seen in ROM images they are usually a developer left extra, sometimes though they are there as or in download play components as the main binary. Download play ROMs can and frequently do use a regular style DS binary instead (usually called utility.bin), do note they usually use a lot of compression and just about everything in a utility.bin file will be compressed.
 
-![PIC](215_home_fast6191_romhackingguide_unrenamed_fil___riginal_borders_romhackguide_downloadplay_1.png)
+![PIC](images/215_home_fast6191_romhackingguide_unrenamed_fil___riginal_borders_romhackguide_downloadplay_1.png)
 
 Binary compression It was mentioned back when compression was covered but it should be noted the DS binaries and overlays can be compressed, some Scene groups even compressed them if the original ROM had not compressed it. The standard compression method used in DS binaries is a type of LZ compression sometimes known as BLZ (backwards LZ) or more often DS binary compression. Tools like crystaltile2 handle the decompression (although with crystaltile2 you are advised to rip the file normally and decompress with one of the following tools if you plan to reinsert it, crystaltile2 has also been seen to say there is compression where there is none) as will tools like Cue’s compression tools and DSdecmp. Equally the binary has to be decompressed to run so you could always snatch it out of RAM, which was actually something many did do before the format had tools made for it.
 
@@ -1056,7 +1056,7 @@ The following section covers various things that are often of great interest to 
 
 The game Advance Wars days of ruin/dark conflict had the Japanese language locked out despite it being present in the game. This would not be so bad but it never actually saw a released in Japan on the DS (it appeared on the 3ds in downloadable form in late 2013). However it was found that by holding part of the RAM with a cheat the Japanese language files would be used. Games can use an assortment of methods here but in this case it mirrored the firmware selection method somewhat and is worth analysing further. The following is based on this [GBAtemp thread](http://gbatemp.net/topic/254868-advance-wars-days-of-ruindark-conflict-language-mod/), uses a cheat from the GBAtemp cheat database and in many ways acts as more of a tutorial in how to port a cheat than anything to do with language. This firmware mirror concept is seen a lot in games and is useful for those games which pull from firmware but either you can not change (some emulators) or you do not want to change all the time, here though it actually unlocked hidden functionality.
 
-![PIC](216_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_1.png)
+![PIC](images/216_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_1.png)
 
 22168F8C 000000?? is the cheat code where the ?? part is 00 through 05 to select the language you want. In this case corresponds to the firmware order (Japanese, English, French, German, Italian and Spanish).
 
@@ -1070,11 +1070,11 @@ In the disassembly the location is mentioned several times around 020E31E0, said
 
 Here the ARM9 instruction as obtained from ndsdis
 
-:020E31E0 E59F0004 ldr r0,\[r15, #+0x4\] ;r15+0x4=*(020e31ec)=#35032972(0x02168f8c)
+:020E31E0 E59F0004 ldr r0,\[r15, \#+0x4\] ;r15+0x4=*(020e31ec)=\35032972(0x02168f8c)
 
 Crystaltile2 can do it just as well though
 
-![PIC](217_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_2.png)
+![PIC](images/217_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_2.png)
 
 Stripped to the more relevant parts
 
@@ -1088,7 +1088,7 @@ Go forwards and see what happens.
 
 In this case forwards is probably more interesting and likely necessary as it might well set pointers for the text sections and that there had to be a cheat to select the language in the first place means it is probably better to go forwards in this case. It turned out as expected that the value was checked very early on so the game was reset and then allowed to run for a fraction of a second before being paused. 020E31E0 was selected (the go command will get you there) and run to cursor was used to get there.
 
-![PIC](218_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_3.png)
+![PIC](images/218_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_3.png)
 
 From there the trace into command (f8) was used to advance instructions one at a time
 
@@ -1106,7 +1106,7 @@ From ndsts earlier we know this is the ARM9 and that it loads from 4000 hex in t
 
 0E31E0 was the location in the binary which means 0E71E0 is the location in the ROM. If it was compressed or a lot of work had to be done then it would just be a matter of extracting the file (decompressing if necessary) before injecting it back in as is done with any other file.
 
-![PIC](219_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_4.png)
+![PIC](images/219_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackguideasmlanguagemod_4.png)
 
 There are of course multiple ways by which the game could have been changed to achieve the same effect and even though it was a single instruction change in the end there may have been better methods as far as game optimisation goes.
 

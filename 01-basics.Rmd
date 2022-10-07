@@ -218,14 +218,14 @@ In years past you might have been encouraged to just make numbers huge as a work
 The equation
 
 ![8 - 1- 3+ 6 +9 = 19
-](romhacking20200x.png)
+](images/romhacking20200x.png)
 
 A simple equation but with a calculator or in your head it is quite possible to make a mistake and mess the whole thing up.
 
 Adding in this case ten to all the numbers makes them all positive
 
 ![18+ 9 +7 + 16+ 19 = 69
-](romhacking20201x.png)
+](images/romhacking20201x.png)
 
 Five numbers all 10 larger makes the result “out” by 50 but plain addition is far easier to avoid making a mistake in.
 
@@ -405,7 +405,7 @@ In the figure below you can see the hex that represents the highlighted tile (it
 * In the next line you can see 4 pink pixels as they are but then the grey pixel (in this case D) is after the F value which represents the white pixel
 * In the next line you can see the cream coloured pixel (E) be second to last as opposed to actually last. It it done because that is how the hardware works/expects things but it can make it tricky if you are trying to simply edit it.
 
-![PIC](0_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingendiandemo.png)
+![PIC](images/0_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingendiandemo.png)
 
 ### 1.2.4 Boolean logic
 
@@ -838,13 +838,13 @@ Hex workshop [Hex Workshop homepage](http://www.hexworkshop.com/)
 
 Probably the most popular paid editor among ROM hackers.
 
-![PIC](1_home_fast6191_romhackingguide_unrenamed_files___mhackingguidehexeditorsshowcasehexworkshop1.png)
+![PIC](images/1_home_fast6191_romhackingguide_unrenamed_files___mhackingguidehexeditorsshowcasehexworkshop1.png)
 
 010 editor [010 editor homepage](http://www.sweetscape.com/010editor/)
 
 Another paid editor on a par with hex workshop
 
-![PIC](2_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcase010editor1.png)
+![PIC](images/2_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcase010editor1.png)
 
 Freeware The freeware offerings here, unlike some other areas of computing, are not on a par but with a slightly different GUI. However when the suggestions in the freeware category are combined it makes for all the functionality of the commercial offerings.
 
@@ -852,19 +852,19 @@ ICY Hexplorer [Sourceforge page](http://hexplorer.sourceforge.net/)
 
 Almost at the level where you could drop it in as a replacement for the commercial offerings (save for the lack of ability to have multiple files open at once). Needs some setup to get the GUI functioning well but once done it is suitable for use as a day to day editor.
 
-![PIC](3_home_fast6191_romhackingguide_unrenamed_files___hackingguidehexeditorsshowcaseICYHexplorer1.png)
+![PIC](images/3_home_fast6191_romhackingguide_unrenamed_files___hackingguidehexeditorsshowcaseICYHexplorer1.png)
 
 XVI32 [Homepage](http://www.chmaas.handshake.de/delphi/freeware/xvi32/xvi32.htm)
 
 Still being actively developed and it is mainly here as it features a powerful scripting language which can accomplish most tasks the paid and function heavy freeware editors sport with a bit more after that owing to it being a true scripting language.
 
-![PIC](4_home_fast6191_romhackingguide_unrenamed_files___rs_romhackingguidehexeditorsshowcaseXVI32_1.png)
+![PIC](images/4_home_fast6191_romhackingguide_unrenamed_files___rs_romhackingguidehexeditorsshowcaseXVI32_1.png)
 
 Tiny Hexer [Filetrip download](http://filetrip.net/pc-downloads/applications/download-tiny-hexer-1816-f29009.html)
 
 A discontinued editor but has some very impressive features the equal of, and sometimes even better than, the commercial offerings.
 
-![PIC](5_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcasetinyhexer1.png)
+![PIC](images/5_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcasetinyhexer1.png)
 
 HxD [Homepage](http://mh-nexus.de/en/hxd/)
 
@@ -872,7 +872,7 @@ HxD [Homepage](http://mh-nexus.de/en/hxd/)
 
 Probably the simplest editor on this list but the go to freeware editor for a lot of people.
 
-![PIC](6_home_fast6191_romhackingguide_unrenamed_files___rders_romhackingguidehexeditorsshowcaseHxD1.png)
+![PIC](images/6_home_fast6191_romhackingguide_unrenamed_files___rders_romhackingguidehexeditorsshowcaseHxD1.png)
 
 ROM hacking specific As wonderful as the editors, commercial or otherwise, above are they lack things like high grade table support (most of the above will support a measure of custom characters but nothing truly custom like that which is seen in hacking) which is fairly essential for text hacking purposes.
 
@@ -892,7 +892,7 @@ DS filesystem support and header viewing, top flight tile editor/viewer, full AR
 
 Support for a fair few SDK and common formats (NARC, SDAT, NFTR, DS 2d formats, some general archive formats)
 
-![PIC](7_home_fast6191_romhackingguide_unrenamed_files___ackingguidehexeditorsshowcasecrystaltile2_1.png)
+![PIC](images/7_home_fast6191_romhackingguide_unrenamed_files___ackingguidehexeditorsshowcasecrystaltile2_1.png)
 
 Windhex32 Not to be confused with the popular disk forensics grade hex editor “[winhex](https://www.x-ways.net/winhex/)” which is not in the paid list owing to a lack of bitwise features and similar things (it is very good at disk forensics though).
 
@@ -900,9 +900,9 @@ Windhex32 Not to be confused with the popular disk forensics grade hex editor �
 
 Great table and text support (including multitable support you can switch between), some SNES specific memory mappings and SNES/NES tile editor. Mainly just a very nice text capable hex editor with table support and some tools to complement that. It lacks undo support and some GUI choices are a bit odd which prevents it from being a drop in replacement for HxD.
 
-![PIC](8_home_fast6191_romhackingguide_unrenamed_files___omhackingguidehexeditorsshowcasewindhex32_1.png)
+![PIC](images/8_home_fast6191_romhackingguide_unrenamed_files___omhackingguidehexeditorsshowcasewindhex32_1.png)
 
-![PIC](9_home_fast6191_romhackingguide_unrenamed_files___omhackingguidehexeditorsshowcasewindhex32_2.png)
+![PIC](images/9_home_fast6191_romhackingguide_unrenamed_files___omhackingguidehexeditorsshowcasewindhex32_2.png)
 
 Goldfinger [Romhacking.net page](http://www.romhacking.net/utilities/204/) Not to be confused with the GBA assembler Goldroad, the common translation of the Chinese term for cheats or the the common translation of the Chinese term for cart pins.
 
@@ -910,7 +910,7 @@ Support for 9 tables at once, it does not come with ASCII readout as standard so
 
 Although not quite suited to full text display it is unlike most other editors in that it is not necessarily bound by the end of the line. This makes it a nice choice for text editing without having to make a custom tool or dump the text and attempt to get something done in a more conventional text editor.
 
-![PIC](10_home_fast6191_romhackingguide_unrenamed_file___omhackingguidehexeditorsshowcasegoldfinger1.png)
+![PIC](images/10_home_fast6191_romhackingguide_unrenamed_file___omhackingguidehexeditorsshowcasegoldfinger1.png)
 
 Translhextion [Romhacking.net page](http://www.romhacking.net/utilities/219/%20)
 
@@ -926,7 +926,7 @@ Can search using tables and relative search support is available.
 
 No undo support but a nice read only option by pressing tab.
 
-![PIC](11_home_fast6191_romhackingguide_unrenamed_file___ackingguidehexeditorsshowcasetranslhextion1.png)
+![PIC](images/11_home_fast6191_romhackingguide_unrenamed_file___ackingguidehexeditorsshowcasetranslhextion1.png)
 
 ### 1.7.2 Tile editor
 
@@ -936,7 +936,7 @@ Crystaltile2 [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09
 
 Features one of the best tile editors out there (support even for the odd custom hardware display formats and a tile editor capable of being set to arbitrary widths) and has support for various DS image formats on top of the DS file system itself. Exporting and importing images is also possible.
 
-![PIC](12_home_fast6191_romhackingguide_unrenamed_file___kingguidetileeeditorsshowcasecrystaltile2_1.png)
+![PIC](images/12_home_fast6191_romhackingguide_unrenamed_file___kingguidetileeeditorsshowcasecrystaltile2_1.png)
 
 TileEd2002 [Homepage](http://home.arcor.de/minako.aino/TilEd2002/)
 
@@ -944,11 +944,11 @@ TileEd2002 [Homepage](http://home.arcor.de/minako.aino/TilEd2002/)
 
 A GBA vintage editor but as the GBA and DS hardware are largely the same it can get far. It can do basic sized tiles in the two most common hardware formats and has a nice palette fiddling option (one colour at a time if you want), something which some of the others lack and thus is useful when trying to figure out what amount of padding a palette format uses. Lacks support for highly custom tile sizes (it will crash if you try on GBA format imagery) although it does support loading of savestates to get palettes directly from those. Note also the use of imagery to display text as opposed to a text rendering engine; such a thing is very common in smaller puzzle games where there is not much need for actual text, for use in stylised text and in menus in general.
 
-![PIC](13_home_fast6191_romhackingguide_unrenamed_file___hackingguidetileeeditorsshowcasetiled2002_1.png)
+![PIC](images/13_home_fast6191_romhackingguide_unrenamed_file___hackingguidetileeeditorsshowcasetiled2002_1.png)
 
 Also the palette as held in the GBA.
 
-![PIC](14_home_fast6191_romhackingguide_unrenamed_file___detileeeditorsshowcasetiled2002VBApalette_1.png)
+![PIC](images/14_home_fast6191_romhackingguide_unrenamed_file___detileeeditorsshowcasetiled2002VBApalette_1.png)
 
 TileGGD [Github page](https://github.com/barubary/tiledggd)
 
@@ -956,7 +956,7 @@ TileGGD [Github page](https://github.com/barubary/tiledggd)
 
 Although the above two should do for most editing purposes this program has hugely customisable support meaning most conceivable hardware formats should be covered (from 1 to 32bpp with big and little endian support) and in some ways has a slightly nicer user interface than crystaltile2. Unlike the other two there is no editing capability built into the program but there is export and the information can be used to direct an editor of another program.
 
-![PIC](15_home_fast6191_romhackingguide_unrenamed_file___romhackingguidetileeeditorsshowcasetileggd1.png)
+![PIC](images/15_home_fast6191_romhackingguide_unrenamed_file___romhackingguidetileeeditorsshowcasetileggd1.png)
 
 ### 1.7.3 Spreadsheet and command line
 
@@ -1056,7 +1056,7 @@ GBACrusher [Filetrip link](http://filetrip.net/gba-downloads/tools-utilities/dow
 
 A tool to compress files using GBA BIOS compatible compression methods like the 8 and 4 bit Huffman compressions, Differential, Run length encoding, LZ (type 10) for VRAM and for WRAM. Command line version included.
 
-![PIC](16_home_fast6191_romhackingguide_unrenamed_file___hackingguidecompressionshowcasegbacrusher_1.png)
+![PIC](images/16_home_fast6191_romhackingguide_unrenamed_file___hackingguidecompressionshowcasegbacrusher_1.png)
 
 ### 1.7.5 Music
 
@@ -1134,7 +1134,7 @@ BoycottAdvance
 
 Some prefer this to VBA-SDL-h and it certainly is a bit more GUI happy. It can take a bit more to get some ROM images working and some of the features are not as extensive but it does have breakpoints which counts for a lot.
 
-![PIC](17_home_fast6191_romhackingguide_unrenamed_file___ackingguideemulatorshowcaseboycottadvance_1.png)
+![PIC](images/17_home_fast6191_romhackingguide_unrenamed_file___ackingguideemulatorshowcaseboycottadvance_1.png)
 
 Disassemblers Disassemblers are tools that can be directed to turn machine code and related information back into assembly code. They are pretty dumb for the most part and their output will tend not even to be able to be reassembled without some modification by a human, however take the time to set one up properly for the task you want and they are invaluable.
 
@@ -1223,6 +1223,6 @@ Also for an example on why your hex editor will want to be able to change the si
 
 Just having opened the file and then after quick resize and a tiny delete
 
-![PIC](18_home_fast6191_romhackingguide_unrenamed_file___borders_romhackingguidebasicfileformatshex1.png)
+![PIC](images/18_home_fast6191_romhackingguide_unrenamed_file___borders_romhackingguidebasicfileformatshex1.png)
 
-![PIC](19_home_fast6191_romhackingguide_unrenamed_file___borders_romhackingguidebasicfileformatshex2.png)
+![PIC](images/19_home_fast6191_romhackingguide_unrenamed_file___borders_romhackingguidebasicfileformatshex2.png)

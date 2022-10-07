@@ -17,7 +17,7 @@ Most screens in the world (and as far as games go it is mainly only the Vectrex 
 
 Example (might need to zoom in a bit)
 
-![PIC](20_home_fast6191_romhackingguide_unrenamed_file___iginal_borders_romhackingguidebasicaliasing.png)
+![PIC](images/20_home_fast6191_romhackingguide_unrenamed_file___iginal_borders_romhackingguidebasicaliasing.png)
 
 This is also a problem when you take an image that was made at one size and scale it up, or sometimes when you scale it down, to something that is not a simple half (or quarter or so on) size of the original, beyond that though scaling non vector imagery has several potential pitfalls so do it sparingly or even better do not do it at all.
 
@@ -65,11 +65,11 @@ Technically it is a compression method (the screen/video hardware itself does no
 
 The workhorse of the GBA and a good chunk of the DS. Bringing back the icon from Yakuman DS. The “marching ants” selection is the section viewed in the hex editor which is as it is in the original ROM (certain hex editors can flip nibbles but it was not done here). As you can see each nibble looks up the value of a single colour (one of 16) which can be anything in the 15 bit format the GBA and DS can use. Equally there are 32 palettes each with the option for 16 colours which the game can swap between at runtime. Although not the only colour animation possible (the palette can also be edited at runtime) a developer can use these multiple palettes to change the appearance of items within the game and if you see the option to change at say the start of a battle (advance wars war room is good for this) or indeed at runtime then you are almost certainly looking at this.
 
-![PIC](0_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingendiandemo.png)
+![PIC](images/0_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingendiandemo.png)
 
 Palette
 
-![PIC](21_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide4bpppalettedemo.png)
+![PIC](images/21_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide4bpppalettedemo.png)
 
 As you can imagine the background is not pink in the real game and this is as the first colour in a palette is treated as though it was transparent regardless of what it is (although in practice is is fairly pointless with the way the screen works it allows for a full colour range without the loss of a single colour).
 
@@ -79,7 +79,7 @@ Although available and well used on the GBA it really started to be used on the 
 
 Here each palette entry is 8 bits long and a two 256 colour palettes are available although only one for each mode (BG and OAM)
 
-![PIC](22_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide8bpppalettedemo.png)
+![PIC](images/22_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide8bpppalettedemo.png)
 
 Here each hex digit is the lookup for the palette with the first being the row and the second being the column (although if you really wanted you could flip them and indeed the hardware probably does effectively just that but that is introducing completely unnecessary work for no real gain).
 
@@ -95,7 +95,7 @@ A basic example of the interleaved format 8x8 tiles (larger tiles of this pretty
 
 Palette as defined in the image. Remember the nibbles are actually flipped but ignoring that for the moment
 
-![PIC](23_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguide2dGBA3XBPP1.png)
+![PIC](images/23_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguide2dGBA3XBPP1.png)
 
 The first pair of tiles is one fully green (01 binary on the palette) and one fully black (00 binary)
 
@@ -117,7 +117,7 @@ A hex corresponds to 1010 binary.
 
 A more complex example Most of this is going to be left as an exercise to the reader but as mentioned the nibbles are flipped in a similar manner to 4bpp and it is not immediately apparent in the above example.
 
-![PIC](24_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguide2dGBA3XBPP2.png)
+![PIC](images/24_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguide2dGBA3XBPP2.png)
 
 The leftmost (upper) tile is blank for 4 vertical pixels but the lower tile has data in it.
 
@@ -159,7 +159,7 @@ Selection 3 value 2 (in practice it would be E hex for the first pixel) allows t
 
 Selection 0 value 0 (in practice it would be 0 hex for the first pixel) allows the first group of colours from the palette for the second pixel (0 through 3 in the standard numbering).
 
-![PIC](25_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguide2dGBA24BPP1.png)
+![PIC](images/25_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguide2dGBA24BPP1.png)
 
 ### 2.2.6 Bitmap
 
@@ -195,7 +195,7 @@ The act of exporting and importing images is easy enough. Although it is quite p
 
 First select the tiles/area you want to edit. The either right click or click the edit pulldown menu
 
-![PIC](26_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export1.png)
+![PIC](images/26_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export1.png)
 
 You can either copy the image out if you have a few small edits but most will instead opt to export it. Crystaltile2 has a few basic options but BMP works for most purposes. Here you can import it into your chosen editor
 
@@ -203,15 +203,15 @@ There is also the second option of a 1:1 export which splits things along the ti
 
 Once in the editor you can edit it accordingly
 
-![PIC](27_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export2.png)
+![PIC](images/27_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export2.png)
 
 Right clicking or clicking the edit pulldown menu and pressing import will import the newly saved image back into the editor where you can move it (it will snap to gridlines). Again you can use the copy and paste if you prefer although do remember to merge layers if your editor supports it.
 
-![PIC](28_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export3.png)
+![PIC](images/28_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export3.png)
 
 Move it accordingly and then double click the image to set the image
 
-![PIC](29_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export4.png)
+![PIC](images/29_home_fast6191_romhackingguide_unrenamed_file____borders_romhackingguidecrystaltile2export4.png)
 
 On palettes If the colour you want is in the image then the dropper is usually sufficient but most tile editors have the option to export palettes to the commonly supported windows palette format; crystaltile2 has it right there in the palette window and BMP has a palette built into the file format (technically optional but crystaltile2 includes it).
 
@@ -275,21 +275,21 @@ OAM calculator for the DS [Filetrip download](http://filetrip.net/nds-downloads/
 
 If you need to edit OAM on the DS (it might also work for the GBA but be wary as a couple of things on the priority side of things are changed) or likewise decode a value you need not do it by hand thanks to this tool. Usage is fairly straightforward
 
-![PIC](30_home_fast6191_romhackingguide_unrenamed_file___orders_romhackingguidegraphicsOAMcalculator.png)
+![PIC](images/30_home_fast6191_romhackingguide_unrenamed_file___orders_romhackingguidegraphicsOAMcalculator.png)
 
 Basic emulator view This just has a quick example of viewing the memory (editing is sometimes possible here but often refreshed every vblank). From here you would trace the thing that originally changed the OAM and change things in the original binary (the DS quite often has helper formats for the graphics and the GBA was fairly good about keeping the actual binary code and the OAM values separate). It is also an early preview of animation via the OAM as well.
 
 GBA VBA. The sprite here is actually made up of multiple tiles.
 
-![PIC](31_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguide2dOAMvba_1.png)
+![PIC](images/31_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguide2dOAMvba_1.png)
 
-![PIC](32_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguide2dOAMvba_2.png)
+![PIC](images/32_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguide2dOAMvba_2.png)
 
 DS Desmume.
 
-![PIC](33_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguide2dOAMdesmume_1.png)
+![PIC](images/33_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguide2dOAMdesmume_1.png)
 
-![PIC](34_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguide2dOAMdesmume_2.png)
+![PIC](images/34_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguide2dOAMdesmume_2.png)
 
 ### 2.3.4 GBA and DS BG modes
 
@@ -312,33 +312,33 @@ Scrolling The BG can be placed behind something and scrolled as a type of animat
 
 Visible in many games but an especially nice example exists in Tetris worlds for the GBA. From the same BG image the impression of random stars is given as a background.
 
-![PIC](35_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide2dBGscrolling_1.png)
+![PIC](images/35_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide2dBGscrolling_1.png)
 
 Another good example exists in the first advance wars which actually makes use of the wrapping ability (see the lack of a complete Yellow Comet flag/logo)
 
-![PIC](36_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide2dBGscrolling_2.png)
+![PIC](images/36_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide2dBGscrolling_2.png)
 
 Layering effects The classic example of this feature being used is beds in RPG games where the character will have a head visible above the pillow but the rest is covered. To do this there will be at least two layers with one being assigned a higher priority than the sprite and the second being assigned a lower one.
 
-![PIC](37_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering1.png)![PIC](38_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering2.png)
+![PIC](images/37_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering1.png)![PIC](images/38_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering2.png)
 
-![PIC](39_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering3.png)![PIC](40_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering4.png)
+![PIC](images/39_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering3.png)![PIC](images/40_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering4.png)
 
-![PIC](41_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering5.png)
+![PIC](images/41_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering5.png)
 
 After disabling BG1
 
-![PIC](42_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering6.png)
+![PIC](images/42_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering6.png)
 
 The second classic example which is slightly less involved is where trees or a structural beams will be placed over the game map allowing the sprites to move underneath them. Here many emulators will allow you to disable layers which can be useful when ripping maps to generate a game walkthrough.
 
-![PIC](43_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering7.png)![PIC](44_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering8.png)
+![PIC](images/43_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering7.png)![PIC](images/44_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering8.png)
 
 Example of beams from Phantasy Star 2
 
-![PIC](45_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering9.png)![PIC](46_home_fast6191_romhackingguide_unrenamed_file___riginal_borders_romhackingguideBGlayering10.png)
+![PIC](images/45_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering9.png)![PIC](images/46_home_fast6191_romhackingguide_unrenamed_file___riginal_borders_romhackingguideBGlayering10.png)
 
-![PIC](47_home_fast6191_romhackingguide_unrenamed_file___riginal_borders_romhackingguideBGlayering11.png)
+![PIC](images/47_home_fast6191_romhackingguide_unrenamed_file___riginal_borders_romhackingguideBGlayering11.png)
 
 ### 2.3.5 Basic animation
 
@@ -355,19 +355,19 @@ Formats will be covered in a few sections from here but the DS SDK does provide 
 
 Dragon Quest Rocket Slime The game provides a great example of OAM animation in the pre title screen sequence. Again if you can see it in real time it is quite a lot clearer.
 
-![PIC](48_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguideOAManimation_1.png)
+![PIC](images/48_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguideOAManimation_1.png)
 
-![PIC](49_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguideOAManimation_2.png)
+![PIC](images/49_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguideOAManimation_2.png)
 
-![PIC](50_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguideOAManimation_3.png)
+![PIC](images/50_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguideOAManimation_3.png)
 
 Original Phoenix Wright animation The above was plain animation via OAM but games occasionally get more interesting.
 
 The first Phoenix Wright game had some fairly notable character animations but rather than redrawing each frame of the animation the characters themselves were actually split into components (usually face and hands) and those swapped out as necessary to create animation. The tile view is not quite how the internal formats do it (those usually being set up to take advantage of the hands and face being one visual concept).
 
-![PIC](51_home_fast6191_romhackingguide_unrenamed_file___nal_borders_romhackingguideOAManimation_2_1.png)
+![PIC](images/51_home_fast6191_romhackingguide_unrenamed_file___nal_borders_romhackingguideOAManimation_2_1.png)
 
-![PIC](52_home_fast6191_romhackingguide_unrenamed_file___nal_borders_romhackingguideOAManimation_2_2.png)
+![PIC](images/52_home_fast6191_romhackingguide_unrenamed_file___nal_borders_romhackingguideOAManimation_2_2.png)
 
 Background animation The scrolling effect was mentioned already but if you are using a tiled background you can change the tiles the make up the background and create animation there. Animations with bitmap images has often been done on a programming basis but much of that is either very obvious or quite arcane and steeped in programming methods.
 
@@ -377,7 +377,7 @@ Palette animation It has been mentioned briefly in the past but there is also th
 
 From Summon Night Swordcraft Story 2 a quick sample of three stages of an animation. Changing parts of the palette have a black square added around them.
 
-![PIC](53_home_fast6191_romhackingguide_unrenamed_file___rs_romhackingguidegraphicspaletteanimation1.png)
+![PIC](images/53_home_fast6191_romhackingguide_unrenamed_file___rs_romhackingguidegraphicspaletteanimation1.png)
 
 The game, unlike most on the GBA, also features a few different colour modes for the original GBA, GBA-SP, TV and the option to change brightness on a slider.
 
@@ -441,11 +441,11 @@ Although games and indeed many games do use raw formats and declare what they sh
 
 A basic demonstration of the compression/tile reuse concept
 
-![PIC](54_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_3wizardozndsdemohack13jul2011.png)
+![PIC](images/54_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_3wizardozndsdemohack13jul2011.png)
 
 A few clicks later
 
-![PIC](55_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_7wizardozndsdemohack15jul2011.png)
+![PIC](images/55_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_7wizardozndsdemohack15jul2011.png)
 
 Palette formats
 
@@ -606,7 +606,7 @@ w8_bridge.nsbmd is a nice example here.
 
 First image is what it looks like, second is without the texture.
 
-![PIC](56_home_fast6191_romhackingguide_unrenamed_file___ders_romhackingguidegraphics3dtexturehack_1.png)![PIC](57_home_fast6191_romhackingguide_unrenamed_file___ders_romhackingguidegraphics3dtexturehack_2.png)
+![PIC](images/56_home_fast6191_romhackingguide_unrenamed_file___ders_romhackingguidegraphics3dtexturehack_1.png)![PIC](images/57_home_fast6191_romhackingguide_unrenamed_file___ders_romhackingguidegraphics3dtexturehack_2.png)
 
 Also worth noting is 3d has seen several titles allow the player to create their own textures with Mario Kart being on the more notable ones and other common ones include clothing games and games like the sims. There has been a bit of this in 2d as well but not half as much although for the most part textures will tend to manifest as 2d images anyway (certainly some editing has been done with 2d tile editors where necessary).
 
@@ -699,7 +699,7 @@ Others rather than creating a full model of a plant (traditionally quite a hard 
 
 In fact it is the little marker for the levels that have been done from the world map show as it is in the game, as wireframe and as it is without a texture. Note also the potential for a specular highlight which in in this case is done in textures.
 
-![PIC](58_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_1.png)![PIC](59_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_2.png)![PIC](60_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_3.png)
+![PIC](images/58_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_1.png)![PIC](images/59_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_2.png)![PIC](images/60_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_3.png)
 
 Animations can also happen here and smoke or sparks can be simple 2d animations set to a given point.
 
@@ -717,9 +717,9 @@ Although some maths can be done it is a fairly low level arrangement and there i
 
 Matrices The DS emulators desmume and no$gba dev version will allow you to view the matrices.
 
-![PIC](61_home_fast6191_romhackingguide_unrenamed_file___l_borders_romhackingguidegraphics3dmatrix_1.png)
+![PIC](images/61_home_fast6191_romhackingguide_unrenamed_file___l_borders_romhackingguidegraphics3dmatrix_1.png)
 
-![PIC](62_home_fast6191_romhackingguide_unrenamed_file___l_borders_romhackingguidegraphics3dmatrix_2.png)
+![PIC](images/62_home_fast6191_romhackingguide_unrenamed_file___l_borders_romhackingguidegraphics3dmatrix_2.png)
 
 Although there is a matrix stack which allows things to be swapped out in very short order there are four main ones that are useful at any one point in time. Once you know the Direction matrix refers to the light direction most are fairly self explanatory and if you recall affine transformation and mode7 from the 2d side of things most of it drops into place.
 
@@ -798,21 +798,21 @@ Full injection uses various techniques ranging from using leaked parts of the ni
 
 The following is a quick example of a minor model tweak. “map_point.nsbmd” from New Super Mario Brothers will be returned to as it only being four vertices means less chance in being bogged down with a complex model. The model could be worked up from the specification but Tinke provides a nice human readable output
 
-![PIC](63_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_1.png)
+![PIC](images/63_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_1.png)
 
 polygon0 is the item of choice and following it should be the commands. Note that as it is a flat square and thus shares some coordinates from point to point the smaller 3d hardware commands can be used to generate it, should the points be different on all three coordinates then longer commands will need be used.
 
-![PIC](64_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDmodel_hexeditor_1.png)
+![PIC](images/64_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDmodel_hexeditor_1.png)
 
 Might as well change a single vertex to begin with so 01D9 was changed to 80
 
 Wireframe of the modded version and the original version
 
-![PIC](65_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_2.png)![PIC](66_home_fast6191_romhackingguide_unrenamed_file___uidegraphics3dminorNSMBDmodel_wireframeorig.png)
+![PIC](images/65_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_2.png)![PIC](images/66_home_fast6191_romhackingguide_unrenamed_file___uidegraphics3dminorNSMBDmodel_wireframeorig.png)
 
 With textures
 
-![PIC](67_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_3.png)![PIC](68_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_4.png)
+![PIC](images/67_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_3.png)![PIC](images/68_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_4.png)
 
 ### Basic texture viewing hack
 
@@ -826,23 +826,23 @@ NSBMDtool output
 
 Nsbmdtool, despite being old and not working on a lot of NSBMD files, can provide some useful output.
 
-![PIC](69_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_1.png)
+![PIC](images/69_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_1.png)
 
 Tinke output
 
 Tinke provides two windows with useful output information.
 
-![PIC](70_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_2.png)
+![PIC](images/70_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_2.png)
 
-![PIC](71_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_3.png)![PIC](72_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_4.png)
+![PIC](images/71_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_3.png)![PIC](images/72_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_4.png)
 
-![PIC](73_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_5.png)
+![PIC](images/73_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_5.png)
 
 Palette finding Plenty of information was given but no direct address of the palette in question.
 
 The palette offset is given at 38 hex in the TEX0 section.
 
-![PIC](74_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_7.png)
+![PIC](images/74_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_7.png)
 
 TEX0 starts at 1E30
 
@@ -858,23 +858,23 @@ Crystaltile2 filtering Setting the appropriate locations as given in tinke and t
 
 The offset was given by nsbmdtool and tinke. 16 colours aka 4bpp.
 
-![PIC](75_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_6.png)
+![PIC](images/75_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_6.png)
 
 Setting the palette.
 
-![PIC](76_home_fast6191_romhackingguide_unrenamed_file___degraphics3dminorNSMBDtexturedecoding_6_pal.png)
+![PIC](images/76_home_fast6191_romhackingguide_unrenamed_file___degraphics3dminorNSMBDtexturedecoding_6_pal.png)
 
 From here it is so much basic image editing although do note the gradient. It looks like there is a periodicity in the X direction after a fashion (there is odd shading within the characters on the shorter widths) but vertical give or take shorter widths that trouble the X direction and the marks above the second and third from the right could be made to have a constant. Certainly though it would be quite possible to make a layer mask after recreating a more basic version of the gradient.
 
-![PIC](77_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_9.png)
+![PIC](images/77_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_9.png)
 
-![PIC](78_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_8.png)
+![PIC](images/78_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_8.png)
 
 ### Command decoding aside
 
 Returning to map_point.nsbmd from New Super Mario Brothers and some of the commands decoded as a quick example. Once again Tinke provides a nice human readable output
 
-![PIC](63_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_1.png)
+![PIC](images/63_home_fast6191_romhackingguide_unrenamed_file____romhackingguidegraphics3dminorNSMBDmodel_1.png)
 
 Being a single quadrilateral it is defined anticlockwise with the first command being point 0.
 
