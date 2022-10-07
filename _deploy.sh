@@ -2,6 +2,7 @@
 
 set -e
 
+rm -rf _book_deploy
 git clone -b gh-pages git@github.com:rh-reborn/gba-and-ds-rom-hacking-guide.git _book_deploy
 cd _book_deploy
 cp -r ../_book/* ./
