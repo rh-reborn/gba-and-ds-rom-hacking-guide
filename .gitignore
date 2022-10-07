@@ -1,6 +1,11 @@
 .Rproj.user
+.Ruserdata
 .Rhistory
 .RData
 _book
 _bookdown_files
 rsconnect
+_book_deploy
+libs
+**/*.bib
+!**/mathjax_header.html
