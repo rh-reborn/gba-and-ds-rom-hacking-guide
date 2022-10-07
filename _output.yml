@@ -3,10 +3,10 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">A Minimal Book Example</a></li>
+        <li><a href="./">GBA and DS ROM hacking guide</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+        <li><a href="https://gbatemp.net/threads/gbatemp-rom-hacking-documentation-project-new-2016-edition-out.73394/" target="blank">Documentation Project on GBATemp</a></li>
+    edit: https://github.com/rh-reborn/gba-and-ds-rom-hacking-guide/edit/main/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
