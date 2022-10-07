@@ -1,4 +1,4 @@
-# 16 PC program hacking
+# PC program hacking
 
 Once more this is a section that is both worthy and has documents far longer than this one on just individual things. Much of what has been said thus far applies as file formats both custom and common are used, compression is used and assembly, albeit now x86 and x64, is back on the cards but there are quite large differences as well as the PC whatever OS you use has a security system and several fairly complex methods of working, encryption (usually bad and closer to obfuscation, which is another popular thing to do, and as such able to be defeated) is popular and more importantly the languages used and APIs available are far more extensive.
 
@@ -14,7 +14,7 @@ It should also be noted sometimes full reverse engineering is not required and i
 
 Executable packing and encryption Although you can always use a disassembler, of which there are several available with the standard tool being [IDA](http://www.hex-rays.com/products/ida/index.shtml) (as far as X86 is concerned there is a paid version and a freeware version that is usually just the paid version but several versions back), many computer programs will have packed executables and/or use encryption as well as obfuscation. To this end although you can simply feed a diassembler something if it is packed or encrypted and only rendered into “plain” at runtime you will just get out gibberish.
 
-## 16.1 Debugging
+## Debugging
 
 [OllyDbg](http://www.ollydbg.de/)is what most people have as an entry level tool and it provides a nice disassembler and basic debugging/listing tools.
 
@@ -34,7 +34,7 @@ Further down the line you have things like
 
 As mentioned the big tool that most people eventually wind up with a copy of though is IDA as it is both disassembler and debugger which allows for a lot of abilities here.
 
-## 16.2 Decompilation
+## Decompilation
 
 Traditionally compilation was a one way affair[33](romhacking202034.html#fn33x0) and indeed most of paid programming revolves or perhaps revolved around this concept. As people continue research into computer science and people use higher level languages decompilation which is the act of turning a binary file into source code (probably and sadly lacking comments) becomes ever more viable. This is not to be confused with reverse engineering as a whole which has always been able to be done (indeed most of this guide aims to teach methods to do this) although a large amount of the time to do it is often necessary.
 

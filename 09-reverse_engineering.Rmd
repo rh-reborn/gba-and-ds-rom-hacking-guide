@@ -1,10 +1,10 @@
-# 9 Reverse engineering various ROM images
+# Reverse engineering various ROM images
 
 The follow section will be comprised of a basic and in some cases more advanced teardown of a selection of ROMs both random and handpicked to demonstrate certain traits. Although the distinction between genres is not brilliant from an artistic standpoint it is somewhat useful from a technical standpoint. This being said some of the best titles on any system or indeed examples of said genre might well feature elements of other “genres” with one of the most popular options here known as adding RPG elements where what were traditionally stateless (ignoring the odd one use powerup carry over and lives) games level to level gained a small measure of character progression (experience and upgrades being the main methods) becoming a commonly seen term used in discussion of games.
 
 All that and what follows being said play the game, look at some game footage and if you can simply play around with layers in an emulator as that will give you clues as to how things will be set up in the game.
 
-## 9.1 Large archive on top of filesystem
+## Large archive on top of filesystem
 
 Although the DS has a filesystem there have been many games that use archives big and small and some that archive their entire game data (maybe give or take some audio or download play).
 
@@ -18,7 +18,7 @@ One of the earliest examples of this arrived back when people were ripping audio
 
 Used as an example several times already.
 
-## 9.2 Compression
+## Compression
 
 Compression has been known about and fairly well documented for a long time (the 77 in LZ77 refers to the year it was made) but to do it usefully in real time did not really take off until the GBA and to a slightly lesser extent the 16 bit era. Field specific compression (dual and multi tile encoding, palette swapping and all the other methods covered in developer tricks) and simpler methods like run length encoding have however been around for a long time. The GBA and DS both feature decompression algorithms for two popular methods (LZSS and Huffman) of various flavours inbuilt into the BIOS and well supported in official developer kits. The BIOS decompression was not always used as they were a tradeoff between usefulness, resources required, size in the BIOS and overall speed which led to developers either implementing faster methods to decompress files compressed with otherwise standard BIOS compression or implementing a custom method of compression.
 
@@ -30,7 +30,7 @@ Remember on the GBA you will usually have the whole upper 16 megabytes to play w
 
 GBA
 
-## 9.3 First Person Game
+## First Person Game
 
 There are two main classes of games viewed from the first person.
 
@@ -41,19 +41,19 @@ Naturally there are combinations of the two as seen in the platform type games w
 
 A few GBA games (mainly ports of older Doom 1 era first person shooters and film tie in games doing similar things) did however use bitmap modes to try to do actual 3d and as a mode7 style perspective transformation was possible on the GBA (and DS) mode7 style methods could happen..
 
-## 9.4 Platformer
+## Platformer
 
 For most here the big distinction is between 2d and 3d but that might not be a great one as far as looking at what sorts of files will make up a game (both types will usually have levels themselves (even if they are 3d it will still have some mapping data for the objects and items), the objects and items and any animations they do.
 
-## 9.5 Fighting games
+## Fighting games
 
 For most they are usually broken into fixed stage (street fighter, tekken, powerstone) and scrolling stage (Streets of Rage, Golden Axe, earlier Castlevania games) but that is not that useful as many times the scrolling stage will be an illusion as you might walk on and then get a signal to continue after defeating so many enemies. The distinction between 2d and various forms of 3d are also possible.
 
-## 9.6 Role playing games
+## Role playing games
 
 A variety of methods have been seen here and categorisation is extremely hard. For the most part though the ideas of world map, town/castle maps (or indeed shops), full worlds (either classic dungeon crawler or “full” 3d) and where any “battles” will be located (separate locations on in level). There are an enormous number of tweaks to various formulas (random battles vs enemies on the world map, turn based vs active battling) that can have a radical effect on the main game but beyond a routine handling things on a world map or dungeon map they might have little effect on the files and their contents.
 
-## 9.7 Racing games
+## Racing games
 
 There are several techniques used to make racing games although in practice it boils down to four methods as far as technology goes
 
@@ -70,7 +70,7 @@ Mode 7 is technically 2d but is different enough in concept as it allowed proper
 
 Full 3d is as full 3d usually is (although 2d skyboxes are possible) and a full 3d world is made.
 
-## 9.8 Puzzle
+## Puzzle
 
 One of the commonly seen things in puzzle games is much of the text is rendered as an actual graphic and stored in a similar manner to graphics usually as there is not enough text to warrant a full engine. This not to say there can not be text in the game but as rendering a fancy font would take serious effort much of the text may still be as graphics. They are also some of the most likely to be incorporated into other “genres” (Puzzle Quest being a good example although it goes further and there have been a few mahjong (not solitaire) titles wrapped in what many would
 
@@ -87,7 +87,7 @@ Reflex testing games on the other hand tend to have more in common with other ty
 
 ### 9.8.2 Tetris
 
-## 9.9 Other genres
+## Other genres
 
 Probably the most notable other genres are those of the visual novel, simulation and point and click adventure although in recent years the visual novel and point and click adventure have become somewhat intertwined (see games like Ace Attorney/Phoenix Wright). Equally many games that might have at one time been aimed at a visual novel format have instead opted to use a 3d engine instead although that heads more towards the art games territory. It should be noted visual novels have many examples of ultra simple titles consisting of nothing but a few images (with text in the images) to full on scripting languages so assuming it will always be simple is not a good idea.
 

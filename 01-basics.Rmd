@@ -2,7 +2,7 @@
 
 An attempt has been made to divide sections up but you are advised not to pay that much attention to them, or at least do not consider them indivisible if for no other reason than just about any of these is the worthy of being the subject of a document longer than this one. Although it is the default position of this guide anyway this part will focus more upon the hardware underpinning things, any dominant formats/concepts and some basic techniques to use rather than simple tool usage (although much of that is covered too) with the next part being given over to fully worked examples rather than the simplistic techniques or overviews favoured in this section.
 
-# 1 Basics
+# Basics
 
 This section contains some of the basic terms, concepts and ideas that will make ROM hacking and this document a bit easier to grasp. Before this starts though there are three equally important truths to know
 
@@ -10,7 +10,7 @@ This section contains some of the basic terms, concepts and ideas that will make
 2.  The bits you are looking at can mean anything and it is only with context you will figure out what they do in that instance.
 3.  The bits might represent anything but any modern, non trivial system will layer things on top of each other in a process known as abstraction. Drill down or drill up as far as you need but there will usually be a limit where going further is just for intellectual curiosity and not much more.
 
-## 1.1 Hexadecimal
+## Hexadecimal
 
 As you might know all current computers are binary machines, which is to say they operate on the idea of a reasonably continuous feed of of 1 and 0 values to various pins to do what needs to be done. 1 and 0 get very hard to read so these are stacked up 4 deep to form hexadecimal (a very similar logic to writing things like 1x10^9 instead of 1000000000). 4 things each with the ability to be one of two different states means 16 combinations, and as it is then desirable to be able to display each combination as a single character the letters A through F join the Arabic numbers (0 through 9) to make 16 (A=10 decimal, B=11 and so on to F=15 at which time it wraps around and 10=16 decimal).
 
@@ -373,7 +373,7 @@ What the numbers mean is usually either the logical extension of the binary “p
 
 As with signed values their use prevents the number from being read as a simple integer and used in simple maths although with a bit of shifting, rotating and such you can get quite a bit done and even do some basic comparing and maths. Speaking of shifting and rotating
 
-## 1.2 Hex operations
+## Hex operations
 
 Hexadecimal is just numbering but there are common things done to it that file formats use, the internal logic of the computer will use and can be used to quickly and easily manipulate something that needs manipulating.
 
@@ -485,7 +485,7 @@ Mod As mentioned some basic hexadecimal divide functions will leave you with jus
 
 Abs(olute) Potentially confusingly regular maths sometimes also calls this modulus with the shorthand sometimes being “mod”. Depending upon how far you want to take maths it can get quite complex but the short version is abs value of a number is just the number (always positive) without the sign. It is then quite useful to feed into functions so you can simplify them or the resulting maths.
 
-## 1.3 Patching and patch making
+## Patching and patch making
 
 ROM hackers change ROM images, copyright lengths being what they are it means such things are copyrighted code. Even edited code still has protections so the differences between the versions are found and made into a patch file, such a thing will also have the very nice bonus of tending to be far smaller and easier to transmit. Patch files then allow someone to take the original ROM, apply the patch to turn it into your changed version and then play it. As with most concepts you can use a computer to help out and, also like most concepts, there many methods by which you can create and apply patches. However unlike most other times where you need to decide between competing formats there is more to it than token differences and vendor lock in. Each type is linked to the best example/implementation at time of writing with a couple more at the end if there are others worth noting.
 
@@ -499,7 +499,7 @@ ROM hackers change ROM images, copyright lengths being what they are it means su
 
 Some people took this custom format concept a step further on the Wii and some other consoles by making a kind of jump loader using a dashboard/menu level console hack to apply a patch to a game’s data when it was held in memory. This also had the added bonus of allowing those with the original game and an otherwise unhacked Wii to play the hacked game. Nintendo would do a similar thing to patch a bug in Wii sports resort as the Wii lacks a real patch management feature like the 360 and PS3.
 
-## 1.4 File systems and operations
+## File systems and operations
 
 This section will detail the tools and general methods of operation of said tools to pull apart/unpack/extract ROM images. It will probably also be the only section to cover systems other than the GBA and DS in any real detail. The general form of this section is device name, name of method by which hacked code can be run and whether it can be emulated, the names/extensions/types of binaries, any hardware documentation and finally techniques to parse file systems. For additional information or information on systems not covered here then the main sources of hardware information and such like are typically homebrew developers, those wishing to run various flavours of Linux on consoles and emulator authors.
 
@@ -777,7 +777,7 @@ SD/CF/XD
 
 A points you may have to copy a SD,CF, XD or some other memory card at the sector by sector level. On these occasions there is a program called DD which is popular on linux and has a [Windows port](http://www.chrysocome.net/dd) too.
 
-## 1.5 Finding the object of your interest.
+## Finding the object of your interest.
 
 Games come as ROM images, or if they come from optical media originally then ISO images, but common to both is that they are one large lump of code. The previous section took care of methods to pull apart these initial files but that is only the start of things as you will want to find the relevant file or section that houses the thing you want to look at or change.
 
@@ -791,7 +791,7 @@ After this you start heading towards more programming level techniques like rela
 
 Tracing is understood to the be the ultimate method and it is still quite different to simple hex analysis and file names, however it is not that hard to follow along with the basic idea. In tracing you find the thing you want to look at in the memory (if it is on the screen or coming out of the speakers then it is likely in memory), find what put it there, find where that was told to look and so on until you have the location of the file in the ROM or enough data to find it, and possibly also the means by which it is all decoded. Naturally it is quite an involved technique but very accurate and very reliable. When dealing with PC games and to a lesser extent with some emulators you can observe which files are open and loaded when running the game but this is not always available/viable for the consoles. There is the lesser method of watching BIOS calls (BIOS often being used to handle compression can lead you right to the location on the GBA) and you can do things like search for a field of pointers (on the GBA this often means a list of 08 with 3 bytes afterwards as the most common GBA address is of the form 08XXXXXX) which can help.
 
-## 1.6 Abstraction
+## Abstraction
 
 Certainly a topic worthy of a document all to itself the main idea here is related to the jargon earlier. Coming at the cost of not being immediately accessible to all (or in this case the computer in question) you build a method by which to interpret something into a format understandable by a target, in this case usually the console in question which translates it to a usable format. Such a move obviously has speed penalties, the bonus however is that you can use a simpler method to store, deal with and hopefully change your chosen item as necessary.
 
@@ -803,7 +803,7 @@ This also applies in reverse with some developers choosing to hardcode values so
 
 If a rule of thumb has to be made it would be understanding the level just above the thing you are trying to do will tend to be beneficial and such a logic underpins a lot of the content of this document.
 
-## 1.7 Tools of the trade continued
+## Tools of the trade continued
 
 The following simply lists some example tools as there are usually several options for a program to tackle a task, some very basic usage and some screenshots where necessary. In the case of large tools or area specific tools the proper usage will be covered in other parts of this document where there may also be other little tools to help out things. Basic usage of programs to parse relevant filesystems was already covered and will not be covered here. With the exception of the paid hex editors, a couple of audio programs, the debugging/reverse engineering tool known as IDA (a big exception) and some of the translation memory/CAT tools all the programs covered are freeware, often even open source, and everything can be done with the open source/freeware programs.
 
@@ -1197,7 +1197,7 @@ FASMARM
 
 An ARM plugin for the X86 and x86-64 assembler [FASM](http://flatassembler.net/). You can find FASMARM [here](http://arm.flatassembler.net/).
 
-## 1.8 Basic file format concepts
+## Basic file format concepts
 
 Much of the rest of this guide revolves around being able to pull part file formats and it will be covered and related back a bit to the underlying hardware and the concepts the area is based on but there are things to look for when pulling apart a file.
 

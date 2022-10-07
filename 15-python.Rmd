@@ -1,8 +1,8 @@
-# 15 Python, batch files and programming for ROM hacking
+# Python, batch files and programming for ROM hacking
 
 ROM hacking has traditionally favoured C, C++ and visual basic as the programming languages of choice although now some inroads have been made into C# and related languages (VB.net) as they are very good at rapidly creating fast GUI driven tools and plain C has fallen out of favour somewhat. Quite surprisingly and in deference to much of the rest of computing (it is taught as one of the main languages in a lot of computing schools and is used everywhere as anybody that has had to administer enterprise/business software will tell you) Java has not featured heavily and neither have many of the other high level languages like perl, lisp and the subject of this section python although this is certainly not to say those languages have not had great ROM hacking oriented programs made with them. If it is a choice between learning the command line/bash scripts and learning python then learn the command line/bash but a bit of python will help you do a lot.
 
-## 15.1 radare2 reverse engineering tools
+## radare2 reverse engineering tools
 
 If you have managed with the rest of this document then programming is not necessarily going to be hard for you to do. However as it has to be able to do lots then it can be more annoying to make a simple program if you have to set it all up. Equally it has been observed that despite frequently having some serious programming related skills, and probably knowledge of how data formats are constructed than most others out there, not all ROM hackers can easily knock out a program to do a given task (although more modern languages like python and C# are very capable and not so troublesome to learn). Various tools do various aspects of ROM hacking in a manner that is less fiddly than a programming language (although obviously less capable than a proper programming language), less likely to induce boredom than going by hand and more versatile than some of the field specific tools.
 
@@ -10,7 +10,7 @@ The suggested tool nowadays would probably be [radare2](http://www.radare.org/y/
 
 [The documentation](http://www.radare.org/y/?p=documentation) has basic usage but the main niceties are easy integration into scripts, extensibility via plugins and collection of hacking related functionality built into it.
 
-## 15.2 Programming languages
+## Programming languages
 
 Before moving onto python if you are searching for a computer language to use with ROM hacking there are a few requirements although for the most part they do not need to be fast unless you are dealing with compression and complicated search functions although even then with people tending to have multi core processors in the gigahertz range as long as it works within two orders of magnitude of a “fast” language you can probably get away with that too. On the matter of open source unless you are required to do it (using a GPL program as a base for yours for instance) there is no real stigma attached to keeping sources closed in ROM hacking circles (most ROM hackers that build tools are no strangers to making a piece of spaghetti code to get the job done that is no use to anybody learning or anybody looking to further/adapt your works) although open source is always welcome and encouraged (file formats and data/ROM structures on the other hand tend to want to be shared).
 
@@ -18,6 +18,6 @@ Before moving onto python if you are searching for a computer language to use wi
 2.  Must be able to do binary manipulation (shift and rotate down to a 1 bit level and include boolean logic (AND, XOR, OR, NOT....). Some languages do not do well here but most of those are usually discounted thanks to the point above. Equally it is better if all this comes as a standard function in the language or the basic/standard libraries of it as having to make your own is not going to be fun.
 3.  GUI making should be relative easy. Command line tools are great and if possible do include command line options (you never know when something is going to want to be put into a batch file) and you could always build a wrapper in another language if your program is command line only but if you can use it to build a GUI as well as the above points you probably have a good pick for a language.
 
-## 15.3 Python
+## Python
 
 There are a great many books but [Think Python](http://greenteapress.com/thinkpython/thinkpython.html) is one of the best for people that know ROM hacking and computing concepts and struggle with hand holding that many learn programming books focus on. On a similar note much of the Apress Beginning ? From Novice to Professional series are also good for those that know concepts but just need everything focused a bit. [UNSW Comp 1917](http://www.youtube.com/watch?v=hE7l6Adoiiw&feature=BFa&list=PL6B940F08B9773B9F) video lectures also provide a nice introduction to a lot of concepts.

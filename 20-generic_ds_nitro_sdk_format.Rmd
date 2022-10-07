@@ -1,4 +1,4 @@
-# 20 Generic DS nitro SDK format
+# Generic DS nitro SDK format
 
 Files formats that might not necessarily have been seen before but likely started life as a variation on the SDK formats seen on the DS tend to have a certain broad set of characteristics that go into the layout. Most of the time it will be little endian across the length of the section but there are a few deviations here.
 

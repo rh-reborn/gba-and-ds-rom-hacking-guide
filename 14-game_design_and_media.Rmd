@@ -1,4 +1,4 @@
-# 14 Game design and media
+# Game design and media
 
 There is a long history of those engaged in science and engineering and those engaged in more artistic pursuits not seeing eye to eye (indeed there is a very good chance that after you as a ROM hacker have figured out a format and maybe made a proof of concept that you will hand it over to an artist to make it look nice) but it is well worth knowing the basics of the “other side” as it will help figure out why something was done, allow you to envisage how you might improve something and might even allow you to do something you otherwise deemed impossible (indeed as mentioned elsewhere the whole of game AI is based around trying to use a combination of simplistic routines to provide some challenge to a human being that for the time being at least is far smarter than the machine they are playing with and very different in terms of operating logic) or at least work more efficiently within limits.
 

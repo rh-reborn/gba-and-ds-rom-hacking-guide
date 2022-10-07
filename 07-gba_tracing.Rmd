@@ -1,4 +1,4 @@
-# 7 GBA tracing
+# GBA tracing
 
 GBA tracing was mentioned back in the discussion of assembly hacking and the theory behind it all covered but a few worked examples are probably useful.
 

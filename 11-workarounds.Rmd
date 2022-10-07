@@ -1,4 +1,4 @@
-# 11 Workarounds
+# Workarounds
 
 Not all tools do the job properly, some times a small change might be called for but creating a program for it might not be that easy and in the case of SDAT and SDK 3D the existing tools can fall somewhat short. To a good ROM hacker though this is merely a speedbump and they will go manual or massage the input to get what they need.
 

@@ -1,8 +1,8 @@
-# 23 Graphics
+# Graphics
 
 # 2d
 
-## 23.1 NCER
+## NCER
 
 |     |     |     |
 | --- | --- | --- |
@@ -22,7 +22,7 @@
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 23.2 NANR
+## NANR
 
 |     |     |     |
 | --- | --- | --- |
@@ -42,7 +42,7 @@
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 23.3 NCGR
+## NCGR
 
 |     |     |     |
 | --- | --- | --- |
@@ -62,7 +62,7 @@
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 23.4 NSCR
+## NSCR
 
 |     |     |     |
 | --- | --- | --- |
@@ -82,7 +82,7 @@
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 23.5 NMCR
+## NMCR
 
 |     |     |     |
 | --- | --- | --- |
@@ -102,7 +102,7 @@
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 23.6 NFTR
+## NFTR
 
 A common font format seen in the DS. Has seen a few revisions as well.
 
@@ -126,7 +126,7 @@ A common font format seen in the DS. Has seen a few revisions as well.
 
 # 3d
 
-## 23.7 NSBMD
+## NSBMD
 
 A 3d model format with an optional texture section (material colours are available as as separate textures).
 
@@ -148,7 +148,7 @@ A 3d model format with an optional texture section (material colours are availab
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 23.8 NSBTX
+## NSBTX
 
 The NSBMD file can house textures to be used but separate textures are available for those that need them.
 
@@ -170,7 +170,7 @@ The NSBMD file can house textures to be used but separate textures are available
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 23.9 NSBCA
+## NSBCA
 
 An animation format for the NSBMD family. Several developers opted out of using NSBCA and wrote their own animations.
 

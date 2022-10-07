@@ -1,8 +1,8 @@
-# 25 Text
+# Text
 
 Although most text is custom and what many ROM hackers spend a large amount of their time figuring out Nintendo has provided a text format in their SDK that some developers and quite often Nintendo themselves use.
 
-## 25.1 BMG
+## BMG
 
 The short version is U16 unicode stacked on top of sometimes relative, sometimes standard pointers stacked on top of a fairly standard nitroSDK format.
 

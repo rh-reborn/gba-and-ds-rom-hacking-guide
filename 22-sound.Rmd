@@ -1,6 +1,6 @@
-# 22 Sound
+# Sound
 
-## 22.1 SDAT
+## SDAT
 
 SDAT is the dominant audio format on the DS and although by itself it contains no sound information it holds the locations and relationships between the various files it contains.
 
@@ -22,7 +22,7 @@ SDAT is the dominant audio format on the DS and although by itself it contains n
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 22.2 SSEQ
+## SSEQ
 
 |     |     |     |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ SDAT is the dominant audio format on the DS and although by itself it contains n
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 22.3 STRM
+## STRM
 
 Occasionally seen outside the SDAT file. “Officially” the only one that does.
 
@@ -64,7 +64,7 @@ Occasionally seen outside the SDAT file. “Officially” the only one that does
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 22.4 SWAR
+## SWAR
 
 |     |     |     |
 | --- | --- | --- |
@@ -84,7 +84,7 @@ Occasionally seen outside the SDAT file. “Officially” the only one that does
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 22.5 SWAR
+## SWAR
 
 |     |     |     |
 | --- | --- | --- |
@@ -104,7 +104,7 @@ Occasionally seen outside the SDAT file. “Officially” the only one that does
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 22.6 BANK
+## BANK
 
 |     |     |     |
 | --- | --- | --- |
@@ -124,7 +124,7 @@ Occasionally seen outside the SDAT file. “Officially” the only one that does
 | * * * | * * * | * * * |
 | * * * | * * * | * * * |
 
-## 22.7 Other formats
+## Other formats
 
 See http://gbatemp.net/topic/305167-the-various-audio-formats-of-the-ds/
 

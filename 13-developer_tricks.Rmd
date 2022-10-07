@@ -1,4 +1,4 @@
-# 13 Developer tricks aka thinking like a game developer
+# Developer tricks aka thinking like a game developer
 
 Although you may spend a lot of your time as a ROM hacker pondering the interesting implications of the programmers working on a game or indeed fixing some of their mistakes there are equally some very clever programmers working on games. One implication of this is developers employ all sorts of tricks to allow them to bypass system limitations and in doing so make better games. Methods to do this range from the obvious to the inspired and several are going to be covered in this section. The very best games and level designers will often take these tricks and work them into the game in such a way that the workarounds themselves become part of the game experience (examples will be mentioned in their respective sections) and indeed may even become tropes of the genre.
 

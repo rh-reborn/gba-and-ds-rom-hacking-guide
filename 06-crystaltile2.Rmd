@@ -1,6 +1,6 @@
 # (PART) III  Examples, oddities and techniques {-}
 
-# 6 Crystaltile2 general usage guide
+# Crystaltile2 general usage guide
 
 If you have read the rest of the guide you will likely have seen several screen grabs of Crystaltile2 but might not be familiar with how works as a whole. This is what this section aims to sort.
 

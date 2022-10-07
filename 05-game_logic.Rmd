@@ -1,8 +1,8 @@
-# 5 Game logic
+# Game logic
 
 Text, graphics and sound count for a lot and a lot can be done just editing them (indeed entirely new/different games have been made using those features alone) but eventually you are going to want to change how the game plays out or the options of the player within it and for this we turn to editing of the game logic.
 
-## 5.1 Levels and Stats
+## Levels and Stats
 
 Graphics are you have probably seen are composed of small tiles that get assembled to create a greater image. Levels are much the same although they tend to come in four broad categories, although unlike graphics there is no underlying hardware to shape things and that means anything goes. The items of interest are the level itself, the placement of static objects and the placement of interactive objects (enemies and such which also includes scripted events) and in many ways can apply to 2d, 3d, text and higher dimensions of games.
 
@@ -225,7 +225,7 @@ On another note in game AI may well be finely tuned to the original game stats a
 
 The concept has been around for some time but in recent years it really seems to have taken off. Games like Pokemon, Medabots RPG as well as more conventional “RPGs” often have defined zones for enemies or predefined battles, or in the case of medabots you will only be fighting medabots made of the same parts. You then get to figure out a way to alter this. Do note a lot of games might provide you with something to look at to influence this. Classic examples would be a “conservation” area where you visit old enemies, a bug like pokemon sea tiles, an arena of some form or even certain kinds of mulitplayer. Similarly a game might change the monsters in an area for a sequence or something and that can be very valuable. Alternatively it can be very simple and you only have to influence the outcome of the random number generator; if a game has a bestiary then if the enemies from a similar area have similar numbers it could well be a contained random number generator (generate me a random number between 4 and 6, or more likely generate me one a normal random number and add or multiply to get me to the number for this map). It is up to you to see whether you wish to try to stop end game bosses potentially appearing in a start area, though such things can be fun.
 
-## 5.2 Compression
+## Compression
 
 Compression is seen in all areas of ROM hacking and will continue to be seen as developers brush up against limits of bandwidth and storage space all while having more CPU cycles at their disposal. There are countless permutations and implementations but broadly speaking the two basic types will be lossless and lossy. Both types are named for their dominant characteristic; lossless able to compress and reconstruct an exact copy of the original file and lossy taking an original and losing some hopefully irrelevant or less noticeable information in an attempt to make the data smaller (in sound for instance the human ear will certainly not be able to hear above 30KHz so if you had captured everything up to 50KHz and then lose all the sound above 30KHz[16](romhacking202017.html#fn16x0) you will save some space at the cost of lost data). There are things aimed at real time compression (real time communications of data generated on the spot such as a voice call) and things aimed at compression for storage and later transfer and the latter is what ROM hacking tends to deal with the most.
 
@@ -386,7 +386,7 @@ Working around compression Just because a file was compressed in the original ga
 
 Equally if you are dealing with a custom compression the data will usually be uncompressed to run so you can often snatch things from the ram and work around the compression later or use it to help work around the compression for if it is just a slight tweak on an existing method which you already know this can practically give the game away.
 
-## 5.3 Cheating
+## Cheating
 
 This is not using any “hidden” button combinations/activation conditions to allow for a different mode of operation to normal play but actually editing how the game works. Of all the areas most likely to sit slightly aside from ROM hacking it is cheating but an appreciation for how cheats work is very desirable when first learning about some of the game logic side of hacking and certainly as a lead in for assembly.
 
@@ -687,7 +687,7 @@ One edit later
 
 It can go an awful lot further than this. Also as mentioned elsewhere if you especially want then in the case of the DS the binary itself is usually found uncompressed in RAM so you can actually do a binary hack via a conventional cheat, as indeed several of the more in depth cheats have done in the case of the DS, and effectively turning an action replay on the DS into a game genie.
 
-## 5.4 Programming concepts
+## Programming concepts
 
 In preparation for assembly it is worth knowing about a couple of programming concepts and techniques. When learning programming a lot of guides and schools will try to teach some of these on the sly or have them gradually introduced, this works well for many but here they will be introduced straight up and explained as such. It is certainly not intended to be a programming tutorial (various guides are linked elsewhere for that) but more of enough information to be dangerous and hopefully not impede your endeavours in learning programming.
 
@@ -785,7 +785,7 @@ Branch The usage is twofold on the GBA and DS. The BX instruction by itself swit
 
 Memory Load/Store Something of an ARM specific thing for processors like those in the x86 family can directly access memory in almost any instruction but the ARM processors need to manually load and store things using separate instructions. Generally they are referred to as LDR and STR with a few variations depending upon what you want to do. [21](romhacking202022.html#fn21x0)
 
-## 5.5 Assembly
+## Assembly
 
 Assembler, assembly, ASM and binary hacking are some of the synonyms for this and although technically they have slightly different meanings for the most part if you say one and you have enough context nobody will really say anything although binary hacking is perhaps accurate but not really advisable.
 
@@ -1048,7 +1048,7 @@ External hooking is probably the only method that actually warrants the term hoo
 
 As far as general ROM hacking is concerned this is still largely theoretical but ask any ROM hacker if they would like the system to have an extra 32 megabytes of memory that is low latency, high speed and addressable directly in memory the answer is likely to be yes but it will never happen. The DS and DS lite however feature the GBA slot which is 32 megabytes and all the above although a select few games will use the header section and maybe save section to gain extras, homebrew might use it and the web browser will also try to use it (in these last two cases case it is actually read/write though) it still leaves a very large amount of space available. Here the pointer in RAM that starts 02 could in theory be changed to start 08 (or 09 for the upper 16 megabytes) and as DMA restrictions were lifted on the DS anything that might have to go from the 02XXXXXX memory section to somewhere else should not be troubled.
 
-## 5.6 Non specific assembly discussion.
+## Non specific assembly discussion.
 
 The following section covers various things that are often of great interest to many of those working in assembly hacking but that do not necessarily fit in other areas as well as a few concepts and techniques.
 
@@ -1461,7 +1461,7 @@ Further to this you have things like scoring systems and experience rates which 
 
 The main problem then of the mechanism designer is that game theory largely assumes that humans are both rational and playing for self interest, although things have been made to compensate for the lack of this.
 
-## 5.7 Flash cart and emulator theory
+## Flash cart and emulator theory
 
 Although many ROM hackers never have to worry about it sometimes it is nice to know how flash carts and emulators get things running so as to be able to work around any anti piracy (AP) protection or allow games to save on hardware other than the cart/disc they came on or use certain features to your advantage; the GBA slot is available in DS mode and who does not want an extra 32 megabytes of fast, sadly read only, memory mapped memory to play with when the base system has just about 4 megabytes, in which you do also have to stick some kind of binary for the processor.
 
@@ -1526,7 +1526,7 @@ Pokemon Black and White came with a small device called a pokewalker that was a 
 
 Homebrew devices like the [DSerial](http://natrium42.com/wiki/DSerial) and DSx lights used abilities here. More recently enhanced flash carts like the Supercard DSTwo, iPlayer (not officially made by Supercard) and iSmart MM/iSMM (an OEM iplayer from iSmart DS with the ability to play DS commercial ROMs unlike the iplayer) which have onboard processing capabilities[31](romhacking202032.html#fn31x0) that allow for serious extras (playback of most types of video up to SD/PAL resolutions and emulation of things up to and including the PS1 and Amiga in the case of the iSMM) and more classically in the likes of onboard processing for DLDI where CRC values for data written to the SD cards of flash carts would be calculated onboard.
 
-## 5.8 ROM hacking “protection”
+## ROM hacking “protection”
 
 For various reasons some that edit ROM images have not wanted their works to be used as a base for a further work and so have attempted to protect their work by technological means; this sort of thing tends to be seen in games that have high level tools made for them which usually means Pokemon, Fire Emblem, Mario platformers and Mario Kart games, Final Fantasy, Advance Wars (kind of), Golden Sun and similar franchises. Other protections can include protections added to a game so those trying to do repros (a term for the carts that have hacked/modified versions of games and are done up to look like originals) can not remove the “if you paid for this then you were ripped off” type screens.
 

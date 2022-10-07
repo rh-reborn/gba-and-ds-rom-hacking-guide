@@ -1,4 +1,4 @@
-# 8 DS tracing
+# DS tracing
 
 Although DS assembly hacking has been done for some time it is not as advanced in terms of power of tools doing it as the GBA and earlier consoles. Equally the cart not being mapped to memory at best complicates the basic resource location methods and places them outside the fairly simple mechanical process that the likes of the GBA enjoys.
 
@@ -20,7 +20,7 @@ iDeaS
 
 the main claim to debugging status alongside the other two is the support for run to selection and then the step function after that as well as the ability to manipulate registers.
 
-## 8.1 Cart read command
+## Cart read command
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#dscartridgeprotocol) details much of the cart read protocol but for most purposes “B7aaaaaaaa000000” where the “a” values are a 32 bit location (in big endian/most significant first no less) is the only command that matters. Do remember the binary is loaded into memory and can contain anything the game might use in addition to the binary itself.
 

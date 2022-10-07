@@ -1,8 +1,8 @@
-# 17 Version control and project management.
+# Version control and project management.
 
 The two big reasons for projects to become abandoned are people lacking skills to do the job which is solved by gaining skills and not translating the latest and greatest epic 90 hour RPG when you are first learning to hack and failures in project management meaning people do not get the chance to do things or end up waiting on others and the whole things falls apart as people move on to other projects.
 
-## 17.1 Project and team management
+## Project and team management
 
 Various terms get thrown about here and the idea is popular throughout society. Although it has in many cases quite rightly been chastised and made fun of there are a few things that can be learned from it. Most people when putting a team together will tend to have people of different skills come together to make hopefully achieve something greater than they might be able to by themselves. There is no unifying idea behind this section but some thoughts and observations.
 
@@ -18,7 +18,7 @@ Level designers Granted with most of ROM hacking typically being focused on tran
 
 Pipeline management The most basic case of this is injection software for text. Your other team members might have amazing skills in other areas and fair levels of technical ability but it might still fall to you. If you have to hand edit 3000 separate files it gets very tedious very fast so automating a bit of that is important and likewise it cuts the other way and if your translator will have to view and edit in a hex editor or deal with a mountain of programming extras it will probably not go well. This is usually where version control and things that might one day end up as Gantt charts appear.
 
-## 17.2 Version control
+## Version control
 
 Usually associated with programming and more recently big development and at best weakly observed by ROM hackers as far as actual projects as concerned (programming tools is a different matter) there are never the less some things that can be learned from this. As ever it comes with a collection of field specific terms but most of these will usually have been learned by being around software (especially open source software) the last decade or so. Still [A Visual Guide to Version Control](http://betterexplained.com/articles/a-visual-guide-to-version-control/) has a nice explanation of many of the concepts.
 

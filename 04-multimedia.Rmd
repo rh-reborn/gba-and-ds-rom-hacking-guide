@@ -1,4 +1,4 @@
-# 4 Multimedia
+# Multimedia
 
 Humans have many senses which go into shaping the experience of the world around us and storytellers have long recognised the power and perhaps more importantly the limitations of these senses. Games being a branch of the narrative story device use sound and either because of the limitations of a device or for the purposes of narrative a game might choose to use a video as well both of which warrant the attention of hackers. Generally speaking the three main things to do here are
 
@@ -8,7 +8,7 @@ Humans have many senses which go into shaping the experience of the world around
 
 Speaking of ripping things simple filesystem changes are often very powerful here.
 
-## 4.1 Sound
+## Sound
 
 Sound exists as a wave and it was discovered long ago if you sampled the sound wave at twice the highest frequency you wanted to capture (the concept became known as the Nyquist–Shannon sampling theorem although there are others although it is fairly logical when you think of it as wanting to capture the rise and the fall of the pulse) and depending upon what you read the young and healthy human ear works up to the low 20KHz hence the 40KHz range and upwards being used for higher quality sound capture[12](romhacking202013.html#fn12x0) although the human voice is usually far lower than that limit not to mention the all sounds are not equal (higher frequencies are harder to hear) so you can often get away with sampling at a lower rate.
 
@@ -655,7 +655,7 @@ Golden Sun Atrius did a lot of work with the sappy audio format and Golden Sun w
 
 Fire emblem Fire emblem on the GBA saw several audio hacks. An overview of some of the audio hacking work and a bit of general audio hacking can be seen at [feshrine](http://www.feshrine.net/ultimatetutorial/).
 
-## 4.2 Video
+## Video
 
 The GBA and DS are capable of playing video and as such several games use full motion video of various forms in their games. On the DS at least a company (now owned by Nintendo) called Mobiclip made a format used for a lot of the games.
 
@@ -718,7 +718,7 @@ Video: YV12 512x32 1.00fps \[Video\] Audio: PCM 16384Hz mono 262kbps \[Audio\]
 
 More commonly known as the purveyors of the ADX and AHX audio format discussed a little while back they do have video formats as well which are largely wrappers for MPEG video of various forms with the audio being taken by their AD* format..
 
-## 4.3 Cut scenes
+## Cut scenes
 
 In addition to the use of video the games can opt to do things in engine with text, 3d and 2d all being employed to various ends. This has two benefits to hackers as it is small, quite easily understood and quite easily manipulated compared to plain video where replacing existing content is tricky at the best of times (if you do have to edit video again consider instead that it all ends up in the 2d engine and inject stuff there outside even the video handling code).
 

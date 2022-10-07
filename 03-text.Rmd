@@ -1,10 +1,10 @@
-# 3 Text
+# Text
 
 Games can and have stored their text as simple graphics but developers learned quickly that for longer games this is not very helpful at various levels so games have long featured text decoding and display engines. Said engines are very often highly custom things with various abilities and restrictions that people hacking them have to figure out and are second only to the game level files and assembly in terms of how custom things can get. Games still have text in the images they might display, very often for low text games like puzzle games but not always and anything highly stylised is probably graphics, and conversely some early hackers altered the encoding of characters to have them appear as others in certain places (often messing up the text in the rest of the game).
 
 Never the less text engines are very much a part of games now and as such aspiring ROM hackers have to know how to deal with them. Know that games can and do often enough use multiple versions of the following concepts within the same game and even on the same screen at once.
 
-## 3.1 Tables
+## Tables
 
 More recently there have been efforts to turn tables into a higher level concept ( [Table file format proposal](http://transcorp.parodius.com/scratchpad/Table%20File%20Format.txt) ) which is good as it allows for easier hacks in the end but classically speaking tables are just simple text files containing a long list of hexadecimal numbers of various lengths and what they represent in readable text. One of the other reasons for the proposed standard above is there are several types of table file format with varying abilities.
 
@@ -257,7 +257,7 @@ In the spirit of providing alternative programs where possible we have Oriton. O
 
 ![PIC](images/100_home_fast6191_romhackingguide_unrenamed_fil___ders_romhackingguidertexttablemakingOriton1.png)
 
-## 3.2 Pointers
+## Pointers
 
 Granted these are not only a text engine feature (if you have been reading through you have probably seen several thus far) and are pretty essential for packing/file formats but text editing is where people first tend to encounter pointers in earnest so they are here.
 
@@ -365,7 +365,7 @@ Still just to check here, by cutting the file off at the end of the “proper”
 
 It seems the pointers are 1 after the FE but that is fine and to be expected really. The main things left to determine now are what the stuff after FE means, a good guess would be character names.
 
-## 3.3 Markup, control codes and placeholders
+## Markup, control codes and placeholders
 
 Even if you are not much of a web developer or coder you will probably have a rough understanding of variables and markup (you have probably posted on a forum before if nothing else). Text engines are rarely at the level of a modest scripting language and almost never Turing complete but they can and do have markup options and placeholders. It was noted in the past but if by looking at the text in the game you suspect some form of markup or placeholder it is best not to use it for the basis of a relative search.
 
@@ -497,7 +497,7 @@ Before debating that though 01 was tried and it stuck it on the bottom with the 
 
 Some more experimentation could be done but the rest is just filling in the blanks and most of the interesting stuff appears to have happened already.
 
-## 3.4 Fonts
+## Fonts
 
 If you have not read the graphics section then it might be best to cover some of the basics there or be able to reference back to it.
 
@@ -644,7 +644,7 @@ Back on topic the 16 to 8 bit conversion and the standard encoding tweak stem fr
 
 The NFTR format has three main variations similar to those built into it that developers can choose from.
 
-## 3.5 Scripting and layout
+## Scripting and layout
 
 The concept has been mentioned a few times at this point, however it still not seen that much in the handhelds and earlier consoles. As some notable examples exist though it is going to be covered here. The idea here is beyond the basic text display the rest of the game revolves around a complex engine/interpreter.
 
@@ -806,7 +806,7 @@ Line wrapping Much like pointers being used to indicate the location and end of 
 
 Section wrapping Much the same as line wrapping but note that it is not always the same as the line wrapping used in the game you are dealing with, it may not even be the same concept (pointers to end a section and characters to wrap a line is actually a pretty good way for devs to do a lot of this).
 
-## 3.6 Text extraction and insertion
+## Text extraction and insertion
 
 Knowing what text is, how it is encoded and how any markup happens is all well and good but for anything beyond a trivial character replacement it gets to be troublesome to edit things in your hex editor unless you are very fortunate and have a scripting engine or something similar. Equally your translation team/programs might not appreciate having to deal with programming style arrangements and will much prefer to have something that can at least be edited in a general purpose editor.
 
@@ -879,13 +879,13 @@ Conventional text insertion Much like text extraction there have been attempts t
 
 It is a script based inserter where the script type is defined. The download includes both source code to allow for modifications (although the program itself does have limited plugin support) and a manual with several worked examples on usage. In many ways it is aimed at/has provisions for the SNES and similar consoles with memory mapping but can be made useful for the file level pointers as seen in many DS formats.
 
-## 3.7 Language detection in DS games
+## Language detection in DS games
 
 The DS features some firmware on which you can select from six languages[8](romhacking20209.html#fn8x0) (Japanese, English, French, Spanish, German and Italian) and games then have the ability to automatically choose a language. More than once have various languages been locked out despite being present in the ROM (there have been a few GBA games to have similar features with one of the most notable being Magi Nation although that is slightly different) although probably the best known example is Japanese in Advance Wars Dark Conflict/Days of Ruin (the first mainline advance wars/famicom wars never to appear in Japan) which was present in the game but even with Japanese selected it would default away from it. There were however cheats made that ultimately forced the game to run in Japanese. More will be detailed in cheats and game logic hacking later but it is worth noting it exists here.
 
 Other games will allow the end user to select at boot time and maybe later on as well.
 
-## 3.8 Translation hacking
+## Translation hacking
 
 The first rule of translation hacking is under no circumstances should you touch a machine translator; they are certainly fascinating pieces of kit and they have their uses but for the foreseeable future they have no place in a creative work like translation hacking[9](romhacking202010.html#fn9x0) and especially not for nearly entirely unrelated languages like Japanese and European languages.
 
@@ -983,7 +983,7 @@ Full hacking then. A surprising amount of the text engine, and possibly even the
 
 It should also be noted that various characters might be joined in up written Arabic, many will take the “it is a computer therefore it does not matter” approach but if you are being flash then perhaps consider it.
 
-## 3.9 Japanese text editors and translation tools
+## Japanese text editors and translation tools
 
 The following section mainly covers various tools for those that need to work with the Japanese language might find useful. Little, if any, usage will be covered in favour of some links and a quick overview.
 

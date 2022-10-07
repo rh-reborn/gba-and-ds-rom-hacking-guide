@@ -1,4 +1,4 @@
-# 12 Moving to a new system
+# Moving to a new system
 
 This section is more concerned with what happens when a brand new system comes along (whether you want to assist with reverse engineering the memory mappings and IO is up to you and ROM hacking skills are valuable here but this is going to focus on file level work for the most part) as opposed to simply moving to a system unknown to the hacker although it still applies there.
 

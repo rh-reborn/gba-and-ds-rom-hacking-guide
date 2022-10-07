@@ -1,6 +1,6 @@
 # (PART) V  Glossary, index and such {-}
 
-# 26 Glossary
+# Glossary
 
 A glossary of terms
 

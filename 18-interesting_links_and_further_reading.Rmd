@@ -1,12 +1,12 @@
-# 18 Interesting links and further reading.
+# Interesting links and further reading.
 
 Many areas thus far had to be skimmed over or otherwise not given as much attention at they might deserve either because they are fields unto themselves or because despite them existing elsewhere in games they might not be immediately relevant to the GBA and DS. This is then to provide some search terms and links to start looking at these things in a more in depth manner.
 
-## 18.1 Links
+## Links
 
 This section is mainly going to be a link dump of all the links elsewhere in this document.
 
-## 18.2 Further reading
+## Further reading
 
 There is a great deal more to learn about and that games will be using as time goes on (already in the PC side of things games are seen using database programming techniques, for instance see some of the things that went into reverse engineering world of warcraft).
 
