@@ -1,0 +1,5 @@
+# (PART) IV  File formats (specifications, methods and known formats) {-}
+
+# 19 General things about the DS
+
+Hardware, memory DS 2d, DS 3d, DS sound,

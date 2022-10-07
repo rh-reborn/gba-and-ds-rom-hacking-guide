@@ -1,0 +1,13 @@
+# 10 Developer leftovers
+
+Mentioned several times in this document and the subject of websites like [The Cutting Room Floor](http://tcrf.net/The_Cutting_Room_Floor) as well as a thing a lot of ROM hackers enjoy finding and discussing within games. The interest in them is threefold as people very much enjoy songs, sprites and things that did not make it into the final game, from a programmer perspective it can give clues as to how things were made (references to other) and things can be found that directly help with the reverse engineering of formats either by having very simplistic versions of the formats (you can reverse engineer an entire model of a dragon if you want all several thousand points but if the developers leave models with a cube, a sphere, a cylinder and maybe something flat it is the better bet to examine that instead) or on occasion tools, logs and parts of them that give things away.
+
+Princess maker 4 had nearly the entire source code for the game included.
+
+Zoids Saga left the log file used when sounds were generated (a format known as SMAP) which has been credited as one of the main things to help with reverse engineering the original SDAT format.
+
+Advance Wars Days of Ruin/Dark conflict had a full Japanese script in the game and the game was never released in Japan.
+
+Magi Nation on the GBA had a full English script within it despite never being released outside Japan
+
+Mario Kart DS was observed early on to have levels that did not make the final cut and this spurred a lot of hacking.

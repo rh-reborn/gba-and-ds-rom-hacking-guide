@@ -1,0 +1,45 @@
+# 16 PC program hacking
+
+Once more this is a section that is both worthy and has documents far longer than this one on just individual things. Much of what has been said thus far applies as file formats both custom and common are used, compression is used and assembly, albeit now x86 and x64, is back on the cards but there are quite large differences as well as the PC whatever OS you use has a security system and several fairly complex methods of working, encryption (usually bad and closer to obfuscation, which is another popular thing to do, and as such able to be defeated) is popular and more importantly the languages used and APIs available are far more extensive.
+
+Speaking of security this section will not cover some of the higher level aspects of defeating protection as they can get quite involved and the field is quite fast moving not to mention if you understood the idea behind some of the defeating protection methods (with the additional note that some modern PC programs can and do fetch actual useful pieces of code from the internet/networks) and how to work around obfuscation (one neat trick is to optimise the program) you are better off venturing out into the internet and watching conference videos. Equally this section will not really be covering anything on hacking programs in an attempt to wrest control of the computer into the hands of an attacker (again see conference videos and elsewhere on the internet) or really anything on cheating (it works much the same on any system). Basically this section will be on pure functional reverse engineering of programs where no or minimal attempts to prevent it exist.
+
+Despite the differences there are several big advantages
+
+PC programs in many ways are able to be debugged far more easily than many of the systems ROM hackers will be looking at (although emulators count for a lot here).
+
+PC programs quite commonly use high level languages that frequently allow for decompilation and/or massive simplification for the reverse engineer.
+
+It should also be noted sometimes full reverse engineering is not required and instead just how the functions are called in a program (many programs are just frontends for custom DLL files).
+
+Executable packing and encryption Although you can always use a disassembler, of which there are several available with the standard tool being [IDA](http://www.hex-rays.com/products/ida/index.shtml) (as far as X86 is concerned there is a paid version and a freeware version that is usually just the paid version but several versions back), many computer programs will have packed executables and/or use encryption as well as obfuscation. To this end although you can simply feed a diassembler something if it is packed or encrypted and only rendered into “plain” at runtime you will just get out gibberish.
+
+## 16.1 Debugging
+
+[OllyDbg](http://www.ollydbg.de/)is what most people have as an entry level tool and it provides a nice disassembler and basic debugging/listing tools.
+
+[Cheat engine](http://cheatengine.org/) works in a similar manner to the likes of emuhaste covered back in cheat making.
+
+Further down the line you have things like
+
+[DLL export viewer](http://www.nirsoft.net/utils/dll_export_viewer.html) to get a rough idea of what the DLL files input options (and function names) and scope is.
+
+[GDIView (open fonts and what they are set as and similar things)](http://www.nirsoft.net/utils/gdi_handles.html)
+
+[Device IO viewer](http://www.nirsoft.net/utils/device_io_view.html) for when you need to reverse engineer drivers.
+
+[Nirsoft opened files viewer](http://www.nirsoft.net/utils/opened_files_view.html) to know what programs have opened what and there is also [Process explorer](http://technet.microsoft.com/en-us/sysinternals/bb896653) which does similar things.
+
+[Rec](http://www.backerstreet.com/rec/rec.htm) attempts to turn programs developed in C back into something resembling source code.
+
+As mentioned the big tool that most people eventually wind up with a copy of though is IDA as it is both disassembler and debugger which allows for a lot of abilities here.
+
+## 16.2 Decompilation
+
+Traditionally compilation was a one way affair[33](romhacking202034.html#fn33x0) and indeed most of paid programming revolves or perhaps revolved around this concept. As people continue research into computer science and people use higher level languages decompilation which is the act of turning a binary file into source code (probably and sadly lacking comments) becomes ever more viable. This is not to be confused with reverse engineering as a whole which has always been able to be done (indeed most of this guide aims to teach methods to do this) although a large amount of the time to do it is often necessary.
+
+Interpreted languages By and large anything that is not directly related to C or Assembly is probably going to be a scripting/interpreted language as opposed to a truly compiled language (lines can get very blurred though as C# will probably demonstrate). However rather than leaving it as human readable code there will be a conversion to something known as bytecode (it is still faster to manipulate nice selections of numbers of known lengths than parse a complete selection of human readable text which could be any length although there are also tools that help shorten this) which will eventually get turned into assembly instructions (sometimes at the start of running and sometimes just before it is needed- a technique known as Just In Time compilation) but said bytecode can frequently be turned back into source code. There are countless interpreted languages but if you search for decompiler and the interpreted language you want to decompile you will usually get something. Naturally there are ways to intentionally and unintentionally obfuscate your program and indeed some of the interpreted languages runtimes offer methods by which to do this at various levels.
+
+C# Although C# is strictly speaking a compiled language much like the “predecessors” C and C++ and other members of the C family it comes with a very large collection of libraries and runtimes (one of the main reasons for it to be created was to in fact provide a standard collection of them to stop programs having to have many and varied versions all over a system) which can be called upon by programs using the language. Knowing this several tools have been made to remove the calls and formulate how they are called leaving just the actual custom code that was created in the first place. A variety of tools exist for it with some of the more popular ones being [ilspy (open source)](http://wiki.sharpdevelop.net/ilspy.ashx), [dotPeek (freeware)](http://www.jetbrains.com/decompiler/) and [.NET Reflector (paid)](http://www.reflector.net/)
+
+C The decompilation of C++ is not that far advanced at this point in time but the decompilation of C is somewhat more advanced than it has been in the past and tools like [REC](http://www.backerstreet.com/rec/rec.htm) used in conjunction with the debugging type methods above can do a lot towards getting away from assembly.

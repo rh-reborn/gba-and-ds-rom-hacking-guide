@@ -1,0 +1,25 @@
+# 20 Generic DS nitro SDK format
+
+Files formats that might not necessarily have been seen before but likely started life as a variation on the SDK formats seen on the DS tend to have a certain broad set of characteristics that go into the layout. Most of the time it will be little endian across the length of the section but there are a few deviations here.
+
+The first is usually a 4 character (but occasionally more) ASCII name that if the extension did not classify it already this soon will (it will likely be flipped around but that is not certain).
+
+Usually around byte 8 there will be a value that .
+
+|     |     |     |
+| --- | --- | --- |
+| * * * | * * * | * * * |
+| Location (hex) | Size (bytes) | Description |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| 0   | 4   | ASCII magic stamp unique to the file format |
+| * * * | * * * | * * * |
+| 4   | 4   | Padding (other formats will use size) |
+| * * * | * * * | * * * |
+| 8   | 2 or 4 | Size of whole file or section if in a container |
+| * * * | * * * | * * * |
+| C   | 2   | Size of this header (usually fixed) |
+| * * * | * * * | * * * |
+| E   | 2   | For archive formats number of sections |
+
+It is not set in stone and there are formats SDK that will do other things. After this it will tend to be data relevant to the information it holds or more information if it is an archive format. Unlike many other formats elsewhere in computing a hexadecimal magic stamp is not that common in nitroSDK formats.

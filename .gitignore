@@ -9,3 +9,6 @@ _book_deploy
 libs
 **/*.bib
 !**/mathjax_header.html
+
+gba-and-ds-rom-hacking-guide.html
+gba-and-ds-rom-hacking-guide.Rmd

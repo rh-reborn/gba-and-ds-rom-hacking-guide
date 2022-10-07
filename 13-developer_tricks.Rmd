@@ -1,0 +1,97 @@
+# 13 Developer tricks aka thinking like a game developer
+
+Although you may spend a lot of your time as a ROM hacker pondering the interesting implications of the programmers working on a game or indeed fixing some of their mistakes there are equally some very clever programmers working on games. One implication of this is developers employ all sorts of tricks to allow them to bypass system limitations and in doing so make better games. Methods to do this range from the obvious to the inspired and several are going to be covered in this section. The very best games and level designers will often take these tricks and work them into the game in such a way that the workarounds themselves become part of the game experience (examples will be mentioned in their respective sections) and indeed may even become tropes of the genre.
+
+### 13.0.1 Level and mechanism design
+
+A trick many learn early when having to deal with young children is to give them the illusion of choice (rather than do you want to put your shoes on it is do you want the red shoes or the black shoes) and it works surprisingly well even as people get older. This is doubly useful as growth patterns typically get very large regardless of the model used (even the basic model of two choices leading to two choices each leading to another two choices ends up well into the hundreds range before ten choices are taken) and allowing you to end up at the same point eventually allows for a unified story as well as less work although it should be noted people do pick up on token choices or effectively token choices five minutes before the end.
+
+Further to this are all sorts of interesting psychological tricks (people really do not like to lose things; see statements like “I have to win back my money” when in gambling establishments or the opposite philosophy espoused by some methods of gambling “the chips mean nothing when playing the game”), much of the psychological aspects of game theory, things like reward schedules and points/experience accumulation, behavioural economics but those are covered elsewhere quite extensively as people are using them to great effect and studying them intensely at present.
+
+Here in a racing game the amount of twists and turns of hills and other such things (bridges and such) will kept to minimise the amount of time the player spends looking at where a far point will need to be rendered.
+
+Games like the early Metal Gear games became stealth games owing to the inability to render and account for large amounts of enemies on the screen at once.
+
+Mechanism design is actually a technical term falling under game theory and for this paragraph and a handful of the following ones the definition will be closer aligned to the colloquial term/definition but a short couple of examples might be even been paid half what you would buy it for new (programming a real economic model is very hard after all)?
+
+Hidden variables and related concepts. An interesting technique/idea where a game rule set is not fully explained (although it may still be readily apparent to those that look) and players are left to fill in the blanks (or not as the case may be).
+
+The first few entries in the modern Ninja Gaiden series had an interesting mechanic where depending upon the timing you did the moves (typically after landing from a jump) different things could happen which was not mentioned in the manual, the Elder scrolls series is well known to have hidden variables controlling underlying aspects of the game (leading to several guides detailing “min-maxing” your character), Borderlands had several variables but also hidden subtypes of weapons within the and hidden stats for those, people have also been known to ascribe a hidden mechanism where there is none (the next tetris block for most versions of Tetris is random or random after a fashion[32](romhacking202033.html#fn32x0) yet owing to a variation on gambler’s fallacy, memory or conceit it will not be considered random) or indeed personify a system (the game Left 4 Dead going to far as to personify the system as the director in the literature covering it).
+
+### 13.0.2 Sprite and palette reuses
+
+Used so much it was noted back in when palette and image editing was covered. Here a limited amount memory (video, storage and otherwise) can mean you can extend your apparent menagerie of monsters, townspeople and such by recolouring them. It is also quite a nice point to put a bit of procedural generation/dynamic regeneration in (especially in 3d a few changes to colours and the values of various sliders can see an army of clones become a nation of individuals or adding a tiny bit of randomness to the placement of entities within a marching group of enemies makes a lot of difference).
+
+### 13.0.3 Pre rendering
+
+Donkey Kong on the SNES as well as several other Rare titles are very much noted for using such things but the most notable game in recent times would have to be the early Resident Evil series.
+
+### 13.0.4 Speed blur and fog
+
+The wipeout franchise (a racing game series where you spend much of the race going very very fast) is notable for using a blur effect when racing at speed, originally and in many ways to this day it covered for the lesser rendering abilities of the devices it was ported it.
+
+Fog is a related concept that aims to make up for the less than brilliant ability to render everything from your viewpoint to the horizon.
+
+### 13.0.5 Loading covers
+
+Games (on discs especially but cartridge and hard drive based games are not immune to this) eventually have to load and have it take long enough that it can not be done “behind the scenes”. Countless examples here ranging from move practices on loading screens, loading tunnels/bridges in various open world games, animations and images used to mask loading both in game (Resident evil doors are good example but it goes further back to tapes where C64 games would have pictures and maybe even minigames) and out of game (the developer credits at the start of a game frequently do more than state the names of the companies that had a hand in making it as any that attempt to lessen the initial load times should be aware of).
+
+### 13.0.6 Optimisation of loading
+
+Whether this falls under general good programming or something else is saved for a different debate as it is useful to know about.
+
+It has been seen in many occasions and indeed many methods of running copied code on original consoles are often superior because they bypass it and indeed consoles like the PS3 and Xbox 360 will have options to install games to a hard drive to help it but data loading from a slow medium like a piece of optical media has long been a bottleneck so developers try various things to get an edge.
+
+One of the most notable examples came the other way (copied games were troubled where the original was OK) and it was for Star Wars Knights of the Old Republic on the original Xbox. Here people at first would copy games on a file by file basis (it was easier if you had an otherwise stock xbox that only had around 5 gigabytes of drive space to work with which is smaller than a dual layer DVD) but when reconstructed the game would see slowdowns and loading pauses where the original was untroubled. It later turned out the game developers had optimised the layout of certain pieces of data on the disc for them to both be closer together (slower seek time) and faster to read on average (code at the edge of the disc is generally accessed faster even if only by fractional amounts).
+
+Also coming off that a method of copy protection seen on the DS in the game Houkago Shounen (arguably the first title to use copy protection/AP) timed the save and the flash cart which was faster in most cases would be detected.
+
+### 13.0.7 3d imagery in general
+
+The 3d imagery field has provided a whole host of techniques developers can use to make things look better (and will often be picked up on when they fall short).Techniques include
+
+2d texture replacement Various methods here including the basic things like skyboxes but also including distant objects being replaced by 2d rendered versions of what they appear to be to save rendering efforts.
+
+Texture mip mapping Read a book from across the room. The text which would be so very clear when up close probably looks like a grey black blur until you get closer. By the same token distant objects can have their textures reduced in resolution so as to have to render less detail.
+
+Viewpoint rendering Fairly obvious really but you only really need to render everything the camera sees. Some interest effects can be seen where gamecube games which were typically made to use a 4:3 aspect ratio [were hacked to use 480p](http://www.youtube.com/watch?&v=qombIUAadOs).
+
+Backface culling Parts of 3d models that are not rendered at that point will often be made clear/not rendered in an attempt to cut down on the amount of detail that needs rendering.
+
+Backface alternate usages If you have an item that is not normally seen or not seen from a given angle you can use the reverse side to hold something else. The sign from New Super Mario Brothers on the DS is a good example.
+
+Not rendering hidden objects Surprisingly not done in relatively recently in many 3d games. Here if an item is blocked from view it will tend not to be rendered at all.
+
+Dynamic mapping of textures Here in addition to all the methods above textures themselves might not be mapped until the last moment.
+
+Shadows and lighting Although the other methods have very interesting things happen in them the things that go into replicating light and the related concept of shadows is once more the subject of documents far longer than this one. “Basic” things include the various mathematical model approximations for things ranging from shadows, types of reflection/colouring (ambient, diffuse, emissive and specular) and the reflection models. On a more basic front the lack of a shadow on an item, especially one on an ostensibly real world, is quite noticeable (it is arguably a variation on the uncanny valley concept) but if you stick a simple circular shadow it goes a long way to preventing it from being quite as noticeable.
+
+Most older systems will use basic circular shadows or have them and a more conventional type of shadow at the same time.
+
+### 13.0.8 Procedural generation
+
+It was already covered elsewhere but it will need to be mentioned again. Here you probably have things you are certain you want to happen in a game but everything in the middle matters little as long as it falls within certain parameters. If these parameters are random within a given range it can save an awful lot of design work (recall the mention of growth patterns from earlier), save a lot of memory space even if you did put the design work in and grant a lot of replayability if done correctly.
+
+Now although there is a lot to be said for rules of certain fields allowing nice things to be made history is replete with examples of masters of an art or science breaking various rules and in the process creating something very special so it is not a miracle cure but still a very nice tool. Not so many ROM hacks have added a procedurally generated something where there was none before but that could be an interesting hack.
+
+Another side of this is when having to generate smoke (historically a fairly complex thing to do properly) a simple method is used but with the addition of a few factors it makes it changes it to the point where mathematical analysis is needed (for a short enough sample every piece of random noise can be broken down into a series of sine waves).
+
+### 13.0.9 Noise on images and sound.
+
+Some systems even allow for this doing this in hardware. The human eye/visual system notices patterns and detail quite well and one of the easy ways to take someone out of something that is supposed to be real looking is to make it too neat (everything aligned or using straight lines) and too clear. By a simple application of some noise this can be negated or seriously lessened.
+
+### 13.0.10 Using the limits of the system/working to them
+
+Play an otherwise identical piece of audio to someone not versed in audio theory at two different levels of loudness and most of the time you will be told the louder clip sounded better. Similar concepts exist for contrast and sharpness in visual things and all are fairly well known to both people that want to sell you things and people that have to deal with things that have been sold to people so developers play to both camps quite frequently and adapt their games to suit.
+
+Of course this can be a bad thing should you get a properly set up system or a later model of the system that handles things better.
+
+GBA palettes. The first GBA model did not have a lit screen and this made a lot of games seem quite dark in most conditions (and a handheld tends to want to be played when out and about) so developers would frequent up the contrast which was fine and even agreeable on the original GBA but when the SP game around which had a light in it some of the games looked somewhat washed out of colour. There have since been several hacks to port either the original colour palette in the case it was a port (helped by the GBA and SNES usually a fairly similar scheme) or otherwise improve it.
+
+A somewhat related incident might be the methods by which Apple and Microsoft chose to render fonts, they picked different ways and in the end even if they did not know it or know the underlying logic it seems people used to either system would pick it and the find the alternative somewhat unpleasant to see. It is not so much a problem on the handhelds where bad fonts are usually just that (too narrow, too small, badly coloured, otherwise unreadable....) but the home consoles which were and still are forced to straddle the older video standards and the newer ones that have been dubbed HD have fallen short here when it comes to scaling their fonts.
+
+It was mentioned earlier but some older systems that were forced to go through RF methods to get into a TV quite often used that things would be made a bit fuzzier in a similar manner to the noise idea mentioned in the previous section.
+
+### 13.0.11 Network coding
+
+One of the classic quotes from the days of the FPS quake runs something like “everybody turn your ping down” which of course can not happen directly (although there are things that can be done to lessen it on the user end usually by changing equipment) but in various ways movement can be predicted with a fair accuracy (teleporter aside you probably are not going to appear on the other side of the map and if indeed an object in motion tends to stay in motion your bearing and speed can be used to predict where you will be). Although connections have increased in speed they have not really got better on the latency front (which is still well within the realms of human perception) but network coding has so things are done to predict movement and resolve conflicts here. Sometimes it is not that effective but often it is and you might well want to tweak it.

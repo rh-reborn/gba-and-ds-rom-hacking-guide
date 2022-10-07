@@ -1,0 +1,18 @@
+# 12 Moving to a new system
+
+This section is more concerned with what happens when a brand new system comes along (whether you want to assist with reverse engineering the memory mappings and IO is up to you and ROM hacking skills are valuable here but this is going to focus on file level work for the most part) as opposed to simply moving to a system unknown to the hacker although it still applies there.
+
+Along with abstraction mentioned elsewhere one of the marks of a good ROM hacker is to be able to move to a new system (maybe having a filesystem parsing tool available) and start to pull apart things there despite either there not being many premade tools or them not having any experience on the device by virtue of them knowing how things tend to be put together. Such an ability is not necessarily rare but it is one that those that restrict themselves to known formats or high level tools will tend to lack (yet another reason many ROM hackers have reservations about relying solely upon such things).
+
+To this end/for the sake of clarity
+
+* File formats tend to have file sizes, magic stamps, headers and similar things. Find these and you start getting the rest/good stuff.
+* The technique of get a bunch of examples of a file format and skip between them seeing the differences (even by eye just switching between tabs in a hex editor) is very useful.
+* Compression tends to exist and be a variation on LZ or huffman or some known type
+* File formats tend to match the hardware fairly well or be based on known formats.
+* Even if a game uses a custom encoding it probably still has error messages and such in ASCII or unicode.
+* The basic classes of instruction stay the same for every CPU and they too are the basis for every program.
+* Even if the processor is custom it is probably at least related to another processor out there and the system itself probably does not employ some never before seen architecture (there will still be graphics, IO, interfacing options, general memory and storage)
+* If you can get an old system or system of similar power you know (although files intended for high end home consoles have been fished out of handheld formats) much of it remains fairly similar in terms of file formats (the GBA, DS, gamecube and Wii share a lot of basic file formats if not in common then certainly in spirit).
+* The above goes double for truly new systems (the bump for new systems might be quite large but developers probably developed for both systems).
+* Techniques like corruption and relative searching might be quite crude but they are not system specific.

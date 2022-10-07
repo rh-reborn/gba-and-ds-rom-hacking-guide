@@ -12,9 +12,125 @@ github-repo: rh-reborn/gba-and-ds-rom-hacking-guide
 description: "The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles."
 ---
 
-# Prerequisites
+|     |     |
+| --- | --- |
+| * * * | * * * |
+| Section | Content to do, improve or fix. |
+| * * * | * * * |
+| * * * | * * * |
+| Part 2 |     |
+| * * * | * * * |
+| Section 1 | PS3 iso unpacking links, for dreamcast sure up and include Iso LBA Fix (isofix) by DeXT |
+| * * * | * * * |
+|     | More hardware documentation links. nocash for PS1, SNES and more. Also debuggers. |
+| * * * | * * * |
+|     | https://wiki.neogeodev.org/index.php?title=Main_Page |
+| * * * | * * * |
+| Section 2 | 3d matrices, viewpoint (analyse mario kart cheats) and polish rest of 3d |
+| * * * | * * * |
+| * * * | * * * |
+|     | Tweak NSBMD palette finding |
+| * * * | * * * |
+|     | Polish NSBMD (tool) vertices decoding |
+| * * * | * * * |
+|     | YuGiOh example finish |
+| * * * | * * * |
+|     | Eragon example? |
+| * * * | * * * |
+| Section 3 | Finish example reverse engineering El Tigre |
+| * * * | * * * |
+|     | Scripting- lua from El tigre and maybe puzzle quest |
+| * * * | * * * |
+|     | Improve standard text extraction/insertion |
+| * * * | * * * |
+| Section 4 | Improve sseq looping |
+| * * * | * * * |
+|     | GBA sound- sappy hacks |
+| * * * | * * * |
+|     | http://www.hcs64.com/mboard/forum.php?showthread=34052&showpage=1 new DS sound format. |
+| * * * | * * * |
+|     | Improve video section (castlevania and digimon) |
+| * * * | * * * |
+| Section 5 | Finish items and start of levels worked example, improve discussion of randomisers and give some worked examples. |
+| * * * | * * * |
+|     | Take pictures of new desmume cheat engine |
+| * * * | * * * |
+|     | Secret/debug menu finding via control monitoring and control changing |
+| * * * | * * * |
+|     | Finish overlay compression dodging http://gbatemp.net/threads/recompressing-an-overlay-file.329576/#post-4387691 |
+| * * * | * * * |
+| Part 3 |     |
+| * * * | * * * |
+|     | GBA tracing |
+| * * * | * * * |
+|     | DS tracing |
+| * * * | * * * |
+|     | Example hacks |
+| * * * | * * * |
+|     | Python section and basic batch files |
+| * * * | * * * |
+|     | romulan junked for radare2, needs finishing and tidy up. Possibly consider just python. |
+| * * * | * * * |
+|     | Links and further reading |
+| * * * | * * * |
+| Part 4 | Formats (all) |
+| * * * | * * * |
+|     | More glossary? |
+| * * * | * * * |
+| * * * | * * * |
+|     | Index? |
+| * * * | * * * |
+| * * * | * * * |
 
-Lorem ipsum
+## Abstract
+
+ROM hacking for the purposes of this document will be defined as the the editing of ROM images and ISO images (ISO being the traditional term for images of optical media) with the intent of changing how underlying game code or the assets of it function in a useful way. Simply changing sections of an image without rhyme or reason is not ROM hacking as ROM hacking is usually the end result of a measure of reverse engineering.
+
+The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques, but with occasional asides into the other home consoles. Broadly speaking there are two main methods of producing useful ROM hacks with the most effective but initially most complex being the traditional definition of ROM hacking (sometimes called low level ROM hacking) where formats and methods of interaction are reverse engineered before being altered and extended. The other type, most often associated with the Pokemon franchise but far from exclusive to it, revolves around using premade tools to change games extensively in a manner closer to more traditional text, graphics and level editing, however with the use of such tools there can be very extensive hacks created in a short period of time by those with minimal knowledge of the underlying processes. It should also be noted that in more recent times a third, and possibly fourth, type have arisen, especially on the DS, where developers are commonly seen to use formats from the SDK or some other development library that brings aspects of low level hacking and tool driven hacking together by allowing rapid decoding of formats and exporting them before conducting lower level operations to insert the modifications and the potential fourth candidate has been seen in programs allowing plugins or scripts to be created using simple often text or XML a like formats to do similar things.
+
+With regards to premade tools they will not be a focus of this document, although if ones exist they might be mentioned.
+
+Categorisation can occur several more times with one in particular forming the outline of this document. In short the four main categories of ROM hacking seen today are graphics editing, text editing, multimedia editing and game logic (which includes assembly coding). Each of those can be subdivided at least one more time, to say nothing of each of those drawing from the other categories or having elements cross over; for instance in many puzzle games the text is encoded as regular graphics formats. The other categorisation, in this case of the hacks themselves, that will be thrown about a bit is translation, improvement, alteration and spoof. Such categorisations are of limited use for this document as they can all display very advanced techniques in each of the previously discussed categorisations.
+
+This document is largely intended for those that do not know much about ROM hacking or low level computing beyond maybe the command line interface, that said those at all levels of computing and ROM hacking knowledge should be able to get something from this and it is hoped that the focus on the GBA and DS will aid those looking to transfer from other consoles.
+
+## Foreword
+
+This is quick update for 2020 of my ROM hacking guide, a guide that I have been writing on and off for several years at this point. This version is a continuation of the 2012 edition which itself was almost a complete rewrite of earlier efforts and is mainly to fix a few broken links. Not a lot has been added since the 2014 or 2016 updates which were mainly there to update a few links. A guide was first attempted a little under a year after I decided to take up ROM hacking in earnest, a period which coincided with the rise of the dedicated DS flash cart. Give or take some fiddling with PC games many years before my first real in was probably learning to shrink ROM images to fit on GBA era devices that were not built to cater with file sizes seen in commercial DS titles. The first version was little more than collections of forum posts I made on various subjects and short overviews of the areas aiming to point people in the right direction if they wanted to learn how to do something, the later versions aimed to teach people some of the underlying principles and this continues along that path.
+
+At one point there was a sister document aiming more at hardware and device hacking, various parts were merged into this but for the most part that project was put on indefinite hold. Beyond that it might be considered outside the scope of this document, however it is far from unusual to see people with serious electrical and mechanical engineering skills become accomplished ROM hackers as the thought processes and mentality tends to fit in well.
+
+I have always pulled things apart and poked around in directories of programs in an attempt to see how they tick or tweak them to my liking. As far as ROM hacking is concerned the turning point came when I decided if something did not reveal itself via superficial means (plain text or some minor markup, double clicking the files and maybe a quick search of the program/extension) then I would attempt to drill down into it to figure it out. It soon occured to me that this would require knowledge of how things work from the ground up (or close enough to it) so that became what I sought to do. This was the start of an ongoing process I have been able to apply in many aspects of life and has instilled a mindset that continues to serve me well.
+
+Countless sites, hackers, conversations and tools have gone into getting this document and the author to this point but special mentions go to the DS ROM hacking section of [GBAtemp](https://gbatemp.net/forum/41-nds-rom-hacking-and-translations/), [romhacking.net](http://www.romhacking.net/) and anybody I have held a discussion with on those sites, cearn who authored the GBA programming tutorial [Tonc](http://www.coranac.com/tonc/text/toc.htm) and Martin Korth who is the author of the [no$gba specifications,](http://problemkaputt.de/gbatek.htm) though they detail very little of direct use to a lot of ROM hacking it can easily be said that most of present GBA and DS ROM hacking would not have got off the ground without them. Last but not least those responsible for the Crystaltile2 program that ties together several nice tools into a single program which allows me to tear about the ROM images at breakneck pace in a manner, one that would be hard to do using basic tools, and indeed it took until 2011 for us to see other tools that rank up there with it, when attempting to figure out how a ROM works.
+
+# (PART) I  Introduction {-}
+
+# Introduction
+
+Although the preceding sections have detailed some of what is to come, and how it will work, the introduction is still necessary. Broadly speaking there are four parts to this document including this introductory section. The bulk of this document will be taken up with parts on the areas of ROM hacking (graphics editing, text editing, multimedia editing and game logic) and a more free form part where the reader is shown some examples of hacks, methods and games in an attempt to convey some real world basis to a lot of the examples in the more general section that it would have been too unwieldy to keep in that part, too troublesome to categorise them or if they are otherwise little curiosities discovered over the years (it is these little curiosities that keep things interesting for many ROM hackers).
+
+Traditionally in such guides something borderline philosophical or general tends to be said about now and there is little need to break from tradition right now. To this end concerning the qualities that make for a good ROM hacker they are arguably patience, or perhaps a deep down acceptance that every problem in computing can be solved, and near boundless curiosity. Great ROM hackers have come from all walks of life but most interestingly it seems traditional education, good experiences or bad within it, is not necessarily a great indicator of how well a person will take to ROM hacking.
+
+The tools of the trade are many and varied but they can usually be broken down into five basics with only really the last being ROM hacking specific.
+
+1.  A hex editor. Unless quantum computing appears and takes over tomorrow all computers you will deal with boil down to binary (covered later but this is the 1 and 0 stuff) which is very simply abstracted to hexadecimal. It is usually ill advised to do anything more than viewing a format as a broad whole, looking in depth for a pattern or at small section, or making a simple change (be it a simple edit of a line, a find and replace, a basic operation or inserting something new) in a hex editor but those small changes can be the thing that makes a ROM hack work. 1a could be said to be a compression handling tool as compression is quite often standardised and often provides an immediate and, these days at least, simply worked around barrier to seeing a format as the program itself will see it.
+2.  A spreadsheet or some method of being able to manipulate/do repeated operations on a large list of numbers (in hexadecimal or otherwise). Computers are largely just tools for repeated manipulation of numbers, anything more usually coming at a steep cost in terms of resources required, so being able to manipulate large lists of numbers is useful.
+3.  A text editor. Related to the above two it is often beneficial to be able to manipulate sections of text and hexadecimal and perform extended searches upon them which is an arena text editors have long had serious abilities in.
+4.  A web browser. Although you will often be pulling things apart that have never been pulled apart before (and as high level programming languages become more viable for systems of the day that can be more true than ever) you will also be standing upon the shoulders of others all the time. To this end being able to see what others have done before you and research the underlying methods is very much necessary. As the doorway to the technical world these days is a web browser...
+5.  A tile editor. Used correctly a hex editor will allow you to see patterns in code and text but graphics are a huge part of nearly all games so being able to see graphics is immensely useful. See also the note on compression for hex editors as it can apply even more here (in a hex editor you can reasonably still follow what is going on but anybody that uses a tile editor for more than a few minutes will usually see how a mess of pixels can turn into a viewable image very quickly and be broken just as easily).
+
+A familiarity with the basic usage of the command line (running something from one using some switches, the idea of piping and how to create a batch file at the level of just a series of commands) and the usage of a spreadsheet (what cells are, the fill command and how to enter basic functions) will be useful but any specifics or more complex concepts will be covered where appropriate.
+
+Your computer to do all this does not necessarily have to be that powerful by the standards of any day, and especially in present times. Naturally there are techniques like some of the high end searching, some compression related activities and emulation of other consoles that push systems hard but a lot of damage can be done with considerably more modest systems. The added bonus of taking up ROM hacking compared with pulling apart real world devices (although such activities are also great fun) is that provided suitable backups are in place, and you really should get into the practice of making regular and preferably incremental backups of your work (some mention of methods by which you can do this is made in part 3), any damage can be undone by pressing undo or copying and pasting something else in, not to mention the further bonus of it allowing you to take many branching paths in an attempt to solve your problem. However many will suggest that if you can get a machine with at least two monitors of reasonably high resolution you will be doing well.
+
+On jargon. Without going back to the philosophical pondering elsewhere in this part or contemplating some of the more extreme areas of physics there comes a point where describing something becomes needlessly long winded so it is abstracted to a term or series of terms at the cost of having someone somewhere (somewhen?) lack a frame of reference for it. Hopefully any technical terms encountered will be explained in the paragraph, have been explained before it or are not of immediate relevance to the matter at hand. Note that this definition differs slightly from [The Jargon File’s](http://www.catb.org/~esr/jargon/html/distinctions.html) definition.
+
+## Warning
+
+Much of what you are about to read will train you in how to pull things apart, this eventually leads to you being able to pull things apart just by looking at them and it will become instinct to do so; you have probably seen variations on this in others that spend their days concerned with or have had training in a field and will constantly notice problems where others have attempted to do [something in said field](http://xkcd.com/1015/). There are ways for creators of works to lessen this but they are costly to do, and as most people do not spend their time pulling things apart they tend not to be done. This means you will quite often see just how things work, moreover you will see exactly how they have failed which can ruin things you might have previously enjoyed.
+
+If you are not careful this can turn you into a snob/art critic, another variation is the better version of this is where you will possibly be able to see the worth in just about anything and enjoy it. To this end be warned of each of these possibilities.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

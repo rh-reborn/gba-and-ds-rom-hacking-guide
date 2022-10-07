@@ -1,0 +1,23 @@
+# 18 Interesting links and further reading.
+
+Many areas thus far had to be skimmed over or otherwise not given as much attention at they might deserve either because they are fields unto themselves or because despite them existing elsewhere in games they might not be immediately relevant to the GBA and DS. This is then to provide some search terms and links to start looking at these things in a more in depth manner.
+
+## 18.1 Links
+
+This section is mainly going to be a link dump of all the links elsewhere in this document.
+
+## 18.2 Further reading
+
+There is a great deal more to learn about and that games will be using as time goes on (already in the PC side of things games are seen using database programming techniques, for instance see some of the things that went into reverse engineering world of warcraft).
+
+The 3d section touched upon some of it but with the GBA and DS hardware being so limited some of the aspects of texturing and lighting models were at best skimmed over and at worst omitted entirely.
+
+Game theory was briefly mentioned and although quite dangerous to learn about if you would like to keep being entertained (it really is the equivalent of seeing how the tricks are done) the applications of it are nearly endless.
+
+On a similar manner learning about certain aspects of psychology from the more practical things like visual psychology which informs a lot of aspects of games (we know humans tend to see motion even if it is static frames played at the rate of about 17 frames a second, we know the human eye does better detecting luminance (brightness) than it does colours (and there blue is harder to detect well) and that certain parts of the frame are more likely to not have errors noticed in (this leads to the idea of the quantisation matrix)) to the more philosophical/sociological things things like Joseph Campbell’s The Hero with a Thousand Faces which details the similarities between mythologies and ponders how they might apply more in general to humans. Related to that is some of the aspects of film and photography and how things work there for games are a largely visual medium and despite all the technical content of this document games tell stories and convey concepts in a creative manner and seeing your work that involved you taking a basic 2d sprite and using it to generate a 3d model, hand coding in ASM using newly developed areas of maths an enhanced 3d engine that surpasses the limits of the hardware to provide features not seen this side of places with rendering farms not function well from a storytelling perspective as you did not frame the camera properly/use proper composition is in many ways quite tragic.
+
+Part IV  
+File formats (specifications, methods and known formats).
+===================================================================
+
+This part aims to detail some of the basic file formats that are known when it comes to DS ROM images as well as a handful of more advanced and unusual ones. Also mixed in here are some quick overviews of the DS hardware and some guides to pulling formats apart.

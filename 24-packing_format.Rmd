@@ -1,0 +1,23 @@
+# 24 Packing format
+
+## 24.1 NARC, ARC and CARC
+
+ARC had been seen for several years by the time NARC rolled around. CARC just a compressed version of the format.
+
+|     |     |     |
+| --- | --- | --- |
+| * * * | * * * | * * * |
+| Location | Size | Description |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |
+| * * * | * * * | * * * |

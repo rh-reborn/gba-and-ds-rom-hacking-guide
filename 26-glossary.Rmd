@@ -1,0 +1,153 @@
+# (PART) V  Glossary, index and such {-}
+
+# 26 Glossary
+
+A glossary of terms
+
+* Absolute - also known by function name ABS. If a number is negative it returns the positive value (-4 becomes 4) and if it is positive it also returns the positive value. Useful when dealing with signed values.
+* Abstraction - the process of turning low level concepts into higher level ones usually with the aim of simplifying implementation or ease of maintenance.
+* Act imagine - former name for mobiclip and sometimes term for the video encoding method they make.
+* Action replay - a device that effects memory hacking and catch all term for any device or code that also hacks memory to cheat.
+* Address - the location of some data or files.
+* ADPCM - A slightly more advanced encoding method for storing representations of wave files. Usually has a wrapper and is supported by the DS audio system.
+* AND - a boolean operation. Classified as outputs high if all inputs are high. The inverse of NAND.
+* Anti Piracy - a term used to describe a technique used by developers to prevent copied games from working properly.
+* AP - see Anti Piracy
+* ARM - can refer to ARM the company or ARM mode in the processors used by the DS and GBA.
+* ARM7 - the secondary processor of the DS and main (only) processor of the GBA and when in GBA mode.
+* ARM7TDMI - the specific type of ARM7 processor seen in the GBA and DS.
+* ARM9 - the main processor of the DS.
+* ASCII - an older 8 bit (7 bit in practice) method for encoding text and de facto standard for most files until proper text is needed.
+* ASM - see assembly.
+* Assembler - can refer to either the program to turn ASM code into object/machine code or the computer language assembly. See also Assembly.
+* Assembly - a series of low level computer languages that correspond directly to machine instructions and that vary widely between processor and system architecture.
+* Binaries - collective name for the files that house the code processors run although they do not have to just house processor code.
+* Binary - either refers to the base 2 numbering system (1 and 0) or the file that houses the code that the processor runs.
+* BIOS - the inbuilt code for the GBA and DS that has functions programs can use and governs the basic operation of the system.
+* Bit - a single binary digit. Usually represented by 1 or 0 depending on whether it is used or empty.
+* BLZ - a name for the DS binary and overlay specific LZ compression.
+* Boolean logic - a class of operations and electronic gates that allow for the manipulation of signals.
+* BPP - Bits per pixel. Refers quite literally to how many bits represent each pixel although usually seen with a number in front of it to indicate type.
+* BSDiff - a general purpose patching format without many of the limits of IPS used to patch files for modern systems. Rival to Xdelta.
+* CARC - the compressed version of the NARC archive format.
+* Ceiling - when using floating numbers this rounds to a higher number (negative goes closer to 0/closer to positive infinity)
+* Cheating - refers to changing memory values to effect changes within a game (“action replay”) or changing what the game sees the ROM image as (“game genie”)
+* Checksum - a process by which data is analysed and certain key things noted about it that allows another to (hopefully) detect whether it has been changed since the checksum was made.
+* Codebreaker - a device that effects memory hacking (sometimes referred to as “action replay” codes) for cheating purposes.
+* Compiler - a tool for turning high level languages into code that can be run on a processor. Verb is to compile.
+* Compression - the act of reducing the size of a file but allowing it to still be read. Two categories known as lossy and lossless each with many methods. Common lossless methods include LZ, U8 and Huffman.
+* Coprocessor - a secondary processor some machines have to help with certain task.
+* Crystaltile2 - all in one hacking tool featuring assembly viewer and editor, hex editor, class leading tile editor, tile viewer and support for many DS formats.
+* Decompiler - a tool for turning machine code back into a high level language. Exists more for very high level languages as compiling is often considered a one way process.
+* Desmume - the emulator with the highest compatibility with DS ROMs. Features some debugging capability.
+* Dipstar - earliest DS cheating program that worked on real hardware.
+* DMA - direct memory access. A method by which a device can move sections of data in memory without having to go through the processor.
+* DPS - Deufeufeu patching system. A custom patching format that accounts for the DS file system and used in Jump Ultimate Stars translation.
+* DS - Nintendo’s successor to the GBA with two screens and a touchscreen.
+* DSi - a later model of DS with extra features and slightly more powerful.
+* Dummying - the act of replacing a file (usually multimedia) with a file of zero size of the smallest possible version of a format.
+* Dumping - the act of dumping either an entire ROM/ISO or part of a format from the original container.
+* EEPROM - A type of permanent storage (although traditionally quite small) used to store game saves. Also seen in lower levels of circuits to hold data.
+* ELF - A format used to store executable code. Commonly used by Unix based systems (linux and BSD) as well as homebrew developers.
+* Emuhaste - a tool that attaches to emulators which allows memory viewing and manipulation. Mainly used for cheat making but has other uses.
+* Encoding - the act of making a code. In ROM hacking it usually refers to assigning a series of hexadecimal numbers to represent characters.
+* Encryption - a process of obscuring the original data and (hopefully) making it viewable only by those that have the relevant keys.
+* Endianness - the order by which bytes are read. Differs between the common PC which reads it as an ordinary number and most other systems which have the smallest portion first.
+* EUC-JP - a common type of 16 bit Japanese text encoding. Less common than shiftJIS in DS games.
+* Filesystem - the process of putting different pieces of code and concepts into different files and defining where they are outside the basic constraints of memory. You can unpack a filesystem.
+* Firmware - the updatable code on the DS and many flash carts that provides a basic user interface and some additional functions and system management.
+* Fixed point - another method by which computers can handle non integer numbers and quite literally means the point after which the non integer part starts. Seen in the DS 3d systems.
+* FLASH - A type of permanent storage. Expensive (relatively speaking) and used both in Flash carts and save storage. Has various types as well (NAND and NOR being the big two).
+* Flip - the act of rearranging bytes orders.
+* Float - the process by which most computers and programs handle non integer (whole) numbers.
+* Floor - when using floating numbers this rounds to a lower number (negative goes away from 0/closer to negative infinity)
+* Furigana - a pronunciation key for Kanji but in practice often used as a type of footnote.
+* Game genie - a name for a device from a defunct company that allowed people to alter what a console saw on a cartridge and catch all term for codes/devices that do similar things. Name now used on an “action replay” style device.
+* GBA - gameboy advance from Nintendo. A handheld console from Nintendo.
+* GPIO - general purpose IO. On the GBA and DS various pieces of hardware attach to it and allow access via it. Includes controls and coprocessors with extra abilities.
+* Graphics - the practice of representing an item or location visually. One of the main areas of ROM hacking.
+* HasteDS - an older program that attaches to emulators to allow development of cheats. Replaced for more by Emuhaste.
+* Header - a common technique to include information about the file to come. Usually found at the start or end of a file or subfile.
+* Hex editor - a tool that displays the raw contents of a file and usually the location in it and a readout using a given encoding with the default usually being ASCII.
+* Hexadecimal - a numbering system that allows for larger numbers of bits to be conveyed more effectively. Often what the contents of a ROM or ISO are rendered as.
+* Hirgana - smoother flowing symbols used in Japanese mainly for native words.
+* Hooking - the act of getting extra code to run where no intentional opening was provided for it.
+* HUFFMAN - a type of compression the arranges lengths of code and classifies them according to how often they repeat assigning shorter lookup values for the
+* IDA - a program for reverse engineering code ostensibly from any CPU or system (although you might have to write a file containing a listing of the operations of the system). Considered the top of the line by many unless you are dealing in very specialist fields and/or paying telephone numbers for the reverse engineering tools.
+* Insertion - the act of putting edited content back into a ROM. Usually refers to text.
+* Interpreted language - a language that is left as source code or a close equivalent until runtime. Java, Python, Lua and Lisp have interpreted options.
+* Interrupts - methods by which code can halt the currently running piece of code when something changes.
+* Inversion - the act of turning a 1 into a 0 and vice versa.
+* IPS - oldest patch format in common use in ROM hacking. No longer in common use on modern systems owing to limitations.
+* ISO - Name of a world standards body but also refers to a copy of data from a piece of optical media.
+* ISO 9660 - a common method of storing data on CDs and DVDs.
+* Kana - the collective term of the Hiragana and Katakana Japanese phonetic letter systems.
+* Kanji - the complex symbols used in Japanese that originated in Chinese. They are ideographs and one Kanji represents one word or combined to make a compound word.
+* Katakana - angular looking Japanese symbols used mainly for loanwords.
+* Lisp - a very extensible high level programming language used for a handful of programs like the assembler ARMish.
+* Lua - a high level programming language that has been seen in some DS games like Puzzle Quest.
+* LZ - Short for Lempel Ziv. The name for the broad class of “sliding window” compression where data earlier in the file is referred to in the event of a repeat.
+* LZ77- a variation on LZ compression devised in 1977. Often mistakenly used as a catch all term for modern LZ compression or mistakenly as an alternative to LZSS.
+* LZM - a variation of the type of compression
+* LZSS - a derivative of LZ77 (itself a version of LZ) and basis for some of the GBA and DS compression algorithms.
+* LZW - Lempel Ziv Welch. A variation on the LZ compression.
+* Mapping - the process of attaching various pieces of memory to a common method of access.
+* Memory - a device for storing data.
+* Mobiclip - name of the company that makes the Act Imagine/MODS/VX video encoder.
+* MODS - extension and magic stamp of a Mobiclip video format.
+* NAND - a boolean operation. Classified as outputs high if none of the inputs are high. The inverse of NAND and fundamental operation from which all other Boolean operations can be constructed.
+* NARC - an archive format available in the NitroSDK and fairly widely used.
+* NEF - originally a Nintendo internal debugging helper format it later got supported in no$gba and Crystaltile2.
+* Nitro hax - a program that allowed flash cart users on the DS the ability to have memory hacking on normal games.
+* Nitro SDK - a term commonly used to describe the development kit Nintendo ships to licensed developers that features many file types.
+* no$gba - one of the better emulators for the GBA and at one time the DS. Debugging support is available in the debugger version which is freely available nowadays. It is also tied to the GBAtek specifications for the GBA and DS.
+* NOP - short for No OPeration. An instruction that does nothing which either allows things the time to complete or a hacker to remove an instruction without shifting the following code.
+* NOR - a boolean operation. Classified as outputs high if none of the inputs is high. The inverse of OR.
+* NOT - a boolean operation. Classified as outputs high if the input is low. Also know as invert.
+* NSBMD - name for the DS SDK format for handling 3d imagery. Probably the dominant format.
+* OAM - Object Area Memory. The section of memory that controls where sprites are located on the GBA and DS screens.
+* Offset - when discussing pointers it refers to pointers that do not start counting from the start of the file.
+* ollydbg - a program commonly used to analyse, reverse engineer and debug Windows executable files.
+* Opcode - a mnemonic for the base component of instruction to be run on a processor.
+* OR - a boolean operation. Classified as outputs high if any input is high. The inverse of NOR.
+* Overlay - a technique used on the DS where a portion of memory is set aside and replaced to allow different functions to happen in a limited space.
+* Patching - most ROM hacks are distributed as lists of changes and patching is the act of applying a patch. Also refers to removing of protection measures.
+* PCM - A way of storing/encoding a representation of an audio wave file. Also a general file format for some games like N+.
+* PE - portable executable. The technical name for the exe and dll files used by windows to house executable code.
+* Pointer - a method by which the location of data is noted. Can be used for file formats, in machine code, in graphics, in text, in sound and more.
+* Python - high level programming language that is commonly used in general computing and fairly suited to ROM hacking.
+* RAD BINK- name for a video format commonly seen in computer games.
+* Relative - when discussing pointers it refers to pointers that take their own location into account (add 20 to current address for instance)
+* Relinking - the process of changing where a file is found by changing the address. Usually done as part of ripping to decrease size or to get files to play out of intended order.
+* Ripping - sometimes a synonym for dumping in both senses but also the act of removing files to decrease ROM/ISO size.
+* RLE - run length encoding. A primitive/special case version of LZ compression that takes long runs of a single type of code and note the character and length. Seen on earlier consoles as well as some later ones and commonly used in text (although not really on the GBA or DS).
+* ROM - Read Only Memory. Refers often to ROM image which is a copy of the data from a cartridge.
+* Romaji - Japanese characters rendered as Roman characters according to how they sound when they are pronounced.
+* Rotate - the act of moving bits a given amount in one direction or another. Bits not in the original length return the other side (1001 rotated left becomes 0011)
+* RTC - real time clock. The process of adding a clock that knows the time on the device (and hopefully the real world) usually so as to add events accordingly. Seen on the GBA where it was an on cart extra (needing patches to run on flash carts without the hardware for it) and on the DS where it was part of the main system.
+* SDAT - the dominant sound format for DS commercial games.
+* SDK - short for software development kit. See also Nitro SDK.
+* Sector - a method by which small address numbers can be extended to allow for a larger range.
+* Shift - the act of moving bits a given amount in one direction or another. Bits not in the original length are lost.
+* ShiftJIS - a common type of 16 bit Japanese text encoding. Typified by the upper 4 bits usually being 8 or 9
+* Signing - a process of making a checksum but using encryption style methods to (hopefully) mean only someone with the relevant keys can generate a new checks.
+* SRAM - Save RAM. A broad use type of memory used by the GBA and several other systems and flash carts for the purposes of save games. Noted for needing a battery to hold data between uses in many setups.
+* SSEQ - the “midi” style tracker format used but the SDAT sound format. Linked to Bank.
+* Table - a list of values and the characters they represent.
+* TCM - tightly coupled memory. Two small (16 and 32 kilobytes for the different types) memory sections internal to the processors of the GBA and DS.
+* Text - the practice of using symbols to represent ideas and sounds. Common target for ROM hacking.
+* THUMB - a cut down but theoretically faster and more compact operating mode for the GBA and DS processors.
+* Tinke - One of the general purpose ROM hacking toolkits aimed at DS games featuring support for several common filetypes and more.
+* TWL SDK - the newer SDK that replaced the NitroSDK on later DS games and was mainly used on DSi and DSi extra features games.
+* U8 - an archive type often seen in the Nintendo consoles Gamecube and Wii.
+* Unicode - a fairly complex method for encoding text, erroneously compared to the simpler variation called U16 unicode.
+* UPS - patching format and an intended successor to IPS but came after XDelta and BSDiff became established.
+* VBA-SDL-h - the hacking and debugging fork of the GBA emulator VBA.
+* VBA. Visual boy advance, a gaming grade GBA emulator. Forked into VBA-m when VBA stopped being developed.
+* VRAM - Video RAM. The location where the data that will be displayed on the screen should the OAM and BG handler allow it is kept.
+* VX - older version and extension of Mobiclip/act imagine video format.
+* WRAM - Work RAM. The name for the location of the general use memory on the GBA and DS.
+* XDelta - another general purpose patching format without limitations of IPS used to patch files for modern systems. Rival to BSDiff.
+* XNOR - a boolean operation. Classified as outputs high if both inputs are the same. Inverse of XOR and also usually only seen in two input form.
+* XOR - a boolean operation. Classified as outputs high if one and only one input is high. Usually only seen in two input format. The inverse of XNOR.
+* YAZ0 - another compression type seen largely in the gamecube and Wii. Technically a version of RLE.

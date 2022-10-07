@@ -1,0 +1,37 @@
+# 7 GBA tracing
+
+GBA tracing was mentioned back in the discussion of assembly hacking and the theory behind it all covered but a few worked examples are probably useful.
+
+## Tracing options
+
+It is unknown if no$gba debug version can still be legitimately obtained.
+
+no$gba
+
+One of the fullest debugging emulators available anywhere. GUI driven with the option to set breakpoints and fiddle with assembly at runtime.
+
+VBA-SDL-h
+
+A more command line driven program but on a par with no$gba as far as useful functions goes.
+
+boycott-advance
+
+Less featured than vba-sdl-h but more GUI focused and still has breakpoints and a few other nice features.
+
+There are three main uses for tracing/debugging emulators as far as ROM hackers are concerned
+
+1.  Finding where a given resource is found
+2.  Observing and reverse engineering game logic (actual game handling of health and such or how it unpacks/handles a format)
+3.  Finding space to put files/data in memory
+
+Finding where a given resource is found is especially useful on systems like the GBA that lack a filesystem and so probably lack a clear definition of where things can be found.
+
+The usual process is to find the data of choice in memory (hopefully it is static) and then running the game to that point again but this time with a breakpoint set on anything that writes to that section. On the GBA (and DS for that matter) the CPU has some basic access to memory (although recall it is done via actual commands rather than as part of an instruction as it is on x86 family machines) but most access that requires extensive data transfer is done via DMA or SWI calls (for compressed data although not all games use SWI calls or even SWI compatible compression). SWI calls can be logged themselves and even fed to decompression tools to try to find data.
+
+Observing game logic is often part of creating some of the more far reaching cheats but the usage is twofold as game data in the ROM/ISO might not be the same as the data as used in RAM and the game logic itself might want to be manipulated either as a basic experience/damage multiplier or something more in depth (which can also feed back into understanding formats that are not readily apparent). Remember though that by the time you see it on a screen it has probably been done for several hundred cycles.
+
+Memory constraints are ever present on embedded devices and some ROM hackers have been seen to optimise a game to gain the space on occasion. Granted that is not necessary and it might be easier to instead approach it from another avenue (dual tile encoding, looping audio sooner and such).
+
+### 7.0.1 Worked examples
+
+VBA-sdl-h is the choice of tool here but the ideas roughly follow for boycott advance and the developer version of no$gba.

@@ -1,0 +1,35 @@
+# 21 General file reverse engineering
+
+This section has thoughts and ideas that go into reverse engineering file formats from scratch. A lot of the concepts are covered partially elsewhere but more importantly many are very simple and although they are far from foolproof they work far more often than they do not.
+
+The two things you want to have when reverse engineering (other than a full spec or maybe source code) are lots of examples of the format and a version of the file containing a lot of primitives of the sort of thing it contains (although having versions with more advanced features is useful as well).
+
+Two popular sites hosting a lot of information about formats are [xentax.com](http://wiki.xentax.com/index.php/Game_File_Format_Central) and [multimedia.cx](http://wiki.multimedia.cx/index.php?title=Main_Page) (aimed more at multimedia but houses a large amount of information on the music and video formats used in games).
+
+[DGTEFF](http://wiki.xentax.com/index.php?title=DGTEFF) has a nice alternative viewpoint on a few of the techniques covered here and “[The Definitive Guide to Exploring File Formats](http://www.romhacking.net/docs/464/)” is well worth a read.
+
+## 21.1 Headers
+
+There are found in most files and can get a lot done. Usually contain an identifying mark, an overall file length, a length of the header itself, locations of the other areas that contain information, maybe file names or at least file identification of some form.
+
+Subheaders also exist where the format can have a basic information header and another to actually cover the contents of the file.
+
+## 21.2 File sizes
+
+Ignoring packing formats unless you are looking inside one file sizes can give a clue as to their content. For instance if you are reverse engineering a 2d graphics format and you have two small files and a big file the smallest is a toss up between the layout and the palette and the largest is probably going to be the actual tile data.
+
+## 21.3 Multiple versions of the game
+
+Now this does not necessarily mean v1.1 versions (although they can be useful) but if you can have a Japanese version of the game sitting alongside a European version and a North American version the differences between them in both names and contents of the files can say lots of things about what is contained within.
+
+## 21.4 File names and extensions
+
+Related files are usually named similar things (quite often with numbers) and are placed either close together or in similar order if kept apart even if the actual file name holds little value. Extensions mean little outside of Windows computes
+
+## 21.5 Tile viewers
+
+Assuming your file is not compressed and even if you are not looking for imagery take a look over it with a tile editor and appropriate palette. Although most of us recognise numbers instinctively we are still hardwired to look for visual cues so if you see large chunks of “blank” space you are probably not looking at text and likewise you can get an idea of patterns (header, information and then more header and more information for example). Hex editors also quite often offer to colourise the hex window/portion although this is not that ideal in many cases.
+
+## 21.6 Pointers and such
+
+More often than not you will find yourself extracting data without much idea what the pointers say but on the flip side if you see a group of what could be pointers (usually after the initial header) try following them and breaking up the file accordingly.

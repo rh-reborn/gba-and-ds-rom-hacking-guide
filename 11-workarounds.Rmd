@@ -1,0 +1,7 @@
+# 11 Workarounds
+
+Not all tools do the job properly, some times a small change might be called for but creating a program for it might not be that easy and in the case of SDAT and SDK 3D the existing tools can fall somewhat short. To a good ROM hacker though this is merely a speedbump and they will go manual or massage the input to get what they need.
+
+Related to this is the quick and dirty method. Where it might be nice or even good form to have a fully fledged, if game specific, tool to do your work with you can get a lot done with a basic tool that allows cutting up files, some searches and a spreadsheet that can handle hexadecimal at some level. Doing this also allows you to get the necessary data out to other team member that might be handling editing of text, graphics or levels as you figure out how to fix the ROM once you get the edited versions back or indeed if your task is just to rip the various parts of a game (ripping sounds, sprites and models is quite popular after all) and can otherwise locate the files despite not yet understanding say the initial pointer system (remember many DS files start with a magic stamp of some form).
+
+Neither are as glamorous as coding custom tools to do the task but all good ROM hackers are able to do this (it being a basic result of being able to do abstract thinking).
