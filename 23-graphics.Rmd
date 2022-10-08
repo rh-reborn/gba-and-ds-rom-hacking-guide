@@ -6,101 +6,101 @@
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## NANR
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## NCGR
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## NSCR
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## NMCR
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## NFTR
 
@@ -108,21 +108,21 @@ A common font format seen in the DS. Has seen a few revisions as well.
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 # 3d
 
@@ -132,21 +132,21 @@ A 3d model format with an optional texture section (material colours are availab
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## NSBTX
 
@@ -154,21 +154,21 @@ The NSBMD file can house textures to be used but separate textures are available
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## NSBCA
 
@@ -176,18 +176,18 @@ An animation format for the NSBMD family. Several developers opted out of using 
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |

@@ -6,18 +6,18 @@ ARC had been seen for several years by the time NARC rolled around. CARC just a 
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |

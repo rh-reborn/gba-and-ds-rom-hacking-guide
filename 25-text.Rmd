@@ -8,18 +8,18 @@ The short version is U16 unicode stacked on top of sometimes relative, sometimes
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |

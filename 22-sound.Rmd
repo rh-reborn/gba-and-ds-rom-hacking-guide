@@ -6,41 +6,41 @@ SDAT is the dominant audio format on the DS and although by itself it contains n
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## SSEQ
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## STRM
 
@@ -48,81 +48,81 @@ Occasionally seen outside the SDAT file. “Officially” the only one that does
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## SWAR
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## SWAR
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## BANK
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 ## Other formats
 
@@ -130,54 +130,54 @@ See http://gbatemp.net/topic/305167-the-various-audio-formats-of-the-ds/
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
 | Location | Size | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |
+| &emsp; | &emsp; | &emsp; |

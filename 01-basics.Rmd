@@ -1,4 +1,4 @@
-# (PART) II  ROM hacking concepts {-}
+# (PART) ROM hacking concepts {-}
 
 An attempt has been made to divide sections up but you are advised not to pay that much attention to them, or at least do not consider them indivisible if for no other reason than just about any of these is the worthy of being the subject of a document longer than this one. Although it is the default position of this guide anyway this part will focus more upon the hardware underpinning things, any dominant formats/concepts and some basic techniques to use rather than simple tool usage (although much of that is covered too) with the next part being given over to fully worked examples rather than the simplistic techniques or overviews favoured in this section.
 
@@ -18,42 +18,23 @@ A quick reference table
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
 | Decimal | Hexadecimal | Binary |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
 | 0   | 0   | 0000 |
-| * * * | * * * | * * * |
 | 1   | 1   | 0001 |
-| * * * | * * * | * * * |
 | 2   | 2   | 0010 |
-| * * * | * * * | * * * |
 | 3   | 3   | 0011 |
-| * * * | * * * | * * * |
 | 4   | 4   | 0100 |
-| * * * | * * * | * * * |
 | 5   | 5   | 0101 |
-| * * * | * * * | * * * |
 | 6   | 6   | 0110 |
-| * * * | * * * | * * * |
 | 7   | 7   | 0111 |
-| * * * | * * * | * * * |
 | 8   | 8   | 1000 |
-| * * * | * * * | * * * |
 | 9   | 9   | 1001 |
-| * * * | * * * | * * * |
 | 10  | A   | 1010 |
-| * * * | * * * | * * * |
 | 11  | B   | 1011 |
-| * * * | * * * | * * * |
 | 12  | C   | 1100 |
-| * * * | * * * | * * * |
 | 13  | D   | 1101 |
-| * * * | * * * | * * * |
 | 14  | E   | 1110 |
-| * * * | * * * | * * * |
 | 15  | F   | 1111 |
-| * * * | * * * | * * * |
 
 The thing to remember about binary is that it is much like the number 1567 decimal means 1 count of 1000, 5 counts of 100, 6 counts of 10 and 7 counts of 1 or in words it is a list of counts of ten raised to a power. For binary rather than ten you use 2 so 1110 means one count of 8, one count of 4, one count of 2 and zero counts of 1. There are all sorts of tricks and things you can learn here, many of which will be covered before long, and some are almost as essential as hexadecimal when it comes to understanding the document to come.
 
@@ -87,30 +68,17 @@ There some minor variations here (the standard 8,4,2 and 1 can make every combin
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
 | Decimal | Hexadecimal | Binary |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
 | 0   | 0   | 0000 |
-| * * * | * * * | * * * |
 | 1   | 1   | 0001 |
-| * * * | * * * | * * * |
 | 2   | 2   | 0010 |
-| * * * | * * * | * * * |
 | 3   | 3   | 0011 |
-| * * * | * * * | * * * |
 | 4   | 4   | 0100 |
-| * * * | * * * | * * * |
 | 5   | 5   | 0101 |
-| * * * | * * * | * * * |
 | 6   | 6   | 0110 |
-| * * * | * * * | * * * |
 | 7   | 7   | 0111 |
-| * * * | * * * | * * * |
 | 8   | 8   | 1000 |
-| * * * | * * * | * * * |
 | 9   | 9   | 1001 |
-| * * * | * * * | * * * |
 
 Using the clock example if you wanted to represent the time 15:30 you could figure out a way to encode it or just use BCD
 
@@ -120,30 +88,17 @@ For a quick example of the 5,3,1 and -1 scheme also mentioned
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
 | Decimal | Hexadecimal | Binary |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
 | 0   | 0   | 0000 |
-| * * * | * * * | * * * |
 | 1   | 1   | 0010 |
-| * * * | * * * | * * * |
 | 2   | 2   | 0101 |
-| * * * | * * * | * * * |
 | 3   | 3   | 0100 |
-| * * * | * * * | * * * |
 | 4   | 4   | 1001 or 0110 |
-| * * * | * * * | * * * |
 | 5   | 5   | 1000 |
-| * * * | * * * | * * * |
 | 6   | 6   | 1010 |
-| * * * | * * * | * * * |
 | 7   | 7   | 1101 |
-| * * * | * * * | * * * |
 | 8   | 8   | 1100 |
-| * * * | * * * | * * * |
 | 9   | 9   | 1110 |
-| * * * | * * * | * * * |
 
 15:30 once more
 

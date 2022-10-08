@@ -545,21 +545,13 @@ There are several loop commands available to the would be SSEQ composer
 Length of parameter needs one byte added to get length of the whole command.
 
 |     |     |     |     |
-| --- | --- | --- | --- |
-| * * * | * * * | * * * | * * * |
-| Command | Param length | Description of parameters | Explanation |
-| * * * | * * * | * * * | * * * |
-| * * * | * * * | * * * | * * * |
-| 94  | 3   | offset jump address | Offset = start of pointers (typically 1C) |
-| * * * | * * * | * * * | * * * |
-| 95  | 3   | Location within | Calls another track into position |
-| * * * | * * * | * * * | * * * |
-| FD  | 0   | -   | Returns to call address plus 4 hex |
-| * * * | * * * | * * * | * * * |
-| D4  | 1   | Loop count | Starts a loop counter |
-| * * * | * * * | * * * | * * * |
-| FC  | 0   | -   | End marker for D4 command |
-| * * * | * * * | * * * | * * * |
+| --- | --- | --- | --- | * * * |
+| Command | Param length | Description of parameters | Explanation | * * * | * * * |
+| 94  | 3   | offset jump address | Offset = start of pointers (typically 1C) | * * * |
+| 95  | 3   | Location within | Calls another track into position | * * * |
+| FD  | 0   | -   | Returns to call address plus 4 hex | * * * |
+| D4  | 1   | Loop count | Starts a loop counter | * * * |
+| FC  | 0   | -   | End marker for D4 command | * * * |
 
 Various commands are used for various things depending upon the composer although the 94 command is the one typically used by hackers
 

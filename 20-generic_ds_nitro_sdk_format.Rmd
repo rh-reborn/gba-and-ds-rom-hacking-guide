@@ -8,18 +8,11 @@ Usually around byte 8 there will be a value that .
 
 |     |     |     |
 | --- | --- | --- |
-| * * * | * * * | * * * |
 | Location (hex) | Size (bytes) | Description |
-| * * * | * * * | * * * |
-| * * * | * * * | * * * |
 | 0   | 4   | ASCII magic stamp unique to the file format |
-| * * * | * * * | * * * |
 | 4   | 4   | Padding (other formats will use size) |
-| * * * | * * * | * * * |
 | 8   | 2 or 4 | Size of whole file or section if in a container |
-| * * * | * * * | * * * |
 | C   | 2   | Size of this header (usually fixed) |
-| * * * | * * * | * * * |
 | E   | 2   | For archive formats number of sections |
 
 It is not set in stone and there are formats SDK that will do other things. After this it will tend to be data relevant to the information it holds or more information if it is an archive format. Unlike many other formats elsewhere in computing a hexadecimal magic stamp is not that common in nitroSDK formats.

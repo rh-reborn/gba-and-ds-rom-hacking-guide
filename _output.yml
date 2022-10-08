@@ -8,6 +8,7 @@ bookdown::gitbook:
         <li><a href="https://gbatemp.net/threads/gbatemp-rom-hacking-documentation-project-new-2016-edition-out.73394/" target="blank">Documentation Project on GBATemp</a></li>
     edit: https://github.com/rh-reborn/gba-and-ds-rom-hacking-guide/edit/main/%s
     download: ["pdf", "epub"]
+  split_by: section
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

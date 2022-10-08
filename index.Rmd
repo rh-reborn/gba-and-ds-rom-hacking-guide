@@ -48,7 +48,7 @@ description: "The following document covers ROM hacking methods with a focus upo
 |     | More glossary? |
 |     | Index? |
 
-## Abstract {-}
+# Abstract {-}
 
 ROM hacking for the purposes of this document will be defined as the the editing of ROM images and ISO images (ISO being the traditional term for images of optical media) with the intent of changing how underlying game code or the assets of it function in a useful way. Simply changing sections of an image without rhyme or reason is not ROM hacking as ROM hacking is usually the end result of a measure of reverse engineering.
 
@@ -60,7 +60,7 @@ Categorisation can occur several more times with one in particular forming the o
 
 This document is largely intended for those that do not know much about ROM hacking or low level computing beyond maybe the command line interface, that said those at all levels of computing and ROM hacking knowledge should be able to get something from this and it is hoped that the focus on the GBA and DS will aid those looking to transfer from other consoles.
 
-## Foreword {-}
+# Foreword {-}
 
 This is quick update for 2020 of my ROM hacking guide, a guide that I have been writing on and off for several years at this point. This version is a continuation of the 2012 edition which itself was almost a complete rewrite of earlier efforts and is mainly to fix a few broken links. Not a lot has been added since the 2014 or 2016 updates which were mainly there to update a few links. A guide was first attempted a little under a year after I decided to take up ROM hacking in earnest, a period which coincided with the rise of the dedicated DS flash cart. Give or take some fiddling with PC games many years before my first real in was probably learning to shrink ROM images to fit on GBA era devices that were not built to cater with file sizes seen in commercial DS titles. The first version was little more than collections of forum posts I made on various subjects and short overviews of the areas aiming to point people in the right direction if they wanted to learn how to do something, the later versions aimed to teach people some of the underlying principles and this continues along that path.
 
@@ -70,7 +70,7 @@ I have always pulled things apart and poked around in directories of programs in
 
 Countless sites, hackers, conversations and tools have gone into getting this document and the author to this point but special mentions go to the DS ROM hacking section of [GBAtemp](https://gbatemp.net/forum/41-nds-rom-hacking-and-translations/), [romhacking.net](http://www.romhacking.net/) and anybody I have held a discussion with on those sites, cearn who authored the GBA programming tutorial [Tonc](http://www.coranac.com/tonc/text/toc.htm) and Martin Korth who is the author of the [no$gba specifications,](http://problemkaputt.de/gbatek.htm) though they detail very little of direct use to a lot of ROM hacking it can easily be said that most of present GBA and DS ROM hacking would not have got off the ground without them. Last but not least those responsible for the Crystaltile2 program that ties together several nice tools into a single program which allows me to tear about the ROM images at breakneck pace in a manner, one that would be hard to do using basic tools, and indeed it took until 2011 for us to see other tools that rank up there with it, when attempting to figure out how a ROM works.
 
-# (PART) I  Introduction {-}
+# (PART) Introduction {-}
 
 # Introduction {-}
 

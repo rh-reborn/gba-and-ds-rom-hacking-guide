@@ -1,4 +1,4 @@
-# (PART) III  Examples, oddities and techniques {-}
+# (PART) Examples, oddities and techniques {-}
 
 # Crystaltile2 general usage guide
 

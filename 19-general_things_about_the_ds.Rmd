@@ -1,4 +1,4 @@
-# (PART) IV  File formats (specifications, methods and known formats) {-}
+# (PART) File formats (specifications, methods and known formats) {-}
 
 # General things about the DS
 
