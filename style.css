@@ -12,3 +12,15 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+.book .book-body .page-wrapper .page-inner section.normal table td,
+.book .book-body .page-wrapper .page-inner section.normal table th {
+  border-left: unset !important;
+  border-right: unset !important;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal table td,
+.book .book-body .page-wrapper .page-inner section.normal table th {
+  padding: 6px 13px !important;
+  border: 1px solid #ddd !important;
+}

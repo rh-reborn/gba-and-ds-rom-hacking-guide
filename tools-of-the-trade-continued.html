@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.7 Tools of the trade continued | GBA and DS ROM hacking guide</title>
+  <meta name="description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.7 Tools of the trade continued | GBA and DS ROM hacking guide" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  <meta name="github-repo" content="rh-reborn/gba-and-ds-rom-hacking-guide" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.7 Tools of the trade continued | GBA and DS ROM hacking guide" />
+  
+  <meta name="twitter:description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  
+
+<meta name="author" content="FAST6191" />
+
+
+<meta name="date" content="2022-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="abstraction.html"/>
+<link rel="next" href="basic-file-format-concepts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">GBA and DS ROM hacking guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sections</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="warning.html"><a href="warning.html"><i class="fa fa-check"></i>Warning</a></li>
+</ul></li>
+<li class="part"><span><b>II ROM hacking concepts</b></span></li>
+<li class="chapter" data-level="1" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>1</b> Basics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="hexadecimal.html"><a href="hexadecimal.html"><i class="fa fa-check"></i><b>1.1</b> Hexadecimal</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="hexadecimal.html"><a href="hexadecimal.html#representation"><i class="fa fa-check"></i><b>1.1.1</b> Representation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="hexadecimal.html"><a href="hexadecimal.html#bcd-binary-coded-decimal"><i class="fa fa-check"></i><b>1.1.2</b> BCD (Binary coded decimal)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="hexadecimal.html"><a href="hexadecimal.html#big-and-little-endian"><i class="fa fa-check"></i><b>1.1.3</b> Big and little endian</a></li>
+<li class="chapter" data-level="1.1.4" data-path="hexadecimal.html"><a href="hexadecimal.html#signed-values-floating-point-and-fixed-point"><i class="fa fa-check"></i><b>1.1.4</b> Signed values, floating point and fixed point</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="hex-operations.html"><a href="hex-operations.html"><i class="fa fa-check"></i><b>1.2</b> Hex operations</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="hex-operations.html"><a href="hex-operations.html#shift"><i class="fa fa-check"></i><b>1.2.1</b> Shift</a></li>
+<li class="chapter" data-level="1.2.2" data-path="hex-operations.html"><a href="hex-operations.html#rotate"><i class="fa fa-check"></i><b>1.2.2</b> Rotate</a></li>
+<li class="chapter" data-level="1.2.3" data-path="hex-operations.html"><a href="hex-operations.html#flip"><i class="fa fa-check"></i><b>1.2.3</b> Flip</a></li>
+<li class="chapter" data-level="1.2.4" data-path="hex-operations.html"><a href="hex-operations.html#boolean-logic"><i class="fa fa-check"></i><b>1.2.4</b> Boolean logic</a></li>
+<li class="chapter" data-level="1.2.5" data-path="hex-operations.html"><a href="hex-operations.html#hex-mathematics."><i class="fa fa-check"></i><b>1.2.5</b> Hex Mathematics.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="patching-and-patch-making.html"><a href="patching-and-patch-making.html"><i class="fa fa-check"></i><b>1.3</b> Patching and patch making</a></li>
+<li class="chapter" data-level="1.4" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html"><i class="fa fa-check"></i><b>1.4</b> File systems and operations</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#non-filesystem-devices"><i class="fa fa-check"></i><b>1.4.1</b> Non filesystem devices</a></li>
+<li class="chapter" data-level="1.4.2" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#gba"><i class="fa fa-check"></i><b>1.4.2</b> GBA</a></li>
+<li class="chapter" data-level="1.4.3" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ds"><i class="fa fa-check"></i><b>1.4.3</b> DS</a></li>
+<li class="chapter" data-level="1.4.4" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ds-1"><i class="fa fa-check"></i><b>1.4.4</b> 3DS</a></li>
+<li class="chapter" data-level="1.4.5" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#gc-gamecube"><i class="fa fa-check"></i><b>1.4.5</b> GC (gamecube)</a></li>
+<li class="chapter" data-level="1.4.6" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#wii"><i class="fa fa-check"></i><b>1.4.6</b> Wii</a></li>
+<li class="chapter" data-level="1.4.7" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#xbox"><i class="fa fa-check"></i><b>1.4.7</b> Xbox</a></li>
+<li class="chapter" data-level="1.4.8" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#xbox-360"><i class="fa fa-check"></i><b>1.4.8</b> Xbox 360</a></li>
+<li class="chapter" data-level="1.4.9" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ps1-and-ps2"><i class="fa fa-check"></i><b>1.4.9</b> PS1 and PS2</a></li>
+<li class="chapter" data-level="1.4.10" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ps3"><i class="fa fa-check"></i><b>1.4.10</b> PS3</a></li>
+<li class="chapter" data-level="1.4.11" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#psp"><i class="fa fa-check"></i><b>1.4.11</b> PSP</a></li>
+<li class="chapter" data-level="1.4.12" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#saturn"><i class="fa fa-check"></i><b>1.4.12</b> Saturn</a></li>
+<li class="chapter" data-level="1.4.13" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#dreamcast"><i class="fa fa-check"></i><b>1.4.13</b> Dreamcast</a></li>
+<li class="chapter" data-level="1.4.14" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#amiga"><i class="fa fa-check"></i><b>1.4.14</b> Amiga</a></li>
+<li class="chapter" data-level="1.4.15" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#pc-and-related-hardware."><i class="fa fa-check"></i><b>1.4.15</b> PC and related hardware.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="finding-the-object-of-your-interest..html"><a href="finding-the-object-of-your-interest..html"><i class="fa fa-check"></i><b>1.5</b> Finding the object of your interest.</a></li>
+<li class="chapter" data-level="1.6" data-path="abstraction.html"><a href="abstraction.html"><i class="fa fa-check"></i><b>1.6</b> Abstraction</a></li>
+<li class="chapter" data-level="1.7" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html"><i class="fa fa-check"></i><b>1.7</b> Tools of the trade continued</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#hex-editor"><i class="fa fa-check"></i><b>1.7.1</b> Hex editor</a></li>
+<li class="chapter" data-level="1.7.2" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#tile-editor"><i class="fa fa-check"></i><b>1.7.2</b> Tile editor</a></li>
+<li class="chapter" data-level="1.7.3" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#spreadsheet-and-command-line"><i class="fa fa-check"></i><b>1.7.3</b> Spreadsheet and command line</a></li>
+<li class="chapter" data-level="1.7.4" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#compression"><i class="fa fa-check"></i><b>1.7.4</b> Compression</a></li>
+<li class="chapter" data-level="1.7.5" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#music"><i class="fa fa-check"></i><b>1.7.5</b> Music</a></li>
+<li class="chapter" data-level="1.7.6" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#asmassembly"><i class="fa fa-check"></i><b>1.7.6</b> ASM/Assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="basic-file-format-concepts.html"><a href="basic-file-format-concepts.html"><i class="fa fa-check"></i><b>1.8</b> Basic file format concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>2</b> Graphics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html"><i class="fa fa-check"></i><b>2.1</b> Basic graphics concepts</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#aliasing"><i class="fa fa-check"></i><b>2.1.1</b> Aliasing</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#haloing"><i class="fa fa-check"></i><b>2.1.2</b> Haloing</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#bit-depth"><i class="fa fa-check"></i><b>2.1.3</b> Bit depth</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="palettes-and-colours.html"><a href="palettes-and-colours.html"><i class="fa fa-check"></i><b>2.2</b> Palettes and colours</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="palettes-and-colours.html"><a href="palettes-and-colours.html#gba-colours-15-bit"><i class="fa fa-check"></i><b>2.2.1</b> GBA colours (15 bit)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="tiles.html"><a href="tiles.html"><i class="fa fa-check"></i><b>2.3</b> Tiles</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="tiles.html"><a href="tiles.html#bpp"><i class="fa fa-check"></i><b>2.3.1</b> 1Bpp</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tiles.html"><a href="tiles.html#bpp-1"><i class="fa fa-check"></i><b>2.3.2</b> 4 Bpp</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tiles.html"><a href="tiles.html#bpp-2"><i class="fa fa-check"></i><b>2.3.3</b> 8Bpp</a></li>
+<li class="chapter" data-level="2.3.4" data-path="tiles.html"><a href="tiles.html#gba3-xbpp"><i class="fa fa-check"></i><b>2.3.4</b> GBA3 Xbpp</a></li>
+<li class="chapter" data-level="2.3.5" data-path="tiles.html"><a href="tiles.html#gba2-4bpp"><i class="fa fa-check"></i><b>2.3.5</b> GBA2 4BPP</a></li>
+<li class="chapter" data-level="2.3.6" data-path="tiles.html"><a href="tiles.html#bitmap"><i class="fa fa-check"></i><b>2.3.6</b> Bitmap</a></li>
+<li class="chapter" data-level="2.3.7" data-path="tiles.html"><a href="tiles.html#known-formats"><i class="fa fa-check"></i><b>2.3.7</b> Known formats</a></li>
+<li class="chapter" data-level="2.3.8" data-path="tiles.html"><a href="tiles.html#crystaltile2-export-and-import."><i class="fa fa-check"></i><b>2.3.8</b> Crystaltile2 export and import.</a></li>
+<li class="chapter" data-level="2.3.9" data-path="tiles.html"><a href="tiles.html#avoiding-gradients-aa-lossy-compression-noise-and-such-things."><i class="fa fa-check"></i><b>2.3.9</b> Avoiding gradients, AA, lossy compression, noise and such things.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html"><i class="fa fa-check"></i><b>2.4</b> Layout, timing, OAM and special effects</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#introduction-to-the-oam-and-bg-modes."><i class="fa fa-check"></i><b>2.4.1</b> Introduction to the OAM and BG modes.</a></li>
+<li class="chapter" data-level="2.4.2" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#timing"><i class="fa fa-check"></i><b>2.4.2</b> Timing</a></li>
+<li class="chapter" data-level="2.4.3" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#gba-and-ds-oam-sprites"><i class="fa fa-check"></i><b>2.4.3</b> GBA and DS OAM (sprites)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#gba-and-ds-bg-modes"><i class="fa fa-check"></i><b>2.4.4</b> GBA and DS BG modes</a></li>
+<li class="chapter" data-level="2.4.5" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#emulator-shots"><i class="fa fa-check"></i><b>2.4.5</b> Emulator shots</a></li>
+<li class="chapter" data-level="2.4.6" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#basic-animation"><i class="fa fa-check"></i><b>2.4.6</b> Basic animation</a></li>
+<li class="chapter" data-level="2.4.7" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#window-feature"><i class="fa fa-check"></i><b>2.4.7</b> Window feature</a></li>
+<li class="chapter" data-level="2.4.8" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#special-features-flipping-affine-transformation-alpha-and-such"><i class="fa fa-check"></i><b>2.4.8</b> Special features (flipping, affine transformation, alpha and such)</a></li>
+<li class="chapter" data-level="2.4.9" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#basic-ds-layout-formats-and-mapping"><i class="fa fa-check"></i><b>2.4.9</b> Basic DS layout formats and mapping</a></li>
+<li class="chapter" data-level="2.4.10" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#video-memory-handling-and-alignment"><i class="fa fa-check"></i><b>2.4.10</b> Video memory handling and alignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="d.html"><a href="d.html"><i class="fa fa-check"></i><b>2.5</b> 3d</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="d.html"><a href="d.html#basic-3d-bones-coordinates-keyframes"><i class="fa fa-check"></i><b>2.5.1</b> Basic 3d (bones, coordinates, keyframes)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="d.html"><a href="d.html#viewpoints"><i class="fa fa-check"></i><b>2.5.2</b> Viewpoints</a></li>
+<li class="chapter" data-level="2.5.3" data-path="d.html"><a href="d.html#textures-and-material-colours"><i class="fa fa-check"></i><b>2.5.3</b> Textures and material colours</a></li>
+<li class="chapter" data-level="2.5.4" data-path="d.html"><a href="d.html#models"><i class="fa fa-check"></i><b>2.5.4</b> Models</a></li>
+<li class="chapter" data-level="2.5.5" data-path="d.html"><a href="d.html#lightingshadows"><i class="fa fa-check"></i><b>2.5.5</b> Lighting/shadows</a></li>
+<li class="chapter" data-level="2.5.6" data-path="d.html"><a href="d.html#d-smoke-and-fog"><i class="fa fa-check"></i><b>2.5.6</b> 3d smoke and fog</a></li>
+<li class="chapter" data-level="2.5.7" data-path="d.html"><a href="d.html#animations"><i class="fa fa-check"></i><b>2.5.7</b> Animations</a></li>
+<li class="chapter" data-level="2.5.8" data-path="d.html"><a href="d.html#ds-3d-hardware"><i class="fa fa-check"></i><b>2.5.8</b> DS 3D hardware</a></li>
+<li class="chapter" data-level="2.5.9" data-path="d.html"><a href="d.html#the-shift-of-the-3d-to-ds-2d"><i class="fa fa-check"></i><b>2.5.9</b> The shift of the 3D to DS 2d</a></li>
+<li class="chapter" data-level="2.5.10" data-path="d.html"><a href="d.html#nsbmd"><i class="fa fa-check"></i><b>2.5.10</b> NSBMD</a></li>
+<li class="chapter" data-level="2.5.11" data-path="d.html"><a href="d.html#basic-nsbmd-hacks"><i class="fa fa-check"></i><b>2.5.11</b> Basic NSBMD hacks</a></li>
+<li class="chapter" data-level="2.5.12" data-path="d.html"><a href="d.html#example-of-minor-hack"><i class="fa fa-check"></i><b>2.5.12</b> Example of minor hack</a></li>
+<li class="chapter" data-level="2.5.13" data-path="d.html"><a href="d.html#basic-texture-viewing-hack"><i class="fa fa-check"></i><b>2.5.13</b> Basic texture viewing hack</a></li>
+<li class="chapter" data-level="2.5.14" data-path="d.html"><a href="d.html#command-decoding-aside"><i class="fa fa-check"></i><b>2.5.14</b> Command decoding aside</a></li>
+<li class="chapter" data-level="2.5.15" data-path="d.html"><a href="d.html#non-nsbmd"><i class="fa fa-check"></i><b>2.5.15</b> Non NSBMD</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="notes-and-further-reading.html"><a href="notes-and-further-reading.html"><i class="fa fa-check"></i><b>2.6</b> Notes and further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="text.html"><a href="text.html"><i class="fa fa-check"></i><b>3</b> Text</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>3.1</b> Tables</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="tables.html"><a href="tables.html#table-creation-and-figuring-out-custom-encodings"><i class="fa fa-check"></i><b>3.1.1</b> Table creation and figuring out custom encodings</a></li>
+<li class="chapter" data-level="3.1.2" data-path="tables.html"><a href="tables.html#relative-searching"><i class="fa fa-check"></i><b>3.1.2</b> Relative searching</a></li>
+<li class="chapter" data-level="3.1.3" data-path="tables.html"><a href="tables.html#corruption-and-alteration"><i class="fa fa-check"></i><b>3.1.3</b> Corruption and alteration</a></li>
+<li class="chapter" data-level="3.1.4" data-path="tables.html"><a href="tables.html#memory-viewing-and-corruption"><i class="fa fa-check"></i><b>3.1.4</b> Memory viewing and corruption</a></li>
+<li class="chapter" data-level="3.1.5" data-path="tables.html"><a href="tables.html#frequency-analysis"><i class="fa fa-check"></i><b>3.1.5</b> Frequency analysis</a></li>
+<li class="chapter" data-level="3.1.6" data-path="tables.html"><a href="tables.html#language-analysis"><i class="fa fa-check"></i><b>3.1.6</b> Language analysis</a></li>
+<li class="chapter" data-level="3.1.7" data-path="tables.html"><a href="tables.html#pointer-and-encodinghex-analysis"><i class="fa fa-check"></i><b>3.1.7</b> Pointer and encoding/hex analysis</a></li>
+<li class="chapter" data-level="3.1.8" data-path="tables.html"><a href="tables.html#assembly-tracing"><i class="fa fa-check"></i><b>3.1.8</b> Assembly tracing</a></li>
+<li class="chapter" data-level="3.1.9" data-path="tables.html"><a href="tables.html#font-viewing"><i class="fa fa-check"></i><b>3.1.9</b> Font viewing</a></li>
+<li class="chapter" data-level="3.1.10" data-path="tables.html"><a href="tables.html#language-comparing"><i class="fa fa-check"></i><b>3.1.10</b> Language comparing</a></li>
+<li class="chapter" data-level="3.1.11" data-path="tables.html"><a href="tables.html#table-creation-tools"><i class="fa fa-check"></i><b>3.1.11</b> Table creation tools</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="pointers.html"><a href="pointers.html"><i class="fa fa-check"></i><b>3.2</b> Pointers</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="pointers.html"><a href="pointers.html#special-cases-and-non-pointer-concepts"><i class="fa fa-check"></i><b>3.2.1</b> Special cases and non pointer concepts</a></li>
+<li class="chapter" data-level="3.2.2" data-path="pointers.html"><a href="pointers.html#example-reverse-engineering-of-pointers"><i class="fa fa-check"></i><b>3.2.2</b> Example reverse engineering of pointers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="markup-control-codes-and-placeholders.html"><a href="markup-control-codes-and-placeholders.html"><i class="fa fa-check"></i><b>3.3</b> Markup, control codes and placeholders</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="markup-control-codes-and-placeholders.html"><a href="markup-control-codes-and-placeholders.html#worked-example"><i class="fa fa-check"></i><b>3.3.1</b> Worked example</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="fonts.html"><a href="fonts.html"><i class="fa fa-check"></i><b>3.4</b> Fonts</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="fonts.html"><a href="fonts.html#nftr"><i class="fa fa-check"></i><b>3.4.1</b> NFTR</a></li>
+<li class="chapter" data-level="3.4.2" data-path="fonts.html"><a href="fonts.html#adding-characters-to-nftr"><i class="fa fa-check"></i><b>3.4.2</b> Adding characters to NFTR</a></li>
+<li class="chapter" data-level="3.4.3" data-path="fonts.html"><a href="fonts.html#common-hacks"><i class="fa fa-check"></i><b>3.4.3</b> Common hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="scripting-and-layout.html"><a href="scripting-and-layout.html"><i class="fa fa-check"></i><b>3.5</b> Scripting and layout</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="scripting-and-layout.html"><a href="scripting-and-layout.html#layout-and-limits"><i class="fa fa-check"></i><b>3.5.1</b> Layout and limits</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html"><i class="fa fa-check"></i><b>3.6</b> Text extraction and insertion</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html#text-extraction"><i class="fa fa-check"></i><b>3.6.1</b> Text extraction</a></li>
+<li class="chapter" data-level="3.6.2" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html#text-insertion"><i class="fa fa-check"></i><b>3.6.2</b> Text insertion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="language-detection-in-ds-games.html"><a href="language-detection-in-ds-games.html"><i class="fa fa-check"></i><b>3.7</b> Language detection in DS games</a></li>
+<li class="chapter" data-level="3.8" data-path="translation-hacking.html"><a href="translation-hacking.html"><i class="fa fa-check"></i><b>3.8</b> Translation hacking</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="translation-hacking.html"><a href="translation-hacking.html#the-types-of-japanese-characters-and-how-they-work--"><i class="fa fa-check"></i><b>3.8.1</b> The types of Japanese characters and how they work -</a></li>
+<li class="chapter" data-level="3.8.2" data-path="translation-hacking.html"><a href="translation-hacking.html#japanese-glyphscharacters-and-observations-on-the-language"><i class="fa fa-check"></i><b>3.8.2</b> Japanese glyphs/characters and observations on the language</a></li>
+<li class="chapter" data-level="3.8.3" data-path="translation-hacking.html"><a href="translation-hacking.html#on-language"><i class="fa fa-check"></i><b>3.8.3</b> On language</a></li>
+<li class="chapter" data-level="3.8.4" data-path="translation-hacking.html"><a href="translation-hacking.html#right-to-left-languages-and-translation."><i class="fa fa-check"></i><b>3.8.4</b> Right to left languages and translation.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html"><i class="fa fa-check"></i><b>3.9</b> Japanese text editors and translation tools</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#general-japanese-capable-text-editors"><i class="fa fa-check"></i><b>3.9.1</b> General Japanese capable text editors</a></li>
+<li class="chapter" data-level="3.9.2" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#rom-hacking-tools"><i class="fa fa-check"></i><b>3.9.2</b> ROM hacking tools</a></li>
+<li class="chapter" data-level="3.9.3" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#cat-tools"><i class="fa fa-check"></i><b>3.9.3</b> CAT tools</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multimedia.html"><a href="multimedia.html"><i class="fa fa-check"></i><b>4</b> Multimedia</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>4.1</b> Sound</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="sound.html"><a href="sound.html#sdat-nds"><i class="fa fa-check"></i><b>4.1.1</b> SDAT (NDS)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sound.html"><a href="sound.html#others"><i class="fa fa-check"></i><b>4.1.2</b> Others</a></li>
+<li class="chapter" data-level="4.1.3" data-path="sound.html"><a href="sound.html#tracker-formats"><i class="fa fa-check"></i><b>4.1.3</b> Tracker formats</a></li>
+<li class="chapter" data-level="4.1.4" data-path="sound.html"><a href="sound.html#general-rule-of-thumb-for-custom-audio-formats"><i class="fa fa-check"></i><b>4.1.4</b> General rule of thumb for custom audio formats</a></li>
+<li class="chapter" data-level="4.1.5" data-path="sound.html"><a href="sound.html#common-ds-sdat-audio-hacks-undubbing-injection-tweaks-and-relinking"><i class="fa fa-check"></i><b>4.1.5</b> Common DS SDAT audio hacks (undubbing, injection, tweaks and relinking)</a></li>
+<li class="chapter" data-level="4.1.6" data-path="sound.html"><a href="sound.html#basic-undub"><i class="fa fa-check"></i><b>4.1.6</b> Basic undub</a></li>
+<li class="chapter" data-level="4.1.7" data-path="sound.html"><a href="sound.html#relinking"><i class="fa fa-check"></i><b>4.1.7</b> Relinking</a></li>
+<li class="chapter" data-level="4.1.8" data-path="sound.html"><a href="sound.html#injection"><i class="fa fa-check"></i><b>4.1.8</b> Injection</a></li>
+<li class="chapter" data-level="4.1.9" data-path="sound.html"><a href="sound.html#propercomplex-undub"><i class="fa fa-check"></i><b>4.1.9</b> Proper/complex undub</a></li>
+<li class="chapter" data-level="4.1.10" data-path="sound.html"><a href="sound.html#sseq-editing"><i class="fa fa-check"></i><b>4.1.10</b> SSEQ editing</a></li>
+<li class="chapter" data-level="4.1.11" data-path="sound.html"><a href="sound.html#gba-audio"><i class="fa fa-check"></i><b>4.1.11</b> GBA audio</a></li>
+<li class="chapter" data-level="4.1.12" data-path="sound.html"><a href="sound.html#sappy"><i class="fa fa-check"></i><b>4.1.12</b> Sappy</a></li>
+<li class="chapter" data-level="4.1.13" data-path="sound.html"><a href="sound.html#notable-gba-audio-hacks"><i class="fa fa-check"></i><b>4.1.13</b> Notable GBA audio hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="video.html"><a href="video.html"><i class="fa fa-check"></i><b>4.2</b> Video</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="video.html"><a href="video.html#general-video-theory"><i class="fa fa-check"></i><b>4.2.1</b> General video theory</a></li>
+<li class="chapter" data-level="4.2.2" data-path="video.html"><a href="video.html#modsvxact-imagine-by-mobiclip."><i class="fa fa-check"></i><b>4.2.2</b> Mods/VX/act imagine by Mobiclip.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="video.html"><a href="video.html#radbink"><i class="fa fa-check"></i><b>4.2.3</b> RAD/Bink</a></li>
+<li class="chapter" data-level="4.2.4" data-path="video.html"><a href="video.html#criware"><i class="fa fa-check"></i><b>4.2.4</b> Criware</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cut-scenes.html"><a href="cut-scenes.html"><i class="fa fa-check"></i><b>4.3</b> Cut scenes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="game-logic.html"><a href="game-logic.html"><i class="fa fa-check"></i><b>5</b> Game logic</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="levels-and-stats.html"><a href="levels-and-stats.html"><i class="fa fa-check"></i><b>5.1</b> Levels and Stats</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="levels-and-stats.html"><a href="levels-and-stats.html#example-tools"><i class="fa fa-check"></i><b>5.1.1</b> Example tools</a></li>
+<li class="chapter" data-level="5.1.2" data-path="levels-and-stats.html"><a href="levels-and-stats.html#level-editing-techniques"><i class="fa fa-check"></i><b>5.1.2</b> Level editing techniques</a></li>
+<li class="chapter" data-level="5.1.3" data-path="levels-and-stats.html"><a href="levels-and-stats.html#worked-example-1"><i class="fa fa-check"></i><b>5.1.3</b> Worked example</a></li>
+<li class="chapter" data-level="5.1.4" data-path="levels-and-stats.html"><a href="levels-and-stats.html#stats"><i class="fa fa-check"></i><b>5.1.4</b> Stats</a></li>
+<li class="chapter" data-level="5.1.5" data-path="levels-and-stats.html"><a href="levels-and-stats.html#rpg-randomiser"><i class="fa fa-check"></i><b>5.1.5</b> RPG randomiser</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="compression-1.html"><a href="compression-1.html"><i class="fa fa-check"></i><b>5.2</b> Compression</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="compression-1.html"><a href="compression-1.html#lossy"><i class="fa fa-check"></i><b>5.2.1</b> Lossy</a></li>
+<li class="chapter" data-level="5.2.2" data-path="compression-1.html"><a href="compression-1.html#lossless"><i class="fa fa-check"></i><b>5.2.2</b> Lossless</a></li>
+<li class="chapter" data-level="5.2.3" data-path="compression-1.html"><a href="compression-1.html#basic-theory-of-the-actual-implementations"><i class="fa fa-check"></i><b>5.2.3</b> Basic theory of the actual implementations</a></li>
+<li class="chapter" data-level="5.2.4" data-path="compression-1.html"><a href="compression-1.html#compression-at-hexadecimal-level"><i class="fa fa-check"></i><b>5.2.4</b> Compression at hexadecimal level</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cheating.html"><a href="cheating.html"><i class="fa fa-check"></i><b>5.3</b> Cheating</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="cheating.html"><a href="cheating.html#general-cheat-making"><i class="fa fa-check"></i><b>5.3.1</b> General cheat making</a></li>
+<li class="chapter" data-level="5.3.2" data-path="cheating.html"><a href="cheating.html#gba-cheat-making"><i class="fa fa-check"></i><b>5.3.2</b> GBA cheat making</a></li>
+<li class="chapter" data-level="5.3.3" data-path="cheating.html"><a href="cheating.html#ds-cheat-making"><i class="fa fa-check"></i><b>5.3.3</b> DS cheat making</a></li>
+<li class="chapter" data-level="5.3.4" data-path="cheating.html"><a href="cheating.html#basic-making-of-a-cheat"><i class="fa fa-check"></i><b>5.3.4</b> Basic making of a cheat</a></li>
+<li class="chapter" data-level="5.3.5" data-path="cheating.html"><a href="cheating.html#cheat-prevention-methods-and-frustrations"><i class="fa fa-check"></i><b>5.3.5</b> Cheat prevention methods and frustrations</a></li>
+<li class="chapter" data-level="5.3.6" data-path="cheating.html"><a href="cheating.html#instruction-editing-cheating"><i class="fa fa-check"></i><b>5.3.6</b> Instruction editing cheating</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="programming-concepts.html"><a href="programming-concepts.html"><i class="fa fa-check"></i><b>5.4</b> Programming concepts</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="programming-concepts.html"><a href="programming-concepts.html#functions-and-procedural-programming.-also-return-oriented-programmingrop"><i class="fa fa-check"></i><b>5.4.1</b> Functions and procedural programming. Also return oriented programming/ROP</a></li>
+<li class="chapter" data-level="5.4.2" data-path="programming-concepts.html"><a href="programming-concepts.html#if-else"><i class="fa fa-check"></i><b>5.4.2</b> IF ELSE</a></li>
+<li class="chapter" data-level="5.4.3" data-path="programming-concepts.html"><a href="programming-concepts.html#recursion"><i class="fa fa-check"></i><b>5.4.3</b> Recursion</a></li>
+<li class="chapter" data-level="5.4.4" data-path="programming-concepts.html"><a href="programming-concepts.html#iteration"><i class="fa fa-check"></i><b>5.4.4</b> Iteration</a></li>
+<li class="chapter" data-level="5.4.5" data-path="programming-concepts.html"><a href="programming-concepts.html#loops"><i class="fa fa-check"></i><b>5.4.5</b> Loops</a></li>
+<li class="chapter" data-level="5.4.6" data-path="programming-concepts.html"><a href="programming-concepts.html#turing-complete"><i class="fa fa-check"></i><b>5.4.6</b> Turing complete</a></li>
+<li class="chapter" data-level="5.4.7" data-path="programming-concepts.html"><a href="programming-concepts.html#fundamentals-of-assembly"><i class="fa fa-check"></i><b>5.4.7</b> Fundamentals of Assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="assembly.html"><a href="assembly.html"><i class="fa fa-check"></i><b>5.5</b> Assembly</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="assembly.html"><a href="assembly.html#arm"><i class="fa fa-check"></i><b>5.5.1</b> ARM</a></li>
+<li class="chapter" data-level="5.5.2" data-path="assembly.html"><a href="assembly.html#gba-assembly-specifics"><i class="fa fa-check"></i><b>5.5.2</b> GBA Assembly specifics</a></li>
+<li class="chapter" data-level="5.5.3" data-path="assembly.html"><a href="assembly.html#ds-assembly-specifics"><i class="fa fa-check"></i><b>5.5.3</b> DS Assembly specifics</a></li>
+<li class="chapter" data-level="5.5.4" data-path="assembly.html"><a href="assembly.html#the-gba-and-ds-compared"><i class="fa fa-check"></i><b>5.5.4</b> The GBA and DS compared</a></li>
+<li class="chapter" data-level="5.5.5" data-path="assembly.html"><a href="assembly.html#on-controls"><i class="fa fa-check"></i><b>5.5.5</b> On controls</a></li>
+<li class="chapter" data-level="5.5.6" data-path="assembly.html"><a href="assembly.html#hooking"><i class="fa fa-check"></i><b>5.5.6</b> Hooking</a></li>
+<li class="chapter" data-level="5.5.7" data-path="assembly.html"><a href="assembly.html#gba-cart-as-extra-memory-for-ds-hacks"><i class="fa fa-check"></i><b>5.5.7</b> GBA cart as extra memory for DS hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html"><i class="fa fa-check"></i><b>5.6</b> Non specific assembly discussion.</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#language-mod-example"><i class="fa fa-check"></i><b>5.6.1</b> Language mod example</a></li>
+<li class="chapter" data-level="5.6.2" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#non-code-in-asm"><i class="fa fa-check"></i><b>5.6.2</b> Non code in ASM</a></li>
+<li class="chapter" data-level="5.6.3" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#destructive-vs-non-destructive-assembly-editing"><i class="fa fa-check"></i><b>5.6.3</b> Destructive vs non destructive assembly editing</a></li>
+<li class="chapter" data-level="5.6.4" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#polymorphic-and-dynamic-code"><i class="fa fa-check"></i><b>5.6.4</b> Polymorphic and dynamic code</a></li>
+<li class="chapter" data-level="5.6.5" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#slowdown-and-speedup"><i class="fa fa-check"></i><b>5.6.5</b> Slowdown and speedup</a></li>
+<li class="chapter" data-level="5.6.6" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#cryptography-encryption-checksums-and-signatures"><i class="fa fa-check"></i><b>5.6.6</b> Cryptography (encryption, checksums and signatures)</a></li>
+<li class="chapter" data-level="5.6.7" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#multiplayer-and-the-failure-of-nintendos-online-ds-security."><i class="fa fa-check"></i><b>5.6.7</b> Multiplayer and the failure of Nintendo’s online DS security.</a></li>
+<li class="chapter" data-level="5.6.8" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#save-editing"><i class="fa fa-check"></i><b>5.6.8</b> Save editing</a></li>
+<li class="chapter" data-level="5.6.9" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#interpreted-languages"><i class="fa fa-check"></i><b>5.6.9</b> Interpreted languages</a></li>
+<li class="chapter" data-level="5.6.10" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#game-ai-game-logic-and-game-theory"><i class="fa fa-check"></i><b>5.6.10</b> Game AI, game logic and game theory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html"><i class="fa fa-check"></i><b>5.7</b> Flash cart and emulator theory</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html#gba-1"><i class="fa fa-check"></i><b>5.7.1</b> GBA</a></li>
+<li class="chapter" data-level="5.7.2" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html#ds-2"><i class="fa fa-check"></i><b>5.7.2</b> DS</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="rom-hacking-protection.html"><a href="rom-hacking-protection.html"><i class="fa fa-check"></i><b>5.8</b> ROM hacking “protection”</a></li>
+</ul></li>
+<li class="part"><span><b>III Examples, oddities and techniques</b></span></li>
+<li class="chapter" data-level="6" data-path="crystaltile2-general-usage-guide.html"><a href="crystaltile2-general-usage-guide.html"><i class="fa fa-check"></i><b>6</b> Crystaltile2 general usage guide</a></li>
+<li class="chapter" data-level="7" data-path="gba-tracing.html"><a href="gba-tracing.html"><i class="fa fa-check"></i><b>7</b> GBA tracing</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tracing-options.html"><a href="tracing-options.html"><i class="fa fa-check"></i><b>7.1</b> Tracing options</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="tracing-options.html"><a href="tracing-options.html#worked-examples"><i class="fa fa-check"></i><b>7.1.1</b> Worked examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ds-tracing.html"><a href="ds-tracing.html"><i class="fa fa-check"></i><b>8</b> DS tracing</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ds-debugging-emulators.html"><a href="ds-debugging-emulators.html"><i class="fa fa-check"></i><b>8.1</b> DS debugging emulators</a></li>
+<li class="chapter" data-level="8.2" data-path="cart-read-command.html"><a href="cart-read-command.html"><i class="fa fa-check"></i><b>8.2</b> Cart read command</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="cart-read-command.html"><a href="cart-read-command.html#basic-lookup-and-methods-for-it"><i class="fa fa-check"></i><b>8.2.1</b> Basic lookup and methods for it</a></li>
+<li class="chapter" data-level="8.2.2" data-path="cart-read-command.html"><a href="cart-read-command.html#header-reverse-engineeringgenerated-values"><i class="fa fa-check"></i><b>8.2.2</b> Header reverse engineering/generated values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="reverse-engineering-various-rom-images.html"><a href="reverse-engineering-various-rom-images.html"><i class="fa fa-check"></i><b>9</b> Reverse engineering various ROM images</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html"><i class="fa fa-check"></i><b>9.1</b> Large archive on top of filesystem</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#tony-hawk"><i class="fa fa-check"></i><b>9.1.1</b> Tony Hawk</a></li>
+<li class="chapter" data-level="9.1.2" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#star-wars---the-force-unleashed"><i class="fa fa-check"></i><b>9.1.2</b> Star Wars - The Force Unleashed</a></li>
+<li class="chapter" data-level="9.1.3" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#el-tigre-make-my-mule"><i class="fa fa-check"></i><b>9.1.3</b> El Tigre Make my mule</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="compression-2.html"><a href="compression-2.html"><i class="fa fa-check"></i><b>9.2</b> Compression</a></li>
+<li class="chapter" data-level="9.3" data-path="first-person-game.html"><a href="first-person-game.html"><i class="fa fa-check"></i><b>9.3</b> First Person Game</a></li>
+<li class="chapter" data-level="9.4" data-path="platformer.html"><a href="platformer.html"><i class="fa fa-check"></i><b>9.4</b> Platformer</a></li>
+<li class="chapter" data-level="9.5" data-path="fighting-games.html"><a href="fighting-games.html"><i class="fa fa-check"></i><b>9.5</b> Fighting games</a></li>
+<li class="chapter" data-level="9.6" data-path="role-playing-games.html"><a href="role-playing-games.html"><i class="fa fa-check"></i><b>9.6</b> Role playing games</a></li>
+<li class="chapter" data-level="9.7" data-path="racing-games.html"><a href="racing-games.html"><i class="fa fa-check"></i><b>9.7</b> Racing games</a></li>
+<li class="chapter" data-level="9.8" data-path="puzzle.html"><a href="puzzle.html"><i class="fa fa-check"></i><b>9.8</b> Puzzle</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="puzzle.html"><a href="puzzle.html#mahjong-game"><i class="fa fa-check"></i><b>9.8.1</b> Mahjong game</a></li>
+<li class="chapter" data-level="9.8.2" data-path="puzzle.html"><a href="puzzle.html#tetris"><i class="fa fa-check"></i><b>9.8.2</b> Tetris</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="other-genres.html"><a href="other-genres.html"><i class="fa fa-check"></i><b>9.9</b> Other genres</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="developer-leftovers.html"><a href="developer-leftovers.html"><i class="fa fa-check"></i><b>10</b> Developer leftovers</a></li>
+<li class="chapter" data-level="11" data-path="workarounds.html"><a href="workarounds.html"><i class="fa fa-check"></i><b>11</b> Workarounds</a></li>
+<li class="chapter" data-level="12" data-path="moving-to-a-new-system.html"><a href="moving-to-a-new-system.html"><i class="fa fa-check"></i><b>12</b> Moving to a new system</a></li>
+<li class="chapter" data-level="13" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html"><i class="fa fa-check"></i><b>13</b> Developer tricks aka thinking like a game developer</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#level-and-mechanism-design"><i class="fa fa-check"></i><b>13.0.1</b> Level and mechanism design</a></li>
+<li class="chapter" data-level="13.0.2" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#sprite-and-palette-reuses"><i class="fa fa-check"></i><b>13.0.2</b> Sprite and palette reuses</a></li>
+<li class="chapter" data-level="13.0.3" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#pre-rendering"><i class="fa fa-check"></i><b>13.0.3</b> Pre rendering</a></li>
+<li class="chapter" data-level="13.0.4" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#speed-blur-and-fog"><i class="fa fa-check"></i><b>13.0.4</b> Speed blur and fog</a></li>
+<li class="chapter" data-level="13.0.5" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#loading-covers"><i class="fa fa-check"></i><b>13.0.5</b> Loading covers</a></li>
+<li class="chapter" data-level="13.0.6" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#optimisation-of-loading"><i class="fa fa-check"></i><b>13.0.6</b> Optimisation of loading</a></li>
+<li class="chapter" data-level="13.0.7" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#d-imagery-in-general"><i class="fa fa-check"></i><b>13.0.7</b> 3d imagery in general</a></li>
+<li class="chapter" data-level="13.0.8" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#procedural-generation"><i class="fa fa-check"></i><b>13.0.8</b> Procedural generation</a></li>
+<li class="chapter" data-level="13.0.9" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#noise-on-images-and-sound."><i class="fa fa-check"></i><b>13.0.9</b> Noise on images and sound.</a></li>
+<li class="chapter" data-level="13.0.10" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#using-the-limits-of-the-systemworking-to-them"><i class="fa fa-check"></i><b>13.0.10</b> Using the limits of the system/working to them</a></li>
+<li class="chapter" data-level="13.0.11" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#network-coding"><i class="fa fa-check"></i><b>13.0.11</b> Network coding</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="game-design-and-media.html"><a href="game-design-and-media.html"><i class="fa fa-check"></i><b>14</b> Game design and media</a></li>
+<li class="chapter" data-level="15" data-path="python-batch-files-and-programming-for-rom-hacking.html"><a href="python-batch-files-and-programming-for-rom-hacking.html"><i class="fa fa-check"></i><b>15</b> Python, batch files and programming for ROM hacking</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="radare2-reverse-engineering-tools.html"><a href="radare2-reverse-engineering-tools.html"><i class="fa fa-check"></i><b>15.1</b> radare2 reverse engineering tools</a></li>
+<li class="chapter" data-level="15.2" data-path="programming-languages.html"><a href="programming-languages.html"><i class="fa fa-check"></i><b>15.2</b> Programming languages</a></li>
+<li class="chapter" data-level="15.3" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>15.3</b> Python</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="pc-program-hacking.html"><a href="pc-program-hacking.html"><i class="fa fa-check"></i><b>16</b> PC program hacking</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>16.1</b> Debugging</a></li>
+<li class="chapter" data-level="16.2" data-path="decompilation.html"><a href="decompilation.html"><i class="fa fa-check"></i><b>16.2</b> Decompilation</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="version-control-and-project-management..html"><a href="version-control-and-project-management..html"><i class="fa fa-check"></i><b>17</b> Version control and project management.</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="project-and-team-management.html"><a href="project-and-team-management.html"><i class="fa fa-check"></i><b>17.1</b> Project and team management</a></li>
+<li class="chapter" data-level="17.2" data-path="version-control.html"><a href="version-control.html"><i class="fa fa-check"></i><b>17.2</b> Version control</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="interesting-links-and-further-reading..html"><a href="interesting-links-and-further-reading..html"><i class="fa fa-check"></i><b>18</b> Interesting links and further reading.</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>18.1</b> Links</a></li>
+<li class="chapter" data-level="18.2" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>18.2</b> Further reading</a></li>
+</ul></li>
+<li class="part"><span><b>IV File formats (specifications, methods and known formats)</b></span></li>
+<li class="chapter" data-level="19" data-path="general-things-about-the-ds.html"><a href="general-things-about-the-ds.html"><i class="fa fa-check"></i><b>19</b> General things about the DS</a></li>
+<li class="chapter" data-level="20" data-path="generic-ds-nitro-sdk-format.html"><a href="generic-ds-nitro-sdk-format.html"><i class="fa fa-check"></i><b>20</b> Generic DS nitro SDK format</a></li>
+<li class="chapter" data-level="21" data-path="general-file-reverse-engineering.html"><a href="general-file-reverse-engineering.html"><i class="fa fa-check"></i><b>21</b> General file reverse engineering</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="headers.html"><a href="headers.html"><i class="fa fa-check"></i><b>21.1</b> Headers</a></li>
+<li class="chapter" data-level="21.2" data-path="file-sizes.html"><a href="file-sizes.html"><i class="fa fa-check"></i><b>21.2</b> File sizes</a></li>
+<li class="chapter" data-level="21.3" data-path="multiple-versions-of-the-game.html"><a href="multiple-versions-of-the-game.html"><i class="fa fa-check"></i><b>21.3</b> Multiple versions of the game</a></li>
+<li class="chapter" data-level="21.4" data-path="file-names-and-extensions.html"><a href="file-names-and-extensions.html"><i class="fa fa-check"></i><b>21.4</b> File names and extensions</a></li>
+<li class="chapter" data-level="21.5" data-path="tile-viewers.html"><a href="tile-viewers.html"><i class="fa fa-check"></i><b>21.5</b> Tile viewers</a></li>
+<li class="chapter" data-level="21.6" data-path="pointers-and-such.html"><a href="pointers-and-such.html"><i class="fa fa-check"></i><b>21.6</b> Pointers and such</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="sound-1.html"><a href="sound-1.html"><i class="fa fa-check"></i><b>22</b> Sound</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="sdat.html"><a href="sdat.html"><i class="fa fa-check"></i><b>22.1</b> SDAT</a></li>
+<li class="chapter" data-level="22.2" data-path="sseq.html"><a href="sseq.html"><i class="fa fa-check"></i><b>22.2</b> SSEQ</a></li>
+<li class="chapter" data-level="22.3" data-path="strm.html"><a href="strm.html"><i class="fa fa-check"></i><b>22.3</b> STRM</a></li>
+<li class="chapter" data-level="22.4" data-path="swar.html"><a href="swar.html"><i class="fa fa-check"></i><b>22.4</b> SWAR</a></li>
+<li class="chapter" data-level="22.5" data-path="swar-1.html"><a href="swar-1.html"><i class="fa fa-check"></i><b>22.5</b> SWAR</a></li>
+<li class="chapter" data-level="22.6" data-path="bank.html"><a href="bank.html"><i class="fa fa-check"></i><b>22.6</b> BANK</a></li>
+<li class="chapter" data-level="22.7" data-path="other-formats.html"><a href="other-formats.html"><i class="fa fa-check"></i><b>22.7</b> Other formats</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="graphics-1.html"><a href="graphics-1.html"><i class="fa fa-check"></i><b>23</b> Graphics</a></li>
+<li class="chapter" data-level="24" data-path="d-1.html"><a href="d-1.html"><i class="fa fa-check"></i><b>24</b> 2d</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ncer.html"><a href="ncer.html"><i class="fa fa-check"></i><b>24.1</b> NCER</a></li>
+<li class="chapter" data-level="24.2" data-path="nanr.html"><a href="nanr.html"><i class="fa fa-check"></i><b>24.2</b> NANR</a></li>
+<li class="chapter" data-level="24.3" data-path="ncgr.html"><a href="ncgr.html"><i class="fa fa-check"></i><b>24.3</b> NCGR</a></li>
+<li class="chapter" data-level="24.4" data-path="nscr.html"><a href="nscr.html"><i class="fa fa-check"></i><b>24.4</b> NSCR</a></li>
+<li class="chapter" data-level="24.5" data-path="nmcr.html"><a href="nmcr.html"><i class="fa fa-check"></i><b>24.5</b> NMCR</a></li>
+<li class="chapter" data-level="24.6" data-path="nftr-1.html"><a href="nftr-1.html"><i class="fa fa-check"></i><b>24.6</b> NFTR</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="d-2.html"><a href="d-2.html"><i class="fa fa-check"></i><b>25</b> 3d</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="nsbmd-1.html"><a href="nsbmd-1.html"><i class="fa fa-check"></i><b>25.1</b> NSBMD</a></li>
+<li class="chapter" data-level="25.2" data-path="nsbtx.html"><a href="nsbtx.html"><i class="fa fa-check"></i><b>25.2</b> NSBTX</a></li>
+<li class="chapter" data-level="25.3" data-path="nsbca.html"><a href="nsbca.html"><i class="fa fa-check"></i><b>25.3</b> NSBCA</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="packing-format.html"><a href="packing-format.html"><i class="fa fa-check"></i><b>26</b> Packing format</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="narc-arc-and-carc.html"><a href="narc-arc-and-carc.html"><i class="fa fa-check"></i><b>26.1</b> NARC, ARC and CARC</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="text-1.html"><a href="text-1.html"><i class="fa fa-check"></i><b>27</b> Text</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="bmg.html"><a href="bmg.html"><i class="fa fa-check"></i><b>27.1</b> BMG</a></li>
+</ul></li>
+<li class="part"><span><b>V Glossary, index and such</b></span></li>
+<li class="chapter" data-level="28" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>28</b> Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://gbatemp.net/threads/gbatemp-rom-hacking-documentation-project-new-2016-edition-out.73394/" target="blank">Documentation Project on GBATemp</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GBA and DS ROM hacking guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tools-of-the-trade-continued" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Tools of the trade continued<a href="tools-of-the-trade-continued.html#tools-of-the-trade-continued" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following simply lists some example tools as there are usually several options for a program to tackle a task, some very basic usage and some screenshots where necessary. In the case of large tools or area specific tools the proper usage will be covered in other parts of this document where there may also be other little tools to help out things. Basic usage of programs to parse relevant filesystems was already covered and will not be covered here. With the exception of the paid hex editors, a couple of audio programs, the debugging/reverse engineering tool known as IDA (a big exception) and some of the translation memory/CAT tools all the programs covered are freeware, often even open source, and everything can be done with the open source/freeware programs.</p>
+<div id="hex-editor" class="section level3 hasAnchor" number="1.7.1">
+<h3><span class="header-section-number">1.7.1</span> Hex editor<a href="tools-of-the-trade-continued.html#hex-editor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As part of the underlying project this document is part of several hex editors were tested and rated for their usefulness so as to come up with a shortlist. Most ROM hackers will have several at their disposal with each aimed at different tasks. However if you can pick a paid one, get the four freeware suggestions and get a ROM hacking specific one most things can be done with relative ease. In short though a hex editor is a hex editor and everything else is so much extra that could one day make your life slightly easier. The GUI for most of these is extensively customisable but for the most part the images are those of the stock editor with a few menus displayed as appropriate.</p>
+<p>The features that make life easier for ROM hackers are</p>
+<ul>
+<li>Bitwise operations</li>
+<li>Boolean logic/operations (sometimes lumped in with bitwise operations)</li>
+<li>Byte flipping</li>
+<li>Search and search all</li>
+<li>Search and replace</li>
+<li>Hex distribution</li>
+<li>Operations on selected areas (some editors will only operate across the whole file)</li>
+<li>Scripting</li>
+<li>Format/structure listing support</li>
+<li>Variable width windows</li>
+<li>Undo/Redo</li>
+<li>Insert</li>
+<li>Hash values including custom options</li>
+<li>String dumps (occasionally you might just want every string in a game even if inserting it back in will be a pain without the surrounding info)</li>
+<li>Custom character encoding support</li>
+<li>Compare files (including size differences/inserted section support)</li>
+</ul>
+<p>Raw disk editing, program/memory editing, X86 disassembly, base64 decode and similar things are other features that an editor might be sold as having are great but they have been of limited use to ROM hackers in the past, even program/memory editing is usually taken care of by specialist programs as you will see when cheats are discussed.</p>
+<p>Paid The freeware editors in many ways provide a more than adequate replacement for the commercial tools but many still like the commercial offerings. The two best ones are quite pricey and are roughly equal in ability.</p>
+<p>Hex workshop <a href="http://www.hexworkshop.com/">Hex Workshop homepage</a></p>
+<p>Probably the most popular paid editor among ROM hackers.</p>
+<div class="figure">
+<img src="images/1_home_fast6191_romhackingguide_unrenamed_files___mhackingguidehexeditorsshowcasehexworkshop1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>010 editor <a href="http://www.sweetscape.com/010editor/">010 editor homepage</a></p>
+<p>Another paid editor on a par with hex workshop</p>
+<div class="figure">
+<img src="images/2_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcase010editor1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Freeware The freeware offerings here, unlike some other areas of computing, are not on a par but with a slightly different GUI. However when the suggestions in the freeware category are combined it makes for all the functionality of the commercial offerings.</p>
+<p>ICY Hexplorer <a href="http://hexplorer.sourceforge.net/">Sourceforge page</a></p>
+<p>Almost at the level where you could drop it in as a replacement for the commercial offerings (save for the lack of ability to have multiple files open at once). Needs some setup to get the GUI functioning well but once done it is suitable for use as a day to day editor.</p>
+<div class="figure">
+<img src="images/3_home_fast6191_romhackingguide_unrenamed_files___hackingguidehexeditorsshowcaseICYHexplorer1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>XVI32 <a href="http://www.chmaas.handshake.de/delphi/freeware/xvi32/xvi32.htm">Homepage</a></p>
+<p>Still being actively developed and it is mainly here as it features a powerful scripting language which can accomplish most tasks the paid and function heavy freeware editors sport with a bit more after that owing to it being a true scripting language.</p>
+<div class="figure">
+<img src="images/4_home_fast6191_romhackingguide_unrenamed_files___rs_romhackingguidehexeditorsshowcaseXVI32_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Tiny Hexer <a href="http://filetrip.net/pc-downloads/applications/download-tiny-hexer-1816-f29009.html">Filetrip download</a></p>
+<p>A discontinued editor but has some very impressive features the equal of, and sometimes even better than, the commercial offerings.</p>
+<div class="figure">
+<img src="images/5_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcasetinyhexer1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>HxD <a href="http://mh-nexus.de/en/hxd/">Homepage</a></p>
+<p><a href="http://filetrip.net/pc-downloads/applications/download-hxd-hex-editor-1770-f12907.html">Filetrip download</a></p>
+<p>Probably the simplest editor on this list but the go to freeware editor for a lot of people.</p>
+<div class="figure">
+<img src="images/6_home_fast6191_romhackingguide_unrenamed_files___rders_romhackingguidehexeditorsshowcaseHxD1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>ROM hacking specific As wonderful as the editors, commercial or otherwise, above are they lack things like high grade table support (most of the above will support a measure of custom characters but nothing truly custom like that which is seen in hacking) which is fairly essential for text hacking purposes.</p>
+<p>Crystaltile2 <a href="http://filetrip.net/f23649-CrystalTile2-2010-09-06.html">Filetrip download</a></p>
+<p>Supports many character sets out of the box and more importantly supports table files.</p>
+<p>Lacks boolean manipulations along with the standard hex operations and seemingly fixed to 16 bytes per line.</p>
+<p>Has a very good relative search (perhaps not quite as friendly as monkey moore but it works and goes right to up 4 byte/32 bit search as well as many other text grade features covered later)</p>
+<p>Has a compression search (mainly type 10 LZ and lesser support for type 11 LZ and huffman).</p>
+<p>CRC 16 and 32 are available and can be focused on a selection.</p>
+<p>DS filesystem support and header viewing, top flight tile editor/viewer, full ARM9 and ARM7 as seen on the DS disassembler</p>
+<p>Support for a fair few SDK and common formats (NARC, SDAT, NFTR, DS 2d formats, some general archive formats)</p>
+<div class="figure">
+<img src="images/7_home_fast6191_romhackingguide_unrenamed_files___ackingguidehexeditorsshowcasecrystaltile2_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Windhex32 Not to be confused with the popular disk forensics grade hex editor “<a href="https://www.x-ways.net/winhex/">winhex</a>” which is not in the paid list owing to a lack of bitwise features and similar things (it is very good at disk forensics though).</p>
+<p><a href="http://www.romhacking.net/utilities/291/">Romhacking.net page</a></p>
+<p>Great table and text support (including multitable support you can switch between), some SNES specific memory mappings and SNES/NES tile editor. Mainly just a very nice text capable hex editor with table support and some tools to complement that. It lacks undo support and some GUI choices are a bit odd which prevents it from being a drop in replacement for HxD.</p>
+<div class="figure">
+<img src="images/8_home_fast6191_romhackingguide_unrenamed_files___omhackingguidehexeditorsshowcasewindhex32_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<div class="figure">
+<img src="images/9_home_fast6191_romhackingguide_unrenamed_files___omhackingguidehexeditorsshowcasewindhex32_2.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Goldfinger <a href="http://www.romhacking.net/utilities/204/">Romhacking.net page</a> Not to be confused with the GBA assembler Goldroad, the common translation of the Chinese term for cheats or the the common translation of the Chinese term for cart pins.</p>
+<p>Support for 9 tables at once, it does not come with ASCII readout as standard so you will have to find/make one. It does feature some table editing abilities.</p>
+<p>Although not quite suited to full text display it is unlike most other editors in that it is not necessarily bound by the end of the line. This makes it a nice choice for text editing without having to make a custom tool or dump the text and attempt to get something done in a more conventional text editor.</p>
+<div class="figure">
+<img src="images/10_home_fast6191_romhackingguide_unrenamed_file___omhackingguidehexeditorsshowcasegoldfinger1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Translhextion <a href="http://www.romhacking.net/utilities/219/%20">Romhacking.net page</a></p>
+<p>New fork/version <a href="http://www.romhacking.net/forum/topic,14373.0.html">Romhacking.net forum thread</a></p>
+<p>For many the standard ROM hacking hex editor for a long time now (although crystaltile2 is edging it out a bit).</p>
+<p>Adjustment of hex window size possible via editor but not grouping.</p>
+<p>Jump including relative jump support available and can manipulate bits</p>
+<p>Can search using tables and relative search support is available.</p>
+<p>No undo support but a nice read only option by pressing tab.</p>
+<div class="figure">
+<img src="images/11_home_fast6191_romhackingguide_unrenamed_file___ackingguidehexeditorsshowcasetranslhextion1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+</div>
+<div id="tile-editor" class="section level3 hasAnchor" number="1.7.2">
+<h3><span class="header-section-number">1.7.2</span> Tile editor<a href="tools-of-the-trade-continued.html#tile-editor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although you can edit anything with a hex editor it gets very complex to do anything other than the most basic editing using one and the first thing to move to a higher level tool is 2d graphics which get a tile editor. There are several available although only a handful will be focused on here. Various homebrew development kits have some nice programs as well aimed at conversion from common formats to the somewhat odd formats used by the handhelds and other consoles.</p>
+<p>Crystaltile2 <a href="http://filetrip.net/f23649-CrystalTile2-2010-09-06.html">Filetrip download</a></p>
+<p>Features one of the best tile editors out there (support even for the odd custom hardware display formats and a tile editor capable of being set to arbitrary widths) and has support for various DS image formats on top of the DS file system itself. Exporting and importing images is also possible.</p>
+<div class="figure">
+<img src="images/12_home_fast6191_romhackingguide_unrenamed_file___kingguidetileeeditorsshowcasecrystaltile2_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>TileEd2002 <a href="http://home.arcor.de/minako.aino/TilEd2002/">Homepage</a></p>
+<p><a href="http://filetrip.net/gba-downloads/tools-utilities/download-tiled2002-064b-f7846.html">Filetrip download</a></p>
+<p>A GBA vintage editor but as the GBA and DS hardware are largely the same it can get far. It can do basic sized tiles in the two most common hardware formats and has a nice palette fiddling option (one colour at a time if you want), something which some of the others lack and thus is useful when trying to figure out what amount of padding a palette format uses. Lacks support for highly custom tile sizes (it will crash if you try on GBA format imagery) although it does support loading of savestates to get palettes directly from those. Note also the use of imagery to display text as opposed to a text rendering engine; such a thing is very common in smaller puzzle games where there is not much need for actual text, for use in stylised text and in menus in general.</p>
+<div class="figure">
+<img src="images/13_home_fast6191_romhackingguide_unrenamed_file___hackingguidetileeeditorsshowcasetiled2002_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Also the palette as held in the GBA.</p>
+<div class="figure">
+<img src="images/14_home_fast6191_romhackingguide_unrenamed_file___detileeeditorsshowcasetiled2002VBApalette_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>TileGGD <a href="https://github.com/barubary/tiledggd">Github page</a></p>
+<p><a href="http://www.romhacking.net/utilities/646/">Romhacking.net download</a></p>
+<p>Although the above two should do for most editing purposes this program has hugely customisable support meaning most conceivable hardware formats should be covered (from 1 to 32bpp with big and little endian support) and in some ways has a slightly nicer user interface than crystaltile2. Unlike the other two there is no editing capability built into the program but there is export and the information can be used to direct an editor of another program.</p>
+<div class="figure">
+<img src="images/15_home_fast6191_romhackingguide_unrenamed_file___romhackingguidetileeeditorsshowcasetileggd1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+</div>
+<div id="spreadsheet-and-command-line" class="section level3 hasAnchor" number="1.7.3">
+<h3><span class="header-section-number">1.7.3</span> Spreadsheet and command line<a href="tools-of-the-trade-continued.html#spreadsheet-and-command-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following is a few basic tools that can be used to help out when ROM hacking when existing tools fall short and before/instead of jumping to programming a game/format specific tool.</p>
+<p>Libreoffice usage <a href="http://www.libreoffice.org/">Office suite homepage</a></p>
+<p><a href="http://help.libreoffice.org/Calc/Welcome_to_the_Calc_Help">Calc usage/help page</a></p>
+<p>Calc is the libreoffice spreadsheet program and it supports hexadecimal after a fashion. It is certainly no substitute for a fully realised programming language but it has proven quite valuable when making quick and dirty scripts or reverse engineering formats.</p>
+<p>There are seven main operations that get done beyond the basic addition, subtraction and multiplication.</p>
+<p>Pasting At least one of your hex editors should have a text export option that when you have set the appropriate amount of columns can export a text list of the hexadecimal (effectively making an array) and equally a search option should be able to export the results. Either way you will need to paste this into the spreadsheet which for the most part is fairly intuitive and automated but you will occasionally have to import as a fixed width or as a delimited set of text (usually a space or tab doing the delimiting). Merging cells (say for a 32 bit value spread across 2 columns where you do not want to change your editor’s behaviour) can be done but the quick and easy way is to paste the columns into a text editor and search and replace for the delimiting value.</p>
+<p>If you must though you are better off abusing a maths function and multiplying by the appropriate hexadecimal value (65025 and 255 to shift the hex equivalent by 2 and 1 bytes respectively) and the reverse using mod, floor and other functions.</p>
+<p>Bitwise, boolean and flipping operations are best done in a hex editor and given the option you will also want to import as text (all the functions will still work) as numbers have a habit of being parsed to something.</p>
+<p>Fill A basic command/option but not one everybody knows about. In the bottom right corner of a given cell when selected there will be a small square which you can click and hold before dragging down or up (or across) and the cells have the contents replicated in the cells covered by the drag range. If you have a pattern it will tend to be continued and if you have a formula that will tend to be continued but the cell contents aligned to the same thing (if the original was c4 - c3 the next will likely be c5-c4), it is not foolproof and some of the more advanced things you want want to do can be tricky to pull off but it has worked far more often than it has not.</p>
+<p>Dec2hex and hex2dec Although calc does support hexadecimal and you can combine items into one function it is usually easier to have the initial hexadecimal values, the decimal equivalents and the conversion back again.</p>
+<p>In calc the commands are dec2hex to convert from decimal to hexadecimal and hex2dec to do the opposite.</p>
+<p>Differences Granted this is more of a technique than an actual function but it is the most used concept that actually changes/generate data. If you have a field of pointers (covered later but the general idea is a value that contains the location of another value) and the results of a search for something that indicates the start of a value you might need them to line up but it might not be readily apparent. Most of the time with pointers values change between them (if the data is a fixed distance apart there is no need to incur the time penalty for looking up the pointer and maybe doing some operations upon it) and this can give things away. To do this simply take the next pointer value and subtract the current one. The result will be the difference and if you do it for an unknown pointer set you can quite easily match things up and determine if they are “out” by a given amount. You can do a similar thing in reverse to generate new file lengths to save calculating and changing an entire pointer table by hand but by this point it is probably better to build a proper program.</p>
+<p>Rounding function As mentioned data tends to like to be found at 8,16 or 32 bits or some other interval (several file formats on the DS have been observed to align to an address that is a multiple of 100h). CEILING is the main function here although remember it takes decimal input for the number to round to. MROUND can also be used in a pinch but remember it can also round down which would be bad so best to add an amount if you are going to use that.</p>
+<p>Sort function Not quite so useful in ROM hacking as it is in day to day use is the ability to sort by a value (either letter order or number order)</p>
+<p>True/false queries and parsed data Humans are not so good at recognising and interpreting numbers at pace but nice coloured squares are a different matter and quite possible in various spreadsheets. Still if you must use numbers 1 and 0 are easier to account for than lengthy values and spreadsheets can then help with this. The basic method uses the IF command and is typically formed “IF(some value/cell, equals/is less than/is greater than, then FALSE/TRUE)” but deleting as appropriate.</p>
+<p>Filecutter <a href="http://crackerscrap.com/">crackerscrap.com (click on downloads)</a></p>
+<p>Usage: filecutter file.in length file.out &lt;-s start&gt;</p>
+<p>As windows lacks the ability to slice up files from the command line you have this program. Once you have your list of addresses you can use this to generate a batch file with the addresses as the arguments and although it will be specific to that incarnation of the file (not such a problem if you just need everybody to slice up the file as it comes from the ROM) you have just built an archive unpacker. If you need to couple it with a decompression tool you can do that as well in just a few extra steps back in the batch file stage.</p>
+<p>Input is in decimal by default but hex can be used if you stick 0x in front of the relevant numbers.</p>
+<p>Getmyhex <a href="http://www.romhacking.net/utilities/504/">Romhacking.net download</a></p>
+<p><a href="http://filetrip.net/pc-downloads/applications/download-getmyhex-1500-f29200.html">Filetrip download</a></p>
+<p>A simple tool to get the hexadecimal readout of various short sections of text.</p>
+<p>Radare(2) <a href="http://radare.org/y/">Project homepage</a></p>
+<p>Now taking the place of the Romulan program featured in earlier editions. It is a scripting language but not quite, it is aimed at reverse engineering purposes though the focus is more on the PC and related platforms.</p>
+</div>
+<div id="compression" class="section level3 hasAnchor" number="1.7.4">
+<h3><span class="header-section-number">1.7.4</span> Compression<a href="tools-of-the-trade-continued.html#compression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Compression was once the bane of ROM hackers but it got a lot easier to handle on the DS and is not so bad for the GBA either. At this point it might even have reduced to making for a simple extra step using a known tool when extracting something from a ROM or putting it back in but not much else.</p>
+<p>DSdecmp <a href="https://github.com/barubary/dsdecmp">Github page</a></p>
+<p>Supports compression and decompression of LZSS formats seen on the GBA and DS (type 10, 11, 40 and binary/BLZ), RLE and Huffman.</p>
+<p>Cue’s GBA DS compressors <a href="http://gbatemp.net/topic/313278-nintendo-dsgba-compressors/">GBAtemp thread</a></p>
+<p><a href="http://filetrip.net/nds-downloads/utilities/download-cues-gba-ds-compressors-10-f29010.html">Filetrip download</a></p>
+<p>Also supports compression and decompression of LZSS formats seen on the GBA and DS (type 10, 11, 40 and binary/BLZ), RLE and Huffman as well as LZE (used in Luminous arc titles).</p>
+<p>Crystaltile2 <a href="http://filetrip.net/f23649-CrystalTile2-2010-09-06.html">Filetrip download</a></p>
+<p>Has a measure of compression support built into the file manager (type 10, type 11, binary decompression support some RLE and maybe Huffman) and support for some compression searching options. Somewhat buggy but you can learn them and play to them well enough.</p>
+<p>GBA specific BIOS and to a lesser extent general LZ compression can be searched for as it makes fairly distinctive changes to the hex. There are also a few tools geared towards being able to deal with GBA ROM images directly and work around issues stemming from a lack of a filesystem.</p>
+<p>GBA Multi DeCompressor <a href="http://www.romhacking.net/utilities/431/">romhacking.net download</a></p>
+<p>Can be directed and fed VBA SWI logs (SWI being the name for the BIOS calls and as mentioned the BIOS in the GBA and DS feature decompression functions).</p>
+<p>NLZ-GBA Advance <a href="http://www.romhacking.net/utilities/529/">romhacking.net download</a></p>
+<p>Ostensibly a graphics editor but one with compression support and compression searching.</p>
+<p>unLZ-GBA <a href="http://www.romhacking.net/utilities/362/">romhacking.net download</a></p>
+<p>A slightly older tool but one of the few ones capable of compression searching.</p>
+<p>Lz77restructor2 <a href="http://filetrip.net/gba-downloads/tools-utilities/latest-lz77restructor2-f29641.html">Filetrip download</a></p>
+<p>A newer tool with abilities in graphics and text extraction and insertion/edition on top of the ability to search for compression and restrict those searches.</p>
+<p>GBADecmp <a href="http://www.romhacking.net/utilities/433/">romhacking.net download</a></p>
+<p>A simple tool to decompress and recompress data from/to a known location.</p>
+<p>Crystaltile2 <a href="http://filetrip.net/f23649-CrystalTile2-2010-09-06.html">Filetrip link</a></p>
+<p>Supports type 10 LZ which is the same as the GBA BIOS LZ compression. Also supports compression searching.</p>
+<p>GBACrusher <a href="http://filetrip.net/gba-downloads/tools-utilities/download-gba-crusher-010-f28823.html">Filetrip link</a></p>
+<p>A tool to compress files using GBA BIOS compatible compression methods like the 8 and 4 bit Huffman compressions, Differential, Run length encoding, LZ (type 10) for VRAM and for WRAM. Command line version included.</p>
+<div class="figure">
+<img src="images/16_home_fast6191_romhackingguide_unrenamed_file___hackingguidecompressionshowcasegbacrusher_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+</div>
+<div id="music" class="section level3 hasAnchor" number="1.7.5">
+<h3><span class="header-section-number">1.7.5</span> Music<a href="tools-of-the-trade-continued.html#music" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Format and console specific tools will be covered in the relevant sections. However a few high level tools are useful to have.</p>
+<p>Wave editing - Audacity <a href="http://audacity.sourceforge.net/">Audacity Sourceforge page</a></p>
+<p>Imports most wave, PCM and ADPCM variations and features editing, some mixing ability and filters.</p>
+<p>Tracker format - Open MPT <a href="http://openmpt.org/">Open MPT homepage</a></p>
+<p>A fairly advanced program with support for playing, editing and exporting various tracker formats. Should have a measure of DLS support although it can be problematic. Formerly known as ModPlug Tracker which is what some tutorials written before the rename will refer to it as.</p>
+<p>Midi specific - Anvil Studio <a href="http://www.anvilstudio.com/">Anvil studio homepage</a></p>
+<p>A freeware program that several of those editing audio for the GBA like to use.</p>
+<p>General editing - Awave studio <a href="http://www.fmjsoft.com/awframe.html">Awave studio homepage</a></p>
+<p>A largely paid piece of software that can help convert files and deal with less than perfect implementations of some audio formats various game specific tools might output. Midi and DLS support is available.</p>
+</div>
+<div id="asmassembly" class="section level3 hasAnchor" number="1.7.6">
+<h3><span class="header-section-number">1.7.6</span> ASM/Assembly<a href="tools-of-the-trade-continued.html#asmassembly" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Usage is often as extensive as assembly itself but some tools none the less</p>
+<p>Emulators (debugging/hacking grade) The following is a list of emulators that possess debug functions of a grade that is useful to ROM hacking without going to abstract methods of debugging.</p>
+<p>DS there are a handful of emulators available but only three have any real support for commercial ROM images and debugging.</p>
+<p>Desmume</p>
+<p><a href="http://desmume.org/download/">Desmume download page</a></p>
+<p>The developer and regular versions feature memory viewers, disassemblers, VRAM, OAM and other such viewers. Also features support for GDB and <a href="http://wiki.desmume.org/index.php?title=Faq#What_is_this_Lua_stuff_I_see.3F">LUA type</a> debugging as seen in high grade hacking focused emulators like <a href="http://www.fceux.com/web/help/LuaScripting.html">FCEUX</a>. Its cheat making options are fairly well developed nowadays as well.</p>
+<p>no$gba</p>
+<p><a href="http://problemkaputt.de/gba-dev.htm">no$gba developer version page</a></p>
+<p>The gaming version of no$gba features very few debugging features (although there are some memory editors that interface with it) but there is a debugging version, which is now free to download, available with extensive debugging abilities. Note that ROM images may well need to have their secure area encrypted to run but <a href="http://www.no-intro.org/tools.htm">eNDryptS Advanced</a> should be able to handle that.</p>
+<p>iDeaS</p>
+<p><a href="http://ciacin.site90.com/ideas.php">iDeaS homepage</a></p>
+<p>Though slightly less developed than Desmume on the commercial ROM front it does however support something closer to breakpoints as seen in no<span class="math inline">\(gba and the GBA emulators as standard. Function logs and run to selection command are more prominent in the debugging section though and it is not quite a full replacement for no\)</span>gba.</p>
+<p>GBA The GBA has a somewhat larger and more featured collection of debugging grade emulators.</p>
+<p>VBA-SDL-h</p>
+<p><a href="http://labmaster.bios.net.nz/vba-sdl-h/">VBA-SDL-h Homepage</a></p>
+<p><a href="http://sharesource.org/project/vbasdlh/">VBA-SDL-h sharesource page</a></p>
+<p><a href="http://filetrip.net/gba-downloads/emulators/download-vba-sdl-h-r070904a-f28914.html">Filetrip download</a></p>
+<p>Version of the popular GBA emulator reworked to add debugging support like the ability to set breakpoints.</p>
+<p>VBA-h</p>
+<p><a href="http://filetrip.net/gba-downloads/emulators/download-vba-h-172-f28913.html">Filetrip download</a></p>
+<p>VBA-sdl-h above is geared towards assembly hacking and lacks much in the way of a GUI where VBA-h is geared towards memory viewing and cheat making.</p>
+<p>no$gba</p>
+<p><a href="http://problemkaputt.de/gba-dev.htm">no$gba developer version page</a></p>
+<p>Along with the DS the GBA is well supported in the debugging editions of no$gba.</p>
+<p>BoycottAdvance</p>
+<p><a href="http://filetrip.net/gba-downloads/emulators/download-boycottadvance-028-windows-f28912.html">Filetrip download</a></p>
+<p>Some prefer this to VBA-SDL-h and it certainly is a bit more GUI happy. It can take a bit more to get some ROM images working and some of the features are not as extensive but it does have breakpoints which counts for a lot.</p>
+<div class="figure">
+<img src="images/17_home_fast6191_romhackingguide_unrenamed_file___ackingguideemulatorshowcaseboycottadvance_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Disassemblers Disassemblers are tools that can be directed to turn machine code and related information back into assembly code. They are pretty dumb for the most part and their output will tend not even to be able to be reassembled without some modification by a human, however take the time to set one up properly for the task you want and they are invaluable.</p>
+<p>GBA and DS Emulators will usually provide some disassembly and as they know what mode the processor is running in at the time and have various viewers for memory (video, normal or otherwise) they can be even more useful but standalone disassembly tools do exist. Note that the DS does feature a custom, albeit widely supported, compression format that its binaries can and do use.</p>
+<ul>
+<li>Crystaltile2<a href="http://filetrip.net/f23649-CrystalTile2-2010-09-06.html">Filetrip download</a>. Has a basic disassembler for ARM9 and ARM7 built into the program and the ability to interface with other programs.</li>
+<li>NDSDIS2 <a href="http://hp.vector.co.jp/authors/VA018359/nds/ndshack.html">NDSDSI2 homepage</a> <a href="http://filetrip.net/nds-downloads/utilities/download-ndsdis2-223-f28977.html">Filetrip download</a>. A basic standalone disassembler aimed at the DS.</li>
+<li>arm-eabi-objdump <a href="http://devkitpro.org/">Part of devkitpro/GNU toolchains</a>. Not so useful on ROM images/for single files only and does not support compression but should work well if you can get it something it can sink its teeth into. If dealing with newer systems then looking at these sorts of toolchains will get you something.</li>
+<li>IDA <a href="http://www.hex-rays.com/products/ida/overview.shtml">IDA homepage</a> Paid software, the freeware edition is quite locked down though (basically X86 or nothing). This is the go to general purpose disassembler/debugging tool and one all new disassemblers and debugging plugins/tools for various platforms tend to be written for.</li>
+</ul>
+<p>Assemblers The processors in the GBA and DS are quite similar so you can usually go from one to the other. Developer no$gba and crystaltile2 feature single instruction editing and IDA has some abilities in this arena too. Also tending to be 16 or 32 bits in length you can often edit instructions by hand. This will focus more on hacker grade assemblers, mainly as programming grade assemblers have great features like the ability to create variables/human readable references and similar things by default where hacker grade ones tend to require more raw input (although armips does have a lot of niceties here).</p>
+<p>The GBA ARM7 and DS ARM9 are very similar and the added instructions for the DS ARM9 (all of three which are not all that commonly used) you can live dangerously and switch between them. Since the earlier versions of this document ARM have risen up even further in the world (they basically own all of mobile phones and tablets) so if you are using newer tools, or ones not suggested here, then make sure you are using the right modes.</p>
+<p>Again assembly will be covered later (including some links to the official specifications) but in the meantime <a href="http://imrannazar.com/ARM-Opcode-Map">imrannazar.com ARM Opcode Map</a> has a full listing in a more readable form.</p>
+<p>armips</p>
+<p><a href="http://www.romhacking.net/utilities/635/">romhacking.net download</a></p>
+<p><a href="http://aerie.wingdreams.net/?page_id=6">program homepage</a></p>
+<p>A relative newcomer in the ROM hacking assembler world (the first release was back in September 2009). Geared towards GBA and DS ROM hacking (also MIPS R3000 for the PS1) it has the option to use macros, labels (global and local), can load tables so as to be able to load custom strings and something closer to C/C++ family maths than the average assembler. Owing to the way it works it has pretty good support for overlays as well.</p>
+<p>ARMeabitoolchain</p>
+<p>ARMeabi deals with the underlying assembler for the GNU development toolchains (although for the GBA/DS specific stuff you will want to be looking at <a href="http://devkitpro.org/">devkitpro</a>).</p>
+<p>As part of an earlier hacking project a kit was made to assemble small file fragments into things that could be dropped into the ROM. Two main methods aimed at hacking here</p>
+<p>cracker’s ARM ASM kit</p>
+<p><a href="http://crackerscrap.com/">crackerscrap.com (click on projects)</a></p>
+<p><a href="http://gbatemp.net/up/cr-dstmt.zip">gbatemp download (older version)</a></p>
+<p>Garmy</p>
+<p><a href="http://www.romhacking.net/utilities/456/">romhacking.net download</a></p>
+<p>For the GBA you may also like <a href="http://forums.nesdev.com/viewtopic.php?f=5&amp;t=10176&amp;start=0#p113532">this script from Dwedit.</a></p>
+<p>goldroad</p>
+<p><a href="http://www.romhacking.net/utilities/343/">romhacking.net download</a></p>
+<p>For quite a while the main assembler available for the GBA as far as ROM hacking was concerned. It is not the cleanest tool out there but can get things done and for some armips replaced it but the above tools are now the preferred method.</p>
+<p>armish</p>
+<p><a href="http://common-lisp.net/project/armish/">Project homepage</a></p>
+<p>Written in lisp and aimed more at homebrew programming it is another assembler for the ARM processor family.</p>
+<p>arm sdt</p>
+<p>More of a programming assembler and features some very nice functions to help with program development. Many of the GBA homebrew emulators, and some versions of moonshell on the DS, were coded using this in preference to the GNU toolchains, something which made maintenance, forking and third party contributions more difficult in some cases.</p>
+<p>FASMARM</p>
+<p>An ARM plugin for the X86 and x86-64 assembler <a href="http://flatassembler.net/">FASM</a>. You can find FASMARM <a href="http://arm.flatassembler.net/">here</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="abstraction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-file-format-concepts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rh-reborn/gba-and-ds-rom-hacking-guide/edit/main/01-basics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gba-and-ds-rom-hacking-guide.pdf", "gba-and-ds-rom-hacking-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

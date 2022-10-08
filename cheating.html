@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.3 Cheating | GBA and DS ROM hacking guide</title>
+  <meta name="description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5.3 Cheating | GBA and DS ROM hacking guide" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  <meta name="github-repo" content="rh-reborn/gba-and-ds-rom-hacking-guide" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.3 Cheating | GBA and DS ROM hacking guide" />
+  
+  <meta name="twitter:description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  
+
+<meta name="author" content="FAST6191" />
+
+
+<meta name="date" content="2022-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="compression-1.html"/>
+<link rel="next" href="programming-concepts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">GBA and DS ROM hacking guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sections</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="warning.html"><a href="warning.html"><i class="fa fa-check"></i>Warning</a></li>
+</ul></li>
+<li class="part"><span><b>II ROM hacking concepts</b></span></li>
+<li class="chapter" data-level="1" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>1</b> Basics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="hexadecimal.html"><a href="hexadecimal.html"><i class="fa fa-check"></i><b>1.1</b> Hexadecimal</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="hexadecimal.html"><a href="hexadecimal.html#representation"><i class="fa fa-check"></i><b>1.1.1</b> Representation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="hexadecimal.html"><a href="hexadecimal.html#bcd-binary-coded-decimal"><i class="fa fa-check"></i><b>1.1.2</b> BCD (Binary coded decimal)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="hexadecimal.html"><a href="hexadecimal.html#big-and-little-endian"><i class="fa fa-check"></i><b>1.1.3</b> Big and little endian</a></li>
+<li class="chapter" data-level="1.1.4" data-path="hexadecimal.html"><a href="hexadecimal.html#signed-values-floating-point-and-fixed-point"><i class="fa fa-check"></i><b>1.1.4</b> Signed values, floating point and fixed point</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="hex-operations.html"><a href="hex-operations.html"><i class="fa fa-check"></i><b>1.2</b> Hex operations</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="hex-operations.html"><a href="hex-operations.html#shift"><i class="fa fa-check"></i><b>1.2.1</b> Shift</a></li>
+<li class="chapter" data-level="1.2.2" data-path="hex-operations.html"><a href="hex-operations.html#rotate"><i class="fa fa-check"></i><b>1.2.2</b> Rotate</a></li>
+<li class="chapter" data-level="1.2.3" data-path="hex-operations.html"><a href="hex-operations.html#flip"><i class="fa fa-check"></i><b>1.2.3</b> Flip</a></li>
+<li class="chapter" data-level="1.2.4" data-path="hex-operations.html"><a href="hex-operations.html#boolean-logic"><i class="fa fa-check"></i><b>1.2.4</b> Boolean logic</a></li>
+<li class="chapter" data-level="1.2.5" data-path="hex-operations.html"><a href="hex-operations.html#hex-mathematics."><i class="fa fa-check"></i><b>1.2.5</b> Hex Mathematics.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="patching-and-patch-making.html"><a href="patching-and-patch-making.html"><i class="fa fa-check"></i><b>1.3</b> Patching and patch making</a></li>
+<li class="chapter" data-level="1.4" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html"><i class="fa fa-check"></i><b>1.4</b> File systems and operations</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#non-filesystem-devices"><i class="fa fa-check"></i><b>1.4.1</b> Non filesystem devices</a></li>
+<li class="chapter" data-level="1.4.2" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#gba"><i class="fa fa-check"></i><b>1.4.2</b> GBA</a></li>
+<li class="chapter" data-level="1.4.3" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ds"><i class="fa fa-check"></i><b>1.4.3</b> DS</a></li>
+<li class="chapter" data-level="1.4.4" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ds-1"><i class="fa fa-check"></i><b>1.4.4</b> 3DS</a></li>
+<li class="chapter" data-level="1.4.5" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#gc-gamecube"><i class="fa fa-check"></i><b>1.4.5</b> GC (gamecube)</a></li>
+<li class="chapter" data-level="1.4.6" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#wii"><i class="fa fa-check"></i><b>1.4.6</b> Wii</a></li>
+<li class="chapter" data-level="1.4.7" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#xbox"><i class="fa fa-check"></i><b>1.4.7</b> Xbox</a></li>
+<li class="chapter" data-level="1.4.8" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#xbox-360"><i class="fa fa-check"></i><b>1.4.8</b> Xbox 360</a></li>
+<li class="chapter" data-level="1.4.9" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ps1-and-ps2"><i class="fa fa-check"></i><b>1.4.9</b> PS1 and PS2</a></li>
+<li class="chapter" data-level="1.4.10" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ps3"><i class="fa fa-check"></i><b>1.4.10</b> PS3</a></li>
+<li class="chapter" data-level="1.4.11" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#psp"><i class="fa fa-check"></i><b>1.4.11</b> PSP</a></li>
+<li class="chapter" data-level="1.4.12" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#saturn"><i class="fa fa-check"></i><b>1.4.12</b> Saturn</a></li>
+<li class="chapter" data-level="1.4.13" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#dreamcast"><i class="fa fa-check"></i><b>1.4.13</b> Dreamcast</a></li>
+<li class="chapter" data-level="1.4.14" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#amiga"><i class="fa fa-check"></i><b>1.4.14</b> Amiga</a></li>
+<li class="chapter" data-level="1.4.15" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#pc-and-related-hardware."><i class="fa fa-check"></i><b>1.4.15</b> PC and related hardware.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="finding-the-object-of-your-interest..html"><a href="finding-the-object-of-your-interest..html"><i class="fa fa-check"></i><b>1.5</b> Finding the object of your interest.</a></li>
+<li class="chapter" data-level="1.6" data-path="abstraction.html"><a href="abstraction.html"><i class="fa fa-check"></i><b>1.6</b> Abstraction</a></li>
+<li class="chapter" data-level="1.7" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html"><i class="fa fa-check"></i><b>1.7</b> Tools of the trade continued</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#hex-editor"><i class="fa fa-check"></i><b>1.7.1</b> Hex editor</a></li>
+<li class="chapter" data-level="1.7.2" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#tile-editor"><i class="fa fa-check"></i><b>1.7.2</b> Tile editor</a></li>
+<li class="chapter" data-level="1.7.3" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#spreadsheet-and-command-line"><i class="fa fa-check"></i><b>1.7.3</b> Spreadsheet and command line</a></li>
+<li class="chapter" data-level="1.7.4" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#compression"><i class="fa fa-check"></i><b>1.7.4</b> Compression</a></li>
+<li class="chapter" data-level="1.7.5" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#music"><i class="fa fa-check"></i><b>1.7.5</b> Music</a></li>
+<li class="chapter" data-level="1.7.6" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#asmassembly"><i class="fa fa-check"></i><b>1.7.6</b> ASM/Assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="basic-file-format-concepts.html"><a href="basic-file-format-concepts.html"><i class="fa fa-check"></i><b>1.8</b> Basic file format concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>2</b> Graphics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html"><i class="fa fa-check"></i><b>2.1</b> Basic graphics concepts</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#aliasing"><i class="fa fa-check"></i><b>2.1.1</b> Aliasing</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#haloing"><i class="fa fa-check"></i><b>2.1.2</b> Haloing</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#bit-depth"><i class="fa fa-check"></i><b>2.1.3</b> Bit depth</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="palettes-and-colours.html"><a href="palettes-and-colours.html"><i class="fa fa-check"></i><b>2.2</b> Palettes and colours</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="palettes-and-colours.html"><a href="palettes-and-colours.html#gba-colours-15-bit"><i class="fa fa-check"></i><b>2.2.1</b> GBA colours (15 bit)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="tiles.html"><a href="tiles.html"><i class="fa fa-check"></i><b>2.3</b> Tiles</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="tiles.html"><a href="tiles.html#bpp"><i class="fa fa-check"></i><b>2.3.1</b> 1Bpp</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tiles.html"><a href="tiles.html#bpp-1"><i class="fa fa-check"></i><b>2.3.2</b> 4 Bpp</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tiles.html"><a href="tiles.html#bpp-2"><i class="fa fa-check"></i><b>2.3.3</b> 8Bpp</a></li>
+<li class="chapter" data-level="2.3.4" data-path="tiles.html"><a href="tiles.html#gba3-xbpp"><i class="fa fa-check"></i><b>2.3.4</b> GBA3 Xbpp</a></li>
+<li class="chapter" data-level="2.3.5" data-path="tiles.html"><a href="tiles.html#gba2-4bpp"><i class="fa fa-check"></i><b>2.3.5</b> GBA2 4BPP</a></li>
+<li class="chapter" data-level="2.3.6" data-path="tiles.html"><a href="tiles.html#bitmap"><i class="fa fa-check"></i><b>2.3.6</b> Bitmap</a></li>
+<li class="chapter" data-level="2.3.7" data-path="tiles.html"><a href="tiles.html#known-formats"><i class="fa fa-check"></i><b>2.3.7</b> Known formats</a></li>
+<li class="chapter" data-level="2.3.8" data-path="tiles.html"><a href="tiles.html#crystaltile2-export-and-import."><i class="fa fa-check"></i><b>2.3.8</b> Crystaltile2 export and import.</a></li>
+<li class="chapter" data-level="2.3.9" data-path="tiles.html"><a href="tiles.html#avoiding-gradients-aa-lossy-compression-noise-and-such-things."><i class="fa fa-check"></i><b>2.3.9</b> Avoiding gradients, AA, lossy compression, noise and such things.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html"><i class="fa fa-check"></i><b>2.4</b> Layout, timing, OAM and special effects</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#introduction-to-the-oam-and-bg-modes."><i class="fa fa-check"></i><b>2.4.1</b> Introduction to the OAM and BG modes.</a></li>
+<li class="chapter" data-level="2.4.2" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#timing"><i class="fa fa-check"></i><b>2.4.2</b> Timing</a></li>
+<li class="chapter" data-level="2.4.3" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#gba-and-ds-oam-sprites"><i class="fa fa-check"></i><b>2.4.3</b> GBA and DS OAM (sprites)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#gba-and-ds-bg-modes"><i class="fa fa-check"></i><b>2.4.4</b> GBA and DS BG modes</a></li>
+<li class="chapter" data-level="2.4.5" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#emulator-shots"><i class="fa fa-check"></i><b>2.4.5</b> Emulator shots</a></li>
+<li class="chapter" data-level="2.4.6" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#basic-animation"><i class="fa fa-check"></i><b>2.4.6</b> Basic animation</a></li>
+<li class="chapter" data-level="2.4.7" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#window-feature"><i class="fa fa-check"></i><b>2.4.7</b> Window feature</a></li>
+<li class="chapter" data-level="2.4.8" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#special-features-flipping-affine-transformation-alpha-and-such"><i class="fa fa-check"></i><b>2.4.8</b> Special features (flipping, affine transformation, alpha and such)</a></li>
+<li class="chapter" data-level="2.4.9" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#basic-ds-layout-formats-and-mapping"><i class="fa fa-check"></i><b>2.4.9</b> Basic DS layout formats and mapping</a></li>
+<li class="chapter" data-level="2.4.10" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#video-memory-handling-and-alignment"><i class="fa fa-check"></i><b>2.4.10</b> Video memory handling and alignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="d.html"><a href="d.html"><i class="fa fa-check"></i><b>2.5</b> 3d</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="d.html"><a href="d.html#basic-3d-bones-coordinates-keyframes"><i class="fa fa-check"></i><b>2.5.1</b> Basic 3d (bones, coordinates, keyframes)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="d.html"><a href="d.html#viewpoints"><i class="fa fa-check"></i><b>2.5.2</b> Viewpoints</a></li>
+<li class="chapter" data-level="2.5.3" data-path="d.html"><a href="d.html#textures-and-material-colours"><i class="fa fa-check"></i><b>2.5.3</b> Textures and material colours</a></li>
+<li class="chapter" data-level="2.5.4" data-path="d.html"><a href="d.html#models"><i class="fa fa-check"></i><b>2.5.4</b> Models</a></li>
+<li class="chapter" data-level="2.5.5" data-path="d.html"><a href="d.html#lightingshadows"><i class="fa fa-check"></i><b>2.5.5</b> Lighting/shadows</a></li>
+<li class="chapter" data-level="2.5.6" data-path="d.html"><a href="d.html#d-smoke-and-fog"><i class="fa fa-check"></i><b>2.5.6</b> 3d smoke and fog</a></li>
+<li class="chapter" data-level="2.5.7" data-path="d.html"><a href="d.html#animations"><i class="fa fa-check"></i><b>2.5.7</b> Animations</a></li>
+<li class="chapter" data-level="2.5.8" data-path="d.html"><a href="d.html#ds-3d-hardware"><i class="fa fa-check"></i><b>2.5.8</b> DS 3D hardware</a></li>
+<li class="chapter" data-level="2.5.9" data-path="d.html"><a href="d.html#the-shift-of-the-3d-to-ds-2d"><i class="fa fa-check"></i><b>2.5.9</b> The shift of the 3D to DS 2d</a></li>
+<li class="chapter" data-level="2.5.10" data-path="d.html"><a href="d.html#nsbmd"><i class="fa fa-check"></i><b>2.5.10</b> NSBMD</a></li>
+<li class="chapter" data-level="2.5.11" data-path="d.html"><a href="d.html#basic-nsbmd-hacks"><i class="fa fa-check"></i><b>2.5.11</b> Basic NSBMD hacks</a></li>
+<li class="chapter" data-level="2.5.12" data-path="d.html"><a href="d.html#example-of-minor-hack"><i class="fa fa-check"></i><b>2.5.12</b> Example of minor hack</a></li>
+<li class="chapter" data-level="2.5.13" data-path="d.html"><a href="d.html#basic-texture-viewing-hack"><i class="fa fa-check"></i><b>2.5.13</b> Basic texture viewing hack</a></li>
+<li class="chapter" data-level="2.5.14" data-path="d.html"><a href="d.html#command-decoding-aside"><i class="fa fa-check"></i><b>2.5.14</b> Command decoding aside</a></li>
+<li class="chapter" data-level="2.5.15" data-path="d.html"><a href="d.html#non-nsbmd"><i class="fa fa-check"></i><b>2.5.15</b> Non NSBMD</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="notes-and-further-reading.html"><a href="notes-and-further-reading.html"><i class="fa fa-check"></i><b>2.6</b> Notes and further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="text.html"><a href="text.html"><i class="fa fa-check"></i><b>3</b> Text</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>3.1</b> Tables</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="tables.html"><a href="tables.html#table-creation-and-figuring-out-custom-encodings"><i class="fa fa-check"></i><b>3.1.1</b> Table creation and figuring out custom encodings</a></li>
+<li class="chapter" data-level="3.1.2" data-path="tables.html"><a href="tables.html#relative-searching"><i class="fa fa-check"></i><b>3.1.2</b> Relative searching</a></li>
+<li class="chapter" data-level="3.1.3" data-path="tables.html"><a href="tables.html#corruption-and-alteration"><i class="fa fa-check"></i><b>3.1.3</b> Corruption and alteration</a></li>
+<li class="chapter" data-level="3.1.4" data-path="tables.html"><a href="tables.html#memory-viewing-and-corruption"><i class="fa fa-check"></i><b>3.1.4</b> Memory viewing and corruption</a></li>
+<li class="chapter" data-level="3.1.5" data-path="tables.html"><a href="tables.html#frequency-analysis"><i class="fa fa-check"></i><b>3.1.5</b> Frequency analysis</a></li>
+<li class="chapter" data-level="3.1.6" data-path="tables.html"><a href="tables.html#language-analysis"><i class="fa fa-check"></i><b>3.1.6</b> Language analysis</a></li>
+<li class="chapter" data-level="3.1.7" data-path="tables.html"><a href="tables.html#pointer-and-encodinghex-analysis"><i class="fa fa-check"></i><b>3.1.7</b> Pointer and encoding/hex analysis</a></li>
+<li class="chapter" data-level="3.1.8" data-path="tables.html"><a href="tables.html#assembly-tracing"><i class="fa fa-check"></i><b>3.1.8</b> Assembly tracing</a></li>
+<li class="chapter" data-level="3.1.9" data-path="tables.html"><a href="tables.html#font-viewing"><i class="fa fa-check"></i><b>3.1.9</b> Font viewing</a></li>
+<li class="chapter" data-level="3.1.10" data-path="tables.html"><a href="tables.html#language-comparing"><i class="fa fa-check"></i><b>3.1.10</b> Language comparing</a></li>
+<li class="chapter" data-level="3.1.11" data-path="tables.html"><a href="tables.html#table-creation-tools"><i class="fa fa-check"></i><b>3.1.11</b> Table creation tools</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="pointers.html"><a href="pointers.html"><i class="fa fa-check"></i><b>3.2</b> Pointers</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="pointers.html"><a href="pointers.html#special-cases-and-non-pointer-concepts"><i class="fa fa-check"></i><b>3.2.1</b> Special cases and non pointer concepts</a></li>
+<li class="chapter" data-level="3.2.2" data-path="pointers.html"><a href="pointers.html#example-reverse-engineering-of-pointers"><i class="fa fa-check"></i><b>3.2.2</b> Example reverse engineering of pointers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="markup-control-codes-and-placeholders.html"><a href="markup-control-codes-and-placeholders.html"><i class="fa fa-check"></i><b>3.3</b> Markup, control codes and placeholders</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="markup-control-codes-and-placeholders.html"><a href="markup-control-codes-and-placeholders.html#worked-example"><i class="fa fa-check"></i><b>3.3.1</b> Worked example</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="fonts.html"><a href="fonts.html"><i class="fa fa-check"></i><b>3.4</b> Fonts</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="fonts.html"><a href="fonts.html#nftr"><i class="fa fa-check"></i><b>3.4.1</b> NFTR</a></li>
+<li class="chapter" data-level="3.4.2" data-path="fonts.html"><a href="fonts.html#adding-characters-to-nftr"><i class="fa fa-check"></i><b>3.4.2</b> Adding characters to NFTR</a></li>
+<li class="chapter" data-level="3.4.3" data-path="fonts.html"><a href="fonts.html#common-hacks"><i class="fa fa-check"></i><b>3.4.3</b> Common hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="scripting-and-layout.html"><a href="scripting-and-layout.html"><i class="fa fa-check"></i><b>3.5</b> Scripting and layout</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="scripting-and-layout.html"><a href="scripting-and-layout.html#layout-and-limits"><i class="fa fa-check"></i><b>3.5.1</b> Layout and limits</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html"><i class="fa fa-check"></i><b>3.6</b> Text extraction and insertion</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html#text-extraction"><i class="fa fa-check"></i><b>3.6.1</b> Text extraction</a></li>
+<li class="chapter" data-level="3.6.2" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html#text-insertion"><i class="fa fa-check"></i><b>3.6.2</b> Text insertion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="language-detection-in-ds-games.html"><a href="language-detection-in-ds-games.html"><i class="fa fa-check"></i><b>3.7</b> Language detection in DS games</a></li>
+<li class="chapter" data-level="3.8" data-path="translation-hacking.html"><a href="translation-hacking.html"><i class="fa fa-check"></i><b>3.8</b> Translation hacking</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="translation-hacking.html"><a href="translation-hacking.html#the-types-of-japanese-characters-and-how-they-work--"><i class="fa fa-check"></i><b>3.8.1</b> The types of Japanese characters and how they work -</a></li>
+<li class="chapter" data-level="3.8.2" data-path="translation-hacking.html"><a href="translation-hacking.html#japanese-glyphscharacters-and-observations-on-the-language"><i class="fa fa-check"></i><b>3.8.2</b> Japanese glyphs/characters and observations on the language</a></li>
+<li class="chapter" data-level="3.8.3" data-path="translation-hacking.html"><a href="translation-hacking.html#on-language"><i class="fa fa-check"></i><b>3.8.3</b> On language</a></li>
+<li class="chapter" data-level="3.8.4" data-path="translation-hacking.html"><a href="translation-hacking.html#right-to-left-languages-and-translation."><i class="fa fa-check"></i><b>3.8.4</b> Right to left languages and translation.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html"><i class="fa fa-check"></i><b>3.9</b> Japanese text editors and translation tools</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#general-japanese-capable-text-editors"><i class="fa fa-check"></i><b>3.9.1</b> General Japanese capable text editors</a></li>
+<li class="chapter" data-level="3.9.2" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#rom-hacking-tools"><i class="fa fa-check"></i><b>3.9.2</b> ROM hacking tools</a></li>
+<li class="chapter" data-level="3.9.3" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#cat-tools"><i class="fa fa-check"></i><b>3.9.3</b> CAT tools</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multimedia.html"><a href="multimedia.html"><i class="fa fa-check"></i><b>4</b> Multimedia</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>4.1</b> Sound</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="sound.html"><a href="sound.html#sdat-nds"><i class="fa fa-check"></i><b>4.1.1</b> SDAT (NDS)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sound.html"><a href="sound.html#others"><i class="fa fa-check"></i><b>4.1.2</b> Others</a></li>
+<li class="chapter" data-level="4.1.3" data-path="sound.html"><a href="sound.html#tracker-formats"><i class="fa fa-check"></i><b>4.1.3</b> Tracker formats</a></li>
+<li class="chapter" data-level="4.1.4" data-path="sound.html"><a href="sound.html#general-rule-of-thumb-for-custom-audio-formats"><i class="fa fa-check"></i><b>4.1.4</b> General rule of thumb for custom audio formats</a></li>
+<li class="chapter" data-level="4.1.5" data-path="sound.html"><a href="sound.html#common-ds-sdat-audio-hacks-undubbing-injection-tweaks-and-relinking"><i class="fa fa-check"></i><b>4.1.5</b> Common DS SDAT audio hacks (undubbing, injection, tweaks and relinking)</a></li>
+<li class="chapter" data-level="4.1.6" data-path="sound.html"><a href="sound.html#basic-undub"><i class="fa fa-check"></i><b>4.1.6</b> Basic undub</a></li>
+<li class="chapter" data-level="4.1.7" data-path="sound.html"><a href="sound.html#relinking"><i class="fa fa-check"></i><b>4.1.7</b> Relinking</a></li>
+<li class="chapter" data-level="4.1.8" data-path="sound.html"><a href="sound.html#injection"><i class="fa fa-check"></i><b>4.1.8</b> Injection</a></li>
+<li class="chapter" data-level="4.1.9" data-path="sound.html"><a href="sound.html#propercomplex-undub"><i class="fa fa-check"></i><b>4.1.9</b> Proper/complex undub</a></li>
+<li class="chapter" data-level="4.1.10" data-path="sound.html"><a href="sound.html#sseq-editing"><i class="fa fa-check"></i><b>4.1.10</b> SSEQ editing</a></li>
+<li class="chapter" data-level="4.1.11" data-path="sound.html"><a href="sound.html#gba-audio"><i class="fa fa-check"></i><b>4.1.11</b> GBA audio</a></li>
+<li class="chapter" data-level="4.1.12" data-path="sound.html"><a href="sound.html#sappy"><i class="fa fa-check"></i><b>4.1.12</b> Sappy</a></li>
+<li class="chapter" data-level="4.1.13" data-path="sound.html"><a href="sound.html#notable-gba-audio-hacks"><i class="fa fa-check"></i><b>4.1.13</b> Notable GBA audio hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="video.html"><a href="video.html"><i class="fa fa-check"></i><b>4.2</b> Video</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="video.html"><a href="video.html#general-video-theory"><i class="fa fa-check"></i><b>4.2.1</b> General video theory</a></li>
+<li class="chapter" data-level="4.2.2" data-path="video.html"><a href="video.html#modsvxact-imagine-by-mobiclip."><i class="fa fa-check"></i><b>4.2.2</b> Mods/VX/act imagine by Mobiclip.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="video.html"><a href="video.html#radbink"><i class="fa fa-check"></i><b>4.2.3</b> RAD/Bink</a></li>
+<li class="chapter" data-level="4.2.4" data-path="video.html"><a href="video.html#criware"><i class="fa fa-check"></i><b>4.2.4</b> Criware</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cut-scenes.html"><a href="cut-scenes.html"><i class="fa fa-check"></i><b>4.3</b> Cut scenes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="game-logic.html"><a href="game-logic.html"><i class="fa fa-check"></i><b>5</b> Game logic</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="levels-and-stats.html"><a href="levels-and-stats.html"><i class="fa fa-check"></i><b>5.1</b> Levels and Stats</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="levels-and-stats.html"><a href="levels-and-stats.html#example-tools"><i class="fa fa-check"></i><b>5.1.1</b> Example tools</a></li>
+<li class="chapter" data-level="5.1.2" data-path="levels-and-stats.html"><a href="levels-and-stats.html#level-editing-techniques"><i class="fa fa-check"></i><b>5.1.2</b> Level editing techniques</a></li>
+<li class="chapter" data-level="5.1.3" data-path="levels-and-stats.html"><a href="levels-and-stats.html#worked-example-1"><i class="fa fa-check"></i><b>5.1.3</b> Worked example</a></li>
+<li class="chapter" data-level="5.1.4" data-path="levels-and-stats.html"><a href="levels-and-stats.html#stats"><i class="fa fa-check"></i><b>5.1.4</b> Stats</a></li>
+<li class="chapter" data-level="5.1.5" data-path="levels-and-stats.html"><a href="levels-and-stats.html#rpg-randomiser"><i class="fa fa-check"></i><b>5.1.5</b> RPG randomiser</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="compression-1.html"><a href="compression-1.html"><i class="fa fa-check"></i><b>5.2</b> Compression</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="compression-1.html"><a href="compression-1.html#lossy"><i class="fa fa-check"></i><b>5.2.1</b> Lossy</a></li>
+<li class="chapter" data-level="5.2.2" data-path="compression-1.html"><a href="compression-1.html#lossless"><i class="fa fa-check"></i><b>5.2.2</b> Lossless</a></li>
+<li class="chapter" data-level="5.2.3" data-path="compression-1.html"><a href="compression-1.html#basic-theory-of-the-actual-implementations"><i class="fa fa-check"></i><b>5.2.3</b> Basic theory of the actual implementations</a></li>
+<li class="chapter" data-level="5.2.4" data-path="compression-1.html"><a href="compression-1.html#compression-at-hexadecimal-level"><i class="fa fa-check"></i><b>5.2.4</b> Compression at hexadecimal level</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cheating.html"><a href="cheating.html"><i class="fa fa-check"></i><b>5.3</b> Cheating</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="cheating.html"><a href="cheating.html#general-cheat-making"><i class="fa fa-check"></i><b>5.3.1</b> General cheat making</a></li>
+<li class="chapter" data-level="5.3.2" data-path="cheating.html"><a href="cheating.html#gba-cheat-making"><i class="fa fa-check"></i><b>5.3.2</b> GBA cheat making</a></li>
+<li class="chapter" data-level="5.3.3" data-path="cheating.html"><a href="cheating.html#ds-cheat-making"><i class="fa fa-check"></i><b>5.3.3</b> DS cheat making</a></li>
+<li class="chapter" data-level="5.3.4" data-path="cheating.html"><a href="cheating.html#basic-making-of-a-cheat"><i class="fa fa-check"></i><b>5.3.4</b> Basic making of a cheat</a></li>
+<li class="chapter" data-level="5.3.5" data-path="cheating.html"><a href="cheating.html#cheat-prevention-methods-and-frustrations"><i class="fa fa-check"></i><b>5.3.5</b> Cheat prevention methods and frustrations</a></li>
+<li class="chapter" data-level="5.3.6" data-path="cheating.html"><a href="cheating.html#instruction-editing-cheating"><i class="fa fa-check"></i><b>5.3.6</b> Instruction editing cheating</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="programming-concepts.html"><a href="programming-concepts.html"><i class="fa fa-check"></i><b>5.4</b> Programming concepts</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="programming-concepts.html"><a href="programming-concepts.html#functions-and-procedural-programming.-also-return-oriented-programmingrop"><i class="fa fa-check"></i><b>5.4.1</b> Functions and procedural programming. Also return oriented programming/ROP</a></li>
+<li class="chapter" data-level="5.4.2" data-path="programming-concepts.html"><a href="programming-concepts.html#if-else"><i class="fa fa-check"></i><b>5.4.2</b> IF ELSE</a></li>
+<li class="chapter" data-level="5.4.3" data-path="programming-concepts.html"><a href="programming-concepts.html#recursion"><i class="fa fa-check"></i><b>5.4.3</b> Recursion</a></li>
+<li class="chapter" data-level="5.4.4" data-path="programming-concepts.html"><a href="programming-concepts.html#iteration"><i class="fa fa-check"></i><b>5.4.4</b> Iteration</a></li>
+<li class="chapter" data-level="5.4.5" data-path="programming-concepts.html"><a href="programming-concepts.html#loops"><i class="fa fa-check"></i><b>5.4.5</b> Loops</a></li>
+<li class="chapter" data-level="5.4.6" data-path="programming-concepts.html"><a href="programming-concepts.html#turing-complete"><i class="fa fa-check"></i><b>5.4.6</b> Turing complete</a></li>
+<li class="chapter" data-level="5.4.7" data-path="programming-concepts.html"><a href="programming-concepts.html#fundamentals-of-assembly"><i class="fa fa-check"></i><b>5.4.7</b> Fundamentals of Assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="assembly.html"><a href="assembly.html"><i class="fa fa-check"></i><b>5.5</b> Assembly</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="assembly.html"><a href="assembly.html#arm"><i class="fa fa-check"></i><b>5.5.1</b> ARM</a></li>
+<li class="chapter" data-level="5.5.2" data-path="assembly.html"><a href="assembly.html#gba-assembly-specifics"><i class="fa fa-check"></i><b>5.5.2</b> GBA Assembly specifics</a></li>
+<li class="chapter" data-level="5.5.3" data-path="assembly.html"><a href="assembly.html#ds-assembly-specifics"><i class="fa fa-check"></i><b>5.5.3</b> DS Assembly specifics</a></li>
+<li class="chapter" data-level="5.5.4" data-path="assembly.html"><a href="assembly.html#the-gba-and-ds-compared"><i class="fa fa-check"></i><b>5.5.4</b> The GBA and DS compared</a></li>
+<li class="chapter" data-level="5.5.5" data-path="assembly.html"><a href="assembly.html#on-controls"><i class="fa fa-check"></i><b>5.5.5</b> On controls</a></li>
+<li class="chapter" data-level="5.5.6" data-path="assembly.html"><a href="assembly.html#hooking"><i class="fa fa-check"></i><b>5.5.6</b> Hooking</a></li>
+<li class="chapter" data-level="5.5.7" data-path="assembly.html"><a href="assembly.html#gba-cart-as-extra-memory-for-ds-hacks"><i class="fa fa-check"></i><b>5.5.7</b> GBA cart as extra memory for DS hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html"><i class="fa fa-check"></i><b>5.6</b> Non specific assembly discussion.</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#language-mod-example"><i class="fa fa-check"></i><b>5.6.1</b> Language mod example</a></li>
+<li class="chapter" data-level="5.6.2" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#non-code-in-asm"><i class="fa fa-check"></i><b>5.6.2</b> Non code in ASM</a></li>
+<li class="chapter" data-level="5.6.3" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#destructive-vs-non-destructive-assembly-editing"><i class="fa fa-check"></i><b>5.6.3</b> Destructive vs non destructive assembly editing</a></li>
+<li class="chapter" data-level="5.6.4" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#polymorphic-and-dynamic-code"><i class="fa fa-check"></i><b>5.6.4</b> Polymorphic and dynamic code</a></li>
+<li class="chapter" data-level="5.6.5" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#slowdown-and-speedup"><i class="fa fa-check"></i><b>5.6.5</b> Slowdown and speedup</a></li>
+<li class="chapter" data-level="5.6.6" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#cryptography-encryption-checksums-and-signatures"><i class="fa fa-check"></i><b>5.6.6</b> Cryptography (encryption, checksums and signatures)</a></li>
+<li class="chapter" data-level="5.6.7" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#multiplayer-and-the-failure-of-nintendos-online-ds-security."><i class="fa fa-check"></i><b>5.6.7</b> Multiplayer and the failure of Nintendo’s online DS security.</a></li>
+<li class="chapter" data-level="5.6.8" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#save-editing"><i class="fa fa-check"></i><b>5.6.8</b> Save editing</a></li>
+<li class="chapter" data-level="5.6.9" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#interpreted-languages"><i class="fa fa-check"></i><b>5.6.9</b> Interpreted languages</a></li>
+<li class="chapter" data-level="5.6.10" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#game-ai-game-logic-and-game-theory"><i class="fa fa-check"></i><b>5.6.10</b> Game AI, game logic and game theory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html"><i class="fa fa-check"></i><b>5.7</b> Flash cart and emulator theory</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html#gba-1"><i class="fa fa-check"></i><b>5.7.1</b> GBA</a></li>
+<li class="chapter" data-level="5.7.2" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html#ds-2"><i class="fa fa-check"></i><b>5.7.2</b> DS</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="rom-hacking-protection.html"><a href="rom-hacking-protection.html"><i class="fa fa-check"></i><b>5.8</b> ROM hacking “protection”</a></li>
+</ul></li>
+<li class="part"><span><b>III Examples, oddities and techniques</b></span></li>
+<li class="chapter" data-level="6" data-path="crystaltile2-general-usage-guide.html"><a href="crystaltile2-general-usage-guide.html"><i class="fa fa-check"></i><b>6</b> Crystaltile2 general usage guide</a></li>
+<li class="chapter" data-level="7" data-path="gba-tracing.html"><a href="gba-tracing.html"><i class="fa fa-check"></i><b>7</b> GBA tracing</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tracing-options.html"><a href="tracing-options.html"><i class="fa fa-check"></i><b>7.1</b> Tracing options</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="tracing-options.html"><a href="tracing-options.html#worked-examples"><i class="fa fa-check"></i><b>7.1.1</b> Worked examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ds-tracing.html"><a href="ds-tracing.html"><i class="fa fa-check"></i><b>8</b> DS tracing</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ds-debugging-emulators.html"><a href="ds-debugging-emulators.html"><i class="fa fa-check"></i><b>8.1</b> DS debugging emulators</a></li>
+<li class="chapter" data-level="8.2" data-path="cart-read-command.html"><a href="cart-read-command.html"><i class="fa fa-check"></i><b>8.2</b> Cart read command</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="cart-read-command.html"><a href="cart-read-command.html#basic-lookup-and-methods-for-it"><i class="fa fa-check"></i><b>8.2.1</b> Basic lookup and methods for it</a></li>
+<li class="chapter" data-level="8.2.2" data-path="cart-read-command.html"><a href="cart-read-command.html#header-reverse-engineeringgenerated-values"><i class="fa fa-check"></i><b>8.2.2</b> Header reverse engineering/generated values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="reverse-engineering-various-rom-images.html"><a href="reverse-engineering-various-rom-images.html"><i class="fa fa-check"></i><b>9</b> Reverse engineering various ROM images</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html"><i class="fa fa-check"></i><b>9.1</b> Large archive on top of filesystem</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#tony-hawk"><i class="fa fa-check"></i><b>9.1.1</b> Tony Hawk</a></li>
+<li class="chapter" data-level="9.1.2" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#star-wars---the-force-unleashed"><i class="fa fa-check"></i><b>9.1.2</b> Star Wars - The Force Unleashed</a></li>
+<li class="chapter" data-level="9.1.3" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#el-tigre-make-my-mule"><i class="fa fa-check"></i><b>9.1.3</b> El Tigre Make my mule</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="compression-2.html"><a href="compression-2.html"><i class="fa fa-check"></i><b>9.2</b> Compression</a></li>
+<li class="chapter" data-level="9.3" data-path="first-person-game.html"><a href="first-person-game.html"><i class="fa fa-check"></i><b>9.3</b> First Person Game</a></li>
+<li class="chapter" data-level="9.4" data-path="platformer.html"><a href="platformer.html"><i class="fa fa-check"></i><b>9.4</b> Platformer</a></li>
+<li class="chapter" data-level="9.5" data-path="fighting-games.html"><a href="fighting-games.html"><i class="fa fa-check"></i><b>9.5</b> Fighting games</a></li>
+<li class="chapter" data-level="9.6" data-path="role-playing-games.html"><a href="role-playing-games.html"><i class="fa fa-check"></i><b>9.6</b> Role playing games</a></li>
+<li class="chapter" data-level="9.7" data-path="racing-games.html"><a href="racing-games.html"><i class="fa fa-check"></i><b>9.7</b> Racing games</a></li>
+<li class="chapter" data-level="9.8" data-path="puzzle.html"><a href="puzzle.html"><i class="fa fa-check"></i><b>9.8</b> Puzzle</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="puzzle.html"><a href="puzzle.html#mahjong-game"><i class="fa fa-check"></i><b>9.8.1</b> Mahjong game</a></li>
+<li class="chapter" data-level="9.8.2" data-path="puzzle.html"><a href="puzzle.html#tetris"><i class="fa fa-check"></i><b>9.8.2</b> Tetris</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="other-genres.html"><a href="other-genres.html"><i class="fa fa-check"></i><b>9.9</b> Other genres</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="developer-leftovers.html"><a href="developer-leftovers.html"><i class="fa fa-check"></i><b>10</b> Developer leftovers</a></li>
+<li class="chapter" data-level="11" data-path="workarounds.html"><a href="workarounds.html"><i class="fa fa-check"></i><b>11</b> Workarounds</a></li>
+<li class="chapter" data-level="12" data-path="moving-to-a-new-system.html"><a href="moving-to-a-new-system.html"><i class="fa fa-check"></i><b>12</b> Moving to a new system</a></li>
+<li class="chapter" data-level="13" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html"><i class="fa fa-check"></i><b>13</b> Developer tricks aka thinking like a game developer</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#level-and-mechanism-design"><i class="fa fa-check"></i><b>13.0.1</b> Level and mechanism design</a></li>
+<li class="chapter" data-level="13.0.2" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#sprite-and-palette-reuses"><i class="fa fa-check"></i><b>13.0.2</b> Sprite and palette reuses</a></li>
+<li class="chapter" data-level="13.0.3" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#pre-rendering"><i class="fa fa-check"></i><b>13.0.3</b> Pre rendering</a></li>
+<li class="chapter" data-level="13.0.4" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#speed-blur-and-fog"><i class="fa fa-check"></i><b>13.0.4</b> Speed blur and fog</a></li>
+<li class="chapter" data-level="13.0.5" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#loading-covers"><i class="fa fa-check"></i><b>13.0.5</b> Loading covers</a></li>
+<li class="chapter" data-level="13.0.6" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#optimisation-of-loading"><i class="fa fa-check"></i><b>13.0.6</b> Optimisation of loading</a></li>
+<li class="chapter" data-level="13.0.7" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#d-imagery-in-general"><i class="fa fa-check"></i><b>13.0.7</b> 3d imagery in general</a></li>
+<li class="chapter" data-level="13.0.8" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#procedural-generation"><i class="fa fa-check"></i><b>13.0.8</b> Procedural generation</a></li>
+<li class="chapter" data-level="13.0.9" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#noise-on-images-and-sound."><i class="fa fa-check"></i><b>13.0.9</b> Noise on images and sound.</a></li>
+<li class="chapter" data-level="13.0.10" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#using-the-limits-of-the-systemworking-to-them"><i class="fa fa-check"></i><b>13.0.10</b> Using the limits of the system/working to them</a></li>
+<li class="chapter" data-level="13.0.11" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#network-coding"><i class="fa fa-check"></i><b>13.0.11</b> Network coding</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="game-design-and-media.html"><a href="game-design-and-media.html"><i class="fa fa-check"></i><b>14</b> Game design and media</a></li>
+<li class="chapter" data-level="15" data-path="python-batch-files-and-programming-for-rom-hacking.html"><a href="python-batch-files-and-programming-for-rom-hacking.html"><i class="fa fa-check"></i><b>15</b> Python, batch files and programming for ROM hacking</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="radare2-reverse-engineering-tools.html"><a href="radare2-reverse-engineering-tools.html"><i class="fa fa-check"></i><b>15.1</b> radare2 reverse engineering tools</a></li>
+<li class="chapter" data-level="15.2" data-path="programming-languages.html"><a href="programming-languages.html"><i class="fa fa-check"></i><b>15.2</b> Programming languages</a></li>
+<li class="chapter" data-level="15.3" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>15.3</b> Python</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="pc-program-hacking.html"><a href="pc-program-hacking.html"><i class="fa fa-check"></i><b>16</b> PC program hacking</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>16.1</b> Debugging</a></li>
+<li class="chapter" data-level="16.2" data-path="decompilation.html"><a href="decompilation.html"><i class="fa fa-check"></i><b>16.2</b> Decompilation</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="version-control-and-project-management..html"><a href="version-control-and-project-management..html"><i class="fa fa-check"></i><b>17</b> Version control and project management.</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="project-and-team-management.html"><a href="project-and-team-management.html"><i class="fa fa-check"></i><b>17.1</b> Project and team management</a></li>
+<li class="chapter" data-level="17.2" data-path="version-control.html"><a href="version-control.html"><i class="fa fa-check"></i><b>17.2</b> Version control</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="interesting-links-and-further-reading..html"><a href="interesting-links-and-further-reading..html"><i class="fa fa-check"></i><b>18</b> Interesting links and further reading.</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>18.1</b> Links</a></li>
+<li class="chapter" data-level="18.2" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>18.2</b> Further reading</a></li>
+</ul></li>
+<li class="part"><span><b>IV File formats (specifications, methods and known formats)</b></span></li>
+<li class="chapter" data-level="19" data-path="general-things-about-the-ds.html"><a href="general-things-about-the-ds.html"><i class="fa fa-check"></i><b>19</b> General things about the DS</a></li>
+<li class="chapter" data-level="20" data-path="generic-ds-nitro-sdk-format.html"><a href="generic-ds-nitro-sdk-format.html"><i class="fa fa-check"></i><b>20</b> Generic DS nitro SDK format</a></li>
+<li class="chapter" data-level="21" data-path="general-file-reverse-engineering.html"><a href="general-file-reverse-engineering.html"><i class="fa fa-check"></i><b>21</b> General file reverse engineering</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="headers.html"><a href="headers.html"><i class="fa fa-check"></i><b>21.1</b> Headers</a></li>
+<li class="chapter" data-level="21.2" data-path="file-sizes.html"><a href="file-sizes.html"><i class="fa fa-check"></i><b>21.2</b> File sizes</a></li>
+<li class="chapter" data-level="21.3" data-path="multiple-versions-of-the-game.html"><a href="multiple-versions-of-the-game.html"><i class="fa fa-check"></i><b>21.3</b> Multiple versions of the game</a></li>
+<li class="chapter" data-level="21.4" data-path="file-names-and-extensions.html"><a href="file-names-and-extensions.html"><i class="fa fa-check"></i><b>21.4</b> File names and extensions</a></li>
+<li class="chapter" data-level="21.5" data-path="tile-viewers.html"><a href="tile-viewers.html"><i class="fa fa-check"></i><b>21.5</b> Tile viewers</a></li>
+<li class="chapter" data-level="21.6" data-path="pointers-and-such.html"><a href="pointers-and-such.html"><i class="fa fa-check"></i><b>21.6</b> Pointers and such</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="sound-1.html"><a href="sound-1.html"><i class="fa fa-check"></i><b>22</b> Sound</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="sdat.html"><a href="sdat.html"><i class="fa fa-check"></i><b>22.1</b> SDAT</a></li>
+<li class="chapter" data-level="22.2" data-path="sseq.html"><a href="sseq.html"><i class="fa fa-check"></i><b>22.2</b> SSEQ</a></li>
+<li class="chapter" data-level="22.3" data-path="strm.html"><a href="strm.html"><i class="fa fa-check"></i><b>22.3</b> STRM</a></li>
+<li class="chapter" data-level="22.4" data-path="swar.html"><a href="swar.html"><i class="fa fa-check"></i><b>22.4</b> SWAR</a></li>
+<li class="chapter" data-level="22.5" data-path="swar-1.html"><a href="swar-1.html"><i class="fa fa-check"></i><b>22.5</b> SWAR</a></li>
+<li class="chapter" data-level="22.6" data-path="bank.html"><a href="bank.html"><i class="fa fa-check"></i><b>22.6</b> BANK</a></li>
+<li class="chapter" data-level="22.7" data-path="other-formats.html"><a href="other-formats.html"><i class="fa fa-check"></i><b>22.7</b> Other formats</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="graphics-1.html"><a href="graphics-1.html"><i class="fa fa-check"></i><b>23</b> Graphics</a></li>
+<li class="chapter" data-level="24" data-path="d-1.html"><a href="d-1.html"><i class="fa fa-check"></i><b>24</b> 2d</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ncer.html"><a href="ncer.html"><i class="fa fa-check"></i><b>24.1</b> NCER</a></li>
+<li class="chapter" data-level="24.2" data-path="nanr.html"><a href="nanr.html"><i class="fa fa-check"></i><b>24.2</b> NANR</a></li>
+<li class="chapter" data-level="24.3" data-path="ncgr.html"><a href="ncgr.html"><i class="fa fa-check"></i><b>24.3</b> NCGR</a></li>
+<li class="chapter" data-level="24.4" data-path="nscr.html"><a href="nscr.html"><i class="fa fa-check"></i><b>24.4</b> NSCR</a></li>
+<li class="chapter" data-level="24.5" data-path="nmcr.html"><a href="nmcr.html"><i class="fa fa-check"></i><b>24.5</b> NMCR</a></li>
+<li class="chapter" data-level="24.6" data-path="nftr-1.html"><a href="nftr-1.html"><i class="fa fa-check"></i><b>24.6</b> NFTR</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="d-2.html"><a href="d-2.html"><i class="fa fa-check"></i><b>25</b> 3d</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="nsbmd-1.html"><a href="nsbmd-1.html"><i class="fa fa-check"></i><b>25.1</b> NSBMD</a></li>
+<li class="chapter" data-level="25.2" data-path="nsbtx.html"><a href="nsbtx.html"><i class="fa fa-check"></i><b>25.2</b> NSBTX</a></li>
+<li class="chapter" data-level="25.3" data-path="nsbca.html"><a href="nsbca.html"><i class="fa fa-check"></i><b>25.3</b> NSBCA</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="packing-format.html"><a href="packing-format.html"><i class="fa fa-check"></i><b>26</b> Packing format</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="narc-arc-and-carc.html"><a href="narc-arc-and-carc.html"><i class="fa fa-check"></i><b>26.1</b> NARC, ARC and CARC</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="text-1.html"><a href="text-1.html"><i class="fa fa-check"></i><b>27</b> Text</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="bmg.html"><a href="bmg.html"><i class="fa fa-check"></i><b>27.1</b> BMG</a></li>
+</ul></li>
+<li class="part"><span><b>V Glossary, index and such</b></span></li>
+<li class="chapter" data-level="28" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>28</b> Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://gbatemp.net/threads/gbatemp-rom-hacking-documentation-project-new-2016-edition-out.73394/" target="blank">Documentation Project on GBATemp</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GBA and DS ROM hacking guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cheating" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Cheating<a href="cheating.html#cheating" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is not using any “hidden” button combinations/activation conditions to allow for a different mode of operation to normal play but actually editing how the game works. Of all the areas most likely to sit slightly aside from ROM hacking it is cheating but an appreciation for how cheats work is very desirable when first learning about some of the game logic side of hacking and certainly as a lead in for assembly.</p>
+<p>Classically there were two types in RAM codes (often called action replay or gameshark depending where you are in the world) and ROM codes (often called game genie).</p>
+<p>RAM codes acted upon the game memory where ROM codes adapted read requests for the ROM image to whatever the code wanted.</p>
+<p>RAM codes were often considered simpler in nature, this is not really a fair assessment but due to the overwhelmingly large amount of simple codes it kind of stuck. Equally ROM codes were often able to do some very far reaching changes, changes that would have been extremely hard to do via RAM editing, and were slightly harder to make, and are also not as common.</p>
+<p>As ROM/game genie codes operate on the ROM they can be patched in very simply to the ROM itself, RAM codes need a device/emulator with support for them or a program to edit the cheat in or hook the game code to add a small cheat engine. Having code run on top of the existing code is something which is not really viable for older systems, especially not in a somewhat generic/automated tool type manner. The GBA and DS do feature such things though with GBAATM and DSATM being the main two programs for the GBA and DS respectively, the GBA does feature other tools like GABsharky but most of the earlier efforts have been overshadowed/supplanted by GBAATM. The classical lines were blurred in recent years as the game genies turned to action replay style codes and action replay devices also took up save editing and save injection for various consoles, on top of that DS ROM images store their game binary in the RAM (they have to as the DS game cards are not accessible in ram) so some of the better cheat makers used action replay codes to edit the binary in ram to great effect.</p>
+<p>There are many types of cheat code and devices with different implementations, this guide will probably shy away from going into depth but in general it is broken down to three components (and usually encoded in the following order)</p>
+<ol style="list-style-type: decimal">
+<li><p>the type of code (constant writes, conditional writes, boolean operation and some more exotic types).</p></li>
+<li><p>the memory address</p></li>
+<li><p>the payload if any is necessary</p></li>
+</ol>
+<p>The main reason for covering this is understanding how cheats work and how they work with the system often leads to a deeper understanding of how the system works in general and provides a nice in for those wanting to start to learn how to code in assembly (the type of operation, location and payload concept will return there).</p>
+<p>Useful links <a href="http://bsfree.org/hack/">Enhacklopedia</a></p>
+<div id="general-cheat-making" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> General cheat making<a href="cheating.html#general-cheat-making" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are many ways you can make cheats but the first port of call is usually a memory scanner of some form. These allow you to scan the memory before dropping back into the game, changing something and scanning again until you either get it down to the exact value or a small enough list that you can try them all by hand.</p>
+<p>You have several scanning options available to you including</p>
+<ul>
+<li>Value search (equal or not equal) - if you know the value of your health or something you can search for it. Does not always work but worth a go as a first pass.</li>
+<li>Greater than/less than search. Here you can search for something greater or less than a value or find all results different to a given value.</li>
+<li>Fuzzy search. Here you can note everything with an eye to coming back later to see what has changed. Can be combined with greater or less than most of the time as well. This is quite useful when you have a health or timer bar without a direct display of the value to be searched for.</li>
+<li>Range search. Not always available and doable if you think about it with greater than and less than this quite literally searches for values within a given range.</li>
+</ul>
+<p>Exotic codes and terms Various cheat devices allow for some quite custom and far reaching codes to be made over devices from competitors. Some of these are to change the internal handling of the cheats but many more can have quite far reaching effects. First though some terms that often come up</p>
+<ul>
+<li>Slide codes. A technique used to generate codes to do the same change to multiple locations at once, usually used if you have something like 30 troops, each with their own health value and ammo value and you do not want to use 30 codes.</li>
+<li>Master code. More associated with game genies where they usually bypass protection and for cheat devices that needed to be set up to work on certain ROM images.</li>
+<li>Slowdown. Covered later but some cheat devices allow you to slow a game down by flooding the CPU.</li>
+<li>Joker code. Codes used when using buttons to activate cheats.</li>
+</ul>
+</div>
+<div id="gba-cheat-making" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> GBA cheat making<a href="cheating.html#gba-cheat-making" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>VBA has a basic cheat option which should be available in nearly all versions (notably the VBA-SDL-H version does not although if you really wanted you could use its debugging abilities to do something instead) and the brand new window of the basic VBA cheat options looks like.</p>
+<div class="figure">
+<img src="images/194_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguideGBAcheat.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>VBA-H has some slightly expanded options in cheats and elsewhere.</p>
+<div class="figure">
+<img src="images/195_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidegbavbahcheats1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Regardless of the version most of it is fairly obvious if you have a basic understanding of the basic ideas of cheats and value representation with hexadecimal.</p>
+<p>Still</p>
+<ul>
+<li>Search type - Specific value allows you to enter a number in the old value section. Old value will search the previous results.</li>
+<li>Data size - 8 bits, 16 bits and 32 bits values will be looked at. Note that quite often things that appear as 8 or 16 bits at the start of the game (if you are only losing a few health at a time that might appear as an 8 bit value) the value might well use the full 32 bits by the time all is said and done.</li>
+<li>Compare type - pretty self explanatory. Not equal is useful if you are searching for something that might of changed but you are not sure how and for timers that might reset.</li>
+<li>Signed/Unsigned - does exactly what it says and allows you to search for signed or unsigned values.</li>
+<li>Enter value - only available when you have Specific value search selected.</li>
+<li>Update values - this updates original searches to their new values each search.</li>
+<li>Flag compare - (VBA H only)</li>
+<li>Differ By - (VBA H only) does exactly what it says and allows you do select a range of values to limit your results by (if you have only lost 7 health the change will probably not be a full value only capable of being represented by 32 bits)</li>
+<li>Range - (VBA H only) again does more or less what it implies and allows you to restrict a search to only include or not to include a range of values.</li>
+</ul>
+<p>About the only thing it is lacking is a floating point search but those are tricky and float values are rarely used on the GBA (not to mention would probably come up on a not equal search). Also lacking are things like bitwise, Boolean and mathematical functions but if you need those VBA-SDL-H is where you would look.</p>
+</div>
+<div id="ds-cheat-making" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> DS cheat making<a href="cheating.html#ds-cheat-making" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This varies a bit depending upon the person doing the cheat making. Desmume has some cheat/memory manipulation abilities but many will use tools like HasteDS and renegade64 or more general purpose tools to hook into emulators and provide similar abilities. Many more will use tools like Datel’s trainer toolkit which has fairly extensive debugging abilities and even flash carts like the Supercard DSTWO and iSmart MM will have minor cheat making options although their search and functionality is somewhat less than a proper tool they can still be used for basic cheats.</p>
+<p>Desmume Should be available in all versions of the program (no need for the dev version), for Linux you may need a given version.</p>
+<p><span class="math display">\[note 2014 update\]</span> This is a somewhat older version, the newer builds have a significantly improved cheat engine.</p>
+<p>Main window, exact and comparative search</p>
+<p><img src="images/196_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguideDSdesmumecheat.png" alt="PIC" /><img src="images/197_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidedsdesmumecheat3.png" alt="PIC" /><img src="images/198_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackingguidedsdesmumecheats2.png" alt="PIC" /></p>
+<p>It is split across a few screens although for the most part it is fairly obvious once more.</p>
+<p>Select size - selects for values spread across a given number of bytes. Note once more that low values might be using larger sizes.</p>
+<p>Sign - unsigned or signed.</p>
+<p>Select search type - exact value searches for a given value and comparative search allows you to search for anything (life bars and other such things without exact values).</p>
+<p>On the comparative search &gt; ,&lt;, = and != have their usual means of greater than, less than, equals and does not equal.</p>
+<p>Perhaps counter intuitively you have to close the cheat window to get the game to run again before jumping back to the search and refining it.</p>
+<p>Emuhaste <a href="http://i486.client.jp/emuhaste/">Emuhaste project homepage</a></p>
+<p><a href="http://filetrip.net/nds-downloads/utilities/latest-emucr-emuhaste-f29424.html">Filetrip download</a></p>
+<p>Realistically you will probably only use it with desmume but none the less it is a powerful cheat searching engine and includes the ability to dump memory.</p>
+<div class="figure">
+<img src="images/199_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackingguidendsemuhaste.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Basic usage is after you set up the ini file to run the emulator, press snap process. You do not need to search for a value to begin.</p>
+<p>Inc(rease) searches for a value that increased in size</p>
+<p>Dec(rease) searched for a value that decreased in size</p>
+<p>Diff(erence) searches for a value that changed in size (up or down)</p>
+<p>Equ(als) searches for a value that remained the same.</p>
+<p>Data length allows you to search by values of a given length. Float search is not much use on the DS but it is there and sort of works.</p>
+<p>Set search range unlike the others is not a value limiting search but an address range.</p>
+<p>The file dump “pulldown” menu allows you to dump the DS main ram which can be used to help find pointer codes.</p>
+<p>In the param &amp; string search box you can type the value to find (up to 255 long which is more than enough for most uses). This however has a series of options you can use</p>
+<p>S in front of numbers will mean they are treated as decimal</p>
+<p>R at the start of the entry will swap endianness</p>
+<p>$ will allow you to search for a string.</p>
+<p>&lt; will allow you to restrict a search to less than the value you put on the other side (&lt;S40 will mean only values under 40 decimal will be considered).</p>
+<p>&gt; will allow you to restrict a search to values greater than the value (&gt;S40 will mean 39 decimal and down will not appear)</p>
+<p>Innnnnnnn-nnnnnnnn will restrict to an address range.</p>
+<p>Basic difference searching is available by using plus and minus signs to specify the change.</p>
+<p>As of 4.00 an autotrigger search is available. Here it will trigger search if a certain memory value is changed according to the command</p>
+<p>Format is address:hex you are searching for:command with multiple commands being available if you separate with a comma. Commands as follows</p>
+<p>EQ - equal to</p>
+<p>NE - not equal to</p>
+<p>GT - greater than</p>
+<p>LE - less than</p>
+<p>MS - multi-search</p>
+<p>There was a previous version of the tool known as hasteDS that stuck around for a while as the rewrite to emuhaste was missing some features but that should now be a thing of the past.</p>
+<p>no<span class="math inline">\(gba As the developer version of no\)</span>gba features a full memory editor it too can be used for cheat making. However it lacks the more in depth cheat making features seen elsewhere, this is fine though as various versions are widely supported by other programs which also support the standard version.</p>
+<p>Others Most of the cheating tools are more or less a specialised class of memory viewer of which there are many (several of the suggested hex editors have the ability to read process memory)</p>
+<p>Artmoney <a href="http://www.artmoney.ru/">Artmoney homepage</a></p>
+<p>A more general editor but one that found a fair audience in game hacking circles owing to some more cheat making specific features.</p>
+<p>RenegadeEX <a href="http://filetrip.net/pc-downloads/applications/download-renegadeex-105-f29011.html">Filetrip download</a></p>
+<p>A general program also geared towards editing with support for several emulators but only no<span class="math inline">\(gba for the DS (although it does support several GBA emulators). The previous incarnation known as Renegade64 was also a no\)</span>gba specific program but for a long time far more stable than HasteDS and emuhaste.</p>
+<div class="figure">
+<img src="images/200_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidecheatsrenegadeEX1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Emucheat <a href="http://www.emucheat.com/">Emucheat homepage</a></p>
+<p>Another no$gba oriented program and for a while somewhat more advanced than the other options so it became fairly popular among those seeking to make more advanced cheats or cut down on the unnecessary</p>
+<p>Crystaltile2 Not so much for cheats but can interface with no$gba to retrieve VRAM and WRAM data. Available under the “DS emulator” option in the file pulldown menu.</p>
+<p>Datel’s Trainer Toolkit This one is actually something more than a memory viewer, here you have to use a trainer toolkit to connect to a live DS via a GBA slot at which point you can tap into the memory and edit from there.</p>
+</div>
+<div id="basic-making-of-a-cheat" class="section level3 hasAnchor" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Basic making of a cheat<a href="cheating.html#basic-making-of-a-cheat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Regardless of the tools or system it is intended for cheat making uses the same methods. To then end making an infinite life cheat for Summon Night Swordcraft Story 2 on the GBA</p>
+<div class="figure">
+<img src="images/201_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<div class="figure">
+<img src="images/202_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_2.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>A couple of health was lost and the search button was pressed</p>
+<div class="figure">
+<img src="images/203_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_3.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>A few more points of health was lost which made things better but still not there</p>
+<div class="figure">
+<img src="images/204_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_4.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>The process was repeated a few more times</p>
+<div class="figure">
+<img src="images/205_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_5.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<div class="figure">
+<img src="images/206_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_6.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>30608 decimal = 7790 hex so 8 bit was probably a bad choice but as the health was only going down by 1 it worked today.</p>
+<p>This led to 0300060C so selecting that address and pressing add cheat</p>
+<div class="figure">
+<img src="images/207_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_7.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Adding a value of FFFF and a description so as not to forget when other cheats were made gives the end result as</p>
+<div class="figure">
+<img src="images/208_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_8.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+</div>
+<div id="cheat-prevention-methods-and-frustrations" class="section level3 hasAnchor" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> Cheat prevention methods and frustrations<a href="cheating.html#cheat-prevention-methods-and-frustrations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Such things often trouble ROM hackers as well owing to the way they work but either because of the way they are coded or because the developers wanted to lessen cheats some games work in such a way that the basic cheat creation method falls short. Additionally some games can be broken by the use of cheats on a less technical level; quite often in a RPG type game you will encounter a fight you are supposed to lose or you can unlock options that might be viable as far as the game code is concerned but the game itself was scripted in such a way that the rest of the story can no longer play out. On a more technical level timers can be used by many parts of the games to do things so holding them is not always feasible.</p>
+<p>Probably the most basic version of this always on cheat problem is if a cheat is always on but for a time in the initial boot sequence the game will use the memory for something else (this is more troubling on the DS if you are doing something in the overlays that are designed to be swapped out of memory many times during the game) but that is usually solved either by hooking the game to use a button activator or similar, changing the nature of a cheat (especially when dealing with timers that the game might use elsewhere) or having a cheat engine that can turn cheats on at a given time. The rest of this section has some examples of techniques seen over the years and there is nothing stopping games from hybridising methods either.</p>
+<p>Mirrored, encrypted, checked and calculated values Although all four are different techniques they work along similar principles</p>
+<ul>
+<li>Mirror values tend to mean the value is written in multiple locations (see also pointers below) and if one does not match up you can use the others or crash or something.</li>
+<li>Encrypted do as they say and turn a plain number into meaningless gibberish unless you can decrypt it (usually this is a very simple method of encryption like a plain XOR or a shift or something).</li>
+<li>Checked values. If you have four characters their total health might be 614 and you can store that which means if the sum total of character health is different something has gone wrong.</li>
+<li>Calculated values are arguably a subset of encrypted values but rather than say storing a health of 145 you instead take it from the maximum health of 255 and store 110. This can also be for helping with calculations.</li>
+</ul>
+<p>Most of these are easy to work around as if you are searching for infinite health it does not matter if you have an infinite health of 7 or the maximum value for the most part<a href="romhacking202018.html#fn17x0">17</a> so if you have a working set of values just force the game to use them always. If you do want to figure something out you tend to have to watch values that change at all rather than higher or lower and figure out the method used which is usually quite easily managed or dive into assembly probably guided or initially aimed by a basic cheat search.</p>
+<p>Pointers In a DS game the pointers in the header which every DS can read points to the filesystem which points to a file which points to parts of the file which may point for further parts of the file and possibly further (rare but quite possible). There is nothing stopping ROMs from using similar methods and indeed several games have been seen to use these over the years which has several effects including cheats that only work some of the time, cheats that do not work at all (usually thanks to a combination of the previously mentioned methods), cheats that are impossible to find by basic methods (most cheating methods assume the value remains in the same location).</p>
+<p>Workarounds include finding all the locations that can be pointed at (even with pointers many games will do it in a round robin fashion) and controlling the lot (a bit brute force but quite acceptable), you can try reading the pointer at a given point and reacting accordingly if your cheat engine is powerful enough and you can instead force the pointer to stick at one location and make sure that now fixed location gets edited.</p>
+<p>Pointers within pointers are not only possible but seen on several occasions and there are occasionally games with proper memory management/allocation so holding “old” values is not always the best idea.</p>
+<p>There are a few tools to handle pointers for cheats with the most notable one on the DS being Kenobi’s pointer tool which you feed memory dumps and the basic codes into to get the full codes out of (pointers and the initial cheats used to fix yours).</p>
+<div class="figure">
+<img src="images/209_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidendspointerkenobi1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Another nice tool is available in <a href="http://filetrip.net/nds-downloads/applications/latest-nds-hacking-kit-f29363.html">Demonic722’s hacking toolkit</a>.</p>
+<div class="figure">
+<img src="images/210_home_fast6191_romhackingguide_unrenamed_fil___ckguidecheatmakingdemonic722hackingtoolkit1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>The idea behind it should you have to go manual is in each game there will be an instruction or memory value addressing the location you are looking at for your cheats, find this place referencing the varying location and it is fairly easy going from there. It is easier to and indeed most tools want to use a couple of dumps from plays of the game that use the different locations (they are for the most part generated at runtime/boot/launch so it should just be a matter of reloading the game save but it is easy enough to test) for similar reasons that to doing multiple rounds of tests to narrow down the possibilities is when making basic cheats. Most of the time the pointer location is fixed so finding the thing that points at the would be cheat location will usually solve the problem although again pointers pointing to other pointers has been seen several times in the wild. Equally there is nothing stopping a game from calculating a pointer by adding a simple number to an address as per C style pointer arithmetic; technically this is pointer in a pointer but if the base value is used in several other places you might not be able to change it so easily.</p>
+<p>Dual values Although this probably is covered by the basic cheat making methods and in the other things that make life harder it should be noted that some games can maintain a couple of values for what ostensibly should be a single piece of data. RPGs make good examples and a similar thing can be seen in some of the GBA Final Fantasy ports where values can be held say one for the life bar, one for the on screen value and another for the actual value used as a basis to form all the others. This gets especially fun when the values are not just display only and may effect what happens in the game for if you have maximum health according to the numbers you may not be able to use a potion but the internal health value means you will eventually die as you are losing health. Those which try to hold timers quite often get tripped up by this.</p>
+<p>Stack/register values The ideas behind the terms are covered in later sections but alongside conventional memory there are two other areas known as the stack (which might well be part of memory but should not be considered as such) and registers which sit inside the CPU and in the case of the GBA/DS is the only thing the CPU can read directly within an instruction (naturally you can use the CPU to manipulate memory but it takes a separate instruction).</p>
+<p>Here values can be put into a register and/or the stack as appropriate and referred to/operated upon repeatedly before being written back to the memory when all is said and done. There is the related idea of a function specific pointer where all the health, stats and such will be passed into a function for a given period (say a battle) and operated on there but this does not tend to happen on the GBA/DS but on more conventional systems (and especially with “safer” programming langauges) it happens all the time.</p>
+<p>To this end if you want to edit things to do with it you have to find the resulting actions or actions that edit it and edit those instead as more than general memory registers and the stack rarely stay constant for long. As that is quite wordy and hard to visualise consider say the health of a character in a basic RPG: In the main overworld the character’s health matters relatively little or not at all (assume a game with no poison mechanic for the sake of this example) but in battle the health might be changing all the time so rather than write things to and from memory (a relatively slow process compared to the CPU itself) it will keep the health value inside the CPU memory and edit it all the time there instead making your manipulations of the regular memory all but pointless if you wanted infinite health in battle. Here instead you would find instructions that took from the health value and change them to nothing (or even add health) or find the instruction that triggers the death event if you run out of health and negate that there instead.</p>
+<p>Similarly it was for slightly different reason (certain actions would only happen when patient health was low) the trainers and cheats for the DS game “Trauma Center” changed it so if you “missed” with your scalpel or similar the health would reset to full and you can do similar things to work around values held in registers. This also works for parts of memory that can change location and for things like overlays (small sections of code you can drop into a game to be replaced with another but keeping the bulk of the game code) that might not always be present at runtime.</p>
+</div>
+<div id="instruction-editing-cheating" class="section level3 hasAnchor" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> Instruction editing cheating<a href="cheating.html#instruction-editing-cheating" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although assembly hacking discussion does not start in earnest until next section this is directly related to cheating and so quite useful to know about not to mention providing a direct link to more conventional assembly hacking. Some of the very first “trainers”<a href="romhacking202019.html#fn18x0">18</a> for the DS that were not scene trainers attempted to hard patch action replay codes in various ways. This sort of editing is a useful skill to have and it generally revolves around editing the instruction(s) that ultimately serve change the value and slightly further down the line it covers how to do hook a binary to enable a similar effect but one that is more directly useful to a lot of assembly hacking which might need to change something but requires a larger instruction. It should be noted that for infinite lives type cheats there are many ways to die (think even on a basic platformer like NES mario you can run out of time, fall down a pit, get hit by an enemy and who knows if hazards and enemies are two different things) and games have long been seen to have many functions that will change the same value. Of course it can cut the other way and allow you to have infinite time in a level but the end of level time remaining to score function can still remove the time value that a basic hold this memory location would mess up.</p>
+<p>Still going back to Summon Night 2</p>
+<p>0300060C held the location for the life counter.</p>
+<p>There are two options here</p>
+<p>Disassemble the ROM and search for any instructions that look to deal with the value.</p>
+<p>Run the game in a debugging emulator and wait for an instruction to deal with the value.</p>
+<p>The former is a lot easier to deal with (it amounting to running a program and pressing search in the plain text that results) but it does not always work for various reasons like pointers (here we know it is not a pointer that governs it but the if pointers were there it could break it), calculated values/locations and more. The latter is not so difficult for a basic hack but it does require use of a debugging emulator which can take some thought compared to some of the techniques elsewhere in the document.</p>
+<p>The latter option was chosen for this. Shortly before the first battle F11 (the VBA-SDL-h jump to debugging command) was pressed</p>
+<div class="figure">
+<img src="images/211_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_1.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>A scary looking window if you do not know what is covered in the following sections but most of it means very little to this process, and even if it did it is not so bad if you try to work through what each section means. 0300060C is the cheat location and it is 32 bits or 4 bytes so to this end when 0300060C or any of the subsequent 4 bytes are written it needs to be known about or indeed a breakpoint on a write needs to be set.</p>
+<p>bpw {address} {count}</p>
+<p>bpw 0300060C 4</p>
+<p>Typing c continues the program after it “breaks” and it took a few goes to get to the battle. Once in battle letting a few hits be landed and continuing each time</p>
+<div class="figure">
+<img src="images/212_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_2.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>Here it is possible to observe the game logic</p>
+<p>The first two numbers are where the instruction is running from and the next 4 hex characters are what the instruction is encoded as; if you noticed that the second were only 16 bits despite the GBA is a 32 bit console it is because the GBA (and DS) do have a 16 bit mode which it often uses called THUMB.</p>
+<p>str r0, r4, #0x54</p>
+<p>This means load the contents of at the location in r4 plus 54 hex (300060C is what it comes out as) into r0</p>
+<p>cmp r1, #0x0</p>
+<p>This means compare R1 to 0 and a set flags accordingly (it will be covered later but on the GBA and DS compares are not all in one instruction per se)</p>
+<p>ble $08036c5a</p>
+<p>This means if the compare was less than or equal to then branch (jump) to $08036c5a and carry on running.</p>
+<p>Clearly the read the memory value is what wants to be edited although more advanced cheats might do all sorts of things such as prevent the death check from working (as with everything in hacking there are lots of options at any one time).</p>
+<p>08036c4e is the location of the instruction that deals with the memory value. If it were to inject a value instead all would be good. 08000000 is also the location of the GBA ROM in memory so 00036c4e in the ROM is where the instruction will be found. Thumb is a somewhat limited mode but it does allow for 8 bits to be put into a register. “mov r0 , #0xFF” is what the instruction wants to be (you will also probably want to force thumb mode for the assembler which is done by sticking .thumb at the start)</p>
+<p>FF20 is what it comes out as.</p>
+<p>One edit later</p>
+<div class="figure">
+<img src="images/213_home_fast6191_romhackingguide_unrenamed_fil___orders_romhackingguidecheatasminstruction_4.png" alt="" />
+<p class="caption">PIC</p>
+</div>
+<p>It can go an awful lot further than this. Also as mentioned elsewhere if you especially want then in the case of the DS the binary itself is usually found uncompressed in RAM so you can actually do a binary hack via a conventional cheat, as indeed several of the more in depth cheats have done in the case of the DS, and effectively turning an action replay on the DS into a game genie.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="compression-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming-concepts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rh-reborn/gba-and-ds-rom-hacking-guide/edit/main/05-game_logic.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gba-and-ds-rom-hacking-guide.pdf", "gba-and-ds-rom-hacking-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

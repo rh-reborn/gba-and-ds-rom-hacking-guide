@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>24.3 NCGR | GBA and DS ROM hacking guide</title>
+  <meta name="description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="24.3 NCGR | GBA and DS ROM hacking guide" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  <meta name="github-repo" content="rh-reborn/gba-and-ds-rom-hacking-guide" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="24.3 NCGR | GBA and DS ROM hacking guide" />
+  
+  <meta name="twitter:description" content="The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles." />
+  
+
+<meta name="author" content="FAST6191" />
+
+
+<meta name="date" content="2022-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="nanr.html"/>
+<link rel="next" href="nscr.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">GBA and DS ROM hacking guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sections</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="foreword.html"><a href="foreword.html"><i class="fa fa-check"></i>Foreword</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="warning.html"><a href="warning.html"><i class="fa fa-check"></i>Warning</a></li>
+</ul></li>
+<li class="part"><span><b>II ROM hacking concepts</b></span></li>
+<li class="chapter" data-level="1" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>1</b> Basics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="hexadecimal.html"><a href="hexadecimal.html"><i class="fa fa-check"></i><b>1.1</b> Hexadecimal</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="hexadecimal.html"><a href="hexadecimal.html#representation"><i class="fa fa-check"></i><b>1.1.1</b> Representation</a></li>
+<li class="chapter" data-level="1.1.2" data-path="hexadecimal.html"><a href="hexadecimal.html#bcd-binary-coded-decimal"><i class="fa fa-check"></i><b>1.1.2</b> BCD (Binary coded decimal)</a></li>
+<li class="chapter" data-level="1.1.3" data-path="hexadecimal.html"><a href="hexadecimal.html#big-and-little-endian"><i class="fa fa-check"></i><b>1.1.3</b> Big and little endian</a></li>
+<li class="chapter" data-level="1.1.4" data-path="hexadecimal.html"><a href="hexadecimal.html#signed-values-floating-point-and-fixed-point"><i class="fa fa-check"></i><b>1.1.4</b> Signed values, floating point and fixed point</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="hex-operations.html"><a href="hex-operations.html"><i class="fa fa-check"></i><b>1.2</b> Hex operations</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="hex-operations.html"><a href="hex-operations.html#shift"><i class="fa fa-check"></i><b>1.2.1</b> Shift</a></li>
+<li class="chapter" data-level="1.2.2" data-path="hex-operations.html"><a href="hex-operations.html#rotate"><i class="fa fa-check"></i><b>1.2.2</b> Rotate</a></li>
+<li class="chapter" data-level="1.2.3" data-path="hex-operations.html"><a href="hex-operations.html#flip"><i class="fa fa-check"></i><b>1.2.3</b> Flip</a></li>
+<li class="chapter" data-level="1.2.4" data-path="hex-operations.html"><a href="hex-operations.html#boolean-logic"><i class="fa fa-check"></i><b>1.2.4</b> Boolean logic</a></li>
+<li class="chapter" data-level="1.2.5" data-path="hex-operations.html"><a href="hex-operations.html#hex-mathematics."><i class="fa fa-check"></i><b>1.2.5</b> Hex Mathematics.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="patching-and-patch-making.html"><a href="patching-and-patch-making.html"><i class="fa fa-check"></i><b>1.3</b> Patching and patch making</a></li>
+<li class="chapter" data-level="1.4" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html"><i class="fa fa-check"></i><b>1.4</b> File systems and operations</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#non-filesystem-devices"><i class="fa fa-check"></i><b>1.4.1</b> Non filesystem devices</a></li>
+<li class="chapter" data-level="1.4.2" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#gba"><i class="fa fa-check"></i><b>1.4.2</b> GBA</a></li>
+<li class="chapter" data-level="1.4.3" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ds"><i class="fa fa-check"></i><b>1.4.3</b> DS</a></li>
+<li class="chapter" data-level="1.4.4" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ds-1"><i class="fa fa-check"></i><b>1.4.4</b> 3DS</a></li>
+<li class="chapter" data-level="1.4.5" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#gc-gamecube"><i class="fa fa-check"></i><b>1.4.5</b> GC (gamecube)</a></li>
+<li class="chapter" data-level="1.4.6" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#wii"><i class="fa fa-check"></i><b>1.4.6</b> Wii</a></li>
+<li class="chapter" data-level="1.4.7" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#xbox"><i class="fa fa-check"></i><b>1.4.7</b> Xbox</a></li>
+<li class="chapter" data-level="1.4.8" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#xbox-360"><i class="fa fa-check"></i><b>1.4.8</b> Xbox 360</a></li>
+<li class="chapter" data-level="1.4.9" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ps1-and-ps2"><i class="fa fa-check"></i><b>1.4.9</b> PS1 and PS2</a></li>
+<li class="chapter" data-level="1.4.10" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#ps3"><i class="fa fa-check"></i><b>1.4.10</b> PS3</a></li>
+<li class="chapter" data-level="1.4.11" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#psp"><i class="fa fa-check"></i><b>1.4.11</b> PSP</a></li>
+<li class="chapter" data-level="1.4.12" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#saturn"><i class="fa fa-check"></i><b>1.4.12</b> Saturn</a></li>
+<li class="chapter" data-level="1.4.13" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#dreamcast"><i class="fa fa-check"></i><b>1.4.13</b> Dreamcast</a></li>
+<li class="chapter" data-level="1.4.14" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#amiga"><i class="fa fa-check"></i><b>1.4.14</b> Amiga</a></li>
+<li class="chapter" data-level="1.4.15" data-path="file-systems-and-operations.html"><a href="file-systems-and-operations.html#pc-and-related-hardware."><i class="fa fa-check"></i><b>1.4.15</b> PC and related hardware.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="finding-the-object-of-your-interest..html"><a href="finding-the-object-of-your-interest..html"><i class="fa fa-check"></i><b>1.5</b> Finding the object of your interest.</a></li>
+<li class="chapter" data-level="1.6" data-path="abstraction.html"><a href="abstraction.html"><i class="fa fa-check"></i><b>1.6</b> Abstraction</a></li>
+<li class="chapter" data-level="1.7" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html"><i class="fa fa-check"></i><b>1.7</b> Tools of the trade continued</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#hex-editor"><i class="fa fa-check"></i><b>1.7.1</b> Hex editor</a></li>
+<li class="chapter" data-level="1.7.2" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#tile-editor"><i class="fa fa-check"></i><b>1.7.2</b> Tile editor</a></li>
+<li class="chapter" data-level="1.7.3" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#spreadsheet-and-command-line"><i class="fa fa-check"></i><b>1.7.3</b> Spreadsheet and command line</a></li>
+<li class="chapter" data-level="1.7.4" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#compression"><i class="fa fa-check"></i><b>1.7.4</b> Compression</a></li>
+<li class="chapter" data-level="1.7.5" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#music"><i class="fa fa-check"></i><b>1.7.5</b> Music</a></li>
+<li class="chapter" data-level="1.7.6" data-path="tools-of-the-trade-continued.html"><a href="tools-of-the-trade-continued.html#asmassembly"><i class="fa fa-check"></i><b>1.7.6</b> ASM/Assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="basic-file-format-concepts.html"><a href="basic-file-format-concepts.html"><i class="fa fa-check"></i><b>1.8</b> Basic file format concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="graphics.html"><a href="graphics.html"><i class="fa fa-check"></i><b>2</b> Graphics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html"><i class="fa fa-check"></i><b>2.1</b> Basic graphics concepts</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#aliasing"><i class="fa fa-check"></i><b>2.1.1</b> Aliasing</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#haloing"><i class="fa fa-check"></i><b>2.1.2</b> Haloing</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-graphics-concepts.html"><a href="basic-graphics-concepts.html#bit-depth"><i class="fa fa-check"></i><b>2.1.3</b> Bit depth</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="palettes-and-colours.html"><a href="palettes-and-colours.html"><i class="fa fa-check"></i><b>2.2</b> Palettes and colours</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="palettes-and-colours.html"><a href="palettes-and-colours.html#gba-colours-15-bit"><i class="fa fa-check"></i><b>2.2.1</b> GBA colours (15 bit)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="tiles.html"><a href="tiles.html"><i class="fa fa-check"></i><b>2.3</b> Tiles</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="tiles.html"><a href="tiles.html#bpp"><i class="fa fa-check"></i><b>2.3.1</b> 1Bpp</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tiles.html"><a href="tiles.html#bpp-1"><i class="fa fa-check"></i><b>2.3.2</b> 4 Bpp</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tiles.html"><a href="tiles.html#bpp-2"><i class="fa fa-check"></i><b>2.3.3</b> 8Bpp</a></li>
+<li class="chapter" data-level="2.3.4" data-path="tiles.html"><a href="tiles.html#gba3-xbpp"><i class="fa fa-check"></i><b>2.3.4</b> GBA3 Xbpp</a></li>
+<li class="chapter" data-level="2.3.5" data-path="tiles.html"><a href="tiles.html#gba2-4bpp"><i class="fa fa-check"></i><b>2.3.5</b> GBA2 4BPP</a></li>
+<li class="chapter" data-level="2.3.6" data-path="tiles.html"><a href="tiles.html#bitmap"><i class="fa fa-check"></i><b>2.3.6</b> Bitmap</a></li>
+<li class="chapter" data-level="2.3.7" data-path="tiles.html"><a href="tiles.html#known-formats"><i class="fa fa-check"></i><b>2.3.7</b> Known formats</a></li>
+<li class="chapter" data-level="2.3.8" data-path="tiles.html"><a href="tiles.html#crystaltile2-export-and-import."><i class="fa fa-check"></i><b>2.3.8</b> Crystaltile2 export and import.</a></li>
+<li class="chapter" data-level="2.3.9" data-path="tiles.html"><a href="tiles.html#avoiding-gradients-aa-lossy-compression-noise-and-such-things."><i class="fa fa-check"></i><b>2.3.9</b> Avoiding gradients, AA, lossy compression, noise and such things.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html"><i class="fa fa-check"></i><b>2.4</b> Layout, timing, OAM and special effects</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#introduction-to-the-oam-and-bg-modes."><i class="fa fa-check"></i><b>2.4.1</b> Introduction to the OAM and BG modes.</a></li>
+<li class="chapter" data-level="2.4.2" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#timing"><i class="fa fa-check"></i><b>2.4.2</b> Timing</a></li>
+<li class="chapter" data-level="2.4.3" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#gba-and-ds-oam-sprites"><i class="fa fa-check"></i><b>2.4.3</b> GBA and DS OAM (sprites)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#gba-and-ds-bg-modes"><i class="fa fa-check"></i><b>2.4.4</b> GBA and DS BG modes</a></li>
+<li class="chapter" data-level="2.4.5" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#emulator-shots"><i class="fa fa-check"></i><b>2.4.5</b> Emulator shots</a></li>
+<li class="chapter" data-level="2.4.6" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#basic-animation"><i class="fa fa-check"></i><b>2.4.6</b> Basic animation</a></li>
+<li class="chapter" data-level="2.4.7" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#window-feature"><i class="fa fa-check"></i><b>2.4.7</b> Window feature</a></li>
+<li class="chapter" data-level="2.4.8" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#special-features-flipping-affine-transformation-alpha-and-such"><i class="fa fa-check"></i><b>2.4.8</b> Special features (flipping, affine transformation, alpha and such)</a></li>
+<li class="chapter" data-level="2.4.9" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#basic-ds-layout-formats-and-mapping"><i class="fa fa-check"></i><b>2.4.9</b> Basic DS layout formats and mapping</a></li>
+<li class="chapter" data-level="2.4.10" data-path="layout-timing-oam-and-special-effects.html"><a href="layout-timing-oam-and-special-effects.html#video-memory-handling-and-alignment"><i class="fa fa-check"></i><b>2.4.10</b> Video memory handling and alignment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="d.html"><a href="d.html"><i class="fa fa-check"></i><b>2.5</b> 3d</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="d.html"><a href="d.html#basic-3d-bones-coordinates-keyframes"><i class="fa fa-check"></i><b>2.5.1</b> Basic 3d (bones, coordinates, keyframes)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="d.html"><a href="d.html#viewpoints"><i class="fa fa-check"></i><b>2.5.2</b> Viewpoints</a></li>
+<li class="chapter" data-level="2.5.3" data-path="d.html"><a href="d.html#textures-and-material-colours"><i class="fa fa-check"></i><b>2.5.3</b> Textures and material colours</a></li>
+<li class="chapter" data-level="2.5.4" data-path="d.html"><a href="d.html#models"><i class="fa fa-check"></i><b>2.5.4</b> Models</a></li>
+<li class="chapter" data-level="2.5.5" data-path="d.html"><a href="d.html#lightingshadows"><i class="fa fa-check"></i><b>2.5.5</b> Lighting/shadows</a></li>
+<li class="chapter" data-level="2.5.6" data-path="d.html"><a href="d.html#d-smoke-and-fog"><i class="fa fa-check"></i><b>2.5.6</b> 3d smoke and fog</a></li>
+<li class="chapter" data-level="2.5.7" data-path="d.html"><a href="d.html#animations"><i class="fa fa-check"></i><b>2.5.7</b> Animations</a></li>
+<li class="chapter" data-level="2.5.8" data-path="d.html"><a href="d.html#ds-3d-hardware"><i class="fa fa-check"></i><b>2.5.8</b> DS 3D hardware</a></li>
+<li class="chapter" data-level="2.5.9" data-path="d.html"><a href="d.html#the-shift-of-the-3d-to-ds-2d"><i class="fa fa-check"></i><b>2.5.9</b> The shift of the 3D to DS 2d</a></li>
+<li class="chapter" data-level="2.5.10" data-path="d.html"><a href="d.html#nsbmd"><i class="fa fa-check"></i><b>2.5.10</b> NSBMD</a></li>
+<li class="chapter" data-level="2.5.11" data-path="d.html"><a href="d.html#basic-nsbmd-hacks"><i class="fa fa-check"></i><b>2.5.11</b> Basic NSBMD hacks</a></li>
+<li class="chapter" data-level="2.5.12" data-path="d.html"><a href="d.html#example-of-minor-hack"><i class="fa fa-check"></i><b>2.5.12</b> Example of minor hack</a></li>
+<li class="chapter" data-level="2.5.13" data-path="d.html"><a href="d.html#basic-texture-viewing-hack"><i class="fa fa-check"></i><b>2.5.13</b> Basic texture viewing hack</a></li>
+<li class="chapter" data-level="2.5.14" data-path="d.html"><a href="d.html#command-decoding-aside"><i class="fa fa-check"></i><b>2.5.14</b> Command decoding aside</a></li>
+<li class="chapter" data-level="2.5.15" data-path="d.html"><a href="d.html#non-nsbmd"><i class="fa fa-check"></i><b>2.5.15</b> Non NSBMD</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="notes-and-further-reading.html"><a href="notes-and-further-reading.html"><i class="fa fa-check"></i><b>2.6</b> Notes and further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="text.html"><a href="text.html"><i class="fa fa-check"></i><b>3</b> Text</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>3.1</b> Tables</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="tables.html"><a href="tables.html#table-creation-and-figuring-out-custom-encodings"><i class="fa fa-check"></i><b>3.1.1</b> Table creation and figuring out custom encodings</a></li>
+<li class="chapter" data-level="3.1.2" data-path="tables.html"><a href="tables.html#relative-searching"><i class="fa fa-check"></i><b>3.1.2</b> Relative searching</a></li>
+<li class="chapter" data-level="3.1.3" data-path="tables.html"><a href="tables.html#corruption-and-alteration"><i class="fa fa-check"></i><b>3.1.3</b> Corruption and alteration</a></li>
+<li class="chapter" data-level="3.1.4" data-path="tables.html"><a href="tables.html#memory-viewing-and-corruption"><i class="fa fa-check"></i><b>3.1.4</b> Memory viewing and corruption</a></li>
+<li class="chapter" data-level="3.1.5" data-path="tables.html"><a href="tables.html#frequency-analysis"><i class="fa fa-check"></i><b>3.1.5</b> Frequency analysis</a></li>
+<li class="chapter" data-level="3.1.6" data-path="tables.html"><a href="tables.html#language-analysis"><i class="fa fa-check"></i><b>3.1.6</b> Language analysis</a></li>
+<li class="chapter" data-level="3.1.7" data-path="tables.html"><a href="tables.html#pointer-and-encodinghex-analysis"><i class="fa fa-check"></i><b>3.1.7</b> Pointer and encoding/hex analysis</a></li>
+<li class="chapter" data-level="3.1.8" data-path="tables.html"><a href="tables.html#assembly-tracing"><i class="fa fa-check"></i><b>3.1.8</b> Assembly tracing</a></li>
+<li class="chapter" data-level="3.1.9" data-path="tables.html"><a href="tables.html#font-viewing"><i class="fa fa-check"></i><b>3.1.9</b> Font viewing</a></li>
+<li class="chapter" data-level="3.1.10" data-path="tables.html"><a href="tables.html#language-comparing"><i class="fa fa-check"></i><b>3.1.10</b> Language comparing</a></li>
+<li class="chapter" data-level="3.1.11" data-path="tables.html"><a href="tables.html#table-creation-tools"><i class="fa fa-check"></i><b>3.1.11</b> Table creation tools</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="pointers.html"><a href="pointers.html"><i class="fa fa-check"></i><b>3.2</b> Pointers</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="pointers.html"><a href="pointers.html#special-cases-and-non-pointer-concepts"><i class="fa fa-check"></i><b>3.2.1</b> Special cases and non pointer concepts</a></li>
+<li class="chapter" data-level="3.2.2" data-path="pointers.html"><a href="pointers.html#example-reverse-engineering-of-pointers"><i class="fa fa-check"></i><b>3.2.2</b> Example reverse engineering of pointers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="markup-control-codes-and-placeholders.html"><a href="markup-control-codes-and-placeholders.html"><i class="fa fa-check"></i><b>3.3</b> Markup, control codes and placeholders</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="markup-control-codes-and-placeholders.html"><a href="markup-control-codes-and-placeholders.html#worked-example"><i class="fa fa-check"></i><b>3.3.1</b> Worked example</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="fonts.html"><a href="fonts.html"><i class="fa fa-check"></i><b>3.4</b> Fonts</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="fonts.html"><a href="fonts.html#nftr"><i class="fa fa-check"></i><b>3.4.1</b> NFTR</a></li>
+<li class="chapter" data-level="3.4.2" data-path="fonts.html"><a href="fonts.html#adding-characters-to-nftr"><i class="fa fa-check"></i><b>3.4.2</b> Adding characters to NFTR</a></li>
+<li class="chapter" data-level="3.4.3" data-path="fonts.html"><a href="fonts.html#common-hacks"><i class="fa fa-check"></i><b>3.4.3</b> Common hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="scripting-and-layout.html"><a href="scripting-and-layout.html"><i class="fa fa-check"></i><b>3.5</b> Scripting and layout</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="scripting-and-layout.html"><a href="scripting-and-layout.html#layout-and-limits"><i class="fa fa-check"></i><b>3.5.1</b> Layout and limits</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html"><i class="fa fa-check"></i><b>3.6</b> Text extraction and insertion</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html#text-extraction"><i class="fa fa-check"></i><b>3.6.1</b> Text extraction</a></li>
+<li class="chapter" data-level="3.6.2" data-path="text-extraction-and-insertion.html"><a href="text-extraction-and-insertion.html#text-insertion"><i class="fa fa-check"></i><b>3.6.2</b> Text insertion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="language-detection-in-ds-games.html"><a href="language-detection-in-ds-games.html"><i class="fa fa-check"></i><b>3.7</b> Language detection in DS games</a></li>
+<li class="chapter" data-level="3.8" data-path="translation-hacking.html"><a href="translation-hacking.html"><i class="fa fa-check"></i><b>3.8</b> Translation hacking</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="translation-hacking.html"><a href="translation-hacking.html#the-types-of-japanese-characters-and-how-they-work--"><i class="fa fa-check"></i><b>3.8.1</b> The types of Japanese characters and how they work -</a></li>
+<li class="chapter" data-level="3.8.2" data-path="translation-hacking.html"><a href="translation-hacking.html#japanese-glyphscharacters-and-observations-on-the-language"><i class="fa fa-check"></i><b>3.8.2</b> Japanese glyphs/characters and observations on the language</a></li>
+<li class="chapter" data-level="3.8.3" data-path="translation-hacking.html"><a href="translation-hacking.html#on-language"><i class="fa fa-check"></i><b>3.8.3</b> On language</a></li>
+<li class="chapter" data-level="3.8.4" data-path="translation-hacking.html"><a href="translation-hacking.html#right-to-left-languages-and-translation."><i class="fa fa-check"></i><b>3.8.4</b> Right to left languages and translation.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html"><i class="fa fa-check"></i><b>3.9</b> Japanese text editors and translation tools</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#general-japanese-capable-text-editors"><i class="fa fa-check"></i><b>3.9.1</b> General Japanese capable text editors</a></li>
+<li class="chapter" data-level="3.9.2" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#rom-hacking-tools"><i class="fa fa-check"></i><b>3.9.2</b> ROM hacking tools</a></li>
+<li class="chapter" data-level="3.9.3" data-path="japanese-text-editors-and-translation-tools.html"><a href="japanese-text-editors-and-translation-tools.html#cat-tools"><i class="fa fa-check"></i><b>3.9.3</b> CAT tools</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multimedia.html"><a href="multimedia.html"><i class="fa fa-check"></i><b>4</b> Multimedia</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>4.1</b> Sound</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="sound.html"><a href="sound.html#sdat-nds"><i class="fa fa-check"></i><b>4.1.1</b> SDAT (NDS)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sound.html"><a href="sound.html#others"><i class="fa fa-check"></i><b>4.1.2</b> Others</a></li>
+<li class="chapter" data-level="4.1.3" data-path="sound.html"><a href="sound.html#tracker-formats"><i class="fa fa-check"></i><b>4.1.3</b> Tracker formats</a></li>
+<li class="chapter" data-level="4.1.4" data-path="sound.html"><a href="sound.html#general-rule-of-thumb-for-custom-audio-formats"><i class="fa fa-check"></i><b>4.1.4</b> General rule of thumb for custom audio formats</a></li>
+<li class="chapter" data-level="4.1.5" data-path="sound.html"><a href="sound.html#common-ds-sdat-audio-hacks-undubbing-injection-tweaks-and-relinking"><i class="fa fa-check"></i><b>4.1.5</b> Common DS SDAT audio hacks (undubbing, injection, tweaks and relinking)</a></li>
+<li class="chapter" data-level="4.1.6" data-path="sound.html"><a href="sound.html#basic-undub"><i class="fa fa-check"></i><b>4.1.6</b> Basic undub</a></li>
+<li class="chapter" data-level="4.1.7" data-path="sound.html"><a href="sound.html#relinking"><i class="fa fa-check"></i><b>4.1.7</b> Relinking</a></li>
+<li class="chapter" data-level="4.1.8" data-path="sound.html"><a href="sound.html#injection"><i class="fa fa-check"></i><b>4.1.8</b> Injection</a></li>
+<li class="chapter" data-level="4.1.9" data-path="sound.html"><a href="sound.html#propercomplex-undub"><i class="fa fa-check"></i><b>4.1.9</b> Proper/complex undub</a></li>
+<li class="chapter" data-level="4.1.10" data-path="sound.html"><a href="sound.html#sseq-editing"><i class="fa fa-check"></i><b>4.1.10</b> SSEQ editing</a></li>
+<li class="chapter" data-level="4.1.11" data-path="sound.html"><a href="sound.html#gba-audio"><i class="fa fa-check"></i><b>4.1.11</b> GBA audio</a></li>
+<li class="chapter" data-level="4.1.12" data-path="sound.html"><a href="sound.html#sappy"><i class="fa fa-check"></i><b>4.1.12</b> Sappy</a></li>
+<li class="chapter" data-level="4.1.13" data-path="sound.html"><a href="sound.html#notable-gba-audio-hacks"><i class="fa fa-check"></i><b>4.1.13</b> Notable GBA audio hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="video.html"><a href="video.html"><i class="fa fa-check"></i><b>4.2</b> Video</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="video.html"><a href="video.html#general-video-theory"><i class="fa fa-check"></i><b>4.2.1</b> General video theory</a></li>
+<li class="chapter" data-level="4.2.2" data-path="video.html"><a href="video.html#modsvxact-imagine-by-mobiclip."><i class="fa fa-check"></i><b>4.2.2</b> Mods/VX/act imagine by Mobiclip.</a></li>
+<li class="chapter" data-level="4.2.3" data-path="video.html"><a href="video.html#radbink"><i class="fa fa-check"></i><b>4.2.3</b> RAD/Bink</a></li>
+<li class="chapter" data-level="4.2.4" data-path="video.html"><a href="video.html#criware"><i class="fa fa-check"></i><b>4.2.4</b> Criware</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cut-scenes.html"><a href="cut-scenes.html"><i class="fa fa-check"></i><b>4.3</b> Cut scenes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="game-logic.html"><a href="game-logic.html"><i class="fa fa-check"></i><b>5</b> Game logic</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="levels-and-stats.html"><a href="levels-and-stats.html"><i class="fa fa-check"></i><b>5.1</b> Levels and Stats</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="levels-and-stats.html"><a href="levels-and-stats.html#example-tools"><i class="fa fa-check"></i><b>5.1.1</b> Example tools</a></li>
+<li class="chapter" data-level="5.1.2" data-path="levels-and-stats.html"><a href="levels-and-stats.html#level-editing-techniques"><i class="fa fa-check"></i><b>5.1.2</b> Level editing techniques</a></li>
+<li class="chapter" data-level="5.1.3" data-path="levels-and-stats.html"><a href="levels-and-stats.html#worked-example-1"><i class="fa fa-check"></i><b>5.1.3</b> Worked example</a></li>
+<li class="chapter" data-level="5.1.4" data-path="levels-and-stats.html"><a href="levels-and-stats.html#stats"><i class="fa fa-check"></i><b>5.1.4</b> Stats</a></li>
+<li class="chapter" data-level="5.1.5" data-path="levels-and-stats.html"><a href="levels-and-stats.html#rpg-randomiser"><i class="fa fa-check"></i><b>5.1.5</b> RPG randomiser</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="compression-1.html"><a href="compression-1.html"><i class="fa fa-check"></i><b>5.2</b> Compression</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="compression-1.html"><a href="compression-1.html#lossy"><i class="fa fa-check"></i><b>5.2.1</b> Lossy</a></li>
+<li class="chapter" data-level="5.2.2" data-path="compression-1.html"><a href="compression-1.html#lossless"><i class="fa fa-check"></i><b>5.2.2</b> Lossless</a></li>
+<li class="chapter" data-level="5.2.3" data-path="compression-1.html"><a href="compression-1.html#basic-theory-of-the-actual-implementations"><i class="fa fa-check"></i><b>5.2.3</b> Basic theory of the actual implementations</a></li>
+<li class="chapter" data-level="5.2.4" data-path="compression-1.html"><a href="compression-1.html#compression-at-hexadecimal-level"><i class="fa fa-check"></i><b>5.2.4</b> Compression at hexadecimal level</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cheating.html"><a href="cheating.html"><i class="fa fa-check"></i><b>5.3</b> Cheating</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="cheating.html"><a href="cheating.html#general-cheat-making"><i class="fa fa-check"></i><b>5.3.1</b> General cheat making</a></li>
+<li class="chapter" data-level="5.3.2" data-path="cheating.html"><a href="cheating.html#gba-cheat-making"><i class="fa fa-check"></i><b>5.3.2</b> GBA cheat making</a></li>
+<li class="chapter" data-level="5.3.3" data-path="cheating.html"><a href="cheating.html#ds-cheat-making"><i class="fa fa-check"></i><b>5.3.3</b> DS cheat making</a></li>
+<li class="chapter" data-level="5.3.4" data-path="cheating.html"><a href="cheating.html#basic-making-of-a-cheat"><i class="fa fa-check"></i><b>5.3.4</b> Basic making of a cheat</a></li>
+<li class="chapter" data-level="5.3.5" data-path="cheating.html"><a href="cheating.html#cheat-prevention-methods-and-frustrations"><i class="fa fa-check"></i><b>5.3.5</b> Cheat prevention methods and frustrations</a></li>
+<li class="chapter" data-level="5.3.6" data-path="cheating.html"><a href="cheating.html#instruction-editing-cheating"><i class="fa fa-check"></i><b>5.3.6</b> Instruction editing cheating</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="programming-concepts.html"><a href="programming-concepts.html"><i class="fa fa-check"></i><b>5.4</b> Programming concepts</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="programming-concepts.html"><a href="programming-concepts.html#functions-and-procedural-programming.-also-return-oriented-programmingrop"><i class="fa fa-check"></i><b>5.4.1</b> Functions and procedural programming. Also return oriented programming/ROP</a></li>
+<li class="chapter" data-level="5.4.2" data-path="programming-concepts.html"><a href="programming-concepts.html#if-else"><i class="fa fa-check"></i><b>5.4.2</b> IF ELSE</a></li>
+<li class="chapter" data-level="5.4.3" data-path="programming-concepts.html"><a href="programming-concepts.html#recursion"><i class="fa fa-check"></i><b>5.4.3</b> Recursion</a></li>
+<li class="chapter" data-level="5.4.4" data-path="programming-concepts.html"><a href="programming-concepts.html#iteration"><i class="fa fa-check"></i><b>5.4.4</b> Iteration</a></li>
+<li class="chapter" data-level="5.4.5" data-path="programming-concepts.html"><a href="programming-concepts.html#loops"><i class="fa fa-check"></i><b>5.4.5</b> Loops</a></li>
+<li class="chapter" data-level="5.4.6" data-path="programming-concepts.html"><a href="programming-concepts.html#turing-complete"><i class="fa fa-check"></i><b>5.4.6</b> Turing complete</a></li>
+<li class="chapter" data-level="5.4.7" data-path="programming-concepts.html"><a href="programming-concepts.html#fundamentals-of-assembly"><i class="fa fa-check"></i><b>5.4.7</b> Fundamentals of Assembly</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="assembly.html"><a href="assembly.html"><i class="fa fa-check"></i><b>5.5</b> Assembly</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="assembly.html"><a href="assembly.html#arm"><i class="fa fa-check"></i><b>5.5.1</b> ARM</a></li>
+<li class="chapter" data-level="5.5.2" data-path="assembly.html"><a href="assembly.html#gba-assembly-specifics"><i class="fa fa-check"></i><b>5.5.2</b> GBA Assembly specifics</a></li>
+<li class="chapter" data-level="5.5.3" data-path="assembly.html"><a href="assembly.html#ds-assembly-specifics"><i class="fa fa-check"></i><b>5.5.3</b> DS Assembly specifics</a></li>
+<li class="chapter" data-level="5.5.4" data-path="assembly.html"><a href="assembly.html#the-gba-and-ds-compared"><i class="fa fa-check"></i><b>5.5.4</b> The GBA and DS compared</a></li>
+<li class="chapter" data-level="5.5.5" data-path="assembly.html"><a href="assembly.html#on-controls"><i class="fa fa-check"></i><b>5.5.5</b> On controls</a></li>
+<li class="chapter" data-level="5.5.6" data-path="assembly.html"><a href="assembly.html#hooking"><i class="fa fa-check"></i><b>5.5.6</b> Hooking</a></li>
+<li class="chapter" data-level="5.5.7" data-path="assembly.html"><a href="assembly.html#gba-cart-as-extra-memory-for-ds-hacks"><i class="fa fa-check"></i><b>5.5.7</b> GBA cart as extra memory for DS hacks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html"><i class="fa fa-check"></i><b>5.6</b> Non specific assembly discussion.</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#language-mod-example"><i class="fa fa-check"></i><b>5.6.1</b> Language mod example</a></li>
+<li class="chapter" data-level="5.6.2" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#non-code-in-asm"><i class="fa fa-check"></i><b>5.6.2</b> Non code in ASM</a></li>
+<li class="chapter" data-level="5.6.3" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#destructive-vs-non-destructive-assembly-editing"><i class="fa fa-check"></i><b>5.6.3</b> Destructive vs non destructive assembly editing</a></li>
+<li class="chapter" data-level="5.6.4" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#polymorphic-and-dynamic-code"><i class="fa fa-check"></i><b>5.6.4</b> Polymorphic and dynamic code</a></li>
+<li class="chapter" data-level="5.6.5" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#slowdown-and-speedup"><i class="fa fa-check"></i><b>5.6.5</b> Slowdown and speedup</a></li>
+<li class="chapter" data-level="5.6.6" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#cryptography-encryption-checksums-and-signatures"><i class="fa fa-check"></i><b>5.6.6</b> Cryptography (encryption, checksums and signatures)</a></li>
+<li class="chapter" data-level="5.6.7" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#multiplayer-and-the-failure-of-nintendos-online-ds-security."><i class="fa fa-check"></i><b>5.6.7</b> Multiplayer and the failure of Nintendo’s online DS security.</a></li>
+<li class="chapter" data-level="5.6.8" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#save-editing"><i class="fa fa-check"></i><b>5.6.8</b> Save editing</a></li>
+<li class="chapter" data-level="5.6.9" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#interpreted-languages"><i class="fa fa-check"></i><b>5.6.9</b> Interpreted languages</a></li>
+<li class="chapter" data-level="5.6.10" data-path="non-specific-assembly-discussion..html"><a href="non-specific-assembly-discussion..html#game-ai-game-logic-and-game-theory"><i class="fa fa-check"></i><b>5.6.10</b> Game AI, game logic and game theory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html"><i class="fa fa-check"></i><b>5.7</b> Flash cart and emulator theory</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html#gba-1"><i class="fa fa-check"></i><b>5.7.1</b> GBA</a></li>
+<li class="chapter" data-level="5.7.2" data-path="flash-cart-and-emulator-theory.html"><a href="flash-cart-and-emulator-theory.html#ds-2"><i class="fa fa-check"></i><b>5.7.2</b> DS</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="rom-hacking-protection.html"><a href="rom-hacking-protection.html"><i class="fa fa-check"></i><b>5.8</b> ROM hacking “protection”</a></li>
+</ul></li>
+<li class="part"><span><b>III Examples, oddities and techniques</b></span></li>
+<li class="chapter" data-level="6" data-path="crystaltile2-general-usage-guide.html"><a href="crystaltile2-general-usage-guide.html"><i class="fa fa-check"></i><b>6</b> Crystaltile2 general usage guide</a></li>
+<li class="chapter" data-level="7" data-path="gba-tracing.html"><a href="gba-tracing.html"><i class="fa fa-check"></i><b>7</b> GBA tracing</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tracing-options.html"><a href="tracing-options.html"><i class="fa fa-check"></i><b>7.1</b> Tracing options</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="tracing-options.html"><a href="tracing-options.html#worked-examples"><i class="fa fa-check"></i><b>7.1.1</b> Worked examples</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ds-tracing.html"><a href="ds-tracing.html"><i class="fa fa-check"></i><b>8</b> DS tracing</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ds-debugging-emulators.html"><a href="ds-debugging-emulators.html"><i class="fa fa-check"></i><b>8.1</b> DS debugging emulators</a></li>
+<li class="chapter" data-level="8.2" data-path="cart-read-command.html"><a href="cart-read-command.html"><i class="fa fa-check"></i><b>8.2</b> Cart read command</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="cart-read-command.html"><a href="cart-read-command.html#basic-lookup-and-methods-for-it"><i class="fa fa-check"></i><b>8.2.1</b> Basic lookup and methods for it</a></li>
+<li class="chapter" data-level="8.2.2" data-path="cart-read-command.html"><a href="cart-read-command.html#header-reverse-engineeringgenerated-values"><i class="fa fa-check"></i><b>8.2.2</b> Header reverse engineering/generated values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="reverse-engineering-various-rom-images.html"><a href="reverse-engineering-various-rom-images.html"><i class="fa fa-check"></i><b>9</b> Reverse engineering various ROM images</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html"><i class="fa fa-check"></i><b>9.1</b> Large archive on top of filesystem</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#tony-hawk"><i class="fa fa-check"></i><b>9.1.1</b> Tony Hawk</a></li>
+<li class="chapter" data-level="9.1.2" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#star-wars---the-force-unleashed"><i class="fa fa-check"></i><b>9.1.2</b> Star Wars - The Force Unleashed</a></li>
+<li class="chapter" data-level="9.1.3" data-path="large-archive-on-top-of-filesystem.html"><a href="large-archive-on-top-of-filesystem.html#el-tigre-make-my-mule"><i class="fa fa-check"></i><b>9.1.3</b> El Tigre Make my mule</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="compression-2.html"><a href="compression-2.html"><i class="fa fa-check"></i><b>9.2</b> Compression</a></li>
+<li class="chapter" data-level="9.3" data-path="first-person-game.html"><a href="first-person-game.html"><i class="fa fa-check"></i><b>9.3</b> First Person Game</a></li>
+<li class="chapter" data-level="9.4" data-path="platformer.html"><a href="platformer.html"><i class="fa fa-check"></i><b>9.4</b> Platformer</a></li>
+<li class="chapter" data-level="9.5" data-path="fighting-games.html"><a href="fighting-games.html"><i class="fa fa-check"></i><b>9.5</b> Fighting games</a></li>
+<li class="chapter" data-level="9.6" data-path="role-playing-games.html"><a href="role-playing-games.html"><i class="fa fa-check"></i><b>9.6</b> Role playing games</a></li>
+<li class="chapter" data-level="9.7" data-path="racing-games.html"><a href="racing-games.html"><i class="fa fa-check"></i><b>9.7</b> Racing games</a></li>
+<li class="chapter" data-level="9.8" data-path="puzzle.html"><a href="puzzle.html"><i class="fa fa-check"></i><b>9.8</b> Puzzle</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="puzzle.html"><a href="puzzle.html#mahjong-game"><i class="fa fa-check"></i><b>9.8.1</b> Mahjong game</a></li>
+<li class="chapter" data-level="9.8.2" data-path="puzzle.html"><a href="puzzle.html#tetris"><i class="fa fa-check"></i><b>9.8.2</b> Tetris</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="other-genres.html"><a href="other-genres.html"><i class="fa fa-check"></i><b>9.9</b> Other genres</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="developer-leftovers.html"><a href="developer-leftovers.html"><i class="fa fa-check"></i><b>10</b> Developer leftovers</a></li>
+<li class="chapter" data-level="11" data-path="workarounds.html"><a href="workarounds.html"><i class="fa fa-check"></i><b>11</b> Workarounds</a></li>
+<li class="chapter" data-level="12" data-path="moving-to-a-new-system.html"><a href="moving-to-a-new-system.html"><i class="fa fa-check"></i><b>12</b> Moving to a new system</a></li>
+<li class="chapter" data-level="13" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html"><i class="fa fa-check"></i><b>13</b> Developer tricks aka thinking like a game developer</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#level-and-mechanism-design"><i class="fa fa-check"></i><b>13.0.1</b> Level and mechanism design</a></li>
+<li class="chapter" data-level="13.0.2" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#sprite-and-palette-reuses"><i class="fa fa-check"></i><b>13.0.2</b> Sprite and palette reuses</a></li>
+<li class="chapter" data-level="13.0.3" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#pre-rendering"><i class="fa fa-check"></i><b>13.0.3</b> Pre rendering</a></li>
+<li class="chapter" data-level="13.0.4" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#speed-blur-and-fog"><i class="fa fa-check"></i><b>13.0.4</b> Speed blur and fog</a></li>
+<li class="chapter" data-level="13.0.5" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#loading-covers"><i class="fa fa-check"></i><b>13.0.5</b> Loading covers</a></li>
+<li class="chapter" data-level="13.0.6" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#optimisation-of-loading"><i class="fa fa-check"></i><b>13.0.6</b> Optimisation of loading</a></li>
+<li class="chapter" data-level="13.0.7" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#d-imagery-in-general"><i class="fa fa-check"></i><b>13.0.7</b> 3d imagery in general</a></li>
+<li class="chapter" data-level="13.0.8" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#procedural-generation"><i class="fa fa-check"></i><b>13.0.8</b> Procedural generation</a></li>
+<li class="chapter" data-level="13.0.9" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#noise-on-images-and-sound."><i class="fa fa-check"></i><b>13.0.9</b> Noise on images and sound.</a></li>
+<li class="chapter" data-level="13.0.10" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#using-the-limits-of-the-systemworking-to-them"><i class="fa fa-check"></i><b>13.0.10</b> Using the limits of the system/working to them</a></li>
+<li class="chapter" data-level="13.0.11" data-path="developer-tricks-aka-thinking-like-a-game-developer.html"><a href="developer-tricks-aka-thinking-like-a-game-developer.html#network-coding"><i class="fa fa-check"></i><b>13.0.11</b> Network coding</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="game-design-and-media.html"><a href="game-design-and-media.html"><i class="fa fa-check"></i><b>14</b> Game design and media</a></li>
+<li class="chapter" data-level="15" data-path="python-batch-files-and-programming-for-rom-hacking.html"><a href="python-batch-files-and-programming-for-rom-hacking.html"><i class="fa fa-check"></i><b>15</b> Python, batch files and programming for ROM hacking</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="radare2-reverse-engineering-tools.html"><a href="radare2-reverse-engineering-tools.html"><i class="fa fa-check"></i><b>15.1</b> radare2 reverse engineering tools</a></li>
+<li class="chapter" data-level="15.2" data-path="programming-languages.html"><a href="programming-languages.html"><i class="fa fa-check"></i><b>15.2</b> Programming languages</a></li>
+<li class="chapter" data-level="15.3" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>15.3</b> Python</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="pc-program-hacking.html"><a href="pc-program-hacking.html"><i class="fa fa-check"></i><b>16</b> PC program hacking</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>16.1</b> Debugging</a></li>
+<li class="chapter" data-level="16.2" data-path="decompilation.html"><a href="decompilation.html"><i class="fa fa-check"></i><b>16.2</b> Decompilation</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="version-control-and-project-management..html"><a href="version-control-and-project-management..html"><i class="fa fa-check"></i><b>17</b> Version control and project management.</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="project-and-team-management.html"><a href="project-and-team-management.html"><i class="fa fa-check"></i><b>17.1</b> Project and team management</a></li>
+<li class="chapter" data-level="17.2" data-path="version-control.html"><a href="version-control.html"><i class="fa fa-check"></i><b>17.2</b> Version control</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="interesting-links-and-further-reading..html"><a href="interesting-links-and-further-reading..html"><i class="fa fa-check"></i><b>18</b> Interesting links and further reading.</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>18.1</b> Links</a></li>
+<li class="chapter" data-level="18.2" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>18.2</b> Further reading</a></li>
+</ul></li>
+<li class="part"><span><b>IV File formats (specifications, methods and known formats)</b></span></li>
+<li class="chapter" data-level="19" data-path="general-things-about-the-ds.html"><a href="general-things-about-the-ds.html"><i class="fa fa-check"></i><b>19</b> General things about the DS</a></li>
+<li class="chapter" data-level="20" data-path="generic-ds-nitro-sdk-format.html"><a href="generic-ds-nitro-sdk-format.html"><i class="fa fa-check"></i><b>20</b> Generic DS nitro SDK format</a></li>
+<li class="chapter" data-level="21" data-path="general-file-reverse-engineering.html"><a href="general-file-reverse-engineering.html"><i class="fa fa-check"></i><b>21</b> General file reverse engineering</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="headers.html"><a href="headers.html"><i class="fa fa-check"></i><b>21.1</b> Headers</a></li>
+<li class="chapter" data-level="21.2" data-path="file-sizes.html"><a href="file-sizes.html"><i class="fa fa-check"></i><b>21.2</b> File sizes</a></li>
+<li class="chapter" data-level="21.3" data-path="multiple-versions-of-the-game.html"><a href="multiple-versions-of-the-game.html"><i class="fa fa-check"></i><b>21.3</b> Multiple versions of the game</a></li>
+<li class="chapter" data-level="21.4" data-path="file-names-and-extensions.html"><a href="file-names-and-extensions.html"><i class="fa fa-check"></i><b>21.4</b> File names and extensions</a></li>
+<li class="chapter" data-level="21.5" data-path="tile-viewers.html"><a href="tile-viewers.html"><i class="fa fa-check"></i><b>21.5</b> Tile viewers</a></li>
+<li class="chapter" data-level="21.6" data-path="pointers-and-such.html"><a href="pointers-and-such.html"><i class="fa fa-check"></i><b>21.6</b> Pointers and such</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="sound-1.html"><a href="sound-1.html"><i class="fa fa-check"></i><b>22</b> Sound</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="sdat.html"><a href="sdat.html"><i class="fa fa-check"></i><b>22.1</b> SDAT</a></li>
+<li class="chapter" data-level="22.2" data-path="sseq.html"><a href="sseq.html"><i class="fa fa-check"></i><b>22.2</b> SSEQ</a></li>
+<li class="chapter" data-level="22.3" data-path="strm.html"><a href="strm.html"><i class="fa fa-check"></i><b>22.3</b> STRM</a></li>
+<li class="chapter" data-level="22.4" data-path="swar.html"><a href="swar.html"><i class="fa fa-check"></i><b>22.4</b> SWAR</a></li>
+<li class="chapter" data-level="22.5" data-path="swar-1.html"><a href="swar-1.html"><i class="fa fa-check"></i><b>22.5</b> SWAR</a></li>
+<li class="chapter" data-level="22.6" data-path="bank.html"><a href="bank.html"><i class="fa fa-check"></i><b>22.6</b> BANK</a></li>
+<li class="chapter" data-level="22.7" data-path="other-formats.html"><a href="other-formats.html"><i class="fa fa-check"></i><b>22.7</b> Other formats</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="graphics-1.html"><a href="graphics-1.html"><i class="fa fa-check"></i><b>23</b> Graphics</a></li>
+<li class="chapter" data-level="24" data-path="d-1.html"><a href="d-1.html"><i class="fa fa-check"></i><b>24</b> 2d</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="ncer.html"><a href="ncer.html"><i class="fa fa-check"></i><b>24.1</b> NCER</a></li>
+<li class="chapter" data-level="24.2" data-path="nanr.html"><a href="nanr.html"><i class="fa fa-check"></i><b>24.2</b> NANR</a></li>
+<li class="chapter" data-level="24.3" data-path="ncgr.html"><a href="ncgr.html"><i class="fa fa-check"></i><b>24.3</b> NCGR</a></li>
+<li class="chapter" data-level="24.4" data-path="nscr.html"><a href="nscr.html"><i class="fa fa-check"></i><b>24.4</b> NSCR</a></li>
+<li class="chapter" data-level="24.5" data-path="nmcr.html"><a href="nmcr.html"><i class="fa fa-check"></i><b>24.5</b> NMCR</a></li>
+<li class="chapter" data-level="24.6" data-path="nftr-1.html"><a href="nftr-1.html"><i class="fa fa-check"></i><b>24.6</b> NFTR</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="d-2.html"><a href="d-2.html"><i class="fa fa-check"></i><b>25</b> 3d</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="nsbmd-1.html"><a href="nsbmd-1.html"><i class="fa fa-check"></i><b>25.1</b> NSBMD</a></li>
+<li class="chapter" data-level="25.2" data-path="nsbtx.html"><a href="nsbtx.html"><i class="fa fa-check"></i><b>25.2</b> NSBTX</a></li>
+<li class="chapter" data-level="25.3" data-path="nsbca.html"><a href="nsbca.html"><i class="fa fa-check"></i><b>25.3</b> NSBCA</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="packing-format.html"><a href="packing-format.html"><i class="fa fa-check"></i><b>26</b> Packing format</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="narc-arc-and-carc.html"><a href="narc-arc-and-carc.html"><i class="fa fa-check"></i><b>26.1</b> NARC, ARC and CARC</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="text-1.html"><a href="text-1.html"><i class="fa fa-check"></i><b>27</b> Text</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="bmg.html"><a href="bmg.html"><i class="fa fa-check"></i><b>27.1</b> BMG</a></li>
+</ul></li>
+<li class="part"><span><b>V Glossary, index and such</b></span></li>
+<li class="chapter" data-level="28" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>28</b> Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://gbatemp.net/threads/gbatemp-rom-hacking-documentation-project-new-2016-edition-out.73394/" target="blank">Documentation Project on GBATemp</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GBA and DS ROM hacking guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ncgr" class="section level2 hasAnchor" number="24.3">
+<h2><span class="header-section-number">24.3</span> NCGR<a href="ncgr.html#ncgr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<tbody>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="even">
+<td>Location</td>
+<td>Size</td>
+<td>Description</td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="even">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="even">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="even">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="even">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="even">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="even">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nanr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="nscr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rh-reborn/gba-and-ds-rom-hacking-guide/edit/main/23-graphics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gba-and-ds-rom-hacking-guide.pdf", "gba-and-ds-rom-hacking-guide.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
