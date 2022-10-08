@@ -12,79 +12,43 @@ github-repo: rh-reborn/gba-and-ds-rom-hacking-guide
 description: "The following document covers ROM hacking methods with a focus upon GBA and DS hacking techniques but with occasional asides into the other home consoles."
 ---
 
-# Sections
+# Sections {-}
 
 |     |     |
 | --- | --- |
-| * * * | * * * |
 | Section | Content to do, improve or fix. |
-| * * * | * * * |
-| * * * | * * * |
 | Part 2 |     |
-| * * * | * * * |
 | Section 1 | PS3 iso unpacking links, for dreamcast sure up and include Iso LBA Fix (isofix) by DeXT |
-| * * * | * * * |
 |     | More hardware documentation links. nocash for PS1, SNES and more. Also debuggers. |
-| * * * | * * * |
 |     | https://wiki.neogeodev.org/index.php?title=Main_Page |
-| * * * | * * * |
 | Section 2 | 3d matrices, viewpoint (analyse mario kart cheats) and polish rest of 3d |
-| * * * | * * * |
-| * * * | * * * |
 |     | Tweak NSBMD palette finding |
-| * * * | * * * |
 |     | Polish NSBMD (tool) vertices decoding |
-| * * * | * * * |
 |     | YuGiOh example finish |
-| * * * | * * * |
 |     | Eragon example? |
-| * * * | * * * |
 | Section 3 | Finish example reverse engineering El Tigre |
-| * * * | * * * |
 |     | Scripting- lua from El tigre and maybe puzzle quest |
-| * * * | * * * |
 |     | Improve standard text extraction/insertion |
-| * * * | * * * |
 | Section 4 | Improve sseq looping |
-| * * * | * * * |
 |     | GBA sound- sappy hacks |
-| * * * | * * * |
 |     | http://www.hcs64.com/mboard/forum.php?showthread=34052&showpage=1 new DS sound format. |
-| * * * | * * * |
 |     | Improve video section (castlevania and digimon) |
-| * * * | * * * |
 | Section 5 | Finish items and start of levels worked example, improve discussion of randomisers and give some worked examples. |
-| * * * | * * * |
 |     | Take pictures of new desmume cheat engine |
-| * * * | * * * |
 |     | Secret/debug menu finding via control monitoring and control changing |
-| * * * | * * * |
 |     | Finish overlay compression dodging http://gbatemp.net/threads/recompressing-an-overlay-file.329576/#post-4387691 |
-| * * * | * * * |
 | Part 3 |     |
-| * * * | * * * |
 |     | GBA tracing |
-| * * * | * * * |
 |     | DS tracing |
-| * * * | * * * |
 |     | Example hacks |
-| * * * | * * * |
 |     | Python section and basic batch files |
-| * * * | * * * |
 |     | romulan junked for radare2, needs finishing and tidy up. Possibly consider just python. |
-| * * * | * * * |
 |     | Links and further reading |
-| * * * | * * * |
 | Part 4 | Formats (all) |
-| * * * | * * * |
 |     | More glossary? |
-| * * * | * * * |
-| * * * | * * * |
 |     | Index? |
-| * * * | * * * |
-| * * * | * * * |
 
-## Abstract
+## Abstract {-}
 
 ROM hacking for the purposes of this document will be defined as the the editing of ROM images and ISO images (ISO being the traditional term for images of optical media) with the intent of changing how underlying game code or the assets of it function in a useful way. Simply changing sections of an image without rhyme or reason is not ROM hacking as ROM hacking is usually the end result of a measure of reverse engineering.
 
@@ -96,7 +60,7 @@ Categorisation can occur several more times with one in particular forming the o
 
 This document is largely intended for those that do not know much about ROM hacking or low level computing beyond maybe the command line interface, that said those at all levels of computing and ROM hacking knowledge should be able to get something from this and it is hoped that the focus on the GBA and DS will aid those looking to transfer from other consoles.
 
-## Foreword
+## Foreword {-}
 
 This is quick update for 2020 of my ROM hacking guide, a guide that I have been writing on and off for several years at this point. This version is a continuation of the 2012 edition which itself was almost a complete rewrite of earlier efforts and is mainly to fix a few broken links. Not a lot has been added since the 2014 or 2016 updates which were mainly there to update a few links. A guide was first attempted a little under a year after I decided to take up ROM hacking in earnest, a period which coincided with the rise of the dedicated DS flash cart. Give or take some fiddling with PC games many years before my first real in was probably learning to shrink ROM images to fit on GBA era devices that were not built to cater with file sizes seen in commercial DS titles. The first version was little more than collections of forum posts I made on various subjects and short overviews of the areas aiming to point people in the right direction if they wanted to learn how to do something, the later versions aimed to teach people some of the underlying principles and this continues along that path.
 
@@ -108,7 +72,7 @@ Countless sites, hackers, conversations and tools have gone into getting this do
 
 # (PART) I  Introduction {-}
 
-# Introduction
+# Introduction {-}
 
 Although the preceding sections have detailed some of what is to come, and how it will work, the introduction is still necessary. Broadly speaking there are four parts to this document including this introductory section. The bulk of this document will be taken up with parts on the areas of ROM hacking (graphics editing, text editing, multimedia editing and game logic) and a more free form part where the reader is shown some examples of hacks, methods and games in an attempt to convey some real world basis to a lot of the examples in the more general section that it would have been too unwieldy to keep in that part, too troublesome to categorise them or if they are otherwise little curiosities discovered over the years (it is these little curiosities that keep things interesting for many ROM hackers).
 
@@ -128,7 +92,7 @@ Your computer to do all this does not necessarily have to be that powerful by th
 
 On jargon. Without going back to the philosophical pondering elsewhere in this part or contemplating some of the more extreme areas of physics there comes a point where describing something becomes needlessly long winded so it is abstracted to a term or series of terms at the cost of having someone somewhere (somewhen?) lack a frame of reference for it. Hopefully any technical terms encountered will be explained in the paragraph, have been explained before it or are not of immediate relevance to the matter at hand. Note that this definition differs slightly from [The Jargon File’s](http://www.catb.org/~esr/jargon/html/distinctions.html) definition.
 
-## Warning
+## Warning {-}
 
 Much of what you are about to read will train you in how to pull things apart, this eventually leads to you being able to pull things apart just by looking at them and it will become instinct to do so; you have probably seen variations on this in others that spend their days concerned with or have had training in a field and will constantly notice problems where others have attempted to do [something in said field](http://xkcd.com/1015/). There are ways for creators of works to lessen this but they are costly to do, and as most people do not spend their time pulling things apart they tend not to be done. This means you will quite often see just how things work, moreover you will see exactly how they have failed which can ruin things you might have previously enjoyed.
 

@@ -11,7 +11,7 @@ In computer games, and most visual or other sensory media until you meet things 
 
 The alternative to actual pixels and having 3d ultimately rendering into pixels is so called vector imagery. Vector imagery is named for the mathematical/graphing term called vectors and defines images entirely mathematically (for instance “draw a square, line thickness 3 with a length of 4 at point 0,14” can be scaled to any size with simple multiplication). Fonts on computers have used it for years and consoles have recently got into it (newer fighting versions of Street Fighter being noted for it) but it is quite rare to see in the end result of a console game, much less a handheld title. Still if you want to there are programs like [Inkscape](http://inkscape.org/) that you can try out and attempting to render pixel art as vector imagery is quite a popular activity in certain circles.
 
-### 2.0.1 Aliasing
+### Aliasing
 
 Most screens in the world (and as far as games go it is mainly only the Vectrex that differed here) use a grid of pixels that can be individually set to various colours to display images. Rendering this out means a nice defined line can appear as a run of a couple of pixels and then appear to shift one pixel and then another run. The human eye is quite adept at picking this up, and, unlike certain other concepts in video and graphics, even when otherwise not trained to (see the example below) so techniques (known as anti aliasing) were developed to lessen the effect.
 
@@ -21,11 +21,11 @@ Example (might need to zoom in a bit)
 
 This is also a problem when you take an image that was made at one size and scale it up, or sometimes when you scale it down, to something that is not a simple half (or quarter or so on) size of the original, beyond that though scaling non vector imagery has several potential pitfalls so do it sparingly or even better do not do it at all.
 
-### 2.0.2 Haloing
+### Haloing
 
 Related in some ways to aliasing above, aliasing and the techniques to dodge it can trouble things. Here when trying to select just the outline of an item on a complex background it might be hampered by the anti aliasing which has a habit of causing a slight merging/smoothing of colours and transitions, as a result a coloured outline can appear around it which looks not unlike a halo. This is one of the reasons why sprite sheets and similar things will often come as a selection of sprites on a hot pink or lime green background which lessen merging effects.
 
-### 2.0.3 Bit depth
+### Bit depth
 
 In general imagery it means one thing and that is how many bits are assigned to colours, something which was covered in the introduction to this section, but in 2d console imagery it means what number is assigned to represent each pixel with typical values being 4 and 8, though 1 and 2 are seen commonly enough on various systems, including the GBA and DS. Now this does not mean 4 and 8 bit colours but that you can select from a choice of colours from a premade selection which is composed of 16 bit colours. Later on a concept known as “sector addressing” is covered which works on a related principle.
 
@@ -33,7 +33,7 @@ In general imagery it means one thing and that is how many bits are assigned to 
 
 Although the GBA and DS capable of 16 bit (well 15 bit) colours you usually do not have the ability to define any number of 16 bit colours to use in a given image (remember tiles are like paint by numbers and you might only have 4 bits aka 16 colours at once or 8 bits aka 256 colours at once).
 
-### 2.1.1 GBA colours (15 bit)
+### GBA colours (15 bit)
 
 There is an undocumented feature on the GBA (and GBA mode of the DS) that swaps the green and blue but that is not that commonly used.
 
@@ -57,11 +57,11 @@ It should also be noted the DS has a master brightness section just before the i
 
 Although you can draw an entire image on screen at once (many DS games are great fans of this and effectively make a tile 256 wide by 192 high necessitating a tile editor capable of handling it, a trick which many legacy ones are not able to) most 2d graphics are built from small building blocks known as tiles. Typically these tiles are 8 by 8 or 16 by 16 pixels although text fonts and 3d textures as well as the previously mentioned “full screen tiles” like to break from form here. The simple way to think about them is to think of them as very boring (thanks to the square pixels) versions of a paint by numbers picture with the numbers being looked up from a palette. Although most people never have to touch the graphics themselves with a hex editor an appreciation of how the hardware works is necessary to reverse engineer some of the more complex formats. Likewise to gain an appreciation for the animation/handling mechanisms learning about the methods by which tiles and palettes for them operate is all but mandatory.
 
-### 2.2.1 1Bpp
+### 1Bpp
 
 Technically it is a compression method (the screen/video hardware itself does not display the mode in any real sense) but it is a special case as it is so simple that a basic tile editor can handle it and it can be edited in place without issue as indeed Crystaltile2 does, to that end it is here rather than later on when compression is discussed. The idea being if you have a black and white font or some other two colour image each four bits, the minimum length for a pixel the hardware accepts, will in fact be one or the other allowing you to compress the image down into 1 bit per pixel. Although it is not mandatory for developers to use it when dealing with 1bpp imagery the GBA and DS BIOS actually carry a “decompression” method in SWI10h that is known as BitUnPack.
 
-### 2.2.2 4 Bpp
+### 4 Bpp
 
 The workhorse of the GBA and a good chunk of the DS. Bringing back the icon from Yakuman DS. The “marching ants” selection is the section viewed in the hex editor which is as it is in the original ROM (certain hex editors can flip nibbles but it was not done here). As you can see each nibble looks up the value of a single colour (one of 16) which can be anything in the 15 bit format the GBA and DS can use. Equally there are 32 palettes each with the option for 16 colours which the game can swap between at runtime. Although not the only colour animation possible (the palette can also be edited at runtime) a developer can use these multiple palettes to change the appearance of items within the game and if you see the option to change at say the start of a battle (advance wars war room is good for this) or indeed at runtime then you are almost certainly looking at this.
 
@@ -73,7 +73,7 @@ Palette
 
 As you can imagine the background is not pink in the real game and this is as the first colour in a palette is treated as though it was transparent regardless of what it is (although in practice is is fairly pointless with the way the screen works it allows for a full colour range without the loss of a single colour).
 
-### 2.2.3 8Bpp
+### 8Bpp
 
 Although available and well used on the GBA it really started to be used on the DS.
 
@@ -83,7 +83,7 @@ Here each palette entry is 8 bits long and a two 256 colour palettes are availab
 
 Here each hex digit is the lookup for the palette with the first being the row and the second being the column (although if you really wanted you could flip them and indeed the hardware probably does effectively just that but that is introducing completely unnecessary work for no real gain).
 
-### 2.2.4 GBA3 Xbpp
+### GBA3 Xbpp
 
 There is another method that much like 1Bpp acts as a sort of compression meets hardware format method. Crystaltile2 is one of the few editors with support for this method and it is very rare indeed (the very occasional font being about the only thing that uses it).
 
@@ -139,7 +139,7 @@ Going to the next line
 
 Blank and then blue. Flipped again (10 and 00 being seen in the binary).
 
-### 2.2.5 GBA2 4BPP
+### GBA2 4BPP
 
 For the sake of completeness crystaltile2 has another format known as GBA2 4bpp that is in some ways slightly more complex than GBA3 XBPP. Very few games have ever been observed to use it either.
 
@@ -161,7 +161,7 @@ Selection 0 value 0 (in practice it would be 0 hex for the first pixel) allows t
 
 ![PIC](images/25_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguide2dGBA24BPP1.png)
 
-### 2.2.6 Bitmap
+### Bitmap
 
 This will probably be better served after discussion of graphics modes and hardware but know this is not referring to the “bitmap” image format as seen in every basic image editor and most advanced ones, although some modes of it share a lot in common with said format.
 
@@ -183,11 +183,11 @@ is a 160x128 (less than GBA resolution) mode using the same idea as mode 3 but t
 
 The DS has a kind of related tile mode where large tiles still composed or palette references like regular tiles can be used and it is quite popular but the DS has a slightly increased VRAM size to manage this better. It also has the ability to hold and manipulate images larger than the resolution in bitmap modes (it comes in handy for some end stage representation of 3d) although again this is better served for a discussion of hardware.
 
-### 2.2.7 Known formats
+### Known formats
 
 Some games have been seen to use known/common formats like GIF, PNG and JPEG with the most prolific being that of the DS Opera browser. With it having to decode them as part of the general operation (what is the web without images after all) meant it could use such formats internally quite happily but other games have certainly been seen to do this as well. This becomes even more common on other more powerful consoles but the DS does have a few formats that Nintendo provides in the SDK that allow for some fairly extensive abilities, more on those in the layout/OAM section.
 
-### 2.2.8 Crystaltile2 export and import.
+### Crystaltile2 export and import.
 
 Although Crystaltile2 usage is covered in depth later this is a basic operation and should be covered now. Most tile editors are just that and will allow you to edit an image but occasionally you are going to want to not be tied to a pixel by pixel editor and will want to use a more featured editor.
 
@@ -215,7 +215,7 @@ Move it accordingly and then double click the image to set the image
 
 On palettes If the colour you want is in the image then the dropper is usually sufficient but most tile editors have the option to export palettes to the commonly supported windows palette format; crystaltile2 has it right there in the palette window and BMP has a palette built into the file format (technically optional but crystaltile2 includes it).
 
-### 2.2.9 Avoiding gradients, AA, lossy compression, noise and such things.
+### Avoiding gradients, AA, lossy compression, noise and such things.
 
 The name of this says it all really and most pixel artists will know this already, however it needs to be mentioned to spare you the hassle of having to redo the whole palette which might not even be viable if the palette is used elsewhere, not to mention if you only have limited colours available it makes sense not to waste them unless you do truly have the option to do so. To this end you should avoid gradients (hopefully one already exists if you need one), anti aliasing options (quite often added in when adding text), resizing (the nearest neighbour algorithm is probably the worst general usage scaling method but it has the benefit of using the colours it had to begin with if you truly need one), noise functions and other things that will add random extra colours to your image (like saving as JPEG, even at “100%”). This means that unlike most image editing you might have done at other points in life you are limited here.
 
@@ -225,7 +225,7 @@ On a different note much like changing palettes can change things elsewhere in t
 
 The consoles do not magically know how to sort tiles out and indeed much of 3d and 2d imagery, as well as coding in general, revolves around reusing things to lessen the drain on resources; you surely have seen old RPGs where you would fight a giant rat, a plague rat which looks exactly like giant rat but with a green and dark blue/purple paint job and later fire rat which has a red, orange and yellow paint job but looks exactly like the earlier rats. To do this the GBA and DS have hardware they can employ to change things in addition to the palette although said hardware can also control what palette is used. Most of the images used thus far have been simply one tile after the other and aligned manually for the purposes of clarity but there arises the concept of tile reuse which breaks the one after the other pattern and compositing (sticking one image over another) to trouble this, both are very common techniques in 2d imagery.
 
-### 2.3.1 Introduction to the OAM and BG modes.
+### Introduction to the OAM and BG modes.
 
 The GBA and DS have two principle graphics types known as “BG” aka background and “OAM” aka object area memory aka sprites which work together to display games. Although you can use one to do the other, and games have done as such, for the most part the distinction is observed and backgrounds will be left to do backgrounds (a big exception on the DS is 3d which is rendered in the 3d hardware and moved to the background to display) and OAM which is left to handle the sprites and image overlays (give or take windowing). Text can be in either BG or OAM depending upon the game although BG is far more common and usually the suggested method for developers to use. Finding out what method something uses is usually best done by getting to the point in the game it is used and viewing the OAM, sprite and BG in a given emulator (VBA for the GBA and desmume both feature such abilities). Such viewers are also a fairly good ripping method.
 
@@ -237,7 +237,7 @@ As with most other things on the handhelds the hardware itself has sections dedi
 
 • The actual BG (4 16 bit sections) and OAM stuff that handles all the lower level things for each of the various modes.
 
-### 2.3.2 Timing
+### Timing
 
 The graphics hardware tends to act as a timer for much of the rest of the system as far as software is concerned with a very significant component of the checks, updates and similar things being started when a vblank (vertical blank) happens.
 
@@ -247,7 +247,7 @@ Although knowledge of how the hardware works in this regard is definitely worth 
 
 Also as mentioned interrupts are a big thing so [GBAtek on interrupts](http://problemkaputt.de/gbatek.htm#gbainterruptcontrol).
 
-### 2.3.3 GBA and DS OAM (sprites)
+### GBA and DS OAM (sprites)
 
 Sprites (occasionally known as OBJs) are probably the main workhorse of games (they are typically the things you move, the game moves and you spend most of the game focusing on) and being able to manipulate them is a useful feature. The GBA supports up to 128 of them at any one time and each is given a section of memory.
 
@@ -291,7 +291,7 @@ DS Desmume.
 
 ![PIC](images/34_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguide2dOAMdesmume_2.png)
 
-### 2.3.4 GBA and DS BG modes
+### GBA and DS BG modes
 
 The BG modes tend to be for backgrounds, text and some menus, as well as providing the end result of the 3d rendering on the DS. On both the GBA and DS there are 4 backgrounds given the name 0 through 3 (again the DS has a second set of BG modes for engine B).
 
@@ -340,7 +340,7 @@ Example of beams from Phantasy Star 2
 
 ![PIC](images/47_home_fast6191_romhackingguide_unrenamed_file___riginal_borders_romhackingguideBGlayering11.png)
 
-### 2.3.5 Basic animation
+### Basic animation
 
 As the OAM can control what is on screen and where things are it is the thing responsible for most animation. There are additional abilities in rotating, scaling and such but those will be covered later. Although it is fairly obvious when seen from static images it should be noted that seeing it in real time is better so if you have the chance then do so.
 
@@ -389,7 +389,7 @@ If an area of a level is not being seen at present there is no need to animate i
 
 Another effect commonly seen in 3d animation but still useful in 2d, and seen in several games, is the addition of a single dark circle as a shadow.
 
-### 2.3.6 Window feature
+### Window feature
 
 Although you can fill the whole screen the GBA and DS have abilities to pick and choose things to show and the technique is known as windowing. The basic idea is the mode is triggered which selects a region (you have two windows allowing for a four way split if you prefer) and you can change the display of BG and OBJs within it. Various things and games can employ it in the actual game but menus are a common usage.
 
@@ -397,7 +397,7 @@ Although you can fill the whole screen the GBA and DS have abilities to pick and
 
 An animation technique can be done here and henke37 noted that things can be tweaked on hblank to create certain effects beyond the obvious classical or offset windows with [ghost trick (see around 5:20)](http://www.youtube.com/watch?v=1t8wWnI_I1I&feature=related) providing a nice example.
 
-### 2.3.7 Special features (flipping, affine transformation, alpha and such)
+### Special features (flipping, affine transformation, alpha and such)
 
 Despite all the limited memory and quirks the GBA and DS or perhaps because of it both feature all sorts of methods that developers can employ to perform various alterations to the images seen.
 
@@ -435,7 +435,7 @@ Three registers are used here with 04000050 hex aka BLDCNT being the main select
 
 Mode 7 The SNES (which the GBA owes a lot to in terms of abilities and hardware design) was one of the first to allow for a perspective transformation of an image. Though now looking quite poor to those used to modern 3d imagery it was revolutionary at the time, so much so the hardware term from the SNES became shorthand for the technique. [Tonc](http://www.coranac.com/tonc/text/mode7.htm) has more.
 
-### 2.3.8 Basic DS layout formats and mapping
+### Basic DS layout formats and mapping
 
 Although games and indeed many games do use raw formats and declare what they should be rendered as/mapped to elsewhere (or just have a tile for every tile on the screen) the nitroSDK provides several formats for developers to use. They range from simple wrappers for a layout to full animation formats. Also worth noting is that if an image is composed of tiles some of those tiles might be reused as a kind of compression so you might have to edit those (this is very often the case in Japanese puzzle games where text is part of the image and the two kanji can afford to have a blank tile in the middle).
 
@@ -521,7 +521,7 @@ In the absence of the formats at the end of the document
 
 They are largely aimed at programming with the latter two being source code to various programs.
 
-### 2.3.9 Video memory handling and alignment
+### Video memory handling and alignment
 
 The GBA and DS video systems are quite in depth which serves both to work around issues of low power and to provide developers the options to do things they might otherwise have to spend a lot of time programming. One of the more interesting aspects of this is the memory handling as it is quite possible to run out and there are other quirks such as alignment.
 
@@ -543,7 +543,7 @@ Lines are blurred between the hardware running things and the standards built on
 
 For the most part though the GBA and DS have all that 2d animation capabilities that consoles or 2d animation in general ever wanted (naturally support for larger amounts of sprites and such, being faster and operating at higher resolutions are desirable) the DS 3D systems are not that much like current 3d systems or even that much like past ones. Basically if you knew all that was to know about GBA 2d and underlying methods you could do 2d anything but knowing all there is to know about DS 3d and the underlying methods will leave a large gap in your knowledge (the idea of shaders, much of light reflection and some of the ideas that have led to shortcuts/approximations are at best going to be touched upon) although it should not do a disservice to any future intentions to learn 3d imagery. Learning 3d imagery is quite possible thanks to the internet and [The Guerrilla CG Project](http://www.youtube.com/playlist?list=PL6A7DF3D7866EB076&feature=plpp) put out a nice series that covers a lot of the basic concepts.
 
-### 2.4.1 Basic 3d (bones, coordinates, keyframes)
+### Basic 3d (bones, coordinates, keyframes)
 
 You can do 3d imagery in a lot of different ways and for the most part 3d and the way 3d is animated is not really possible to separate. In practice it comes down to keyframes which have quite a lot in common with their 2d counterparts, morphing which is a hybrid of keyframes and the following and bones which as the name implies a bunch of jointed (often imaginary) lines running through a character that can be moved to provide animation (lesser systems using fewer bones and joints and winding up with things like hands always in a “pistol” grip).
 
@@ -584,7 +584,7 @@ A couple of different fixed point methods are used depending where you are
 
 1bit sign + 9bit fractional part for the 64 bit vertex set command (X and Y in one 32 bit command, Z and wasted space in the next) and the commands that be used when reusing a previous coordinate (set X and Y but use the same Z or the other permutations of that concept).
 
-### 2.4.2 Viewpoints
+### Viewpoints
 
 As well as lighting (covered elsewhere in this section) the idea of the viewpoint/camera is important where in 2d both those are something of an abstract concept at best. As the name implies it is the thing that ultimately decides what is rendered (3d learned early on you only need to render what the camera(s) can see) and more importantly can be used for animation (although in practice bugs in the DS hardware sometimes mean the camera is not animated but the world instead).
 
@@ -592,7 +592,7 @@ Additionally the DS supports a cutoff value so items beyond a certain distance w
 
 This is where matrices are most prevalent with the principle example being that of achieving a perspective view. The DS hardware supports either orthogonal rendering which is useful for 2d games like New Super Mario Brothers or games which use it for basic animations (certain RPG battle sequences) or rendering with perspective which is useful for first and third person type games where the camera is behind the player.
 
-### 2.4.3 Textures and material colours
+### Textures and material colours
 
 The earliest 3d just defined the points at corners (vertices) and lines (quite often green or grey) in a process known as wireframe; this is not used much any more with it tending to be reserved for cheat modes/bonus content, testing out the game itself and those creating the 3d content in the first place so in place of that there is material colours and textures. This being said many systems including the DS will still allow the “wireframe” to be coloured differently.
 
@@ -616,7 +616,7 @@ DS textures When being editing many will resemble custom size 2d formats. Equall
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#ds3dtextureattributes) has more on the various methods and although at times they resemble things seen in the 2d palette/tile world other times see something quite custom in comparison.
 
-### 2.4.4 Models
+### Models
 
 Basic constructions
 
@@ -645,7 +645,7 @@ The basic idea is there is a primary set of coordinates known as the world (alth
 
 It becomes useful as having a large level and defining it only to want to move an item within it or worse it relative to another item it touches can get to be a nightmare very fast and even more so when there are say 300 points defining that item which all have to be accounted for possibly using a coordinate system with an origin several hundred of a given unit from the location of the model at the time.
 
-### 2.4.5 Lighting/shadows
+### Lighting/shadows
 
 Where 2d is inherently assumed to be lit, indeed the whole colour scheme is designed around differences in brightness of the component colours, lighting and shadows as an extra concept do not really exist but most 3d systems will allow the phenomenon to me modelled and so lighting and shadows needs to be discussed.
 
@@ -671,7 +671,7 @@ Shadows If there is light there must be shadows to go with it. The DS lighting e
 
 DS basics The DS supports light in the three forms although it is only reflected to the camera and not to other objects. As mentioned it does however provide the option to make shadows using a polygon so developers can precalculate shadows and add them to images and they often choose to also add a basic shadow (no shadow is quite noticeable but even a basic blob/circle shadow will help believability).
 
-### 2.4.6 3d smoke and fog
+### 3d smoke and fog
 
 Although in real life the fog and smoke are roughly treated as similar concepts as far as physics modelling is concerned in games the differences are quite extreme although developers have often been known to make one stand in for another.
 
@@ -681,7 +681,7 @@ Back on topic the DS hardware has a fog option as do most other 3d hardware/engi
 
 Smoke Assuming it is not the result of the fog engine being used most smoke is a simple 2d animation maybe as a texture to an item with an animated texture or as conventional 2d imagery. On other computers there have been several smoke generation algorithms that are considerably less demanding but they are usually well out of reach of the DS and certainly not supported in hardware.
 
-### 2.4.7 Animations
+### Animations
 
 Basic animation was alluded to elsewhere but it takes three main forms.
 
@@ -705,7 +705,7 @@ Animations can also happen here and smoke or sparks can be simple 2d animations 
 
 Basically regardless of what is done 2d imagery plays a serious role in creating 3d worlds. Speaking of that it ends up as 2d in the case of the DS.
 
-### 2.4.8 DS 3D hardware
+### DS 3D hardware
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#ds3dvideocontains)a lot of detail on the subject but the basics behind the 3d hardware are worth knowing about.
 
@@ -745,11 +745,11 @@ They are set by selecting the mode by writing to 4000440 hex aka the MTX_MODE re
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#ds3dmatrixloadmultiply) covers the basics here.
 
-### 2.4.9 The shift of the 3D to DS 2d
+### The shift of the 3D to DS 2d
 
 As mentioned the 3d hardware is not addressable directly in memory and it is not really tied to the screen rendering so the resulting frames from 3d rendering are turned over to the BG0 layer of engine A where it can have the usually selection of overlays and sprites done to it (many games will also render a 3d background to put behind the game). This being said the BG0 can be further transferred (with a speed penalty) and used elsewhere with the typical destination either being engine B or the capture hardware. By shifting layer priorities this is how a lot of ostensibly 2d games (like Castlevania) could use the 3d hardware to render a 3d background and have a conventional 2d game run on top of that.
 
-### 2.4.10 NSBMD
+### NSBMD
 
 NSBMD is the standard SDK 3D format and format used by a lot of games, that said some appeared before NSBMD became finalised and others like some Yu Gi Oh games have their own custom format. It has also been seen a couple of times with the textures mapped to a simple square in title screens and as mentioned elsewhere some ostensibly 2d platformers like New Super Mario Brothers used the 3d systems to in place of 2d sprites; note this is not Rare’s SNES Donkey Kong or Resident Evil style prerendering but actual 3d movement restricted to a 2d world. It also led to the introduction of “2.5D” but that is a different discussion.
 
@@ -952,7 +952,7 @@ Y
 
 X
 
-### 2.4.11 Non NSBMD
+### Non NSBMD
 
 Although NSBMD is a pretty good format developers have attempted to make their own for various reasons including additional features the NSBMD format might well lack, what has been seen says most of the SDK for it requires the use of certain expensive (although industry standard) modelling packages, ports from other platforms (although no conventional high level formats of any form have been seen thus far and any that are seen are more likely to be a developer left extra) or that NSBMD was not finalised at this point (Metriod Prime Hunters being a good example of this and also one of the earlier tools for it in [DSGraph](http://filetrip.net/nds-downloads/utilities/download-dsgraph-10-f29517.html)).
 

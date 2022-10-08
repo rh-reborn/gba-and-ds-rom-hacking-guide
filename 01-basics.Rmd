@@ -63,7 +63,7 @@ There is a fourth method called Octal aka base 8 that uses 0 through 7 and repre
 
 In summary hex(adecimal) is just a numbering scheme that works better than regular decimal for computing purposes and nothing more. Quite often new hackers are seen to assign a near magical status to hexadecimal, and by extension hex editors, when it really deserves nothing of the sort; the magical stuff is assembly hacking. Certainly it is very hard to take a look at an entire ROM and edit it just from a hex editor which is why nobody does it from scratch, if they appear to then it is almost certain they either did a lot of work to get to that point (there are many programs that will spit out locations and interesting values). Putting in the time to reverse engineer the original work is what ultimately allowed for the simple edit, failing that the file conforms to a known standard (open up any proper DS ROM and the first line will be a ASCII encoded text string of the internal name of the ROM and there are similar things for most DS files/formats) or enough of a standard that a basic edit is possible.
 
-### 1.1.1 Representation
+### Representation
 
 There is a very overdone computing joke along the lines of there are 10 kinds of people in the world (those that know binary and those that do not).
 
@@ -79,7 +79,7 @@ An important extra term when discussing this is boundary/alignment. Unless you a
 
 One link that has some good stuff if you want to go further is the [art of assembly](http://www.plantation-productions.com/Webster/www.artofasm.com/Windows/HTML/DataRepresentation.html#998834) but if things are preferred a little closer to conventional maths [grinnell.edu](http://www.cs.grinnell.edu/~rebelsky/Courses/CS152/97F/Readings/student-binary.html) have a nice page.
 
-### 1.1.2 BCD (Binary coded decimal)
+### BCD (Binary coded decimal)
 
 Mentioned mainly as it is a nice example on how binary and hex mean very little without context. It is seen in one place on the DS in the firmware and things stemming from it (mainly the clock and calendar functions) as well as older programs, for a while certain processors even had functions in their silicon for it, but it is rarely seen when hacking ROM images these days.
 
@@ -151,7 +151,7 @@ For a quick example of the 5,3,1 and -1 scheme also mentioned
 
 There have been cases of things using it to display fractional values which can be useful as there are certain common things plain hexadecimal struggles with.
 
-### 1.1.3 Big and little endian
+### Big and little endian
 
 Absolutely vital when dealing with the GBA and DS in any real depth is the concept of endianness. Historical reasons are the main reasons for it existing in the first place although it does have value still, and as many systems use it the aspiring ROM hacker has to know about it. In short where the conventional maths and devices with X86 family chips (most PCs) display the most significant number first devices using ARM chips (and many others) which include the GBA and DS display the least significant bytes first.
 
@@ -159,7 +159,7 @@ In practice it means some locations/lengths might be written as something like A
 
 Seen as most people code on a PC, or a device that is emulating a PC setup, it is far from unheard of for a device to see a format use the opposite type of endian to what it is.
 
-### 1.1.4 Signed values, floating point and fixed point
+### Signed values, floating point and fixed point
 
 There is also the matter of signed bytes and (floating) point values for as with computers not being able to easily write subscript they tend not to have provisions for negative symbols and values after the “decimal” point either. Do note that some of these methods have since made their way into silicon as well, though the GBA and DS are somewhat lacking here.
 
@@ -377,7 +377,7 @@ As with signed values their use prevents the number from being read as a simple 
 
 Hexadecimal is just numbering but there are common things done to it that file formats use, the internal logic of the computer will use and can be used to quickly and easily manipulate something that needs manipulating.
 
-### 1.2.1 Shift
+### Shift
 
 Right hand and left hand shift are useful when you need to chop off a bit from a value, you need to generate a value where you can not fit it into a smaller length than the destination or in some formats which leave things in an unshifted form for whatever reason. In practice 32 bits allows for a lot of address and 31 bits can still quite easily handle most GBA and DS addressing needs so the upper bit can be used to indicate things, as indeed NARC files do so as to indicate a subdirectory. Moreover lots of the DS internals only need a few bits for things they do so they are combined with other sometimes unrelated things which you might need to lose to see what is going on. In a hex editor you would probably be better advised to use Boolean logic (covered in a moment) rather than shifts but in hardware it can go either way.
 
@@ -387,13 +387,13 @@ It is also useful as a quick multiplier; think how you technically shift the num
 
 There is also the distinction of logical shift and arithmetic shift where in the case of the latter you do not lose the data if you shift left and then shift right. You can also do block shifts but they are just a special case which usually means a given number of bits are shifted.
 
-### 1.2.2 Rotate
+### Rotate
 
 Related to shift but where you lose data if you shift it appears in the other side when you rotate.
 
 1011 rotates left by 1 bit makes 0111
 
-### 1.2.3 Flip
+### Flip
 
 Flip is most useful when you are working around big and little endian. It was already seen when big and little endian were covered above but a 32 bit flip of A036 0104 reads 0401 36A0.
 
@@ -407,7 +407,7 @@ In the figure below you can see the hex that represents the highlighted tile (it
 
 ![PIC](images/0_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingendiandemo.png)
 
-### 1.2.4 Boolean logic
+### Boolean logic
 
 Often a more useful set of techniques than basic shifts and the other operations covered already. There are several types although you will probably see patterns soon enough (mainly that the NAND, NOR and XNOR are just the inverse of their counterparts). Boolean logic exists in two big areas ROM hacking and related pursuits might be concerned with; one is programming and the other is electronic logic where they perform identical functions but in some ways are thought of a bit differently.
 
@@ -467,7 +467,7 @@ Equally a right hand logical shift is different from a conventional right hand s
 
 1000 1110 right shifted by 1 makes for 1100 0111
 
-### 1.2.5 Hex Mathematics.
+### Hex Mathematics.
 
 Some people can operate in hexadecimal but most of the time the maths resembles long division and long form maths. It is quite useful to know as... quickfire round what is 9 + 3 in hex.
 
@@ -503,7 +503,7 @@ Some people took this custom format concept a step further on the Wii and some o
 
 This section will detail the tools and general methods of operation of said tools to pull apart/unpack/extract ROM images. It will probably also be the only section to cover systems other than the GBA and DS in any real detail. The general form of this section is device name, name of method by which hacked code can be run and whether it can be emulated, the names/extensions/types of binaries, any hardware documentation and finally techniques to parse file systems. For additional information or information on systems not covered here then the main sources of hardware information and such like are typically homebrew developers, those wishing to run various flavours of Linux on consoles and emulator authors.
 
-### 1.4.1 Non filesystem devices
+### Non filesystem devices
 
 Method - usually flash carts of various forms which may not exist in an up to date form or be quite expensive if they do exist. Emulation is usually available and very high grade if you want it to be and beyond that everything up to the late 16 bit era and slightly beyond can usually be emulated on newer consoles and handhelds at some level.
 
@@ -513,7 +513,7 @@ Today other than the GBA you will tend to only encounter a lack of a filesystem 
 
 [romhacking.net](http://www.romhacking.net/?page=documents&category=12&platform=&game=&author=&perpage=20&level=&title=&desc=&docsearch=Go) maintains a database of hardware information for older consoles and some newer ones. You may also like [infrid.com for the N64.](http://infrid.com/rcp64/documents.php)
 
-### 1.4.2 GBA
+### GBA
 
 Method - flash cart or emulator.
 
@@ -525,7 +525,7 @@ Aside from some homebrew the GBA does not really feature a file system meaning t
 
 Some tools like those seen in Atrius’ Golden Sun editors contain searching routines for subfiles, compression can be searched for with various tools, the GBA “sappy” audio format such that it is can be detected in some cases and more general tools for games like Pokemon will also contain a listing of the location of various game components (or the things that point at them) as might some other games. Other than flash carts, some undumped ROM images (full length videos) and some of those 30 in 1 carts you find in tourist traps the whole cart is visible in memory at all times and that means the space limit is 32 megabytes.
 
-### 1.4.3 DS
+### DS
 
 Method - flash cart or emulator. DS and DS lite run GBA code natively if you have a GBA slot cart.
 
@@ -561,7 +561,7 @@ Most usage will be covered or fairly obvious save for ndstool which has a basic 
 
 Replace the -x with -c and the *.nds with a valid name and you can reconstruct a ROM. NDStool is not that useful for end stage hacks but quite useful for quick tests. “ndstool -l *.nds” will make a file listing of the files inside a ROM and their locations.
 
-### 1.4.4 3DS
+### 3DS
 
 Various hacks, though things are frequently in a state of flux as it is a modern system that can be updated. Trend is towards custom firmwares, though flash carts also exist. Decryption of whole games is possible, see XORpad and such like, and may have standalone methods before long. Decrypted ROMs may be avaialable online and some files can be obtained from [memory dumps](http://gbatemp.net/threads/3ds-cwav-dumper.361437/).
 
@@ -569,7 +569,7 @@ Running modified code is well within the scope of the hacks capable of running c
 
 [3dbrew](http://3dbrew.org/wiki/Main_Page) is the main documentation on the 3ds hardware. A quick overview says it shares a lot of its history with the DS but it is also somewhat closer to a full modern computer architecture (hypervisors/kernels, segmented memory and the like), also features an opengl like implementation of 3d.
 
-### 1.4.5 GC (gamecube)
+### GC (gamecube)
 
 Method - mod chip and miniDVD/modded case and regular DVD, SD loader, IDE adapter. Emulators demanding but viable.
 
@@ -583,7 +583,7 @@ boot.dol is the main executable format.
 
 [Gamecube ISO tool](http://filetrip.net/wii-downloads/tools-utilities/latest-gamecube-iso-tool-f28774.html)
 
-### 1.4.6 Wii
+### Wii
 
 Method - Softmod loading from external USB. Modchips and some softmods support gamecube. Emulation demanding but viable.
 
@@ -615,7 +615,7 @@ Many titles also nest things in a format known as u8 (and often combine it yaz0 
 
 HDD Most people do not use whole iso images or the minor tweaks to them any more and will instead use a USB hard drive and maybe a custom format. These come in various formats and layers of support but WBFS is the main method that is often stacked on top of FAT or NTFS filesystems. Wiimms ISO Tools linked above have a measure of support for some of this.
 
-### 1.4.7 Xbox
+### Xbox
 
 Method - Softmods and hardmods both using minor variations on the idea of internal hard drive or copied DVDs. Emulation not really game playing grade for most things but getting better, the 360 does feature a measure of hacked xbox game support when properly hacked.
 
@@ -631,7 +631,7 @@ Craxtion
 
 [Filetrip download (all three)](http://filetrip.net/oldies-downloads/xbox/iso-hacks-tools/)
 
-### 1.4.8 Xbox 360
+### Xbox 360
 
 Method - no real softmod. DVD mod (does not allow altered games, XBLA or DLC unless combined with one of the following methods), JTAG (required older hardware) and RGH (can be done on most hardware though later updates can be harder to work around) lead to onboard and USB loading. Emulation nowhere near.
 
@@ -671,7 +671,7 @@ Supported by several tools but USBXTAF is the main method.
 
 [Filetrip download](http://filetrip.net/360-downloads/hdd-tools/download-usb-xtaf-xplorer-44-f23780.html)
 
-### 1.4.9 PS1 and PS2
+### PS1 and PS2
 
 PS1 - modchip. Emulation available for many years, though can be tricky if you venture into the often superior plugin based emulators.
 
@@ -689,7 +689,7 @@ LBA reads were also used in anti piracy protection for many of these games.
 
 Both use a version of the executable formats known as ELF as their executables.
 
-### 1.4.10 PS3
+### PS3
 
 Method various- softmod (maybe with hardware trigger) leading to USB and hard drive loading. Emulation nowhere close.
 
@@ -701,7 +701,7 @@ PUP files (updates)
 
 DLC and PSN content.
 
-### 1.4.11 PSP
+### PSP
 
 Method - softmod loading from memory card (official Memory Stick PRO Duo or microSDHC adapters available) or loading from onboard storage (PSP Go). [Emulation more possible than before](http://www.ppsspp.org/) but undeveloped compared to many other systems.
 
@@ -713,7 +713,7 @@ There are a few tools here but UMDGen is the dominant one and there is little re
 
 [Filetrip link](http://filetrip.net/psp-downloads/tools-utilities/download-umdgen-400-f6743.html)
 
-### 1.4.12 Saturn
+### Saturn
 
 Method- Modchip for the most part. Emulation surprisingly good, though the architecture of the Saturn means emulation is demanding for the relative age of the system.
 
@@ -723,7 +723,7 @@ A slight variation on the iso format although doable with standard tools.
 
 [Guide involving the manipulation of saturn files](http://www.rockin-b.de/saturn-patching-enemyzero.html)
 
-### 1.4.13 Dreamcast
+### Dreamcast
 
 Method - Simply insert copied disc or use a disc loader known as “Utopia”. Emulation not bad for some games.
 
@@ -731,7 +731,7 @@ Disc image handling varies. CD burners were a new concept when the DC was releas
 
 [dextremes.com](http://dextremes.com/dc/data/index.html) has links to some information.
 
-### 1.4.14 Amiga
+### Amiga
 
 Method - copied discs. Emulation well developed.
 
@@ -745,7 +745,7 @@ UnADF should allow you to unpack ADF images.
 
 [Filetrip link](http://filetrip.net/pc-downloads/applications/download-unadf-10-f25764.html)
 
-### 1.4.15 PC and related hardware.
+### PC and related hardware.
 
 Method- you control the hardware so disc emulation, cracked executables or method emulation (see Steam emulation)......
 
@@ -807,7 +807,7 @@ If a rule of thumb has to be made it would be understanding the level just above
 
 The following simply lists some example tools as there are usually several options for a program to tackle a task, some very basic usage and some screenshots where necessary. In the case of large tools or area specific tools the proper usage will be covered in other parts of this document where there may also be other little tools to help out things. Basic usage of programs to parse relevant filesystems was already covered and will not be covered here. With the exception of the paid hex editors, a couple of audio programs, the debugging/reverse engineering tool known as IDA (a big exception) and some of the translation memory/CAT tools all the programs covered are freeware, often even open source, and everything can be done with the open source/freeware programs.
 
-### 1.7.1 Hex editor
+### Hex editor
 
 As part of the underlying project this document is part of several hex editors were tested and rated for their usefulness so as to come up with a shortlist. Most ROM hackers will have several at their disposal with each aimed at different tasks. However if you can pick a paid one, get the four freeware suggestions and get a ROM hacking specific one most things can be done with relative ease. In short though a hex editor is a hex editor and everything else is so much extra that could one day make your life slightly easier. The GUI for most of these is extensively customisable but for the most part the images are those of the stock editor with a few menus displayed as appropriate.
 
@@ -928,7 +928,7 @@ No undo support but a nice read only option by pressing tab.
 
 ![PIC](images/11_home_fast6191_romhackingguide_unrenamed_file___ackingguidehexeditorsshowcasetranslhextion1.png)
 
-### 1.7.2 Tile editor
+### Tile editor
 
 Although you can edit anything with a hex editor it gets very complex to do anything other than the most basic editing using one and the first thing to move to a higher level tool is 2d graphics which get a tile editor. There are several available although only a handful will be focused on here. Various homebrew development kits have some nice programs as well aimed at conversion from common formats to the somewhat odd formats used by the handhelds and other consoles.
 
@@ -958,7 +958,7 @@ Although the above two should do for most editing purposes this program has huge
 
 ![PIC](images/15_home_fast6191_romhackingguide_unrenamed_file___romhackingguidetileeeditorsshowcasetileggd1.png)
 
-### 1.7.3 Spreadsheet and command line
+### Spreadsheet and command line
 
 The following is a few basic tools that can be used to help out when ROM hacking when existing tools fall short and before/instead of jumping to programming a game/format specific tool.
 
@@ -1008,7 +1008,7 @@ Radare(2) [Project homepage](http://radare.org/y/)
 
 Now taking the place of the Romulan program featured in earlier editions. It is a scripting language but not quite, it is aimed at reverse engineering purposes though the focus is more on the PC and related platforms.
 
-### 1.7.4 Compression
+### Compression
 
 Compression was once the bane of ROM hackers but it got a lot easier to handle on the DS and is not so bad for the GBA either. At this point it might even have reduced to making for a simple extra step using a known tool when extracting something from a ROM or putting it back in but not much else.
 
@@ -1058,7 +1058,7 @@ A tool to compress files using GBA BIOS compatible compression methods like the 
 
 ![PIC](images/16_home_fast6191_romhackingguide_unrenamed_file___hackingguidecompressionshowcasegbacrusher_1.png)
 
-### 1.7.5 Music
+### Music
 
 Format and console specific tools will be covered in the relevant sections. However a few high level tools are useful to have.
 
@@ -1078,7 +1078,7 @@ General editing - Awave studio [Awave studio homepage](http://www.fmjsoft.com/aw
 
 A largely paid piece of software that can help convert files and deal with less than perfect implementations of some audio formats various game specific tools might output. Midi and DLS support is available.
 
-### 1.7.6 ASM/Assembly
+### ASM/Assembly
 
 Usage is often as extensive as assembly itself but some tools none the less
 

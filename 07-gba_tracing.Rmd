@@ -32,6 +32,6 @@ Observing game logic is often part of creating some of the more far reaching che
 
 Memory constraints are ever present on embedded devices and some ROM hackers have been seen to optimise a game to gain the space on occasion. Granted that is not necessary and it might be easier to instead approach it from another avenue (dual tile encoding, looping audio sooner and such).
 
-### 7.0.1 Worked examples
+### Worked examples
 
 VBA-sdl-h is the choice of tool here but the ideas roughly follow for boycott advance and the developer version of no$gba.

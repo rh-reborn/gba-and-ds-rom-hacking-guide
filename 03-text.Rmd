@@ -34,7 +34,7 @@ Assuming it is not a known encoding or a known encoding only accounts for part o
 
 There are several ways of doing this ranging from simple and not unreliable but not universal (especially as far as Japanese goes) to complex but will figure anything out. Combining methods here is not only a good idea it is suggested and encouraged. There is quite a bit of overlap between finding the text in the ROM itself and finding out how it is encoded with various methods if not doing both at once then seriously aiding the other.
 
-### 3.1.1 Relative searching
+### Relative searching
 
 Going back to the Golden Sun table and looking at the Roman character side of things
 
@@ -129,7 +129,7 @@ Having a look at the font for the game there is a lot more to it than that so ot
 
 Regarding the buttons seen in the font the Japanese font is a 16 x 16 array so the game probably accounts for this somewhere (complex font formats with individual characters being assigned a size[5](romhacking20206.html#fn5x0) are quite possible on the DS) but there have been instances of half a character being encoded in two “separate” characters to be assembled at runtime. Note this is not the same as dual/multiple tile encoding (covered later) where multiple characters or indeed a run of them is encoded in the same space as a regular character.
 
-### 3.1.2 Corruption and alteration
+### Corruption and alteration
 
 Corruption is a general purpose technique where you corrupt sections of the ROM before running it and seeing what breaks. If you find a text file by this or some other method you can then change things and either by seeing the surrounding text you can see what the text either side of it is encoded as.
 
@@ -163,7 +163,7 @@ Then a space was left and it starts again with tilde, middle dot or maybe a bull
 
 Either way this is more information than might ever have been gathered with basic static analysis; not many occasions in text use a two dot leader and what could well be a triple prime/triple quotes (whether the game would use the triple in place of double quotes and a single quote for a quote within a quote as a workaround for the fixed width font is left for others to debate).
 
-### 3.1.3 Memory viewing and corruption
+### Memory viewing and corruption
 
 By the time you see the text on the screen it has probably been in the memory for several seconds and will tend not to be refreshed from memory once it is there (VRAM yes, actual memory not so much) so editing it there is usually of little use, with the possible minor exception of a game that allows you to scroll back through the last few lines of text. The big exception to this though is name entry screens which are often updated in real time. Equally the saves files they make can also yield information as they will tend to be encoded in the same manner which allows similar things to the corruption and alteration techniques above.
 
@@ -177,7 +177,7 @@ Pointing the memory window at it. There were a lot of changes noted here but 020
 
 ![PIC](images/94_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackguidetextmemoryviewing2.png)
 
-### 3.1.4 Frequency analysis
+### Frequency analysis
 
 The most common character in a section of text is usually the space character and in most languages words rarely make it past the 12 letter mark so if the most common character is on average less than 12 characters apart and rarely has two together you probably have the space character; from here you can use other methods or try filling in the blanks if you have some text from the screen in front of you. Space might not be that useful to search for so consider instead that e is the most common character in English.
 
@@ -199,13 +199,13 @@ Doing a search for 00 gives a good indication that it is indeed the space charac
 
 ![PIC](images/96_home_fast6191_romhackingguide_unrenamed_file___ders_romhackingguidertextfrequencyanalysis2.png)
 
-### 3.1.5 Language analysis
+### Language analysis
 
 Not everything has to be programming related and knowledge of how words are constructed in a language and how punctuation is used can be just as powerful as any technique originating from a programming point of view. For instance in English the letter u almost always follows a q character and every word has a vowel in it bar some words which tend to have a y instead (try, fly, rhythm, by, sky....). As mentioned before many sentences and almost certainly larger sections of text will feature the word “the”. Capitals start the first letter of every sentence, sentences are are ended with a full stop or some small selection of punctuation (typically ! or ?), and repeated characters will tend to be one of a few selections as opposed to any character with any frequency. That is just a few things that work for English and most languages have traits that can be seen like this, indeed a truly random language as far as word creation and grammar goes would probably not take off.
 
 Equally in the Megaman ZX example mentioned in the relative search had pieces of punctuation that were obvious as well as capitals often being obvious from basic knowledge of the language as well and if you are editing a game in French and you see things like Fran?ais you can be fairly certain the word is Fran�ais.
 
-### 3.1.6 Pointer and encoding/hex analysis
+### Pointer and encoding/hex analysis
 
 You have some language tricks, you have some encoding tricks, you have some computing tricks but you can also combine them and do things with the raw hex by itself and the pointers it uses.
 
@@ -215,19 +215,19 @@ Furigana, markup, links and such. As mentioned elsewhere things like commas, spa
 
 Compression searching Alongside conventional hex analysis various compression searching tools exist (some worked examples of compression can be seen later but standard compression methods have quite distinct fingerprints which can be searched for) and conventional compression tends not to be used on sound and video so by searching for compressed items and combining it with other methods you can often quite quickly locate and decode text.
 
-### 3.1.7 Assembly tracing
+### Assembly tracing
 
 Much like tracing a file involves finding it in memory and working backwards this involves finding the text in memory and watching how it decodes it into characters or finding the characters and working backwards from there. Second to this if you have a proper scripting engine you can observe how it works from on an assembly level.
 
-### 3.1.8 Font viewing
+### Font viewing
 
 A game will often have the encoding in the same order as the font (it certainly appears that way in the Megaman ZX example). Done properly this can even allow a relative search to happen when there is no relative encoding in the game (the relative search tools do support number driven searches or you can go abstract) or you can use it to form the basis of an alteration attempt to decode the encoding. Do note that although they might be following each other in the font the actual hex values that represent them might have large gaps between them for various reasons as even in ASCII the upper and lower case is 20 hex apart despite not needing to be (it allows for simple conversion which is another sort of thing to look out for).
 
-### 3.1.9 Language comparing
+### Language comparing
 
 If you have a game or versions of it with six or so languages embedded within you can compare things between them and figure things out that way. Do note though that games frequently use different fonts between languages and in the case of Japanese to Roman languages may even have changed from a 16 bit encoding to an 8 bit one. Although there are some language level things that can be done the main idea here is to figure out file formats and rough ideas of encoding ranges rather than anything specific but knowing pointers and basic things about the encodings can reveal quite a bit as demonstrated elsewhere in this section.
 
-### 3.1.10 Table creation tools
+### Table creation tools
 
 So after employing techniques that would make early codebreakers proud you have found out how the game has encoded the text, however you do not have the patience to sit there and handmake the table, especially not for Japanese if you have to enter several hundred Kanji you might not recognise/know how to type. This is OK for although tables are largely just text files it can be useful to add large tracts of data at once. Various tools are available for use here but the de facto standard for those that need it is TaBuLar, although others do like table manager and tblmaker. Crystaltile2 has some abilities here although the tables it makes sometimes deviate from the “standard” table format if you are not careful, it happily uses its own format and usually the differences are in encoding or how many spaces the file ends with.
 
@@ -277,7 +277,7 @@ Speaking of alignment and boundaries it will usually be fairly obvious but not a
 
 Pointers themselves can be found everywhere in a file but usually the start of the file, a file with a similar name (it is easier to open/store a small file in memory and refer to that rather than opening a large archive) or the end of the file are the locations where pointers can be found. Less commonly pointers can be seen in between each section or indeed at the start of each section (the scripting example in the scripting section dealing with The Wizard of Oz - Beyond the Yellow Brick Road providing a good example of this).
 
-### 3.2.1 Special cases and non pointer concepts
+### Special cases and non pointer concepts
 
 Pointers are very useful in the long run but there are alternatives. The obvious method used on more powerful systems and some games is to simply have a flag/value that signifies the end of a section and calculated at run time. Doubly nice is most of the games that use such techniques will usually use plain text or files very close to it as their text (Zombie daisuki seen later has a nice example).
 
@@ -295,7 +295,7 @@ File format pointers and flags File formats can see several sorts of pointers in
 
 A nice example can be found in El Tigre- make my mule. A basic example of the system as shown back in the introduction section but it will be returned to shortly with an eye towards reverse engineering it properly.
 
-### 3.2.2 Example reverse engineering of pointers
+### Example reverse engineering of pointers
 
 Returning to the “talk\_gd1\_en1.bin” from megaman ZX. The start of the file is something that is not text by the looks of things
 
@@ -373,7 +373,7 @@ Back on topic the markup and placeholders can take many forms ranging from simpl
 
 Control codes are a similar concept even though they are usually treated as part of the encoding and do things like signify a new line, a tab or some such. At what point in the reverse engineering of a text engine you want to try figuring them out is up to you though.
 
-### 3.3.1 Worked example
+### Worked example
 
 Continuing with the Megaman ZX game on the DS. The file has been changed to talk\_m01\_en1.bin purely as it appears at the start of the game. It does however appear that the FE example might not hold entirely true (there are ones that line up with FE but there now others with FD in some cases being a potential) but that sort of thing is what makes hacking non trivial.
 
@@ -513,7 +513,7 @@ If your characters/glyphs are split vertically across tiles you probably just ha
 2.  Graphics level font compression where the half of a character (think d and b bottom half, j and i top half, R and B top half and so on) is used to generate things
 3.  If the tiles themselves are scattered across the file/section (this is usually just a matter of lining up one row with the next though). The GBA saw quite a few instances of this.
 
-### 3.4.1 NFTR
+### NFTR
 
 The NFTR font format was previously mentioned and it is a fairly complete font format featuring variable width abilities, and in some cases with later versions you also have line handling abilities. It carries the encoding for the font with it so if you find a NFTR font you have the encoding/mapping right there, do note it still could be custom or feature custom characters so you might have to match things up by hand or go with OCR. There was a revision later on in the DS lifetme to the format so some older tools might fall short here but otherwise there are a variety of tools that can do things with the format (although many will not be in English as the format was first reverse engineered in Chinese language hacking circles).
 
@@ -597,7 +597,7 @@ Testing it in another editor
 
 ![PIC](images/121_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackingguidefontnftradding_5.png)
 
-### 3.4.2 Common hacks
+### Common hacks
 
 Pulling back from NFTR there are a group of fairly common things to do when hacking game fonts. How easy any one might be varies from game to game.
 
@@ -790,7 +790,7 @@ Puzzle Quest and Theta \[to add\]
 
 Further reading A scripting engine for the Wii game Tales of Symphonia: Dawn of the New World was reverse engineered and although GBA and DS games rarely require anything so extensive it is well worth a read. Links to the matter at hand at [blog.delroth.net part 1](http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-1/) and [blog.delroth.net part 2](http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-2/).
 
-### 3.5.1 Layout and limits
+### Layout and limits
 
 Covered in part earlier (the megaman ZX markup) but worth a quick subsection. Where most of the time outside games if the text reaches the edge of a screen it will automatically wrap back around games, and especially earlier games and games on the handhelds, can certainly never be assumed to do this.
 
@@ -810,7 +810,7 @@ Section wrapping Much the same as line wrapping but note that it is not always t
 
 Knowing what text is, how it is encoded and how any markup happens is all well and good but for anything beyond a trivial character replacement it gets to be troublesome to edit things in your hex editor unless you are very fortunate and have a scripting engine or something similar. Equally your translation team/programs might not appreciate having to deal with programming style arrangements and will much prefer to have something that can at least be edited in a general purpose editor.
 
-### 3.6.1 Text extraction
+### Text extraction
 
 Even with a somewhat more complete table many ROM images might not have their text easily extracted to a plain text file thanks to things like markup and placeholders; even simple things like the section has no new lines/end of section marker how most text editors understand it can trouble things. It is for this reason that custom programs are often made to support a given game/series rather than dealing with a simple script dump. However a simple script dump is quite nice to have on occasion and with a bit of thought can be made so as to allow things to be brought back into the text at a later date with a little bit of effort rather than require a full manual rework.
 
@@ -852,7 +852,7 @@ Pointer abilities as seen on the picture are some of the best around and it can 
 
 ![PIC](images/133_home_fast6191_romhackingguide_unrenamed_fil___mhackguidetextextractionkruptar7_1_tofinish.png)
 
-### 3.6.2 Text insertion
+### Text insertion
 
 Once you have found, decoded, extracted and altered/translated the text comes inserting it back into the ROM. Even the basic text edit can take some thought to get it back into the ROM and if you had to change some things to make it more amenable for a general text editor or your team it can get worse.
 
@@ -903,7 +903,7 @@ The debate over whether a translation should be kept literal or be able to be ad
 
 Things one should appreciate about the Japanese language when playing ROM hacker (hacker side of the fence)
 
-### 3.8.1 The types of Japanese characters and how they work -
+### The types of Japanese characters and how they work -
 
 Hiragana, Katakana and Kanji form the basis of the language
 
@@ -941,7 +941,7 @@ Furigana Furigana is supposed to be to help with pronunciation for Kanji (aimed 
 
 Others (yakumono) Although Japanese has many of the same concepts as languages using the Roman character set in terms of punctuation, shorthand and constructions stemming from them the characters they use can be radically different. [sljfaq](http://www.sljfaq.org/afaq/symbol.html) has more on this. This can allow for some hex analysis type techniques to return.
 
-### 3.8.2 Japanese glyphs/characters and observations on the language
+### Japanese glyphs/characters and observations on the language
 
 There was some mention of the types of fonts seen in Japanese but in general the characters are fixed width and stay within the lines. This contrasts with the Roman alphabet which has things like ijlt, and on the flip side WQMK, as well as punctuation which almost always sits right next to the previous character without much of a gap, and on the matter of lines thing characters like j y p q and f in some fonts/writing styles.
 
@@ -959,7 +959,7 @@ Wordplay All languages and humour using them have many examples of wordplay but 
 
 It is also yet another reason why machine translation is not to be trusted.
 
-### 3.8.3 On language
+### On language
 
 Translating a game that already has a translation out there has happened several times over the course of things and this is usually because the translation does not fit with various ideas; it could be an awful conversion and full of bad slang, it could be that the translation team lacked technical skills (even with the source code some games can be hard to translate[11](romhacking202012.html#fn11x0) ) or it could be that the translation team were hampered by the developer/publisher and had to change the tone of the language or word choice to appeal to a broader audience or meet censorship requirements. Although this is a very interesting field in ROM hacking, and depending upon what you are doing this can even be a solo project, it is not what this section is about.
 
@@ -967,7 +967,7 @@ Several discussions have been had over the years on the matter of how to transla
 
 On a different note Japanese, English and other languages are often quite different, there are also loanwords that might have had meaning lost at points. For instance you might know Sushi is not raw fish but more than a few people still consider it as such, not to mention where it is a normal enough food in Japan it is still quite exotic elsewhere and as such you might consider losing sushi entirely and replacing it with a common foodstuff of your intended location if the setting is a contemporary city or something.
 
-### 3.8.4 Right to left languages and translation.
+### Right to left languages and translation.
 
 It has been mentioned a few times already but it is worth having a quick section here as well. Not all languages favour reading from left to right and this can trouble translation hacking, especially as more and more countries that use such writing systems start to make games and seek those made before. There is tategaki mentioned in Japanese but most will be more concerned with Arabic and Hebrew, as well as the languages that took one of those as a base and ran with it. Fortunately languages that alternate direction, a concept known as boustrophedon though strictly that should probably also mirror the line, are not in common use. Back on topic those that live in locations, want to learn languages from said locations and otherwise are interested are many in number and games are fairly universally enjoyed by people. Typically there seem to be three schools of thought
 
@@ -989,7 +989,7 @@ The following section mainly covers various tools for those that need to work wi
 
 [Densetsu’s translation toolbox](http://gbatemp.net/topic/311523-densetsus-translation-toolbox/) maintains a nice set of links to various tools and resources useful to those doing the translating.
 
-### 3.9.1 General Japanese capable text editors
+### General Japanese capable text editors
 
 Although given an input method editor and an appropriately configured operating system just about anything will do there are certain features that are useful to have in a text editor when you are editing Japanese. To this end a link to a couple of them
 
@@ -1001,7 +1001,7 @@ JWPCE [JWPCE](http://www.physics.ucla.edu/~grosenth/japanese.html)
 
 An older freeware program that in many ways sits alongside NJStar above.
 
-### 3.9.2 ROM hacking tools
+### ROM hacking tools
 
 A hex editor capable of reading tables is quite useful but there are a couple of other tools that are useful
 
@@ -1013,7 +1013,7 @@ Get My Hex [Filetrip download](http://filetrip.net/pc-downloads/applications/dow
 
 Does what it is named for and will return the hexadecimal equivalent of the input text for several common encoding methods.
 
-### 3.9.3 CAT tools
+### CAT tools
 
 Although this is not a language document there are things you can do as a ROM hacker to help projects along and one of those is Computer assisted translation (CAT). This is not the same as machine translation but a kind of lookup program and database for previous translations and helps to ensure consistency in terms and other such things; for instance if you are translating a massive RPG and you meet a concept three times in a game but translate it three different ways it is not going to look good.
 

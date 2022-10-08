@@ -27,7 +27,7 @@ Compared to a lot of other areas of hacking the practice of level hacking does n
 
 An interesting technique which has taken off on the PC but has been around for a while is watch the game memory as levels can be streamed or might need to be manipulated at play time and fog of war is especially good for this. It plays right into it as well but much like changing the width of your hex editor to see patterns in pointers, text and more you can line up memory dumps (again they can change which brings in cheat making type arrangements) and if you colour them it can make things even more apparent.
 
-### 5.1.1 Example tools
+### Example tools
 
 The following is a list of a few more well developed tools for the DS and some source code/format explanations with a worked example in the next section.
 
@@ -53,7 +53,7 @@ Mario kart [MKDS course modifier](http://gbatemp.net/topic/299444-mkds-course-mo
 
 Mario kart had filesystem level swaps fairly early on (indeed it was probably one of the first games to see DS level hacks) and eventually the actual formats were reverse engineered and level editors started to be made.
 
-### 5.1.2 Level editing techniques
+### Level editing techniques
 
 With some basic theory covered it is time for some practical stuff. A selection of methods exist to reverse engineer levels and reverse engineering shares a lot of concepts between ideas but levels have a few slightly more likely to be useful. Techniques include but are not limited to
 
@@ -201,7 +201,7 @@ Also as the items stayed in place it would appear there was something to possibl
 
 Timers Timers in levels were of interest so an item section was transplanted wholesale from another level and the difference being zero padded. It created not a perfect replica of the items but a close one as there were additional items, the timer however was the same as the what the original level would have been thus implying that it was not stored in the level file. As a further test a level was outright replaced with another yet the timer for the level remained the same as the original level’s; it was different when that donor level rolled around but do make sure of this when you change things as there are few worse feelings than realising you wasted a lot of time over a coincidence.
 
-### 5.1.3 Stats
+### Stats
 
 Although games can be built without using this concept it is surely fairly easy to see how item, enemy and player statistics/characteristics can be used to make for a better gameplay experience, if it can be used in a game, or added into one, then they may want to be edited. ROM hackers are then concerned with the storage methods and limitations of these statistics.
 
@@ -221,7 +221,7 @@ On another note in game AI may well be finely tuned to the original game stats a
 
 [pipian.com ierukana](http://www.pipian.com/ierukana/hacking/ds_evos.html) has a nice example of pokemon stats.
 
-### 5.1.4 RPG randomiser
+### RPG randomiser
 
 The concept has been around for some time but in recent years it really seems to have taken off. Games like Pokemon, Medabots RPG as well as more conventional “RPGs” often have defined zones for enemies or predefined battles, or in the case of medabots you will only be fighting medabots made of the same parts. You then get to figure out a way to alter this. Do note a lot of games might provide you with something to look at to influence this. Classic examples would be a “conservation” area where you visit old enemies, a bug like pokemon sea tiles, an arena of some form or even certain kinds of mulitplayer. Similarly a game might change the monsters in an area for a sequence or something and that can be very valuable. Alternatively it can be very simple and you only have to influence the outcome of the random number generator; if a game has a bestiary then if the enemies from a similar area have similar numbers it could well be a contained random number generator (generate me a random number between 4 and 6, or more likely generate me one a normal random number and add or multiply to get me to the number for this map). It is up to you to see whether you wish to try to stop end game bosses potentially appearing in a start area, though such things can be fun.
 
@@ -231,11 +231,11 @@ Compression is seen in all areas of ROM hacking and will continue to be seen as 
 
 Compression is not perfect so if you find yourself reverse engineering compression do not be surprised to see a compressed section that is the same length as the piece it compresses (although this can also be a technique to allow a bigger range by means of a double reference) and equally do not be surprised if you see a way the compression could be further improved both within and outside the limits of the format.
 
-### 5.2.1 Lossy
+### Lossy
 
 Various DS games have been seen to use lossy methods to encode audio, graphics and sometimes video. For the most part these will be known methods like JPEG for images, various audio formats and game related video formats (although a complete description of the VX and mods video formats aka act imagine/mobiclip is still pending) with the most complex part of it being if the existing format is wrapped in something. This is probably for the best as lossy compression draws from a whole host of fields including things as far afield as psychology and biology and tends to make for complex formats.
 
-### 5.2.2 Lossless
+### Lossless
 
 Lossless compression will manifest in one of four basic ways, although the first three will be the most common.
 
@@ -259,7 +259,7 @@ Technically another statistical method but it relies on the idea that certain pa
 
 Additionally, and as has hopefully be made clear by this point, game developers and coders in general are encouraged to reuse existing concepts and values so tiles may get used repeatedly (half a body might have twenty versions of the top half for various animations), 3d in general is well suited to it, pointer level text compression was mentioned, dual tile encoding does have uses, fonts have been seen to reuse parts, the whole notion of the palette/texture/material swap... so although these general use compression methods are a key concept in hacking, especially of modern handheld games, be prepared to encounter methods more useful to games in general.
 
-### 5.2.3 Basic theory of the actual implementations
+### Basic theory of the actual implementations
 
 This section will detail the basics behind the most common compression methods seen on the GBA and DS and some techniques that can be used to handle them. Actual programming level discussion is reserved for the next section. Note that custom compression has been seen several times in the wild but it is usually not that different to regular compression (it is hard to define a useful type of compression that is truly new), this means that even though most existing tools will fail if they are set upon custom compression that as most are open source it should not be that hard to get them running again once you figure out the minor differences between the methods.
 
@@ -330,7 +330,7 @@ Types You will often see mention of types of compression in DS ROM hacking discu
 
 Various tools have been made to handle compression with two of the big ones as far as the DS is concerned being DSDecmp and Cues GBA/DS compressors although there are multiple methods to effect decompression on files.
 
-### 5.2.4 Compression at hexadecimal level
+### Compression at hexadecimal level
 
 This section will focus mainly on LZ compression as that is the most common and decoding it is fairly illustrative of the techniques and concepts involved. Compression often radically alters the file at hexadecimal level but it will usually be implemented in a given manner.
 
@@ -410,7 +410,7 @@ The main reason for covering this is understanding how cheats work and how they 
 
 Useful links [Enhacklopedia](http://bsfree.org/hack/)
 
-### 5.3.1 General cheat making
+### General cheat making
 
 There are many ways you can make cheats but the first port of call is usually a memory scanner of some form. These allow you to scan the memory before dropping back into the game, changing something and scanning again until you either get it down to the exact value or a small enough list that you can try them all by hand.
 
@@ -428,7 +428,7 @@ Exotic codes and terms Various cheat devices allow for some quite custom and far
 * Slowdown. Covered later but some cheat devices allow you to slow a game down by flooding the CPU.
 * Joker code. Codes used when using buttons to activate cheats.
 
-### 5.3.2 GBA cheat making
+### GBA cheat making
 
 VBA has a basic cheat option which should be available in nearly all versions (notably the VBA-SDL-H version does not although if you really wanted you could use its debugging abilities to do something instead) and the brand new window of the basic VBA cheat options looks like.
 
@@ -454,7 +454,7 @@ Still
 
 About the only thing it is lacking is a floating point search but those are tricky and float values are rarely used on the GBA (not to mention would probably come up on a not equal search). Also lacking are things like bitwise, Boolean and mathematical functions but if you need those VBA-SDL-H is where you would look.
 
-### 5.3.3 DS cheat making
+### DS cheat making
 
 This varies a bit depending upon the person doing the cheat making. Desmume has some cheat/memory manipulation abilities but many will use tools like HasteDS and renegade64 or more general purpose tools to hook into emulators and provide similar abilities. Many more will use tools like Datel’s trainer toolkit which has fairly extensive debugging abilities and even flash carts like the Supercard DSTWO and iSmart MM will have minor cheat making options although their search and functionality is somewhat less than a proper tool they can still be used for basic cheats.
 
@@ -556,7 +556,7 @@ Crystaltile2 Not so much for cheats but can interface with no$gba to retrieve VR
 
 Datel’s Trainer Toolkit This one is actually something more than a memory viewer, here you have to use a trainer toolkit to connect to a live DS via a GBA slot at which point you can tap into the memory and edit from there.
 
-### 5.3.4 Basic making of a cheat
+### Basic making of a cheat
 
 Regardless of the tools or system it is intended for cheat making uses the same methods. To then end making an infinite life cheat for Summon Night Swordcraft Story 2 on the GBA
 
@@ -588,7 +588,7 @@ Adding a value of FFFF and a description so as not to forget when other cheats w
 
 ![PIC](images/208_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidecheatexample_8.png)
 
-### 5.3.5 Cheat prevention methods and frustrations
+### Cheat prevention methods and frustrations
 
 Such things often trouble ROM hackers as well owing to the way they work but either because of the way they are coded or because the developers wanted to lessen cheats some games work in such a way that the basic cheat creation method falls short. Additionally some games can be broken by the use of cheats on a less technical level; quite often in a RPG type game you will encounter a fight you are supposed to lose or you can unlock options that might be viable as far as the game code is concerned but the game itself was scripted in such a way that the rest of the story can no longer play out. On a more technical level timers can be used by many parts of the games to do things so holding them is not always feasible.
 
@@ -629,7 +629,7 @@ To this end if you want to edit things to do with it you have to find the result
 
 Similarly it was for slightly different reason (certain actions would only happen when patient health was low) the trainers and cheats for the DS game “Trauma Center” changed it so if you “missed” with your scalpel or similar the health would reset to full and you can do similar things to work around values held in registers. This also works for parts of memory that can change location and for things like overlays (small sections of code you can drop into a game to be replaced with another but keeping the bulk of the game code) that might not always be present at runtime.
 
-### 5.3.6 Instruction editing cheating
+### Instruction editing cheating
 
 Although assembly hacking discussion does not start in earnest until next section this is directly related to cheating and so quite useful to know about not to mention providing a direct link to more conventional assembly hacking. Some of the very first “trainers”[18](romhacking202019.html#fn18x0) for the DS that were not scene trainers attempted to hard patch action replay codes in various ways. This sort of editing is a useful skill to have and it generally revolves around editing the instruction(s) that ultimately serve change the value and slightly further down the line it covers how to do hook a binary to enable a similar effect but one that is more directly useful to a lot of assembly hacking which might need to change something but requires a larger instruction. It should be noted that for infinite lives type cheats there are many ways to die (think even on a basic platformer like NES mario you can run out of time, fall down a pit, get hit by an enemy and who knows if hazards and enemies are two different things) and games have long been seen to have many functions that will change the same value. Of course it can cut the other way and allow you to have infinite time in a level but the end of level time remaining to score function can still remove the time value that a basic hold this memory location would mess up.
 
@@ -691,7 +691,7 @@ It can go an awful lot further than this. Also as mentioned elsewhere if you esp
 
 In preparation for assembly it is worth knowing about a couple of programming concepts and techniques. When learning programming a lot of guides and schools will try to teach some of these on the sly or have them gradually introduced, this works well for many but here they will be introduced straight up and explained as such. It is certainly not intended to be a programming tutorial (various guides are linked elsewhere for that) but more of enough information to be dangerous and hopefully not impede your endeavours in learning programming.
 
-### 5.4.1 Functions and procedural programming. Also return oriented programming/ROP
+### Functions and procedural programming. Also return oriented programming/ROP
 
 You can try to program a program so it runs from beginning to end but for anything more than a very trivial program or something without any real user input (pretty much the opposite of a game) it helps to be able to make small routines you can feed input into and get a result back from (a function if you will). Most programs then have a core component that runs and defers/branches to others as appropriate. Procedural programming (which most types of assembly programming follow as well as languages like C) and functional programming (a slight tweak on procedural programming) then are both so called programming paradigms.
 
@@ -701,11 +701,11 @@ There are two others of true note as far as hacking is concerned. The first is t
 
 The second is one that has risen in prominence in recent years and is called return oriented programming (often shortened to ROP), it is very popular with people hacking the PC and other highly secured systems, indeed the 3ds saw several ROP based exploits. The best explanation I have heard ran something like a ransom note is composed of letters that the original author probably had no intention of being used as such, here various fragments of code do appear to be certain otherwise quite valid instructions if you jump (or indeed “return”) to them. Return oriented programming (ab)uses this fact by changing where things return to and in the process constructing a valid program from the nice data that the device expects to be in memory. It gets a lot more in depth, fortunately with it being a new (ish) and exciting technique that does not need fancy hardware it sees many hacker conference presentations and other writeups you can go looking for.
 
-### 5.4.2 IF ELSE
+### IF ELSE
 
 In many programming languages, although typically seen in C and C influenced ones, the IF ELSE construction is all important. The general idea is you can tell the computer to do something IF a given set of conditions is met but should they not be then do something ELSE with the two main forms it takes being a run of IF statements and a final ELSE (potentially slower but has uses) or more commonly a sequence of IF followed by ELSE and another IF followed again by another ELSE until the final ELSE. Either construction allows you check if one of a series of conditions has happened and act accordingly before either ending or returning to where it first started. In assembly this is a bit more complex and uses the branch instructions (usually conditional ones) instead but as the C family is quite close to assembly this is but a fairly minor abstraction.
 
-### 5.4.3 Recursion
+### Recursion
 
 A prime example of the use of recursion is finding the factorial, this is so much so that it is usually the example used when teaching the concept and will probably be done here as well. If you are struggling to recall it then the factorial of a number is the number multiplied by each number before it until you hit 1 and is typically represented by having an exclamation mark after the number.
 
@@ -713,21 +713,21 @@ Here you have a starting value, do an operation and check to see if you need to 
 
 If you recall back to OAM methods for moving a sprite (although it works almost as well for level data and positioning) you might want to move a sprite 4 pixels at a time until the amount of pixels moved totals 20 so as to create an illusion of movement (as opposed to a teleport) so here you would probably see the sprite OAM value(s) incremented by 4 either that used for an interrupt or a second function acting as a counter.
 
-### 5.4.4 Iteration
+### Iteration
 
 Related to recursion is iteration. Here you might want to solve a problem and pick a “random” number before tweaking your initial value trying again until you get to the answer (or close enough). This is usually used where you have a fairly unknown problem or lack a simple method to do the job.
 
-### 5.4.5 Loops
+### Loops
 
 Picking which type of looping method you want to use is sometimes obvious and sometimes tricky. Now, as mentioned several times, C is very close to assembly so the game programmers are quite free to have not picked the most optimal method and indeed might well have picked a sub par one. Not so many hackers “fix” this but you can if you want as excessive use of the wrong type of loop can see a game crashing under certain conditions, or can see things like the battery drained faster than it should be.
 
 You might have to pick your own if you have to do something like implement a variable width font. In a VFW hack because you no longer have a fixed distance to keep the glyphs apart you have to figure out the width and act accordingly until you get to the end of the line. Hopefully the text engine has at least provided the ability to wrap the lines but maybe not or maybe it did but having characters with a fixed width might have skipped over the “exact” value it was expecting (a multiple of 8 for instance) and it instead does not know what to do (say you had multiples of 7 which will not line up with multiples of 8 for some time).
 
-### 5.4.6 Turing complete
+### Turing complete
 
 Alan Turing is in many ways considered the father of modern computing and this is for good reason as he figured out a lot of the core concepts of computing; one of these core concepts his name was lent to is the ability to categorise computer languages as Turing complete which in short refers to a language/machine able to find the result to any computing problem given enough time and space. It is mentioned mainly as some games feature a measure of scripting and computation done at runtime which may have fair abilities but might lack features required to be classified as Turing complete, or if they do it is a kind of esoteric completion where certain features are abused to generate others (a variation on this might be how you can use logarithms for find the results of a multiplication or division using nothing but lookup and addition/subtraction). To this end it is usually best to avoid trying to do calculations in scripting languages that might be present in a game unless they are a recognised one like Python or Lua, languages which some games do use.
 
-### 5.4.7 Fundamentals of Assembly
+### Fundamentals of Assembly
 
 Assembly gets a full writeup wherein the GBA and DS are covered in great depth but to prevent that section from becoming bogged down with minutia some of the fundamental concepts are being covered here. Assembly language is usually characterised by the use of small usually three or four letter mnemonics to represent instructions as opposed to the more elaborate instructions and functions higher level languages afford. It gets to be quite different as you change architectures and systems but knowing the following will mean you know much of what underpins it all with many of the big differences coming in the fact that several instructions have various implementations on the processors covered here.
 
@@ -797,7 +797,7 @@ The obvious question of the reason we care to do all this is everything is event
 
 Although this section aims to be a reasonably complete introduction to assembly you are also encouraged to have a full hardware specification like gbatek available as it will contain things this omits and be more useful as a reference.
 
-### 5.5.1 ARM
+### ARM
 
 The GBA uses an ARM7TDMI processor where the DS has an ARM9 processor (specifically a ARM946E-S) and an ARM7 which in practice is a higher clocked version of the GBA processor[22](romhacking202023.html#fn22x0) . The instruction set they run is rather confusingly known as ARMv5 but not so many people refer to this with ARM9 and ARM7 being the usual things people referred to.
 
@@ -829,7 +829,7 @@ Silicon errata Programs can have bugs, chips can have bugs and as processors are
 
 On a slightly higher level if you read hardware documents for the GBA and DS you will probably come across prohibited modes and a few mentions of hardware bugs which usually are related to each other and are about as close as you will get to seeing something like silicon errata.
 
-### 5.5.2 GBA Assembly specifics
+### GBA Assembly specifics
 
 The following section has details on the GBA hardware itself and key things to know and some basic techniques to employ that make assembly hacking easier.
 
@@ -900,7 +900,7 @@ Variables/expressions are supported in VBA-sdl-h and are not really typecast (th
 
 Logging has been seen in the past (SWI logs being used to assist with compressed ROM images) but the idea here is rather than stopping every few seconds (if you have ever used a whitelist program or sandboxing/confirm big changes programs it is a similar feeling after a few breakpoints have been set) everything is logged for later examination.
 
-### 5.5.3 DS Assembly specifics
+### DS Assembly specifics
 
 Much like the GBA section above this section contains information on the DS hardware, general modes of operation and some techniques you can use to help get the most out of assembly.
 
@@ -978,7 +978,7 @@ Binary compression It was mentioned back when compression was covered but it sho
 
 No binary encryption has been observed, though some called the binary compression a type of encryption at times and obfuscation is seen on many occasions. Equally there are a few scripting languages available for DS programmers so there may be some amount of just in time compilation and similar things.
 
-### 5.5.4 The GBA and DS compared
+### The GBA and DS compared
 
 The following section will compare and contrast the GBA and DS as well as elaborate further on the functions of each.
 
@@ -1000,7 +1000,7 @@ VRAM and graphics. Even with two screens taken into account the DS has quite a b
 
 The 3d engine which was new to the DS is for the most part not memory mapped/readable in memory although the registers to control a lot of it are visible in ram in an emulator even if they are write only on original hardware; the rendering and geometry functions are effectively given separate memory areas and much like other parts of the system 3d is somewhat IO driven. It is fairly weak as far as 3d hardware goes (as a testament to that unlike most 3d engines fixed point operations are the order of the day) leading a fair few counts of precalculation and tricks on the part of the developer to get as much as possible out of it although various levels of texturing, lighting, fog and shadows are available.
 
-### 5.5.5 On controls
+### On controls
 
 There may well come a time where you wish to change the controls of a game and people typically approach this from three main directions
 
@@ -1028,7 +1028,7 @@ Extra peripherals The GBA and DS carts both have GPIO (general purpose IO) optio
 
 Other hacks here included support for the the Taito paddle controller (originally intended for the Japanese version of Arkanoid) to other games like Mario Kart DS.
 
-### 5.5.6 Hooking
+### Hooking
 
 Some further discussion is available in the following section (see destructive vs non destructive assembly editing). However even if you can understand the disassembled code well enough to recreate the original source code then as far as a lot of hacking is concerned that is only half the battle as you will probably also want to edit and run the code. The process of interrupting the ROM and changing what it does/running your own code requires you first to get a point where you can tear it away from the original code, or, to use the proper term, hook the code. There are three main classes of this
 
@@ -1044,7 +1044,7 @@ External hooking is probably the only method that actually warrants the term hoo
 
 [Tutorial on how to hook DS games using the ARM7](https://web.archive.org/web/20110810025458/http://crackerscrap.com/docs/dshooking.html)
 
-### 5.5.7 GBA cart as extra memory for DS hacks
+### GBA cart as extra memory for DS hacks
 
 As far as general ROM hacking is concerned this is still largely theoretical but ask any ROM hacker if they would like the system to have an extra 32 megabytes of memory that is low latency, high speed and addressable directly in memory the answer is likely to be yes but it will never happen. The DS and DS lite however feature the GBA slot which is 32 megabytes and all the above although a select few games will use the header section and maybe save section to gain extras, homebrew might use it and the web browser will also try to use it (in these last two cases case it is actually read/write though) it still leaves a very large amount of space available. Here the pointer in RAM that starts 02 could in theory be changed to start 08 (or 09 for the upper 16 megabytes) and as DMA restrictions were lifted on the DS anything that might have to go from the 02XXXXXX memory section to somewhere else should not be troubled.
 
@@ -1052,7 +1052,7 @@ As far as general ROM hacking is concerned this is still largely theoretical but
 
 The following section covers various things that are often of great interest to many of those working in assembly hacking but that do not necessarily fit in other areas as well as a few concepts and techniques.
 
-### 5.6.1 Language mod example
+### Language mod example
 
 The game Advance Wars days of ruin/dark conflict had the Japanese language locked out despite it being present in the game. This would not be so bad but it never actually saw a released in Japan on the DS (it appeared on the 3ds in downloadable form in late 2013). However it was found that by holding part of the RAM with a cheat the Japanese language files would be used. Games can use an assortment of methods here but in this case it mirrored the firmware selection method somewhat and is worth analysing further. The following is based on this [GBAtemp thread](http://gbatemp.net/topic/254868-advance-wars-days-of-ruindark-conflict-language-mod/), uses a cheat from the GBAtemp cheat database and in many ways acts as more of a tutorial in how to port a cheat than anything to do with language. This firmware mirror concept is seen a lot in games and is useful for those games which pull from firmware but either you can not change (some emulators) or you do not want to change all the time, here though it actually unlocked hidden functionality.
 
@@ -1110,13 +1110,13 @@ From ndsts earlier we know this is the ARM9 and that it loads from 4000 hex in t
 
 There are of course multiple ways by which the game could have been changed to achieve the same effect and even though it was a single instruction change in the end there may have been better methods as far as game optimisation goes.
 
-### 5.6.2 Non code in ASM
+### Non code in ASM
 
 If you want a term to search for then this usually known as incbin (include in binary). The DS binaries and overlays, especially in games without many other files, can contain code that is not executable, including graphics, text, fonts, level data and more. Extracting this code is seldom a problem, indeed if it is compressed it is almost certainly compressed with the binary specific compression, compressed as part of the whole binary/overlay or something equally obvious. However the getting it back in part may well prove more challenging. There are various reasons for this, the most important of all being that the binary has probably been assembled down to the instruction level to handle the layout as it exists in the original ROM; even if it is something basic like text your pointers for each line are probably now memory addresses as opposed to some of the simpler methods the rest of the DS enjoys.
 
 This is not limited to any one console either and although programmers are encouraged to keep their data and executable code separate as has been covered elsewhere and should be kept in mind at all times when hacking is programmers are people too and are no stranger to the quick and easy method when “it will do”.
 
-### 5.6.3 Destructive vs non destructive assembly editing
+### Destructive vs non destructive assembly editing
 
 In the simplest sense most assembly hacks are in some way destructive as they edit the original ROM but that is not a useful distinction so it is not often made, and if it is it is usually for when dealing with secured systems that check binaries during runtime.
 
@@ -1136,7 +1136,7 @@ Some games have been seen to initialise/flood fill the RAM and possibly expect c
 
 No GBA or DS game has ever been observed to do it but reading “uninitialised” RAM is considered a reasonably high quality way of getting random numbers to use as a seed for some encryption or something, such a thing is technically possible though. With the hardware being fixed there are probably better methods using the sound hardware not to mention most games are unlikely to need security grade random numbers so a psuedorandom algorithm or even lookup table is quite suitable.
 
-### 5.6.4 Polymorphic and dynamic code
+### Polymorphic and dynamic code
 
 There are various methods available to programmers to change code and use existing code to do things using information gathered at runtime and these can trouble assembly hacking.
 
@@ -1158,7 +1158,7 @@ Here if you know the memory location of something the next thing might well be a
 
 Cheat makers quite often face a similar problem with pointer codes where a game will store a value in memory but instead of just having a plain value somewhere written directly it instead has a pointer to it which can change and the game calculates where to write the value at a given point based on this pointer which may or may not be static throughout a given run of the game. If it is not static this prevents the basic alter and check cheat finding method as well as always write unless the pointer is accounted for and such things have been seen in areas not generally covered exclusively by cheats as well.
 
-### 5.6.5 Slowdown and speedup
+### Slowdown and speedup
 
 Occasionally it is useful to slow a game down or speed it up and there are several ways to do this but if you are on an emulator just use the inbuilt features as they will be far more stable and easy to do than these hacks.
 
@@ -1180,7 +1180,7 @@ Speeding up Typically this is seen where games have elaborate movement sequences
 
 Some have attempted to disable vblank/vsync or prevent it from waiting to do things there which also speeds things up but often at the cost of corrupt graphics.
 
-### 5.6.6 Cryptography (encryption, checksums and signatures)
+### Cryptography (encryption, checksums and signatures)
 
 Although you were already warned this document would probably ruin your ability to enjoy films, TV shows and such that try to portray computers this section carries another warning as it is more dangerous than almost any of the others for that.
 
@@ -1370,7 +1370,7 @@ Consoles will often blacklist earlier versions of the firmware to stop things be
 
 Whitelists have been seen in consoles when signatures get broken (like the PS3) or for legacy support where there is not the option to upgrade old code (remember the term is called ROM for a reason) but the desire to run the old code is still there. The DSi and 3DS have seen this where all the old DS games were put on a whitelist but not any unofficial code and all newer DS games carried additional signatures[26](romhacking202027.html#fn26x0) .
 
-### 5.6.7 Multiplayer and the failure of Nintendo’s online DS security.
+### Multiplayer and the failure of Nintendo’s online DS security.
 
 Networking and all that goes into a modern multiplayer game is a bit outside the scope of this. However the demise of the DS (and Wii) online game services provided an interesting example of something that is technically editing a binary but in practice involved very little assembly.
 
@@ -1380,7 +1380,7 @@ With it, and in the short period before the shutdown came, the [save Nintendo wi
 
 Earlier failures in online security usually came from people being able to run their own code on carts, and modified versions of existing games, and with it cheat to the point that games were broken. Traditional anti cheat measures might have helped but in general security you should always assume those accessing your services are compromised/hostile and do what you can within your own servers.
 
-### 5.6.8 Save editing
+### Save editing
 
 Although games could just take a snapshot of their memory at the time and restore it later (indeed this is all save states are) most of the time the key values that make up the game at that point (characters, names, levels, experience, states, inventory, location, point in the story....) are stored in a writeable section of memory somewhere using some custom format. Either as a type of cheating or for hacking purposes (both ROM hacking and general hacking[27](romhacking202028.html#fn27x0) ) it can be useful to edit these files.
 
@@ -1396,11 +1396,11 @@ Saves in different regions Saves are largely a custom format and although most l
 
 More troubling is that game saves are usually a fairly specific affair with locations hard coded so if a variable is changed in length between versions every subsequent variable will be out by a given amount and things will go sideways and if multiple variables are changed in length it can get even worse; here is might even be better to build a full save editor or collection of cheats instead of “fixing” the save.
 
-### 5.6.9 Interpreted languages
+### Interpreted languages
 
 Once exclusively the domain of homebrew a few commercial games have been seen using interpreted programming languages of which the most notable was the puzzle quest series (in this case a version of lua) and other times games have used scripting languages after a fashion for their text and general operations (recall the wii scripting example and wizard of oz game mentioned back in text editing) to say nothing of the DS sound format SSEQ being a limited type of scripting language. Trying to interpret these (that is to say the actual game code as opposed to the interpreter itself) as ASM is not going to happen easily and much like using a hex editor for everything it is not a terribly good idea but more importantly many of these interpreted languages are built in a way that allows for decompilation and/or simple editing using the language itself. Equally few games are programmed in ASM any more and most will not have any or at worst only a tiny fraction of ASM (it is a technique called inline assembly) so being able to recognise a given or standard C function in assembly can make reverse engineering that much easier.
 
-### 5.6.10 Game AI, game logic and game theory
+### Game AI, game logic and game theory
 
 The mathematical discipline known as game theory is a fascinating subject and one well worth reading up on (some basic coverage will be here but it goes far more in depth) as it informs quite a bit of ROM hacking owing to it speaking to the nature of games. As one of the favourite things for people to do in ROM hacking is to twist the original concept into something quite different, or indeed remove the ability to exploit certain techniques that might be seen as game breaking, then it can pay to know the terms used to describe what has been done (“in doing this I turn the game back into a perfect information game”).
 
@@ -1477,7 +1477,7 @@ A related discipline to emulator theory is in-hardware extras. Flash carts and m
 2.  RAM cheat injection. A flash cart or action replay might use some techniques here but they usually have onboard hardware to help with this so this mainly refers to tools like GABSharky, GBAATM and DSATM that often worked by adding entire cheat engines on top of the game itself and by the nature of how cheats need to work (remember one of the primary cheats is constantly write/hold a value in ram) would run always and run alongside the game code (most consoles not being made for multitasking) by some manner.
 3.  Timing changes. Possibly the most important of all and has manifested in many ways over the years. Some examples are GBA linking via link cable has been seen to be troubled timing changes as a result of new interrupts for soft reset, cheats and in some cases save handling, savestates in hardware have been seen to be troubled by this for if you are too slow restoring or saving data crashes can happen and further some game crashes are related to this; Castlevania Portrait of Ruin on the DS was poorly coded and eventually fixed by flash cart teams (read AKAIO) but the result was if data was not read fast enough the game would crash which was mainly related to speed and more importantly latency of flash cart reading but it was exacerbated by having hooks in the game to do things like soft reset, Animal Crossing for the DS also had similar problems.
 
-### 5.7.1 GBA
+### GBA
 
 The following has information on the custom things and things that flash cart designers had to handle
 
@@ -1497,7 +1497,7 @@ Extra hardware Extra hardware was twofold or maybe threefold depending upon how 
 2.  GPIO and SRAM. The GBA cart features some extra buses or carts could just use the SRAM mapping to have the extra hardware be available to the GBA CPU and memory in general. RTC, solar sensors, tilt sensors, the e-Reader (although this gets somewhat more complex) and more used variations on this theme and it would also return for the DS in various manners. Much like the button presses much of this was copied/debounced to another area to be used and that was where hackers could come in and inject data to fix things.
 3.  Stuff like the GBA FM radio and similar often just used the GBA slot power lines to power themselves as opposed to actually interacting with the device in a meaningful way.
 
-### 5.7.2 DS
+### DS
 
 The following section contains information on the DS AP, saves and extra hardware. DS saves are not really going to be covered as they were largely the domain of flash cart makers who either patched the game or physically emulated down to a protocol level (originally in carts that used save lists to change the onboard FPGA or CPLD into a pin for pin compatible version of the original save chip and later in carts that added clean/special/ghost mode in an attempt to allow games to be played before proper fixes were made). Still if you are interested [GBAtek](http://problemkaputt.de/gbatek.htm#dscartridgebackup) has more but the general idea is the SPI bus was more or less mapped to memory and that had access features. The DSi and 3ds checks that are done to check for flash carts are a bit elsewhere. Mainly as the carts themselves pretended to be one of the games on the whitelist of older games (newer games saw further signing and were unsuitable for this) it was a fairly classic example of check to see it was like the original, counter the checks, new checks, counter...
 

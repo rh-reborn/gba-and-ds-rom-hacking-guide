@@ -24,13 +24,13 @@ the main claim to debugging status alongside the other two is the support for ru
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#dscartridgeprotocol) details much of the cart read protocol but for most purposes “B7aaaaaaaa000000” where the “a” values are a 32 bit location (in big endian/most significant first no less) is the only command that matters. Do remember the binary is loaded into memory and can contain anything the game might use in addition to the binary itself.
 
-### 8.1.1 Basic lookup and methods for it
+### Basic lookup and methods for it
 
 The command itself more or less sets a window into the ROM image which can be read accordingly
 
 Compression aside With the DS cart not being memory mapped there will occasionally be a copy to ram of data as seen on the cart and a subsequent copy to where it needs to end up (in the case of audio or graphics) can happen not to mention compression will often operate like this.
 
-### 8.1.2 Header reverse engineering/generated values
+### Header reverse engineering/generated values
 
 The DS has a filesystem and those files will often house further files or data sections which are unaffected by the filesystem as a whole. This is very nice as it means a whole ROM does not have to be recompiled by the original coders when a small change is made and likewise affords a considerable amount of flexibility as far as ROM hacking is concerned.
 

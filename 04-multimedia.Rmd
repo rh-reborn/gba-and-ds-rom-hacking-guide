@@ -83,7 +83,7 @@ Not such a concept as much as a technique commonly is used is layering where var
 
 Today games consoles are reasonably able to play sounds even a trained ear can not distinguish from one another and thus are often afforded full compositions no different to standalone music but corners can be cut[13](romhacking202014.html#fn13x0) and ROM hackers can be called in to drag it back to form.
 
-### 4.1.1 SDAT (NDS)
+### SDAT (NDS)
 
 Although several other formats have since been discovered to be quite popular (for years the list of non SDAT games stood at less than ten) the dominant format for audio on the DS is known as SDAT.
 
@@ -289,7 +289,7 @@ More recently [Tinke](https://github.com/pleonex/tinke) has gained a measure of 
 
 ![PIC](images/138_home_fast6191_romhackingguide_unrenamed_fil____borders_romhackguidesoundtinkereplacement1.png)
 
-### 4.1.2 Others
+### Others
 
 Although SDAT is very common there are other formats used by several games and worth knowing about. There have been a few occasions where some of the SDAT stuff has been found external to an SDAT file and if there is an archive/packing format on top of the standard nitro file system the SDAT component will usually be found separate to it but not always (recall the packing example from El Tigre) but this is not what this section is about. With the exception of music games most games with that use a custom format will be a known format or at best a simple wrapper to PCM audio. Midi was seen in Rhythm N Notes but it might well have been a developer leftover.
 
@@ -323,13 +323,13 @@ It should be noted they Cri middleware have made a new ADX format seen on a few 
 
 Proper custom stuff This is usually reserved for music games that need extra formats as part of their method of operation although this gets closer to level formats. Taiko no Tatsujin used SDAT and a custom format known as DSB, Daigasso Band brothers which uses a format known as BDX and another called gak and has a selection of tools at [Yasu soft](http://home.usay.jp/pc/etc/nds/) and information at [Auby.no](http://www.auby.no/wiki/index.php?title=Band_Brothers_DX).
 
-### 4.1.3 Tracker formats
+### Tracker formats
 
 More popular in the late 1980’s and early 1990’s than right now they are none the less very closely tied to games and game/hacking culture (some people erroneously call the sort of sounds they produce keygen music with a better term being chiptunes). There are many formats but the big ones are XM, MOD (not to be confused with the DS video format or the camera video format), IT and midi although midi is not quite the same thing. As you have seen already Nintendo made their own tracker format called SSEQ which is used extensive although if you open up GBA and DS games and find something else you are more likely to find XM or MOD than any others (not that they can be dismissed lightly as s3m also featured on the GBA).
 
 They are usually editable directly and options vary as widely as music creation does but [Open MPT](http://openmpt.org/) should get you started.
 
-### 4.1.4 General rule of thumb for custom audio formats
+### General rule of thumb for custom audio formats
 
 Mentioned in passing already but worth noting properly is that although there are a handful of exceptions (mostly music games) most of the time if you see an audio format that is not SDAT it is likely one of three things
 
@@ -341,7 +341,7 @@ If it is not a plain audio format (remember to match things if you change it unl
 
 Also and far less of a hard and fast rule it is usually SDAT format or something else entirely but some do still mix SDAT and their other formats.
 
-### 4.1.5 Common DS SDAT audio hacks (undubbing, injection, tweaks and relinking)
+### Common DS SDAT audio hacks (undubbing, injection, tweaks and relinking)
 
 Although much has been covered there is more and the need for some example hacks. SDAT hacking can be very simple or it can require a lot of thought and effort to do although that is usually just a matter of thinking things through as the format is fairly logical.
 
@@ -571,7 +571,7 @@ This was done for several tracks as there are multiple tracks that can work at o
 
 ![PIC](images/162_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_2.png)
 
-### 4.1.6 GBA audio
+### GBA audio
 
 Nintendo did provide a format for the GBA developers to use, indeed many did (in ROM hacking circles it is usually known as Sappy) and there was some support for other tracker formats from a selection of companies ([Krawall](http://knzl.de/krawall/) and Apex Audio System being two notable examples of alternatives). Because of alternatives and a few other reasons it did not however come as close to dominating the GBA platform when compared to the SDAT format has for the DS. That said it is definitely worth having a look if you are trying to rip sounds from a GBA game. Sappy is a sequenced/tracker style format and that is the main method of audio for most GBA games but with a bit of thought wave type audio arrangements can appear (indeed Golden Sun eventually got voice acting added in as a hack).
 
@@ -669,7 +669,7 @@ As just as reverse engineering a video format is a hard task the act of creating
 
 Do note that video seen on the DS and games in general frequently does not to have audio built into it so you might have to find another method by which to rip the audio or account for this if you do a basic relink/repoint hack or undubbing the game (especially if the video length changes).
 
-### 4.2.1 General video theory
+### General video theory
 
 Following on from the graphics and audio is that video can work by tricking senses with the general idea behind video is you play back enough frames fast enough and you can create the illusion of movement; the magic number seems to be somewhere around the 17 frames per second mark although the low to mid 20s are where it gets better although lower can work depending upon what you are doing. Updating full images to a screen 25 odd times a second places a serious demand on system resources (storage space and bandwidth mainly) and when you think about it most video does not really change much frame to frame so there are things that can be done. More so than other areas moving video is still very much the domain of the lossy encoder (several great lossless options exist but they are mainly for storage, editing and capture purposes as opposed to playback) and in many ways the DS is no exception. The two principle methods/assumptions are
 
@@ -678,7 +678,7 @@ Following on from the graphics and audio is that video can work by tricking sens
 
 Lossless codecs take advantage of this and lossy codecs go one step further and choose to lose some information based on those principles. There are a very wide selection of methods and levels of use of those methods which only get more complex as time goes on but videos are typically broken up into squares (quantisation - if you have seen what is usually a high action scene break down into squares where the action should be this is the reason) or treated as a waveform (wavelet encoding used in encoders like Dirac and Snow but there was a DS homebrew program called DSVideo that used it). On top of this although one frame does not change much from one to the next (on average) inter frame encoding is not mandated and glorified slideshows are quite common on lower powered systems (motion JPEG is typically given as an example) but some have been seen on the DS as well.
 
-### 4.2.2 Mods/VX/act imagine by Mobiclip.
+### Mods/VX/act imagine by Mobiclip.
 
 First it should be stated Mobiclip (also known by the former name of Act Imagine) did make a codec/standard for mobile phones and web which did enjoy a measure of success there but it is nothing really to do with the console side of things (certainly if you find the codec for it nothing much will come of it).
 
@@ -688,7 +688,7 @@ Some tentative reverse engineering work has been conducted ([GBAtemp thread](htt
 
 There are also a few versions of the standard floating about in different games (VX became mods) so that will need to be accounted for when time comes.
 
-### 4.2.3 RAD/Bink
+### RAD/Bink
 
 Seen usually with the extension .bik it is probably the most well known computer game video format and it is used everywhere on the PC and home consoles as well as the likes of the PSP; you can even download a simple playback codec from the [developer’s website](http://www.radgametools.com/bnkdown.htm). The DS has support for it but it has not been seen in many games presumably as Mobiclip was tied to the SDK quite closely and those games that have used it have largely been multiplatform titles. For this document a handful of games [from the list](http://www.radgametools.com/binkgames.htm#games) were tested against standard decoders and they worked.
 
@@ -714,7 +714,7 @@ Of special interest is likely to be beep.bik which has following output as the i
 
 Video: YV12 512x32 1.00fps \[Video\] Audio: PCM 16384Hz mono 262kbps \[Audio\]
 
-### 4.2.4 Criware
+### Criware
 
 More commonly known as the purveyors of the ADX and AHX audio format discussed a little while back they do have video formats as well which are largely wrappers for MPEG video of various forms with the audio being taken by their AD* format..
 
