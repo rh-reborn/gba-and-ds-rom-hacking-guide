@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -502,23 +566,23 @@
 <li>In the case of the DS the NFTR font carries the encoding information for the font inside it and other formats doing similar things have been seen as well. In many cases you can pull a table from it but other times you will have to manually create one using the encodings (or use OCR)</li>
 </ol>
 <p>Although it is rarely seen any more games can do a type of compression where if the first hex character/byte is repeated in a 16 bit value the game can take one 16 bit value and assume all the following ones are also to be decoded with the first hex character/byte until told otherwise (for instance in shiftJIS the entire Roman alphabet, Hiragana and katakana will have the first byte as 82 or 83 even though it allows for a 16 bit encoding). A second interesting concept that is also rarely seen these days is games can swap out encodings at will by signalling as such but do not get hung up on this as it is very rare indeed (it is far more likely to be something else).</p>
-<p>A note on Unicode. <a href="http://www.joelonsoftware.com/articles/Unicode.html">Joel on Software’s unicode post</a> details a lot that is good to know about the encoding standard known as Unicode. Now unlike the fairly simplistic encoding that most games use Unicode is actually quite far reaching and not necessarily hard to implement but not a simple translation of a set length of hex to a known character most of ROM hacking is concerned with (any fancy extras usually being a set option that the coding team gets the call to deal with). There is however a simplified version of Unicode that forms the basis of a few encodings in ROM hacking known as UTF16 Unicode (sometimes u16 Unicode) that is always 16 bits (no flags or other such things) that is definitely worth knowing about as games tend to use it; in short it eschews the abilities like right to left text and variable length characters in favour of set 16 bit lengths and as far as most games are concerned no extras. Still if you want a nice tool to help with it have a look at <a href="http://www.isthisthingon.org/unicode/index.phtml">The unisearcher</a>.</p>
+<p><strong>A note on Unicode.</strong> <a href="http://www.joelonsoftware.com/articles/Unicode.html">Joel on Software’s unicode post</a> details a lot that is good to know about the encoding standard known as Unicode. Now unlike the fairly simplistic encoding that most games use Unicode is actually quite far reaching and not necessarily hard to implement but not a simple translation of a set length of hex to a known character most of ROM hacking is concerned with (any fancy extras usually being a set option that the coding team gets the call to deal with). There is however a simplified version of Unicode that forms the basis of a few encodings in ROM hacking known as UTF16 Unicode (sometimes u16 Unicode) that is always 16 bits (no flags or other such things) that is definitely worth knowing about as games tend to use it; in short it eschews the abilities like right to left text and variable length characters in favour of set 16 bit lengths and as far as most games are concerned no extras. Still if you want a nice tool to help with it have a look at <a href="http://www.isthisthingon.org/unicode/index.phtml">The unisearcher</a>.</p>
 <p>Assuming it is not a known encoding or a known encoding only accounts for part of it after this you have to actually figure out what is going on.</p>
 <p>There are several ways of doing this ranging from simple and not unreliable but not universal (especially as far as Japanese goes) to complex but will figure anything out. Combining methods here is not only a good idea it is suggested and encouraged. There is quite a bit of overlap between finding the text in the ROM itself and finding out how it is encoded with various methods if not doing both at once then seriously aiding the other.</p>
 </div>
 <div id="relative-searching" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Relative searching<a href="tables.html#relative-searching" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Going back to the Golden Sun table and looking at the Roman character side of things</p>
-<p>41=A</p>
-<p>42=B</p>
-<p>43=C</p>
-<p>44=D</p>
-<p>45=E</p>
-<p>46=F</p>
-<p>47=G</p>
-<p>48=H</p>
-<p>49=I</p>
-<p>4A=J</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tables.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">41</span><span class="ot">=</span>A</span>
+<span id="cb5-2"><a href="tables.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span><span class="ot">=</span>B</span>
+<span id="cb5-3"><a href="tables.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dv">43</span><span class="ot">=</span>C</span>
+<span id="cb5-4"><a href="tables.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">44</span><span class="ot">=</span>D</span>
+<span id="cb5-5"><a href="tables.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dv">45</span><span class="ot">=</span>E</span>
+<span id="cb5-6"><a href="tables.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dv">46</span><span class="ot">=</span>F</span>
+<span id="cb5-7"><a href="tables.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dv">47</span><span class="ot">=</span>G</span>
+<span id="cb5-8"><a href="tables.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="dv">48</span><span class="ot">=</span>H</span>
+<span id="cb5-9"><a href="tables.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="dv">49</span><span class="ot">=</span>I</span>
+<span id="cb5-10"><a href="tables.html#cb5-10" aria-hidden="true" tabindex="-1"></a>4A<span class="ot">=</span>J</span></code></pre></div>
 <p>The word BAD would be encoded as 424144</p>
 <p>If you then searched the ROM of better yet a file you suspect of being text (assuming you had no compression or had dealt with it) for any strings with one value and the next one lower and the new two higher than the original you will quite often get the text you want. Most relative searching tools are 8 bit but you can get 16, 24 and even 32 bit relative searching tools.</p>
 <p>There are several tricks and things you can do to make you more likely to get what you need.</p>
@@ -531,12 +595,12 @@
 <li>Japanese does not feature ordering in Kanji and kana only have a weak ordering (to say nothing of odd things games do for Handakuten and Dakuten) but you can get some things done if you suspect an ordering (font order and encoding order are quite often the same).</li>
 </ul>
 <p>Many ROM hacking text grade hex editors tools feature relative search but for the purposes of this guide there are two main tools you will want to look at</p>
-<p>Monkey Moore <a href="https://github.com/rjricken/monkey-moore">Monkey Moore github page</a></p>
+<p><strong>Monkey Moore</strong> <a href="https://github.com/rjricken/monkey-moore">Monkey Moore github page</a></p>
 <p><a href="http://filetrip.net/pc-downloads/applications/download-monkey-moore-05-f29133.html">Monkey Moore filetrip downloads</a></p>
 <p>A standalone relative search tool and one geared towards this sort of thing (where others are often very much simple implementations of the theory/search technique this has a few more options and works better with language).</p>
-<p>Crystaltile2 <a href="http://filetrip.net/f23649-CrystalTile2-2010-09-06.html">Filetrip download</a></p>
+<p><strong>Crystaltile2</strong> <a href="http://filetrip.net/f23649-CrystalTile2-2010-09-06.html">Filetrip download</a></p>
 <p>In some ways not as polished as Monkey Moore (you can have a fairly well realised table from Monkey Moore inside 30 seconds where you would struggle to do that with this) but it does feature a nice 16 and 32 bit relative search you can use.</p>
-<p>Examples of relative search The game of choice here is Megaman ZX, although the table has actually been seen in several Capcom games. By chance the lower case letters in the table line up with the ASCII upper case equivalents which means relative search is probably not that useful, give or take a minor shortcut in table making. However it is a bit less abstract than some other tables so it makes a good example for this.</p>
+<p><strong>Examples of relative search</strong> The game of choice here is Megaman ZX, although the table has actually been seen in several Capcom games. By chance the lower case letters in the table line up with the ASCII upper case equivalents which means relative search is probably not that useful, give or take a minor shortcut in table making. However it is a bit less abstract than some other tables so it makes a good example for this.</p>
 <div class="figure">
 <img src="images/80_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguiderelativesearch1.png" alt="" />
 <p class="caption">PIC</p>
@@ -556,7 +620,7 @@
 <img src="images/83_home_fast6191_romhackingguide_unrenamed_file___al_borders_romhackingguiderelativesearchmm6.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Crystaltile2 relative search</p>
+<p><strong>Crystaltile2 relative search</strong></p>
 <p>Available in the hex editor window from the tools pulldown menu.</p>
 <div class="figure">
 <img src="images/84_home_fast6191_romhackingguide_unrenamed_file___l_borders_romhackingguiderelativesearchct21.png" alt="" />
@@ -585,7 +649,7 @@
 <img src="images/88_home_fast6191_romhackingguide_unrenamed_file___rs_romhackingguiderelativesearchfontviewing.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Regarding the buttons seen in the font the Japanese font is a 16 x 16 array so the game probably accounts for this somewhere (complex font formats with individual characters being assigned a size<a href="romhacking20206.html#fn5x0">5</a> are quite possible on the DS) but there have been instances of half a character being encoded in two “separate” characters to be assembled at runtime. Note this is not the same as dual/multiple tile encoding (covered later) where multiple characters or indeed a run of them is encoded in the same space as a regular character.</p>
+<p>Regarding the buttons seen in the font the Japanese font is a 16 x 16 array so the game probably accounts for this somewhere (complex font formats with individual characters being assigned a size<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> are quite possible on the DS) but there have been instances of half a character being encoded in two “separate” characters to be assembled at runtime. Note this is not the same as dual/multiple tile encoding (covered later) where multiple characters or indeed a run of them is encoded in the same space as a regular character.</p>
 </div>
 <div id="corruption-and-alteration" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Corruption and alteration<a href="tables.html#corruption-and-alteration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -617,7 +681,7 @@
 <p>By the time you see the text on the screen it has probably been in the memory for several seconds and will tend not to be refreshed from memory once it is there (VRAM yes, actual memory not so much) so editing it there is usually of little use, with the possible minor exception of a game that allows you to scroll back through the last few lines of text. The big exception to this though is name entry screens which are often updated in real time. Equally the saves files they make can also yield information as they will tend to be encoded in the same manner which allows similar things to the corruption and alteration techniques above.</p>
 <p>If you manage to catch the data in memory before it gets turned into graphics you might be able to do something though. Equally memory viewing/editing can be quite useful if you are otherwise having to deal with a custom compression type you have not yet managed to figure out (or written a compression tool to recompress), here you would snatch the uncompressed/unencrypted text from the RAM (remember when working in a group that once the translation/text editor side of things has the text they can get going and the ROM hacking specifics can be ironed out later).</p>
 <p>Example from Mr Driller 2 on the GBA. Cheat finding methods were used to narrow down what memory locations changed as a character was entered and by increasing the character by one value each time it was noticed a particular value increased by 1 each time.</p>
-<p>Pointing the memory window at it. There were a lot of changes noted here but 02001CDC displayed interesting changes and perhaps more interestingly the blank character at the bottom right was quite far in value from the smiley face before it. In this case relative search actually worked on the ROM and it turned out it was quite different (upper and lower case available and decoded as a different set of values- 0A=A and 24=a) but the potential of the method is quite clear to see.</p>
+<p><strong>Pointing the memory window at it.</strong> There were a lot of changes noted here but 02001CDC displayed interesting changes and perhaps more interestingly the blank character at the bottom right was quite far in value from the smiley face before it. In this case relative search actually worked on the ROM and it turned out it was quite different (upper and lower case available and decoded as a different set of values- 0A=A and 24=a) but the potential of the method is quite clear to see.</p>
 <div class="figure">
 <img src="images/93_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackguidetextmemoryviewing1.png" alt="" />
 <p class="caption">PIC</p>
@@ -656,7 +720,7 @@
 <p>You have some language tricks, you have some encoding tricks, you have some computing tricks but you can also combine them and do things with the raw hex by itself and the pointers it uses.</p>
 <p>Pointer analysis is twofold depending upon what you are doing. On the GBA if you do a search for 08 (the start of the most commonly used address type) your results might well be large in number and for the most part 8 bytes or slightly further apart but preferably still a set distance (you do not have to put pointers end to end and 08080808 is a valid address and aligned for that matter as well) you have probably found a bunch of pointers. Now it might be for sound or graphics but a lot of them are usually worth following to see what goes. Equally (and this would be the second part of the twofold thing) if you have a list of what are probably pointers and you suspect the operate at the sentence or paragraph level they are probably not going to be several hundred bytes apart.</p>
 <p>Furigana, markup, links and such. As mentioned elsewhere things like commas, spaces, full stops and more can give away lots of information but that is not the whole story as Japanese has a concept named Furigana (in practice game makers and others often use it to hold little hints, notes and other such things), most languages will allow for text to be changed to emphasize something (making it bold, italic and such), you might have a mini encyclopedia that links to other entries in the text and more. Unlike relative searching if you suspect one of these follow up on it and it might give away a lot of the encoding and even part of the text engine itself.</p>
-<p>Compression searching Alongside conventional hex analysis various compression searching tools exist (some worked examples of compression can be seen later but standard compression methods have quite distinct fingerprints which can be searched for) and conventional compression tends not to be used on sound and video so by searching for compressed items and combining it with other methods you can often quite quickly locate and decode text.</p>
+<p><strong>Compression searching</strong> Alongside conventional hex analysis various compression searching tools exist (some worked examples of compression can be seen later but standard compression methods have quite distinct fingerprints which can be searched for) and conventional compression tends not to be used on sound and video so by searching for compressed items and combining it with other methods you can often quite quickly locate and decode text.</p>
 </div>
 <div id="assembly-tracing" class="section level3 hasAnchor" number="3.1.8">
 <h3><span class="header-section-number">3.1.8</span> Assembly tracing<a href="tables.html#assembly-tracing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -691,7 +755,7 @@
 <p class="caption">PIC</p>
 </div>
 <p>Import from file and add series are quite useful.</p>
-<p>Oriton <a href="http://www.magicteam.net/index.php?page=programs&amp;show=Oriton">Homepage</a></p>
+<p><strong>Oriton</strong> <a href="http://www.magicteam.net/index.php?page=programs&amp;show=Oriton">Homepage</a></p>
 <p><a href="http://filetrip.net/pc-downloads/applications/latest-oriton-f29376.html">Filetrip download</a></p>
 <p>In the spirit of providing alternative programs where possible we have Oriton. Oriton has had a lot of development done on it more recently than most alternatives. It lacks the ability to add long lengths of known orders beyond those of a basic codepage (right click on the start cell to add it) but the regular expression style addition options and 16 bit support (and greater if necessary) more than make up for it. It also plays reasonably well with the text insertion program Kruptar 7 which will be covered later.</p>
 <div class="figure">
@@ -699,6 +763,12 @@
 <p class="caption">PIC</p>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>In practice it is easier to have identical size tiles and then include a size elsewhere for the game to account for at runtime as the game would likely already be doing calculations on widths but there have been instances of games doing uniquely sized tiles for each character.<a href="tables.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

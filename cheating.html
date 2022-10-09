@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -496,7 +560,7 @@
 <li><p>the payload if any is necessary</p></li>
 </ol>
 <p>The main reason for covering this is understanding how cheats work and how they work with the system often leads to a deeper understanding of how the system works in general and provides a nice in for those wanting to start to learn how to code in assembly (the type of operation, location and payload concept will return there).</p>
-<p>Useful links <a href="http://bsfree.org/hack/">Enhacklopedia</a></p>
+<p><strong>Useful links</strong> <a href="http://bsfree.org/hack/">Enhacklopedia</a></p>
 <div id="general-cheat-making" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> General cheat making<a href="cheating.html#general-cheat-making" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are many ways you can make cheats but the first port of call is usually a memory scanner of some form. These allow you to scan the memory before dropping back into the game, changing something and scanning again until you either get it down to the exact value or a small enough list that you can try them all by hand.</p>
@@ -507,7 +571,7 @@
 <li>Fuzzy search. Here you can note everything with an eye to coming back later to see what has changed. Can be combined with greater or less than most of the time as well. This is quite useful when you have a health or timer bar without a direct display of the value to be searched for.</li>
 <li>Range search. Not always available and doable if you think about it with greater than and less than this quite literally searches for values within a given range.</li>
 </ul>
-<p>Exotic codes and terms Various cheat devices allow for some quite custom and far reaching codes to be made over devices from competitors. Some of these are to change the internal handling of the cheats but many more can have quite far reaching effects. First though some terms that often come up</p>
+<p><strong>Exotic codes and terms</strong> Various cheat devices allow for some quite custom and far reaching codes to be made over devices from competitors. Some of these are to change the internal handling of the cheats but many more can have quite far reaching effects. First though some terms that often come up</p>
 <ul>
 <li>Slide codes. A technique used to generate codes to do the same change to multiple locations at once, usually used if you have something like 30 troops, each with their own health value and ammo value and you do not want to use 30 codes.</li>
 <li>Master code. More associated with game genies where they usually bypass protection and for cheat devices that needed to be set up to work on certain ROM images.</li>
@@ -522,7 +586,7 @@
 <img src="images/194_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguideGBAcheat.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>VBA-H has some slightly expanded options in cheats and elsewhere.</p>
+<p><strong>VBA-H</strong> has some slightly expanded options in cheats and elsewhere.</p>
 <div class="figure">
 <img src="images/195_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidegbavbahcheats1.png" alt="" />
 <p class="caption">PIC</p>
@@ -545,7 +609,7 @@
 <div id="ds-cheat-making" class="section level3 hasAnchor" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> DS cheat making<a href="cheating.html#ds-cheat-making" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This varies a bit depending upon the person doing the cheat making. Desmume has some cheat/memory manipulation abilities but many will use tools like HasteDS and renegade64 or more general purpose tools to hook into emulators and provide similar abilities. Many more will use tools like Datel’s trainer toolkit which has fairly extensive debugging abilities and even flash carts like the Supercard DSTWO and iSmart MM will have minor cheat making options although their search and functionality is somewhat less than a proper tool they can still be used for basic cheats.</p>
-<p>Desmume Should be available in all versions of the program (no need for the dev version), for Linux you may need a given version.</p>
+<p><strong>Desmume</strong> Should be available in all versions of the program (no need for the dev version), for Linux you may need a given version.</p>
 <p><span class="math display">\[note 2014 update\]</span> This is a somewhat older version, the newer builds have a significantly improved cheat engine.</p>
 <p>Main window, exact and comparative search</p>
 <p><img src="images/196_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguideDSdesmumecheat.png" alt="PIC" /><img src="images/197_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidedsdesmumecheat3.png" alt="PIC" /><img src="images/198_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackingguidedsdesmumecheats2.png" alt="PIC" /></p>
@@ -555,7 +619,7 @@
 <p>Select search type - exact value searches for a given value and comparative search allows you to search for anything (life bars and other such things without exact values).</p>
 <p>On the comparative search &gt; ,&lt;, = and != have their usual means of greater than, less than, equals and does not equal.</p>
 <p>Perhaps counter intuitively you have to close the cheat window to get the game to run again before jumping back to the search and refining it.</p>
-<p>Emuhaste <a href="http://i486.client.jp/emuhaste/">Emuhaste project homepage</a></p>
+<p><strong>Emuhaste</strong> <a href="http://i486.client.jp/emuhaste/">Emuhaste project homepage</a></p>
 <p><a href="http://filetrip.net/nds-downloads/utilities/latest-emucr-emuhaste-f29424.html">Filetrip download</a></p>
 <p>Realistically you will probably only use it with desmume but none the less it is a powerful cheat searching engine and includes the ability to dump memory.</p>
 <div class="figure">
@@ -586,20 +650,20 @@
 <p>LE - less than</p>
 <p>MS - multi-search</p>
 <p>There was a previous version of the tool known as hasteDS that stuck around for a while as the rewrite to emuhaste was missing some features but that should now be a thing of the past.</p>
-<p>no<span class="math inline">\(gba As the developer version of no\)</span>gba features a full memory editor it too can be used for cheat making. However it lacks the more in depth cheat making features seen elsewhere, this is fine though as various versions are widely supported by other programs which also support the standard version.</p>
-<p>Others Most of the cheating tools are more or less a specialised class of memory viewer of which there are many (several of the suggested hex editors have the ability to read process memory)</p>
-<p>Artmoney <a href="http://www.artmoney.ru/">Artmoney homepage</a></p>
+<p>**no<span class="math inline">\(gba** As the developer version of no\)</span>gba features a full memory editor it too can be used for cheat making. However it lacks the more in depth cheat making features seen elsewhere, this is fine though as various versions are widely supported by other programs which also support the standard version.</p>
+<p><strong>Others</strong> Most of the cheating tools are more or less a specialised class of memory viewer of which there are many (several of the suggested hex editors have the ability to read process memory)</p>
+<p><strong>Artmoney</strong> <a href="http://www.artmoney.ru/">Artmoney homepage</a></p>
 <p>A more general editor but one that found a fair audience in game hacking circles owing to some more cheat making specific features.</p>
-<p>RenegadeEX <a href="http://filetrip.net/pc-downloads/applications/download-renegadeex-105-f29011.html">Filetrip download</a></p>
+<p><strong>RenegadeEX</strong> <a href="http://filetrip.net/pc-downloads/applications/download-renegadeex-105-f29011.html">Filetrip download</a></p>
 <p>A general program also geared towards editing with support for several emulators but only no<span class="math inline">\(gba for the DS (although it does support several GBA emulators). The previous incarnation known as Renegade64 was also a no\)</span>gba specific program but for a long time far more stable than HasteDS and emuhaste.</p>
 <div class="figure">
 <img src="images/200_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidecheatsrenegadeEX1.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Emucheat <a href="http://www.emucheat.com/">Emucheat homepage</a></p>
+<p><strong>Emucheat</strong> <a href="http://www.emucheat.com/">Emucheat homepage</a></p>
 <p>Another no$gba oriented program and for a while somewhat more advanced than the other options so it became fairly popular among those seeking to make more advanced cheats or cut down on the unnecessary</p>
-<p>Crystaltile2 Not so much for cheats but can interface with no$gba to retrieve VRAM and WRAM data. Available under the “DS emulator” option in the file pulldown menu.</p>
-<p>Datel’s Trainer Toolkit This one is actually something more than a memory viewer, here you have to use a trainer toolkit to connect to a live DS via a GBA slot at which point you can tap into the memory and edit from there.</p>
+<p><strong>Crystaltile2</strong> Not so much for cheats but can interface with no$gba to retrieve VRAM and WRAM data. Available under the “DS emulator” option in the file pulldown menu.</p>
+<p><strong>Datel’s Trainer Toolkit</strong> This one is actually something more than a memory viewer, here you have to use a trainer toolkit to connect to a live DS via a GBA slot at which point you can tap into the memory and edit from there.</p>
 </div>
 <div id="basic-making-of-a-cheat" class="section level3 hasAnchor" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> Basic making of a cheat<a href="cheating.html#basic-making-of-a-cheat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -647,15 +711,15 @@
 <h3><span class="header-section-number">5.3.5</span> Cheat prevention methods and frustrations<a href="cheating.html#cheat-prevention-methods-and-frustrations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Such things often trouble ROM hackers as well owing to the way they work but either because of the way they are coded or because the developers wanted to lessen cheats some games work in such a way that the basic cheat creation method falls short. Additionally some games can be broken by the use of cheats on a less technical level; quite often in a RPG type game you will encounter a fight you are supposed to lose or you can unlock options that might be viable as far as the game code is concerned but the game itself was scripted in such a way that the rest of the story can no longer play out. On a more technical level timers can be used by many parts of the games to do things so holding them is not always feasible.</p>
 <p>Probably the most basic version of this always on cheat problem is if a cheat is always on but for a time in the initial boot sequence the game will use the memory for something else (this is more troubling on the DS if you are doing something in the overlays that are designed to be swapped out of memory many times during the game) but that is usually solved either by hooking the game to use a button activator or similar, changing the nature of a cheat (especially when dealing with timers that the game might use elsewhere) or having a cheat engine that can turn cheats on at a given time. The rest of this section has some examples of techniques seen over the years and there is nothing stopping games from hybridising methods either.</p>
-<p>Mirrored, encrypted, checked and calculated values Although all four are different techniques they work along similar principles</p>
+<p><strong>Mirrored, encrypted, checked and calculated values</strong> Although all four are different techniques they work along similar principles</p>
 <ul>
 <li>Mirror values tend to mean the value is written in multiple locations (see also pointers below) and if one does not match up you can use the others or crash or something.</li>
 <li>Encrypted do as they say and turn a plain number into meaningless gibberish unless you can decrypt it (usually this is a very simple method of encryption like a plain XOR or a shift or something).</li>
 <li>Checked values. If you have four characters their total health might be 614 and you can store that which means if the sum total of character health is different something has gone wrong.</li>
 <li>Calculated values are arguably a subset of encrypted values but rather than say storing a health of 145 you instead take it from the maximum health of 255 and store 110. This can also be for helping with calculations.</li>
 </ul>
-<p>Most of these are easy to work around as if you are searching for infinite health it does not matter if you have an infinite health of 7 or the maximum value for the most part<a href="romhacking202018.html#fn17x0">17</a> so if you have a working set of values just force the game to use them always. If you do want to figure something out you tend to have to watch values that change at all rather than higher or lower and figure out the method used which is usually quite easily managed or dive into assembly probably guided or initially aimed by a basic cheat search.</p>
-<p>Pointers In a DS game the pointers in the header which every DS can read points to the filesystem which points to a file which points to parts of the file which may point for further parts of the file and possibly further (rare but quite possible). There is nothing stopping ROMs from using similar methods and indeed several games have been seen to use these over the years which has several effects including cheats that only work some of the time, cheats that do not work at all (usually thanks to a combination of the previously mentioned methods), cheats that are impossible to find by basic methods (most cheating methods assume the value remains in the same location).</p>
+<p>Most of these are easy to work around as if you are searching for infinite health it does not matter if you have an infinite health of 7 or the maximum value for the most part<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> so if you have a working set of values just force the game to use them always. If you do want to figure something out you tend to have to watch values that change at all rather than higher or lower and figure out the method used which is usually quite easily managed or dive into assembly probably guided or initially aimed by a basic cheat search.</p>
+<p><strong>Pointers</strong> In a DS game the pointers in the header which every DS can read points to the filesystem which points to a file which points to parts of the file which may point for further parts of the file and possibly further (rare but quite possible). There is nothing stopping ROMs from using similar methods and indeed several games have been seen to use these over the years which has several effects including cheats that only work some of the time, cheats that do not work at all (usually thanks to a combination of the previously mentioned methods), cheats that are impossible to find by basic methods (most cheating methods assume the value remains in the same location).</p>
 <p>Workarounds include finding all the locations that can be pointed at (even with pointers many games will do it in a round robin fashion) and controlling the lot (a bit brute force but quite acceptable), you can try reading the pointer at a given point and reacting accordingly if your cheat engine is powerful enough and you can instead force the pointer to stick at one location and make sure that now fixed location gets edited.</p>
 <p>Pointers within pointers are not only possible but seen on several occasions and there are occasionally games with proper memory management/allocation so holding “old” values is not always the best idea.</p>
 <p>There are a few tools to handle pointers for cheats with the most notable one on the DS being Kenobi’s pointer tool which you feed memory dumps and the basic codes into to get the full codes out of (pointers and the initial cheats used to fix yours).</p>
@@ -669,15 +733,15 @@
 <p class="caption">PIC</p>
 </div>
 <p>The idea behind it should you have to go manual is in each game there will be an instruction or memory value addressing the location you are looking at for your cheats, find this place referencing the varying location and it is fairly easy going from there. It is easier to and indeed most tools want to use a couple of dumps from plays of the game that use the different locations (they are for the most part generated at runtime/boot/launch so it should just be a matter of reloading the game save but it is easy enough to test) for similar reasons that to doing multiple rounds of tests to narrow down the possibilities is when making basic cheats. Most of the time the pointer location is fixed so finding the thing that points at the would be cheat location will usually solve the problem although again pointers pointing to other pointers has been seen several times in the wild. Equally there is nothing stopping a game from calculating a pointer by adding a simple number to an address as per C style pointer arithmetic; technically this is pointer in a pointer but if the base value is used in several other places you might not be able to change it so easily.</p>
-<p>Dual values Although this probably is covered by the basic cheat making methods and in the other things that make life harder it should be noted that some games can maintain a couple of values for what ostensibly should be a single piece of data. RPGs make good examples and a similar thing can be seen in some of the GBA Final Fantasy ports where values can be held say one for the life bar, one for the on screen value and another for the actual value used as a basis to form all the others. This gets especially fun when the values are not just display only and may effect what happens in the game for if you have maximum health according to the numbers you may not be able to use a potion but the internal health value means you will eventually die as you are losing health. Those which try to hold timers quite often get tripped up by this.</p>
-<p>Stack/register values The ideas behind the terms are covered in later sections but alongside conventional memory there are two other areas known as the stack (which might well be part of memory but should not be considered as such) and registers which sit inside the CPU and in the case of the GBA/DS is the only thing the CPU can read directly within an instruction (naturally you can use the CPU to manipulate memory but it takes a separate instruction).</p>
+<p><strong>Dual values</strong> Although this probably is covered by the basic cheat making methods and in the other things that make life harder it should be noted that some games can maintain a couple of values for what ostensibly should be a single piece of data. RPGs make good examples and a similar thing can be seen in some of the GBA Final Fantasy ports where values can be held say one for the life bar, one for the on screen value and another for the actual value used as a basis to form all the others. This gets especially fun when the values are not just display only and may effect what happens in the game for if you have maximum health according to the numbers you may not be able to use a potion but the internal health value means you will eventually die as you are losing health. Those which try to hold timers quite often get tripped up by this.</p>
+<p><strong>Stack/register values</strong> The ideas behind the terms are covered in later sections but alongside conventional memory there are two other areas known as the stack (which might well be part of memory but should not be considered as such) and registers which sit inside the CPU and in the case of the GBA/DS is the only thing the CPU can read directly within an instruction (naturally you can use the CPU to manipulate memory but it takes a separate instruction).</p>
 <p>Here values can be put into a register and/or the stack as appropriate and referred to/operated upon repeatedly before being written back to the memory when all is said and done. There is the related idea of a function specific pointer where all the health, stats and such will be passed into a function for a given period (say a battle) and operated on there but this does not tend to happen on the GBA/DS but on more conventional systems (and especially with “safer” programming langauges) it happens all the time.</p>
 <p>To this end if you want to edit things to do with it you have to find the resulting actions or actions that edit it and edit those instead as more than general memory registers and the stack rarely stay constant for long. As that is quite wordy and hard to visualise consider say the health of a character in a basic RPG: In the main overworld the character’s health matters relatively little or not at all (assume a game with no poison mechanic for the sake of this example) but in battle the health might be changing all the time so rather than write things to and from memory (a relatively slow process compared to the CPU itself) it will keep the health value inside the CPU memory and edit it all the time there instead making your manipulations of the regular memory all but pointless if you wanted infinite health in battle. Here instead you would find instructions that took from the health value and change them to nothing (or even add health) or find the instruction that triggers the death event if you run out of health and negate that there instead.</p>
 <p>Similarly it was for slightly different reason (certain actions would only happen when patient health was low) the trainers and cheats for the DS game “Trauma Center” changed it so if you “missed” with your scalpel or similar the health would reset to full and you can do similar things to work around values held in registers. This also works for parts of memory that can change location and for things like overlays (small sections of code you can drop into a game to be replaced with another but keeping the bulk of the game code) that might not always be present at runtime.</p>
 </div>
 <div id="instruction-editing-cheating" class="section level3 hasAnchor" number="5.3.6">
 <h3><span class="header-section-number">5.3.6</span> Instruction editing cheating<a href="cheating.html#instruction-editing-cheating" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Although assembly hacking discussion does not start in earnest until next section this is directly related to cheating and so quite useful to know about not to mention providing a direct link to more conventional assembly hacking. Some of the very first “trainers”<a href="romhacking202019.html#fn18x0">18</a> for the DS that were not scene trainers attempted to hard patch action replay codes in various ways. This sort of editing is a useful skill to have and it generally revolves around editing the instruction(s) that ultimately serve change the value and slightly further down the line it covers how to do hook a binary to enable a similar effect but one that is more directly useful to a lot of assembly hacking which might need to change something but requires a larger instruction. It should be noted that for infinite lives type cheats there are many ways to die (think even on a basic platformer like NES mario you can run out of time, fall down a pit, get hit by an enemy and who knows if hazards and enemies are two different things) and games have long been seen to have many functions that will change the same value. Of course it can cut the other way and allow you to have infinite time in a level but the end of level time remaining to score function can still remove the time value that a basic hold this memory location would mess up.</p>
+<p>Although assembly hacking discussion does not start in earnest until next section this is directly related to cheating and so quite useful to know about not to mention providing a direct link to more conventional assembly hacking. Some of the very first “trainers”<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> for the DS that were not scene trainers attempted to hard patch action replay codes in various ways. This sort of editing is a useful skill to have and it generally revolves around editing the instruction(s) that ultimately serve change the value and slightly further down the line it covers how to do hook a binary to enable a similar effect but one that is more directly useful to a lot of assembly hacking which might need to change something but requires a larger instruction. It should be noted that for infinite lives type cheats there are many ways to die (think even on a basic platformer like NES mario you can run out of time, fall down a pit, get hit by an enemy and who knows if hazards and enemies are two different things) and games have long been seen to have many functions that will change the same value. Of course it can cut the other way and allow you to have infinite time in a level but the end of level time remaining to score function can still remove the time value that a basic hold this memory location would mess up.</p>
 <p>Still going back to Summon Night 2</p>
 <p>0300060C held the location for the life counter.</p>
 <p>There are two options here</p>
@@ -715,6 +779,14 @@
 </div>
 <p>It can go an awful lot further than this. Also as mentioned elsewhere if you especially want then in the case of the DS the binary itself is usually found uncompressed in RAM so you can actually do a binary hack via a conventional cheat, as indeed several of the more in depth cheats have done in the case of the DS, and effectively turning an action replay on the DS into a game genie.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="17">
+<li id="fn17"><p>If you have a forced health of 7 there might be an attack that always does ten damage and thus would kill your character and maybe faster than the cheat engine can keep up with, this value of 7 might be lower or higher than the maximum value a game normally allows which can mean you can always reload if it is a gun or always use healing magic or conversely if you have infinite money but only appear to have 7 in your wallet you might not be able to buy something. This is not usually so bad as by making the cheat you know the locations in question and can just play the game/turn them off and allow the game to generate a bigger and better set.
+A good example of this can be seen in the N64 version of Goldeneye where even with infinite health you can die from a big enough explosion and even with infinite ammo you can probably always reload your gun.<a href="cheating.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>The quotes are there as depending upon the person you are speaking to a trainer is required to have a selectable menu of some form available (usually at the start of the game), as opposed to the method described after this. In some cases button combos to activate in a game also allow it to count as a trainer and not a hack. The distinction tends to be less observed in devices where making a start menu is harder.<a href="cheating.html#fnref18" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

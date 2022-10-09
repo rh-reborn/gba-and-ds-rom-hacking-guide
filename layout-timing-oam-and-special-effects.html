@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -513,14 +577,14 @@
 <p>Priority is for each obj relative to the backgrounds and the lower values of objs have a higher priority relative to each other.</p>
 <p>The other bits are used for rotation, flip, size and scaling options with the remaining 16 bits in the range used for the payload of the rotation and scaling functions when they are employed.</p>
 <p>Most of the time edits to them are done manually with just a few tweaks or handled at function level when dealing with assembly but if you do need to edit them there are tools. Equally there are formats in the case of the DS that handle initial values/setup of it for various files so editing those is often more useful.</p>
-<p>OAM calculator for the DS <a href="http://filetrip.net/nds-downloads/utilities/download-oam-calculator-10-f29054.html">Filetrip download</a></p>
+<p><strong>OAM calculator for the DS</strong> <a href="http://filetrip.net/nds-downloads/utilities/download-oam-calculator-10-f29054.html">Filetrip download</a></p>
 <p>If you need to edit OAM on the DS (it might also work for the GBA but be wary as a couple of things on the priority side of things are changed) or likewise decode a value you need not do it by hand thanks to this tool. Usage is fairly straightforward</p>
 <div class="figure">
 <img src="images/30_home_fast6191_romhackingguide_unrenamed_file___orders_romhackingguidegraphicsOAMcalculator.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Basic emulator view This just has a quick example of viewing the memory (editing is sometimes possible here but often refreshed every vblank). From here you would trace the thing that originally changed the OAM and change things in the original binary (the DS quite often has helper formats for the graphics and the GBA was fairly good about keeping the actual binary code and the OAM values separate). It is also an early preview of animation via the OAM as well.</p>
-<p>GBA VBA. The sprite here is actually made up of multiple tiles.</p>
+<p><strong>Basic emulator view</strong> This just has a quick example of viewing the memory (editing is sometimes possible here but often refreshed every vblank). From here you would trace the thing that originally changed the OAM and change things in the original binary (the DS quite often has helper formats for the graphics and the GBA was fairly good about keeping the actual binary code and the OAM values separate). It is also an early preview of animation via the OAM as well.</p>
+<p><strong>GBA</strong> VBA. The sprite here is actually made up of multiple tiles.</p>
 <div class="figure">
 <img src="images/31_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguide2dOAMvba_1.png" alt="" />
 <p class="caption">PIC</p>
@@ -543,7 +607,7 @@
 <h3><span class="header-section-number">2.4.4</span> GBA and DS BG modes<a href="layout-timing-oam-and-special-effects.html#gba-and-ds-bg-modes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The BG modes tend to be for backgrounds, text and some menus, as well as providing the end result of the 3d rendering on the DS. On both the GBA and DS there are 4 backgrounds given the name 0 through 3 (again the DS has a second set of BG modes for engine B).</p>
 <p>On the GBA there are 4 BG layers (0 through 3) and 7 modes, although different layers are restricted in what they can run. BG layers can be a higher resolution than the screen if given the right options/conditions and such things can be used for animation and general game usage to save having to stream content.</p>
-<p>How it works There are two main options here for developers to use in games.</p>
+<p><strong>How it works</strong> There are two main options here for developers to use in games.</p>
 <ol style="list-style-type: decimal">
 <li>Use a bitmap image</li>
 <li>Generate a background from tiles</li>
@@ -553,7 +617,7 @@
 <div id="emulator-shots" class="section level3 hasAnchor" number="2.4.5">
 <h3><span class="header-section-number">2.4.5</span> Emulator shots<a href="layout-timing-oam-and-special-effects.html#emulator-shots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most of the debugging emulators feature the ability to see the various layers that make a background. Typically this is called something like “view map”. Examples of the VBA ones are present in the next few examples of other methods and it is much the same for any emulator with the only differences being in how much the hardware supports.</p>
-<p>Scrolling The BG can be placed behind something and scrolled as a type of animation (often combined with other sorts of animation) or just have a larger BG section to focus the rest of the window on (there are other methods by which to have bigger “rooms” than the screen so do not assume this is how a game does it).</p>
+<p><strong>Scrolling</strong> The BG can be placed behind something and scrolled as a type of animation (often combined with other sorts of animation) or just have a larger BG section to focus the rest of the window on (there are other methods by which to have bigger “rooms” than the screen so do not assume this is how a game does it).</p>
 <p>Visible in many games but an especially nice example exists in Tetris worlds for the GBA. From the same BG image the impression of random stars is given as a background.</p>
 <div class="figure">
 <img src="images/35_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide2dBGscrolling_1.png" alt="" />
@@ -564,7 +628,7 @@
 <img src="images/36_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguide2dBGscrolling_2.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Layering effects The classic example of this feature being used is beds in RPG games where the character will have a head visible above the pillow but the rest is covered. To do this there will be at least two layers with one being assigned a higher priority than the sprite and the second being assigned a lower one.</p>
+<p><strong>Layering effects</strong> The classic example of this feature being used is beds in RPG games where the character will have a head visible above the pillow but the rest is covered. To do this there will be at least two layers with one being assigned a higher priority than the sprite and the second being assigned a lower one.</p>
 <p><img src="images/37_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering1.png" alt="PIC" /><img src="images/38_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering2.png" alt="PIC" /></p>
 <p><img src="images/39_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering3.png" alt="PIC" /><img src="images/40_home_fast6191_romhackingguide_unrenamed_file___original_borders_romhackingguideBGlayering4.png" alt="PIC" /></p>
 <div class="figure">
@@ -608,7 +672,7 @@
 <img src="images/50_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_romhackingguideOAManimation_3.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Original Phoenix Wright animation The above was plain animation via OAM but games occasionally get more interesting.</p>
+<p><strong>Original Phoenix Wright animation</strong> The above was plain animation via OAM but games occasionally get more interesting.</p>
 <p>The first Phoenix Wright game had some fairly notable character animations but rather than redrawing each frame of the animation the characters themselves were actually split into components (usually face and hands) and those swapped out as necessary to create animation. The tile view is not quite how the internal formats do it (those usually being set up to take advantage of the hands and face being one visual concept).</p>
 <div class="figure">
 <img src="images/51_home_fast6191_romhackingguide_unrenamed_file___nal_borders_romhackingguideOAManimation_2_1.png" alt="" />
@@ -618,16 +682,16 @@
 <img src="images/52_home_fast6191_romhackingguide_unrenamed_file___nal_borders_romhackingguideOAManimation_2_2.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Background animation The scrolling effect was mentioned already but if you are using a tiled background you can change the tiles the make up the background and create animation there. Animations with bitmap images has often been done on a programming basis but much of that is either very obvious or quite arcane and steeped in programming methods.</p>
+<p><strong>Background animation</strong> The scrolling effect was mentioned already but if you are using a tiled background you can change the tiles the make up the background and create animation there. Animations with bitmap images has often been done on a programming basis but much of that is either very obvious or quite arcane and steeped in programming methods.</p>
 <p>Another use of the scrolling effect is more commonly used as camera animation in 3d imagery but here if you rapidly move around the BG map a “camera shaking” effect is created and is well documented/entrenched in cinematography as something seen when a character or location is startled or hit.</p>
-<p>Palette animation It has been mentioned briefly in the past but there is also the matter of palette animation aka dynamic palettes to consider as well. Here the game will change a colour or a handful of colours in the palette and this has a corresponding change in the main game.</p>
+<p><strong>Palette animation</strong> It has been mentioned briefly in the past but there is also the matter of palette animation aka dynamic palettes to consider as well. Here the game will change a colour or a handful of colours in the palette and this has a corresponding change in the main game.</p>
 <p>From Summon Night Swordcraft Story 2 a quick sample of three stages of an animation. Changing parts of the palette have a black square added around them.</p>
 <div class="figure">
 <img src="images/53_home_fast6191_romhackingguide_unrenamed_file___rs_romhackingguidegraphicspaletteanimation1.png" alt="" />
 <p class="caption">PIC</p>
 </div>
 <p>The game, unlike most on the GBA, also features a few different colour modes for the original GBA, GBA-SP, TV and the option to change brightness on a slider.</p>
-<p>Developer tricks There is more on this in part III but some on 2d for now. The idea here is the developer will do things to make the demands on system resources less and in doing so allow them the potential for a larger amount of other things to be done which is always good.</p>
+<p><strong>Developer tricks</strong> There is more on this in part III but some on 2d for now. The idea here is the developer will do things to make the demands on system resources less and in doing so allow them the potential for a larger amount of other things to be done which is always good.</p>
 <p>For instance a character walking left is much the same as a character walking right so you only need to animate one direction and flip the sprites over. This might also trickle down into the sprite itself which will not be seen holding a weapon or something that will mark it as a flipped sprite.</p>
 <p>If an area of a level is not being seen at present there is no need to animate it. The basement/smithy of the Summon Night Swordcraft Story 2 used in the palette animation section provides a great example. The 3d equivalent of this is backface culling and viewpoint rendering.</p>
 <p>Another effect commonly seen in 3d animation but still useful in 2d, and seen in several games, is the addition of a single dark circle as a shadow.</p>
@@ -641,8 +705,8 @@
 <div id="special-features-flipping-affine-transformation-alpha-and-such" class="section level3 hasAnchor" number="2.4.8">
 <h3><span class="header-section-number">2.4.8</span> Special features (flipping, affine transformation, alpha and such)<a href="layout-timing-oam-and-special-effects.html#special-features-flipping-affine-transformation-alpha-and-such" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Despite all the limited memory and quirks the GBA and DS or perhaps because of it both feature all sorts of methods that developers can employ to perform various alterations to the images seen.</p>
-<p>In OAM transformation Mentioned briefly a few paragraphs back the OAM has options to flip sprites and individual tiles. and is quite often used to have characters walk to the left or walk to the right despite using a single set of sprites (you can see an example of it up in the GBA OAM viewing section). Double size is also available although intended use seems to be for working around affine transformation induced issues (preventing parts from being clipped off when rotated in most cases) rather than the immediately obvious (although that works as well).</p>
-<p>Affine Many guides and documents will refer to this by the two most common things it does, which are the other two big transformations done to geometry known to most as rotation and scaling (the third one, translation, being fairly well taken care of by everything else). Strictly speaking though it does allow for shear transformation and some other things and so the term affine transformation is more fitting.</p>
+<p><strong>In OAM transformation</strong> Mentioned briefly a few paragraphs back the OAM has options to flip sprites and individual tiles. and is quite often used to have characters walk to the left or walk to the right despite using a single set of sprites (you can see an example of it up in the GBA OAM viewing section). Double size is also available although intended use seems to be for working around affine transformation induced issues (preventing parts from being clipped off when rotated in most cases) rather than the immediately obvious (although that works as well).</p>
+<p><strong>Affine</strong> Many guides and documents will refer to this by the two most common things it does, which are the other two big transformations done to geometry known to most as rotation and scaling (the third one, translation, being fairly well taken care of by everything else). Strictly speaking though it does allow for shear transformation and some other things and so the term affine transformation is more fitting.</p>
 <p>In the case of sprites/objs it is split across the first two attributes and the fourth hidden ones. The s in ones is not a typo as the normally unusual 4th attribute is in fact affine transformation data but it allows for 32 attributes (somewhat less than the 128 objects possible but that is not so bad as there is nothing stopping things from sharing a set of attributes) in all as the first four hidden attributes are used for a single transformation value and this is repeated.</p>
 <p>Attribute 0 activates the mode</p>
 <p>Attribute 1 selects the transformation grouping in bits 9 to 13.</p>
@@ -651,13 +715,13 @@
 <p>For those used to the maths the reference point is the top left of the object rather than the screen and the rotation centre is set as the middle of the sprite. In some ways this is quite limiting as some interesting things can be accomplished with different origins and centres of rotation but it does serve to simplify things for basic transformations.</p>
 <p><a href="http://problemkaputt.de/gbatek.htm#lcdobjoamattributes">GBAtek</a> has basic listings and <a href="http://www.coranac.com/tonc/text/affobj.htm">tonc</a> has more worked examples.</p>
 <p>BG affine transformation is slightly more involved but follows much of the same logic, <a href="http://problemkaputt.de/gbatek.htm#lcdiobgrotationscaling">GBAtek</a> has more.</p>
-<p>Mosaic Usually seen as the single corner pixel repeats for every unset pixel in the rest of the screen but it is available for smaller values. Has to be enabled in the individual control register and then set accordingly in 400004C hex but is available for all the BG layers as well as equivalents for sprites. <a href="http://problemkaputt.de/gbatek.htm#lcdiomosaicfunction">GBAtek mosaic</a> section and <a href="http://www.coranac.com/tonc/text/gfx.htm#sec-blend">Tonc</a> has some nice worked examples.</p>
-<p>Alpha and brightness Alpha blending is a method by which two images can be merged together, the not entirely accurate but layman’s equivalent term being called transparency, and can be used to achieve a variety of effects. Note that the DS 3d system has a rather more complex setup for alpha depending upon textures used and more.</p>
+<p><strong>Mosaic</strong> Usually seen as the single corner pixel repeats for every unset pixel in the rest of the screen but it is available for smaller values. Has to be enabled in the individual control register and then set accordingly in 400004C hex but is available for all the BG layers as well as equivalents for sprites. <a href="http://problemkaputt.de/gbatek.htm#lcdiomosaicfunction">GBAtek mosaic</a> section and <a href="http://www.coranac.com/tonc/text/gfx.htm#sec-blend">Tonc</a> has some nice worked examples.</p>
+<p><strong>Alpha and brightness</strong> Alpha blending is a method by which two images can be merged together, the not entirely accurate but layman’s equivalent term being called transparency, and can be used to achieve a variety of effects. Note that the DS 3d system has a rather more complex setup for alpha depending upon textures used and more.</p>
 <p>For the most part alpha is a flag and variable which is to say if it wants to be alpha blended there will be a flag to say so and somewhere else a variable to say by how much (this is also where the 3d differs slightly in some modes).</p>
 <p>Brightness adjustment, which the DS has a special mode in the capture unit for, is also possible with it being available instead of alpha if you want it. Note that many developers instead chose to alter brightness at the palette level for the original GBA model hence the hacks to restore colours that looked rather washed out in later GBA models.</p>
 <p>Three registers are used here with 04000050 hex aka BLDCNT being the main select this mode 4000052 hex aka BLDALPHA being the alpha modes and 4000054 hex aka BLDY doing for the brightness. Note that although sprites can be blended here the setting can be overridden to always blend in the OAM.</p>
 <p><a href="http://problemkaputt.de/gbatek.htm#lcdiocolorspecialeffects">GBAtek</a> has more depth and full listings.</p>
-<p>Mode 7 The SNES (which the GBA owes a lot to in terms of abilities and hardware design) was one of the first to allow for a perspective transformation of an image. Though now looking quite poor to those used to modern 3d imagery it was revolutionary at the time, so much so the hardware term from the SNES became shorthand for the technique. <a href="http://www.coranac.com/tonc/text/mode7.htm">Tonc</a> has more.</p>
+<p><strong>Mode 7</strong> The SNES (which the GBA owes a lot to in terms of abilities and hardware design) was one of the first to allow for a perspective transformation of an image. Though now looking quite poor to those used to modern 3d imagery it was revolutionary at the time, so much so the hardware term from the SNES became shorthand for the technique. <a href="http://www.coranac.com/tonc/text/mode7.htm">Tonc</a> has more.</p>
 </div>
 <div id="basic-ds-layout-formats-and-mapping" class="section level3 hasAnchor" number="2.4.9">
 <h3><span class="header-section-number">2.4.9</span> Basic DS layout formats and mapping<a href="layout-timing-oam-and-special-effects.html#basic-ds-layout-formats-and-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -672,34 +736,34 @@
 <img src="images/55_home_fast6191_romhackingguide_unrenamed_file___ginal_borders_7wizardozndsdemohack15jul2011.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Palette formats</p>
-<p>NCLR</p>
+<p><strong>Palette formats</strong></p>
+<p><strong>NCLR</strong></p>
 <p>Occasionally seen as RLCN it is a palette format. Most of the time a fairly pointless wrapper for the palette but other times does act as an archive format.</p>
-<p>NTFP</p>
+<p><strong>NTFP</strong></p>
 <p>Technically part of the NCLR format but seen quite often by itself and especially on earlier games.</p>
-<p>.PAL</p>
+<p><strong>.PAL</strong></p>
 <p>Not always a palette (it still being the shorthand for European and Australian TV standards and so versions of games aimed at there will sport that extension) but quite often palettes are seen with this extension.</p>
-<p>Tile storage Tiles themselves need to be stored and various archive formats have been made for them</p>
-<p>NCGR</p>
+<p><strong>Tile storage</strong> Tiles themselves need to be stored and various archive formats have been made for them</p>
+<p><strong>NCGR</strong></p>
 <p>A format that includes all the relevant data about the data stored (widths, heights, colour depths, whether it is tiles or not and more). Aimed more at sprites/objs but remember full screen images are possible and still used for BG type images.</p>
-<p>NTFT</p>
+<p><strong>NTFT</strong></p>
 <p>Another raw format that is technically part of another (in this case NCGR) but seen by itself on occasion.</p>
-<p>NSCR</p>
+<p><strong>NSCR</strong></p>
 <p>Aimed at background (BG) images and contains information on how to decode and set things up.</p>
-<p>NTFS</p>
+<p><strong>NTFS</strong></p>
 <p>Once more part of a bigger format (NSCR in this case)</p>
 <p>Mapping Mapping merely involves arranging the OAM or BG into the proper order. It can be done in many ways but the nitroSDK provides a handful of methods although many are encompassed either by animation or by the storage methods themselves.</p>
-<p>NCER</p>
+<p><strong>NCER</strong></p>
 <p>Aimed at sprites and provides initial OAM data among other things.</p>
-<p>Animation</p>
-<p>NANR</p>
+<p><strong>Animation</strong></p>
+<p><strong>NANR</strong></p>
 <p>An infrequently used animation format.</p>
-<p>NMCR</p>
+<p><strong>NMCR</strong></p>
 <p>A format seen in pokemon to provide animations. In some ways it might be considered a wrapper to NANR.</p>
 <p>Fonts It will be covered later in the text hacking section but there is a fairly complex font format many DS games use. Many other games use equally complex formats where others might use simple plain tiles (maybe in a slightly odd size).</p>
-<p>NFTR</p>
+<p><strong>NFTR</strong></p>
 <p>A font format the includes character widths/dimensions, line locations and various types of mapping available.</p>
-<p>General observations Most DS editing programs will feature editing abilities for these formats and related ones and exporting and importing should not be a problem. However if you are after a more general image editor and have one that supports the Susie plugin format (a fairly popular plugin format seen in a lot of Japanese image editors) loveemu’s <a href="https://github.com/loveemu/nitroscrap/releases">nitroscrap</a> heads down such a path.</p>
+<p><strong>General observations</strong> Most DS editing programs will feature editing abilities for these formats and related ones and exporting and importing should not be a problem. However if you are after a more general image editor and have one that supports the Susie plugin format (a fairly popular plugin format seen in a lot of Japanese image editors) loveemu’s <a href="https://github.com/loveemu/nitroscrap/releases">nitroscrap</a> heads down such a path.</p>
 <p>Although they can and frequently are found by themselves they might be put into basic container formats like narc, custom ones as will be covered several times over during the course of this guide, occasionally stripped of components of (maps being ignored and such), be stripped down to the their basic components (basically a headerless file), have a single palette for an entire range of images (often this will be named accordingly but not always and either way it can confuse programs that expect the same name, which is most of them). This is especially true of animation which rarely uses the NANR format.</p>
 <p>The formats have remained largely static over the course of things although pokemon has a habit of changing a few things, using rarely used features and reworking some others so tools built to earlier standards might not work properly with that franchise.</p>
 <p>The names above are the extensions the files that carry them usually have but they are occasionally known by the magic stamp which is usually a reversed version of the extension (NCLR=RLCN and such).</p>
@@ -715,7 +779,7 @@
 <p>The GBA and DS video systems are quite in depth which serves both to work around issues of low power and to provide developers the options to do things they might otherwise have to spend a lot of time programming. One of the more interesting aspects of this is the memory handling as it is quite possible to run out and there are other quirks such as alignment.</p>
 <p>2d memory management Games, especially on the GBA but the DS is no easy street, frequently push up against the limits of the memory and this means there is certainly not so much of it you can never run out and with certain graphics modes it is very easy to do. As ROM hacking so often wants to add things you will probably brush up against this eventually. The most common scenarios are you have a 2d overlay on a background and either the repeated tiles want to be edited or you want to extend the overlay a bit and run out of memory that way.</p>
 <p><a href="http://pineight.com/gba/managing-sprite-vram.txt">pineight.com</a>details a streaming method homebrew programmers can use to hopefully never run out of ram. DS programmers are not quite so fortunate and will tend to have to fiddle with maps and tiles or accept a slightly lesser image.</p>
-<p>Alignment In short the GBA VRAM will only accept writes to values aligned to 16 bits and this most commonly rears up when compression is being dealt with. It has had such an effect that it led to a whole class of methods being described as VRAM safe or otherwise WRAM safe if they do not work on VRAM. Unless you are physically managing the VRAM as part of a hack (and not say relying on a function to read so much from the cart into it) it is usually just a matter of making sure you select the “VRAM safe” compression function of whatever program you are using.</p>
+<p><strong>Alignment</strong> In short the GBA VRAM will only accept writes to values aligned to 16 bits and this most commonly rears up when compression is being dealt with. It has had such an effect that it led to a whole class of methods being described as VRAM safe or otherwise WRAM safe if they do not work on VRAM. Unless you are physically managing the VRAM as part of a hack (and not say relying on a function to read so much from the cart into it) it is usually just a matter of making sure you select the “VRAM safe” compression function of whatever program you are using.</p>
 </div>
 </div>
             </section>

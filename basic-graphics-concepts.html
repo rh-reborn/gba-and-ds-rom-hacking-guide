@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -484,7 +548,7 @@
             <section class="normal" id="section-">
 <div id="basic-graphics-concepts" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Basic graphics concepts<a href="basic-graphics-concepts.html#basic-graphics-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In computer games, and most visual or other sensory media until you meet things like abstract works (note a somewhat different concept to abstraction as seen elsewhere in this document), there are two concepts that feed off each other at work. 1) is the suspension of disbelief and 2) is getting the audience to use their imagination. 2) is the subject of any good artistic tutorial but in the meantime think how a camera might pan away and use some audio cues rather than attempting to display violence or a good book will spend a lot of time setting a scene and describing things or otherwise describe situations compelling to humans. As it is very involved 2) is not really something that can be covered here other than to say it is well worth learning about, even if you are mainly a technical person, both in general and to help when you try to guess what methods will be used to achieve an effect. 1) however is much more of a scientific discipline, although to cover it in depth we would have to delve into various aspects of biology and psychology, so it gets covered. To make an image look real, assuming you want that sort of thing<a href="romhacking20204.html#fn3x0">3</a> , it</p>
+<p>In computer games, and most visual or other sensory media until you meet things like abstract works (note a somewhat different concept to abstraction as seen elsewhere in this document), there are two concepts that feed off each other at work. 1) is the suspension of disbelief and 2) is getting the audience to use their imagination. 2) is the subject of any good artistic tutorial but in the meantime think how a camera might pan away and use some audio cues rather than attempting to display violence or a good book will spend a lot of time setting a scene and describing things or otherwise describe situations compelling to humans. As it is very involved 2) is not really something that can be covered here other than to say it is well worth learning about, even if you are mainly a technical person, both in general and to help when you try to guess what methods will be used to achieve an effect. 1) however is much more of a scientific discipline, although to cover it in depth we would have to delve into various aspects of biology and psychology, so it gets covered. To make an image look real, assuming you want that sort of thing<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> , it</p>
 <ol style="list-style-type: decimal">
 <li>Has to replicate enough colours that the human eye can not tell (this is typically taken to be about 24 bit aka 16.7 million colours, although those that edit images like to go to 32 bit (4294967296 values) so as to have more information to edit with and avoid having colours jump from to the other) and although the GBA and DS screen is 16 bit it can do the job if you do it right.</li>
 <li>Has to have enough information, this typically means having a point and the point next to it not being distinguishable from one another (if you can see the points that make up the average image something has gone wrong). Now there are ways around this as the human eye is better at brightness (luminance) than colours and there is such a thing as empty magnification where you can blow things up/zoom in but no real new information will be gained, not to mention humans do not see ultraviolet so it tends not to be replicated in imagery. Indeed much of lossy compression is tasked with doing just this.</li>
@@ -508,6 +572,12 @@
 <h3><span class="header-section-number">2.1.3</span> Bit depth<a href="basic-graphics-concepts.html#bit-depth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In general imagery it means one thing and that is how many bits are assigned to colours, something which was covered in the introduction to this section, but in 2d console imagery it means what number is assigned to represent each pixel with typical values being 4 and 8, though 1 and 2 are seen commonly enough on various systems, including the GBA and DS. Now this does not mean 4 and 8 bit colours but that you can select from a choice of colours from a premade selection which is composed of 16 bit colours. Later on a concept known as “sector addressing” is covered which works on a related principle.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>It stems from robotics but there is a concept known as the uncanny valley which reads in brief “As a robot gains more human like qualities then humans will react more favourably to it on an emotional level, this is until a tipping point is reached where the robot is fairly similar to a human but not quite and humans will start reacting less favourably, or even negatively, on an emotional level until the robot gets considerably more realistic (no small feat). At such a point the emotional reaction turns back towards the positive”. The idea has parallels throughout media and other attempts to emulate either a human or something that is seen in the real world. To this end going for ultra realism is not always the best bet.<a href="basic-graphics-concepts.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

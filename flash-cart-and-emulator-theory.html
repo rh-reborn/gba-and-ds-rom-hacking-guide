@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -487,7 +551,7 @@
 <p>Although many ROM hackers never have to worry about it sometimes it is nice to know how flash carts and emulators get things running so as to be able to work around any anti piracy (AP) protection or allow games to save on hardware other than the cart/disc they came on or use certain features to your advantage; the GBA slot is available in DS mode and who does not want an extra 32 megabytes of fast, sadly read only, memory mapped memory to play with when the base system has just about 4 megabytes, in which you do also have to stick some kind of binary for the processor.</p>
 <p>On top of this it will probably not be such a problem in the future but historically several ROMs have been hacked to work better with some workarounds or simplifications that emulators use (on the handhelds this often meant graphics tweaks to work around display size limitations or layering issues but it can be more in depth than that). ROMs can also be hacked to work on the emulator if it lacks a feature (say emulation of an extra chip or in the case of the NES a different mapper), although the former is often one of the hardest hacks to do. Another one might be to allow flash cart features to work better; much like you may fix a bug in a game the limited scope of flash cart extras might be very simply sorted by allowing a game to more gracefully handle an error case or not do something that troubles the feature.</p>
 <p>If in the following you notice a pattern of the Pokemon franchise frequently causing troubles for flash cart owners/makers, ROM hackers and emulator users you would not be the first. Indeed as a result once tools get made (they have for every mainline Pokemon game to date) Pokemon has a fairly nice engine that allows for some people to make some nice hacks without much employing much technical skill but unless you are actually wishing to learn some of the more advanced techniques in ROM hacking as a result of a lot of these extras then pokemon makes for a fairly poor game to to learn on, and this regardless of what you are trying to do short of perhaps using an emulator to grab graphics and musical assets.</p>
-<p>Emulator theory, unlike emulator coding, is actually very simple so beyond this paragraph it will not really be covered in earnest. Emulator theory then reads “whatever the original hardware/runtime did (up to and including undocumented features) make your emulator do as well with the same timings”. You might be able take shortcuts and cut corners and indeed half of emulator programming is about figuring out what and when you can<a href="romhacking202030.html#fn29x0">29</a> skip something over without ill effect, without much ill effect (for the greater good and all that) or indeed what you can skip over/change/work around to good effect; no sense emulating 20 minutes of loading a tape when all it does is copy to the contents of it to the memory, and if the original console had a cheap and nasty graphics preprocessor/modulator<a href="romhacking202031.html#fn30x0">30</a> , as many old consoles did to get so as to get it to work on RF inputs for TVs, and you have glorious RGB from your emulator’s internal rendering then you can forget the RF side of things. However if the ROM/ISO does not work properly your emulation is not complete or accurate enough.</p>
+<p>Emulator theory, unlike emulator coding, is actually very simple so beyond this paragraph it will not really be covered in earnest. Emulator theory then reads “whatever the original hardware/runtime did (up to and including undocumented features) make your emulator do as well with the same timings”. You might be able take shortcuts and cut corners and indeed half of emulator programming is about figuring out what and when you can<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> skip something over without ill effect, without much ill effect (for the greater good and all that) or indeed what you can skip over/change/work around to good effect; no sense emulating 20 minutes of loading a tape when all it does is copy to the contents of it to the memory, and if the original console had a cheap and nasty graphics preprocessor/modulator<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a> , as many old consoles did to get so as to get it to work on RF inputs for TVs, and you have glorious RGB from your emulator’s internal rendering then you can forget the RF side of things. However if the ROM/ISO does not work properly your emulation is not complete or accurate enough.</p>
 <p>A related discipline to emulator theory is in-hardware extras. Flash carts and mod chips are often sold on their abilities to enhance play but seen as they run in hardware they are bound by the restrictions of it unlike an emulator where everything is visible and able to be manipulated (providing you have development options in the emulator or go to the trouble of attaching a development/debugging tool to your emulator as many cheat makers do with tools like emuhaste). The three big things as far as most ROM hackers reading this document are concerned are</p>
 <ol style="list-style-type: decimal">
 <li>DS save states. A save state is simply the contents of every piece of memory, register and related concept bundled into a file to be restored a later date. The DS does not have full access to entire memory though in hardware (some is write only, some is not mapped and more) so savestates are in many ways incomplete which is one of the main reasons (the other being the third entry in this list) why they do not work very well. You could try providing some example data for the section or trying to hook it as it writes and note that down to use later if you wanted.</li>
@@ -497,12 +561,12 @@
 <div id="gba-1" class="section level3 hasAnchor" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> GBA<a href="flash-cart-and-emulator-theory.html#gba-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following has information on the custom things and things that flash cart designers had to handle</p>
-<p>AP and Saves What little AP that was seen was traditional save check types launched outside the standard save routine or related things and in most cases just caused the ROM to fail to launch (usually with an error screen), fail to save or possibly in the case of Samurai Deeper Kyo might have caused the game to be unbeatable past the first boss although that is unconfirmed at present. <a href="https://mgba.io/2014/12/28/classic-nes/">The author of mgba has some nice analysis of the classic NES anti emulation measures.</a></p>
+<p><strong>AP and Saves</strong> What little AP that was seen was traditional save check types launched outside the standard save routine or related things and in most cases just caused the ROM to fail to launch (usually with an error screen), fail to save or possibly in the case of Samurai Deeper Kyo might have caused the game to be unbeatable past the first boss although that is unconfirmed at present. <a href="https://mgba.io/2014/12/28/classic-nes/">The author of mgba has some nice analysis of the classic NES anti emulation measures.</a></p>
 <p>Most issues running GBA carts historically and to this day came from either new save types (long since sorted) or extra hardware (solar sensors, tilt sensors, GBA wireless adapter support and games like Plaston Gate and Legendz - Yomigaeru Shiren no Shima has a connection peripheral you had to connect a device that looked like it had some processing ability onboard) although there are undumped games like the Shrek video purportedly using bankswitching that would also need to be sorted to play on flash cards.</p>
-<p>Saves on the GBA The GBA does not have a value in the header or anything to indicate save type but if you do an ASCII text search for EEPROM, FLASH or SRAM and one comes up (if not you probably have a ROM that uses passcodes to save or maybe some types of homebrew) you have the broad category and emulators like VBA used to and maybe still do stop here causing some problems like having to manually select the save type for things like pokemon but after that there will be some numbers to indicate sub type of which there are a few for each. This search is quite hard to do on limited hardware and with most cart software being derived from devices using NOR memory which is very hard to change things in place for or custom flashing tools to manage it is why most GBA flash carts tend to need ROMs patched before being put onto devices.</p>
+<p><strong>Saves on the GBA</strong> The GBA does not have a value in the header or anything to indicate save type but if you do an ASCII text search for EEPROM, FLASH or SRAM and one comes up (if not you probably have a ROM that uses passcodes to save or maybe some types of homebrew) you have the broad category and emulators like VBA used to and maybe still do stop here causing some problems like having to manually select the save type for things like pokemon but after that there will be some numbers to indicate sub type of which there are a few for each. This search is quite hard to do on limited hardware and with most cart software being derived from devices using NOR memory which is very hard to change things in place for or custom flashing tools to manage it is why most GBA flash carts tend to need ROMs patched before being put onto devices.</p>
 <p>After this a handful set patches (no memory locations or relative locations to trouble things here) that vary in distance from the name are used to change the game to using different save types.</p>
 <p>Related to this and seen again on the DS was the gamecube linkup for certain games that also needed to read from a given save type or indeed a given header (modern flash carts load a loader and then load a game making them a bit harder to have appear as simple carts in some cases). At present no game has been seen to be fixed here and it is unknown whether it is a thing that will need to be fixed in multiboot (ARM code), gamecube side (powerPC variant code) or instead it is timing related or possibly a combination of all three.</p>
-<p>Extra hardware Extra hardware was twofold or maybe threefold depending upon how you want to look at it.</p>
+<p><strong>Extra hardware</strong> Extra hardware was twofold or maybe threefold depending upon how you want to look at it.</p>
 <ol style="list-style-type: decimal">
 <li>Seen only in flash cards, Hong Kong/lucky lucky man/tourist trap specials (the 30 in 1 devices you commonly found (find?) in holiday resorts) and some undumped GBA video ROMs (there were some feature films like Shrek released) was bankswitching. The GBA could only address 32 megabytes of space but there is nothing stopping you from sending a signal to the card to change to a new page/bank/section to gain a bit more space to work with. It is a a technique used extensively on earlier cartridge systems and systems where cartridges were used for memory cards but not on the GBA. In laste 2015 the games were finally <a href="https://mgba.io/2015/10/20/dumping-the-undumped/">dumped and analysed</a>.</li>
 <li>GPIO and SRAM. The GBA cart features some extra buses or carts could just use the SRAM mapping to have the extra hardware be available to the GBA CPU and memory in general. RTC, solar sensors, tilt sensors, the e-Reader (although this gets somewhat more complex) and more used variations on this theme and it would also return for the DS in various manners. Much like the button presses much of this was copied/debounced to another area to be used and that was where hackers could come in and inject data to fix things.</li>
@@ -512,7 +576,7 @@
 <div id="ds-2" class="section level3 hasAnchor" number="5.7.2">
 <h3><span class="header-section-number">5.7.2</span> DS<a href="flash-cart-and-emulator-theory.html#ds-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following section contains information on the DS AP, saves and extra hardware. DS saves are not really going to be covered as they were largely the domain of flash cart makers who either patched the game or physically emulated down to a protocol level (originally in carts that used save lists to change the onboard FPGA or CPLD into a pin for pin compatible version of the original save chip and later in carts that added clean/special/ghost mode in an attempt to allow games to be played before proper fixes were made). Still if you are interested <a href="http://problemkaputt.de/gbatek.htm#dscartridgebackup">GBAtek</a> has more but the general idea is the SPI bus was more or less mapped to memory and that had access features. The DSi and 3ds checks that are done to check for flash carts are a bit elsewhere. Mainly as the carts themselves pretended to be one of the games on the whitelist of older games (newer games saw further signing and were unsuitable for this) it was a fairly classic example of check to see it was like the original, counter the checks, new checks, counter…</p>
-<p>AP Three principle types of AP have been seen on the DS although realistically more could be generated and the existing methods could be made harder to detect and remove.</p>
+<p><strong>AP</strong> Three principle types of AP have been seen on the DS although realistically more could be generated and the existing methods could be made harder to detect and remove.</p>
 <ol style="list-style-type: decimal">
 <li>Save timing check. EEPROM takes a known time to save and the types of memory/emulation most flash carts use in their general operation will save in a different time (usually far quicker) which can be detected. Carts with clean mode, special mode, ghost mode….. and old savetype list cards being the main exception and most of those only have those modes to allow things to be played pending a proper fix.</li>
 <li>Binary checks - here the binary or a section thereof would be hashed and if it did not match the ROM would see a failed AP check and act accordingly. Again clean mode, special mode, ghost mode….. and old savetype list cards would often dodge this.</li>
@@ -521,16 +585,24 @@
 <p>A detailed historical analysis of the development of DS antipiracy is outside the scope and interest of this document but there are things to be learned from it. Initially AP routines would cause the ROM to simply not function/crash very very shortly after boot but later other things would happen (one of the earliest examples would be Final Fantasy Crystal Chronicles that would act instead as a demo), others would fail to save, others would fail to allow progress, Phantasy Star changed drop rates for items and more.</p>
 <p>On a programming front companies a first did develop their own basic methods that allowed for fairly generic patches to be added to flash carts and in some cases generic cheats made. Later on though hundreds of checks were added that launched at any point in the game, could be buried in overlays, could well sit in THUMB mode, did not appear as a standard/common type (no “simple” searches for a given set of instructions), could fail and not act upon it for several cycles, be hidden in the ARM7 binary (remember it is not really touched by the developers and exists more as a dynamic library and hardware management of sorts) and more meaning each check had to be found and patched out and this is also why simple cheat fixes for AP stopped happening.</p>
 <p>If you are at the point where you can do something about it the solution is probably obvious but never the less it will be covered. Your three main choices are patching out the check entirely so it never happens (the proper and not really any harder way), make the check return the expected value (depending upon how it works this might be harder than stopping the check entirely) and making it so the “IF ELSE” (or in ASM more likely branch if) routine it stemmed from has the failure condition changed to jump to the “all is well” condition instead (another sub optimal method for most occasions). With the hundreds of checks that eventually became default the games did actually often see noticeable although not necessarily game breaking slowdown so preventing the check from happening is the better route.</p>
-<p>Extras Various methods existed here to expand the abilities of the DS beyond that of the original hardware.</p>
-<p>GBA slot extras The options were twofold here</p>
+<p><strong>Extras</strong> Various methods existed here to expand the abilities of the DS beyond that of the original hardware.</p>
+<p><strong>GBA slot extras</strong> The options were twofold here</p>
 <ol style="list-style-type: decimal">
 <li>GBA cart reading. Various DS games could read the GBA port to see if an earlier version of a game in the franchise or a related one (Megaman and Boktai/Solar Boy Django are linked in many ways) was present and usually unlocking some token extras as a result. This usually amounted to just reading the header so you could indeed trick it but having a small portion there but some games and most notably Pokemon diamond and platinum that could read entire saves from earlier GBA games allowing people to trade up through the series. This troubled flash cart users as their saves would be in the SRAM and the DS game would naturally be hardcoded to use the Flash type memory used by the original GBA games. Cory1492 made <a href="http://filetrip.net/nds-downloads/rom-hacks/download-pokepatch-42-f27240.html">Pokepatch</a> however that fixed it for many different GBA carts. Also the DS version of the Opera web browser has some more memory (12 megabytes that was mapped oddly making it useless for GBA ROMs) that was used for the web browser (homebrew later got support for it added thanks to a library/API and the web browser was later hacked to support some types of flash cart RAM instead).</li>
 <li>GBA slot expansions. Arkanoid had a paddle controller (which mario kart and a few other games were later hacked to support) and guitar hero had a guitar grip. These mainly worked on the buses like others mentioned here but most people that had to hack them instead used the fact that the readouts were debounced to regular memory and then attacked those areas but if you want more see the touchscreen to dpad hacks as it is much the same idea.</li>
 </ol>
-<p>DS slot extras A handful of things happened here.</p>
+<p><strong>DS slot extras</strong> A handful of things happened here.</p>
 <p>Pokemon Black and White came with a small device called a pokewalker that was a step counter than provided experience for the pokemon it held. It communicated via an infrared port on the back of the DS cart that used the save bus (via a selector) to activate it and this troubled traditional save grabbing techniques that had not seen this before as they did not know how to trigger the use the save option. Before software save grabbing tools were made hardware tools had the magic packet sent (kind of related to an attack called a replay attack) or people could solder the save section to be always on (or selected via a switch) and use the older software.</p>
-<p>Homebrew devices like the <a href="http://natrium42.com/wiki/DSerial">DSerial</a> and DSx lights used abilities here. More recently enhanced flash carts like the Supercard DSTwo, iPlayer (not officially made by Supercard) and iSmart MM/iSMM (an OEM iplayer from iSmart DS with the ability to play DS commercial ROMs unlike the iplayer) which have onboard processing capabilities<a href="romhacking202032.html#fn31x0">31</a> that allow for serious extras (playback of most types of video up to SD/PAL resolutions and emulation of things up to and including the PS1 and Amiga in the case of the iSMM) and more classically in the likes of onboard processing for DLDI where CRC values for data written to the SD cards of flash carts would be calculated onboard.</p>
+<p>Homebrew devices like the <a href="http://natrium42.com/wiki/DSerial">DSerial</a> and DSx lights used abilities here. More recently enhanced flash carts like the Supercard DSTwo, iPlayer (not officially made by Supercard) and iSmart MM/iSMM (an OEM iplayer from iSmart DS with the ability to play DS commercial ROMs unlike the iplayer) which have onboard processing capabilities<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> that allow for serious extras (playback of most types of video up to SD/PAL resolutions and emulation of things up to and including the PS1 and Amiga in the case of the iSMM) and more classically in the likes of onboard processing for DLDI where CRC values for data written to the SD cards of flash carts would be calculated onboard.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="29">
+<li id="fn29"><p>One of the most interesting things to come out of N64 emulation and which has since been seen elsewhere was the concept of dynamic recompilation. This is where the console itself would not be emulated but the game code which was written in C could be converted to the architecture the emulator was running on and gaining a massive speedboost as a result. Naturally it was not foolproof and not everything worked with it but when it worked it was amazing and allowed machines that otherwise had no chance of running something to run the games at full speed.<a href="flash-cart-and-emulator-theory.html#fnref29" class="footnote-back">↩︎</a></p></li>
+<li id="fn30"><p>Do note many people will want things to appear exactly as they did <del>in better times</del> on old systems and many developers would employ workarounds for shortcomings here and for that matter continue to do such things matter to this day; you might see audio being amplified/normalised to the point of clipping, GBA developers upping contrast to allow for the non backlit original GBA models to look nice, many modern console games are still optimised for TVs that are rarely properly calibrated and further afield many web developers are encouraged to make their stuff look good not on their nicely set up screens but the junk most people have. Likewise those shortcomings can be used to cover for things (a fuzzy RF signal allows for a very crude type of anti aliasing) and such improvements are one of the main criticisms of emulators and reasons given for the preference to use actual hardware. <a href="http://bogost.com/games/a_television_simulator/">bogost.com</a> has a nice discussion of the issues of CRT and how some have set about emulating it.<a href="flash-cart-and-emulator-theory.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<li id="fn31"><p>The pitfalls and quirks of these sorts of devices is somewhat outside the scope of this document but much of the time with them it was observed that programming was easier if the ARM9 was kicked to a similar state as the ARM7 in commercial games and only really used for basic IO and handling as maintaining synchronisation and working around the limited bandwidth of the DS slot and the protocol thereof was very hard.<a href="flash-cart-and-emulator-theory.html#fnref31" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

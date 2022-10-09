@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -503,10 +567,10 @@
 <h3><span class="header-section-number">5.1.1</span> Example tools<a href="levels-and-stats.html#example-tools" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following is a list of a few more well developed tools for the DS and some source code/format explanations with a worked example in the next section.</p>
 <p>There are plenty of other editors you can find for various games if you go searching.</p>
-<p>New Super Mario Brothers <a href="http://treeki.rustedlogic.net/romhacking/docs.html">Treeki’s New Super Mario Bros Documentation</a></p>
+<p><strong>New Super Mario Brothers</strong> <a href="http://treeki.rustedlogic.net/romhacking/docs.html">Treeki’s New Super Mario Bros Documentation</a></p>
 <p>New Super Mario Brothers was Nintendo’s throwback to some of the original 2d Mario games but as already covered it instead opted to use the 3d hardware. This did not stop the levels from being hacked fairly shortly after launch although it would be a while before more fully featured programs and listings appeared.</p>
-<p>Advance Wars <a href="http://www.warsworldnews.com/index.php?page=mapsindex.html">Wars World News</a> which is probably the foremost advance wars hacking related website has a lot of information on the various games in the advance wars franchise.</p>
-<p>Mario 64 The DS got an enhanced port of the N64 version of Mario 64 and level editors eventually appeared for it.</p>
+<p><strong>Advance Wars</strong> <a href="http://www.warsworldnews.com/index.php?page=mapsindex.html">Wars World News</a> which is probably the foremost advance wars hacking related website has a lot of information on the various games in the advance wars franchise.</p>
+<p><strong>Mario 64</strong> The DS got an enhanced port of the N64 version of Mario 64 and level editors eventually appeared for it.</p>
 <p><a href="http://kuribo64.cjb.net/downloads.php">Homepage</a> <a href="http://sm64dse.googlecode.com/svn/trunk/">Google code page</a></p>
 <p><a href="http://filetrip.net/nds-downloads/rom-hacks/download-sm64ds-editor-mario-64-ds-20-beta-3-f29354.html">Filetrip download</a> (XML version of the object database also available there).</p>
 <p>The image below shows a nice test map which are always good to search for as they will often be quite simple and contain most, if not all, the items available for a game.</p>
@@ -514,7 +578,7 @@
 <img src="images/167_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackguideleveleditingMario64.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Mario kart <a href="http://gbatemp.net/topic/299444-mkds-course-modifier/">MKDS course modifier</a></p>
+<p><strong>Mario kart</strong> <a href="http://gbatemp.net/topic/299444-mkds-course-modifier/">MKDS course modifier</a></p>
 <p>Mario kart had filesystem level swaps fairly early on (indeed it was probably one of the first games to see DS level hacks) and eventually the actual formats were reverse engineered and level editors started to be made.</p>
 </div>
 <div id="level-editing-techniques" class="section level3 hasAnchor" number="5.1.2">
@@ -560,7 +624,7 @@
 <img src="images/173_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus5.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Before the ram editing could commence though the memory/level was seen to be refreshed from the ROM itself between that view and the level itself and the level was not regenerated in real time. However the level overview/layout was regenerated from ram if a refresh was forced<a href="romhacking202016.html#fn15x0">15</a> and the level was not fetched from the ROM itself between those, a refresh could be forced by changing the map preview (L and R buttons) or allowing it to scroll round.</p>
+<p>Before the ram editing could commence though the memory/level was seen to be refreshed from the ROM itself between that view and the level itself and the level was not regenerated in real time. However the level overview/layout was regenerated from ram if a refresh was forced<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> and the level was not fetched from the ROM itself between those, a refresh could be forced by changing the map preview (L and R buttons) or allowing it to scroll round.</p>
 <div class="figure">
 <img src="images/174_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus7.png" alt="" />
 <p class="caption">PIC</p>
@@ -569,7 +633,7 @@
 <p>Before going on with the items now that we armed with the knowledge that things might be 18 hex long. Looking at nds001.lvl in a hex editor, deleting the presumed objects list, the header section and colouring some of the non 0 pixels before flipping the resulting image.</p>
 <p><img src="images/175_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus8.png" alt="PIC" /><img src="images/169_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus2.png" alt="PIC" /></p>
 <p>It is well worth a try to look for such things/patterns in memory if you can.</p>
-<p>Items The level editor also made mention of the potential for items and the above work would seem to confirm that they were elsewhere but checking anyway the fully zeroed out level section (here presumed to be where the 0,4 and 1 stuff stopped being the norm) still had items and continuing to zero things out after the end of the level broke it and removed some of the items.</p>
+<p><strong>Items</strong> The level editor also made mention of the potential for items and the above work would seem to confirm that they were elsewhere but checking anyway the fully zeroed out level section (here presumed to be where the 0,4 and 1 stuff stopped being the norm) still had items and continuing to zero things out after the end of the level broke it and removed some of the items.</p>
 <div class="figure">
 <img src="images/176_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus9.png" alt="" />
 <p class="caption">PIC</p>
@@ -627,12 +691,12 @@
 <p>020DFB00 seemed to be a counter/pointer limit (changing it to a lower value would remove items added later)</p>
 <p>020E0840 appeared to be the selection box location</p>
 <p><span class="math display">\[to finish\]</span></p>
-<p>The beginning of the levels 3 hex through 9 hex always seemed to be ??306945EA1004 where ?? could be 00,01,02,03,05,07,08 and 09 with 03 being the most common by far and 09 only seen in nds194, nds175 and nds165 and 08 once in nds182</p>
+<p><strong>The beginning of the levels</strong> 3 hex through 9 hex always seemed to be ??306945EA1004 where ?? could be 00,01,02,03,05,07,08 and 09 with 03 being the most common by far and 09 only seen in nds194, nds175 and nds165 and 08 once in nds182</p>
 <p>00 through 02 hex appeared to be <strong>$$ where </strong> was usually 84 or 04 and but was changed to 7C in nds052, nds026 and nds160</p>
 <p>$$ was often 7F or 80.</p>
 <p>Also as the items stayed in place it would appear there was something to possibly indicate the item section which is usually where the header steps in. No apparent pointers but it could well be a calculated value.</p>
 <p><span class="math display">\[to finish\]</span></p>
-<p>Timers Timers in levels were of interest so an item section was transplanted wholesale from another level and the difference being zero padded. It created not a perfect replica of the items but a close one as there were additional items, the timer however was the same as the what the original level would have been thus implying that it was not stored in the level file. As a further test a level was outright replaced with another yet the timer for the level remained the same as the original level’s; it was different when that donor level rolled around but do make sure of this when you change things as there are few worse feelings than realising you wasted a lot of time over a coincidence.</p>
+<p><strong>Timers</strong> Timers in levels were of interest so an item section was transplanted wholesale from another level and the difference being zero padded. It created not a perfect replica of the items but a close one as there were additional items, the timer however was the same as the what the original level would have been thus implying that it was not stored in the level file. As a further test a level was outright replaced with another yet the timer for the level remained the same as the original level’s; it was different when that donor level rolled around but do make sure of this when you change things as there are few worse feelings than realising you wasted a lot of time over a coincidence.</p>
 </div>
 <div id="stats" class="section level3 hasAnchor" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Stats<a href="levels-and-stats.html#stats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -650,6 +714,12 @@
 <h3><span class="header-section-number">5.1.5</span> RPG randomiser<a href="levels-and-stats.html#rpg-randomiser" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The concept has been around for some time but in recent years it really seems to have taken off. Games like Pokemon, Medabots RPG as well as more conventional “RPGs” often have defined zones for enemies or predefined battles, or in the case of medabots you will only be fighting medabots made of the same parts. You then get to figure out a way to alter this. Do note a lot of games might provide you with something to look at to influence this. Classic examples would be a “conservation” area where you visit old enemies, a bug like pokemon sea tiles, an arena of some form or even certain kinds of mulitplayer. Similarly a game might change the monsters in an area for a sequence or something and that can be very valuable. Alternatively it can be very simple and you only have to influence the outcome of the random number generator; if a game has a bestiary then if the enemies from a similar area have similar numbers it could well be a contained random number generator (generate me a random number between 4 and 6, or more likely generate me one a normal random number and add or multiply to get me to the number for this map). It is up to you to see whether you wish to try to stop end game bosses potentially appearing in a start area, though such things can be fun.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="15">
+<li id="fn15"><p>Having something evaluated repeatedly without the need for a full reset is often desirable in breaking cryptography and it leads to something called a replay attack. It should be noted savestates are not terribly useful here as they have a habit of overwriting memory and in doing so you lose your edits. Likewise desmume appears to store enough of the ROM in memory that a simple “system reset” is not enough and you will have to close and reload the now edited image.<a href="levels-and-stats.html#fnref15" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

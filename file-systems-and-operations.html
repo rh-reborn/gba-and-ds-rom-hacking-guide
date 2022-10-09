@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -505,15 +569,15 @@
 <p>Method - flash cart or emulator. DS and DS lite run GBA code natively if you have a GBA slot cart.</p>
 <p>The executable formats for the DS are ARM9, ARM7 and overlay files that usually come with the extension .bin and sometimes SRL.</p>
 <p><a href="http://problemkaputt.de/gbatek.htm">GBAtek</a> is the main reference document for hardware for the DS.</p>
-<p>NDStool</p>
+<p><strong>NDStool</strong></p>
 <p><a href="http://filetrip.net/nds-downloads/utilities/download-nintendo-ds-rom-tool-ndstool-1501-f29352.html">NDStool on filetrip</a> Command line and very quick and easy but fails to rebuild certain ROM images properly (most still work).</p>
-<p>Nitroexplorer</p>
+<p><strong>Nitroexplorer</strong></p>
 <p><a href="http://filetrip.net/nds-downloads/utilities/download-nitroexplorer-2b-f7301.html">Nitroexplorer filetrip</a> Built to make up for shortcomings in NDStool methods. Short of manual editing the go to tool for most.</p>
-<p>NDSTS</p>
+<p><strong>NDSTS</strong></p>
 <p><a href="http://www.no-intro.org/tools.htm">No-Intro tools page</a> Able to extract files and insert files of the same size (you can pad them if you want), if it crashes when you have edited it where it worked before with this then it is definitely your fault.</p>
-<p>Crystaltile2</p>
+<p><strong>Crystaltile2</strong></p>
 <p><a href="http://filetrip.net/nds-downloads/utilities/download-crystaltile2-20100906-f23649.html">Crystaltile2 filetrip</a> Able to parse the DS file system as well as extract individual files. Support at this level for compression as well as certain container files as well as support for all sorts of known formats and additional functionality. Click the DS icon on the the icon bar to open the viewer.</p>
-<p>Tinke</p>
+<p><strong>Tinke</strong></p>
 <p><a href="https://github.com/pleonex/tinke/">Github link</a> A tool similar in capability to Crystlatile2 and also supports decompression of files, in ROM and extensive support for other formats.</p>
 <p>The DS filesystem is well known and well understood so you have many more options here, indeed it is usually the first feature aspiring DS ROM editing tools gain. DSi compatible games can usually be parsed by standard tools and DSi specific code should now have relevant keys to help things there although it can not really be run. Most games will have archive formats for a handful of files stacked on top but a handful of DS games have been observed to use large single archives for all or most of their files with the files not put into the archive usually being download play components, sound or video.</p>
 <p>Most usage will be covered or fairly obvious save for ndstool which has a basic extraction command like</p>
@@ -541,17 +605,17 @@
 <p><a href="http://wiibrew.org/wiki/Wii_Hardware">Wiibrew</a> houses the main collection of hardware information and information on software internals although there are others that move more into formats and editing of internal software.</p>
 <p>.dol is again the main format although ELF appears in homebrew.</p>
 <p>Wii games and files come in two original flavours and one used by some iso loading types.</p>
-<p>Discs Several tools available but Wii scrubber will be the method of choice here</p>
+<p><strong>Discs</strong> Several tools available but Wii scrubber will be the method of choice here</p>
 <p><a href="http://filetrip.net/wii-downloads/other-files/download-wiiscrubber-kit-with-multiloader-140-f4399.html">Wii scrubber filetrip download</a></p>
 <p>You might however also consider <a href="http://wit.wiimm.de/">Wiimms ISO Tools</a> for a nice command line alternative and support for some of the custom formats that became quite popular on the Wii.</p>
-<p>Virtual console and Wiiware aka WAD files Not to be confused with doom wad files.</p>
+<p><strong>Virtual console and Wiiware aka WAD files</strong> Not to be confused with doom wad files.</p>
 <p>One of the former tools for this was WWpacker but better examples exist in</p>
 <p><a href="https://code.google.com/p/libwiisharp/">libwiisharp example binaries</a>. Simple tools but can unpack things well.</p>
 <p><a href="http://code.google.com/p/showmiiwads/">showmiiwads</a>. A GUI tool featuring the ability to unpack wad files and deal with common things done to the files they contain after that.</p>
 <p>Many titles also nest things in a format known as u8 (and often combine it yaz0 compression) but both of those tools can extract, decompress and deal with that as well.</p>
 <p><a href="http://libwiisharp%20github%20page">https://github.com/BtbN/libwiisharp</a></p>
 <p><a href="https://github.com/Plombo/showmiiwads">showmiiwads github page</a></p>
-<p>HDD Most people do not use whole iso images or the minor tweaks to them any more and will instead use a USB hard drive and maybe a custom format. These come in various formats and layers of support but WBFS is the main method that is often stacked on top of FAT or NTFS filesystems. Wiimms ISO Tools linked above have a measure of support for some of this.</p>
+<p><strong>HDD</strong> Most people do not use whole iso images or the minor tweaks to them any more and will instead use a USB hard drive and maybe a custom format. These come in various formats and layers of support but WBFS is the main method that is often stacked on top of FAT or NTFS filesystems. Wiimms ISO Tools linked above have a measure of support for some of this.</p>
 </div>
 <div id="xbox" class="section level3 hasAnchor" number="1.4.7">
 <h3><span class="header-section-number">1.4.7</span> Xbox<a href="file-systems-and-operations.html#xbox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -568,20 +632,20 @@
 <p>Method - no real softmod. DVD mod (does not allow altered games, XBLA or DLC unless combined with one of the following methods), JTAG (required older hardware) and RGH (can be done on most hardware though later updates can be harder to work around) lead to onboard and USB loading. Emulation nowhere near.</p>
 <p><a href="http://free60.org/Main_Page">Free60</a> features a lot of hardware information.</p>
 <p>Xbox 360 games come in two broad flavours with a third method mentioned. The executable format for the 360 is .xex files. These can be extracted further (they are based on the Windows PE/portable executable format used in exe and dll files).</p>
-<p>Xex Xextool and xextool GUI are tools that can help here. They can unpack the format, apply various patches both to the files themselves and apply the title update patches.</p>
+<p><strong>Xex</strong> Xextool and xextool GUI are tools that can help here. They can unpack the format, apply various patches both to the files themselves and apply the title update patches.</p>
 <p><a href="http://filetrip.net/360-downloads/iso-tools/latest-xextool-f29383.html">Xextool filetrip download</a></p>
 <p><a href="http://filetrip.net/360-downloads/iso-tools/latest-xextool-gui-f29384.html">XextoolGUI filetrip download</a></p>
-<p>Discs Various programs will extract things, including the ISO checking tool known as ABGX360, but many are unwieldy so e-xiso is the main go to method.</p>
+<p><strong>Discs</strong> Various programs will extract things, including the ISO checking tool known as ABGX360, but many are unwieldy so e-xiso is the main go to method.</p>
 <p><a href="http://alecsis.free.fr/Extract-xiso/">Extract xiso homepage</a></p>
 <p><a href="http://filetrip.net/360-downloads/iso-tools/download-e-xisogui-1007-f28976.html">Filetrip download</a></p>
 <p>GOD and NXE/hard drive installs have come from discs and have but a few bytes difference between each other. They can be made back into more or less unusable isos with GOD2ISO.</p>
 <p>XEX files are the binaries of the 360, there can be several. Patches exist in the form of title updates and can be applies to the XEX files if you really want.</p>
-<p>XBLA/DLC PIRS, LIVE and CON. PIRS are signed by MS and can be installed on any 360 without issue. They are mainly sourced from Bethesda game of the year and Borderlands double pack games but there are several more.</p>
+<p><strong>XBLA/DLC</strong> PIRS, LIVE and CON. PIRS are signed by MS and can be installed on any 360 without issue. They are mainly sourced from Bethesda game of the year and Borderlands double pack games but there are several more.</p>
 <p>LIVE is the format of XBLA and DLC. XBLA demos are full games but a little string is swapped to allow play of the full one (naturally this breaks signing and needs a developer or JTAG/RGH box to run it).</p>
 <p>A related set of formats and usually handled by all the same tools. Le Fluffie is one of the main ones.</p>
 <p><a href="http://skunkiebutt.com/?page_id=362">Le Fluffie download page</a></p>
 <p><a href="http://filetrip.net/360-downloads/other-files/download-le-fluffie-690025-f28975.html">Filetrip download</a></p>
-<p>USB Not really a format but one of the main methods of access so it is noted. Later in the life of the 360 Microsoft added support for a custom USB format (in practice it was a reserved section of a USB drive). XTAF.</p>
+<p><strong>USB</strong> Not really a format but one of the main methods of access so it is noted. Later in the life of the 360 Microsoft added support for a custom USB format (in practice it was a reserved section of a USB drive). XTAF.</p>
 <p>Supported by several tools but USBXTAF is the main method.</p>
 <p><a href="http://filetrip.net/360-downloads/hdd-tools/download-usb-xtaf-xplorer-44-f23780.html">Filetrip download</a></p>
 </div>
@@ -639,17 +703,17 @@
 <p>Method- you control the hardware so disc emulation, cracked executables or method emulation (see Steam emulation)……</p>
 <p>Various executable formats depending upon development language and operating system.</p>
 <p>A tiny bit more on PC hacking is mentioned later but for simple unpacking.</p>
-<p>PE</p>
+<p><strong>PE</strong></p>
 <p>Windows main format is the PE format which is usually known by the extensions exe and dll. This can be unpacked with many things including the likes of 7zip.</p>
-<p>ELF</p>
+<p><strong>ELF</strong></p>
 <p>Used as the basis for a lot of executable formats (including many of the consoles covered elsewhere).</p>
-<p>Iso</p>
+<p><strong>Iso</strong></p>
 <p>Broad term for images of optical discs (and sometimes other things) and there are various formats for it (many things will be called iso and burn as one but be unable to be extracted). Can be extracted by many tools including <a href="http://www.7-zip.org/">7zip</a> and <a href="http://www.ezbsystems.com/ultraiso/">Ultraiso (paid software)</a></p>
-<p>Batch/bash</p>
+<p><strong>Batch/bash</strong></p>
 <p>Most operating systems provide a command line where commands can be typed and layered on top of this is are the concept of small text scripts that can do fairly extensive things but in practice are just a list of commands with a few extras.</p>
-<p>Scripts</p>
+<p><strong>Scripts</strong></p>
 <p>(Python, lua, Java, visual basic and many more). Many programming languages operate outside the realms of the standard executable (or have it for a wrapper) and can have their original code, or something close to it, recovered by various means.</p>
-<p>SD/CF/XD</p>
+<p><strong>SD/CF/XD</strong></p>
 <p>A points you may have to copy a SD,CF, XD or some other memory card at the sector by sector level. On these occasions there is a program called DD which is popular on linux and has a <a href="http://www.chrysocome.net/dd">Windows port</a> too.</p>
 </div>
 </div>

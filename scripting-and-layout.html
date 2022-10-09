@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -503,13 +567,13 @@
 <p class="caption">PIC</p>
 </div>
 <p>Initial analysis of the scripting engine as it was reverse engineered mimicked the markup reverse engineering techniques, which is to say a combination of static analysis and testing things to see what happens. Also of possible interest is the opening few lines which appear to be setting up a debug scene, for as mentioned elsewhere the things developers leave in for debugging are often simple examples of the engine/concept in question and can demonstrate concepts that might otherwise have to be extrapolated from the complex ones in the game itself.</p>
-<p>Zombie daisuki Of course the scripting seen is not always so complex as the example above and a nice example can be seen in the game Zombie Daisuki which has scripting as seen in the following picture. If you want to look then in the data directory of the game itself there are some files with the extension .ini which are shiftJIS compatible. Note the variable names including spelling mistakes which can see the hacker accidentally correcting them and causing lots of issues, as well as markup and lack of pointers.</p>
+<p><strong>Zombie daisuki</strong> Of course the scripting seen is not always so complex as the example above and a nice example can be seen in the game Zombie Daisuki which has scripting as seen in the following picture. If you want to look then in the data directory of the game itself there are some files with the extension .ini which are shiftJIS compatible. Note the variable names including spelling mistakes which can see the hacker accidentally correcting them and causing lots of issues, as well as markup and lack of pointers.</p>
 <div class="figure">
 <img src="images/126_home_fast6191_romhackingguide_unrenamed_fil____borders_romhackingguidescriptingzombiedai1.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Lua The programming language lua was seen a handful of times on the DS. It was however converted to a bytecode esque arrangement compared to the plaintext it is usually left as on the PC.</p>
-<p>El Tigre- make my mule The game features a nice archive format worth exploring a bit as it showcases a lot of things seen in archive formats.</p>
+<p><strong>Lua</strong> The programming language lua was seen a handful of times on the DS. It was however converted to a bytecode esque arrangement compared to the plaintext it is usually left as on the PC.</p>
+<p><strong>El Tigre- make my mule</strong> The game features a nice archive format worth exploring a bit as it showcases a lot of things seen in archive formats.</p>
 <div class="figure">
 <img src="images/127_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidearchive_eltigre_1.png" alt="" />
 <p class="caption">PIC</p>
@@ -539,7 +603,7 @@
 <p>The 0001 now in the upper 16 bits is indeed a compressed flag. (a few files were extracted and then attempted to have compression applied without any real success - a quick and easy check).</p>
 <p>In the swav examples the first and second of the three numbers is the same (and the pattern for 3 holds).</p>
 <p>The first of the three values is the uncompressed size, the second the compressed size and the third the location.</p>
-<p>pkg archive data table</p>
+<p><strong>pkg archive data table</strong></p>
 <p>Defined as follows</p>
 <p>32 bytes for the name presumably ending with the first 00 in the name and padded out from there (the last 4 bytes might be necessary though)</p>
 <p>2 bytes for the file number (flipped and counting from 0)</p>
@@ -557,7 +621,7 @@
 <p>301… the last file number is 300 hex and starting with 0000 for numbers means that is likely the file count.</p>
 <p>008C 9446 is the length of the file (usually a common sight in headers) but is absent</p>
 <p>008B F7E2 plus 9C64 (the location of the first file and end of the header) is 008C 9446 and having lengths ignore headers is quite common.</p>
-<p>Header format</p>
+<p><strong>Header format</strong></p>
 <p>4 bytes 706B6700 hex (pkg<span class="math display">\[00\]</span>)</p>
 <p>4 bytes 00 filled.</p>
 <p>4 bytes file count (flipped)</p>
@@ -568,7 +632,7 @@
 <p>4 bytes unknown (0002 DDAA when flipped)</p>
 <p>4 bytes unknown (0000 0003 when flipped)</p>
 <p>12 bytes 00 filled (padding?).</p>
-<p>The compression The header is a nice example of a custom file format and most of the time that is where it ends (give or take building something to remake the archive) but compression was detected. Sadly it is one of the few times a custom format for compression has been seen on the DS. The extensions appear as though they can be trusted so for the time being they were. This section might be more useful once compression (covered in game logic) us covered.</p>
+<p><strong>The compression</strong> The header is a nice example of a custom file format and most of the time that is where it ends (give or take building something to remake the archive) but compression was detected. Sadly it is one of the few times a custom format for compression has been seen on the DS. The extensions appear as though they can be trusted so for the time being they were. This section might be more useful once compression (covered in game logic) us covered.</p>
 <p>Other than the swav files there were a handful of uncompressed files but they were usually quite small. That it happened is nice as it points to file level compression rather than archive wide library compression (formats like 7zip do this to achieve very high compression rates for groups of similar files at the cost of decompression time, resources, potential for the archive to be corrupted beyond recovery of anything via simple means and not able to be extracted without a complete archive set in the case of split archives).</p>
 <p>tmpCopy.txt was extracted. It sounds like a debug text file if ever there was one.</p>
 <p>C86 is the length of the compressed file. According to the header it should be 2DAC hex long.</p>
@@ -579,19 +643,19 @@
 <p>Assembly reverse engineering (full assembly as seen across the decompression function).</p>
 <p>Memory viewing reverse engineering (files have to be decompressed to run)</p>
 <p>dat files (some naturally decompressed and compressed, partial known plaintext analysis).</p>
-<p>The lua The header is a nice example of a custom file format but later in the file there are some files with the extension lua which is the chosen extension of a fairly powerful scripting language of the same name that has been seen on the DS (the puzzle quest series and several times in homebrew). These were all compressed using the custom compression format.</p>
+<p><strong>The lua</strong> The header is a nice example of a custom file format but later in the file there are some files with the extension lua which is the chosen extension of a fairly powerful scripting language of the same name that has been seen on the DS (the puzzle quest series and several times in homebrew). These were all compressed using the custom compression format.</p>
 <p><span class="math display">\[to finish\]</span></p>
-<p>Puzzle Quest and Theta <span class="math display">\[to add\]</span></p>
-<p>Further reading A scripting engine for the Wii game Tales of Symphonia: Dawn of the New World was reverse engineered and although GBA and DS games rarely require anything so extensive it is well worth a read. Links to the matter at hand at <a href="http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-1/">blog.delroth.net part 1</a> and <a href="http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-2/">blog.delroth.net part 2</a>.</p>
+<p><strong>Puzzle Quest and Theta</strong> <span class="math display">\[to add\]</span></p>
+<p><strong>Further reading</strong> A scripting engine for the Wii game Tales of Symphonia: Dawn of the New World was reverse engineered and although GBA and DS games rarely require anything so extensive it is well worth a read. Links to the matter at hand at <a href="http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-1/">blog.delroth.net part 1</a> and <a href="http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-2/">blog.delroth.net part 2</a>.</p>
 <div id="layout-and-limits" class="section level3 hasAnchor" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Layout and limits<a href="scripting-and-layout.html#layout-and-limits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Covered in part earlier (the megaman ZX markup) but worth a quick subsection. Where most of the time outside games if the text reaches the edge of a screen it will automatically wrap back around games, and especially earlier games and games on the handhelds, can certainly never be assumed to do this.</p>
 <p>The methods games employ to do things here and what you will run up against are as varied as any other area of hacking. The first thing to note is it might not be the screen dimensions that causes you trouble but a text box or, worse, an imaginary/invisible text box which usually means an ASM hack to change. Equally important and somewhat more troubling are memory limits, be it in the console’s memory (the DS cart is not available in normal memory so everything has to be copied in), cart memory (seldom a problem on the GBA or DS) or format memory (if the game only uses 16 bit pointers you might have limitations). Strictly speaking this too is an assembly hack but you can get a lot done by simply viewing the memory and adjusting your habits accordingly.</p>
-<p>Auto screen (press to continue) making Not really in the same class as the others mentioned, save for some quite annoying to handle games, but definitely worth knowing about as it is something you will probably run into sooner or later. The game might have more text in a given conversation than can be displayed in the text box given and as such it will either have to auto change to the next one or allow the user to control what happens. Equally some games are fairly concise and there might not be provisions for it, or will require editing of the game’s text engine itself.</p>
+<p><strong>Auto screen (press to continue) making</strong> Not really in the same class as the others mentioned, save for some quite annoying to handle games, but definitely worth knowing about as it is something you will probably run into sooner or later. The game might have more text in a given conversation than can be displayed in the text box given and as such it will either have to auto change to the next one or allow the user to control what happens. Equally some games are fairly concise and there might not be provisions for it, or will require editing of the game’s text engine itself.</p>
 <p>The possibilities here are extensive. Some will have a basic end of section command which the game will pause on pending user input and others will scroll automatically. The eventually ends up at the choices menus in games (the classic “yes/no” option in a game, a concept that very frequently sees dual tile encoding used for it) which can a sort of linked list/level design approach or something buried deep in the game.</p>
-<p>OAM/tile driven wrapping This is more reserved for text in images/tile maps like those often seen in puzzles, however those doing a variable width font hack might use reads of the OAM or BG tile management to direct things. There have been games like <a href="http://gbatemp.net/topic/320192-japanese-programming-madness/">Kenshuui Tendo Dokuta</a> that used a font representation and a nitroSDK graphics format to repeat tiles as necessary to display the scene.</p>
-<p>Line wrapping Much like pointers being used to indicate the location and end of a section of text a game might not have the ability to automatically wrap a line when it comes to the edge of the screen/boundary box. Sometimes it is automatic, sometimes it is pointer driven, sometimes it has a unique character or set of values (Megaman ZX used FC if you recall) and sometimes it uses the same character as another ending value.</p>
-<p>Section wrapping Much the same as line wrapping but note that it is not always the same as the line wrapping used in the game you are dealing with, it may not even be the same concept (pointers to end a section and characters to wrap a line is actually a pretty good way for devs to do a lot of this).</p>
+<p><strong>OAM/tile driven wrapping</strong> This is more reserved for text in images/tile maps like those often seen in puzzles, however those doing a variable width font hack might use reads of the OAM or BG tile management to direct things. There have been games like <a href="http://gbatemp.net/topic/320192-japanese-programming-madness/">Kenshuui Tendo Dokuta</a> that used a font representation and a nitroSDK graphics format to repeat tiles as necessary to display the scene.</p>
+<p><strong>Line wrapping</strong> Much like pointers being used to indicate the location and end of a section of text a game might not have the ability to automatically wrap a line when it comes to the edge of the screen/boundary box. Sometimes it is automatic, sometimes it is pointer driven, sometimes it has a unique character or set of values (Megaman ZX used FC if you recall) and sometimes it uses the same character as another ending value.</p>
+<p><strong>Section wrapping</strong> Much the same as line wrapping but note that it is not always the same as the line wrapping used in the game you are dealing with, it may not even be the same concept (pointers to end a section and characters to wrap a line is actually a pretty good way for devs to do a lot of this).</p>
 </div>
 </div>
             </section>

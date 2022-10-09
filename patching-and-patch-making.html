@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -488,7 +552,7 @@
 <ul>
 <li><a href="https://www.romhacking.net/utilities/13/">IPS</a>. The original ROM hacking patching method of choice. It is a truly basic format (the basic form contains a magic stamp/value, a list of patches to apply (which consist of a location, length and payload) and a signal for the end of the file) although there are a few custom versions that are not widely supported. It can not handle location changes which is not a problem for older consoles but with consoles that have filesystems (which is to say most optical media using and post GBA consoles) it is a dealbreaker. It is also limited to files of 16 megabytes in size or less, again this is not a problem on older consoles but even the GBA allowed code up to 32 megabytes to be run.</li>
 <li><a href="http://www.romhacking.net/utilities/519/">UPS</a>. Made as a direct successor to IPS it has found some use in older consoles and later GBA patches but came a bit too late and the patching methods below had stolen the spotlight. <a href="http://www.romhacking.net/utilities/677/%20">Upset</a>, <a href="http://www.romhacking.net/utilities/519/">Tsukuyomi UPS</a> and <a href="http://www.romhacking.net/utilities/606/">NUPS</a> are all good tools for UPS.</li>
-<li><a href="http://www.romhacking.net/utilities/514/">PPF</a>. Made originally to patch PS1 games (Playstation Patching Format being the longer form) it went through a few revisions and as such some are wary, however it saw some use on the Wii and continues to kick around. Size limits are not really a problem (it is unknown what the upper limit is) and shifts are handled OK. <a href="http://filetrip.net/pc-downloads/applications/download-ppf-o-matic-30-f29416.html">PPF-O-Matic</a> is a nice GUI patching program and the original <a href="http://www.romhacking.net/utilities/353/">PPF</a> program should provide a nice multiplatform patching and patch making alternative.</li>
+<li><a href="http://www.romhacking.net/utilities/514/">PPF</a>. Made originally to patch PS1 games (<strong>P</strong>laystation <strong>P</strong>atching <strong>F</strong>ormat being the longer form) it went through a few revisions and as such some are wary, however it saw some use on the Wii and continues to kick around. Size limits are not really a problem (it is unknown what the upper limit is) and shifts are handled OK. <a href="http://filetrip.net/pc-downloads/applications/download-ppf-o-matic-30-f29416.html">PPF-O-Matic</a> is a nice GUI patching program and the original <a href="http://www.romhacking.net/utilities/353/">PPF</a> program should provide a nice multiplatform patching and patch making alternative.</li>
 <li><a href="http://xdelta.org/">Xdelta</a>and <a href="http://www.daemonology.net/bsdiff/">BSDiff</a>. Both general patching formats (indeed they tend to position themselves as rival formats) that got used for the DS and newer consoles (ROM hackers have tended to favour Xdelta where BSDiff saw more use in the form of Scene trainers and patches). Shifts are handled well enough (although they might not be perfect) and sizes are not likely to get to a limit any time soon (although some implementations of BSDiff are rather low). Features some support for original file checking and hashing. The current version of Xdelta was linked but there is an <a href="http://www.evanjones.ca/software/xdelta-win32.html">older version</a> that was used for a while and there have been some compatibility issues.</li>
 <li><a href="http://www.romhacking.net/utilities/329/">Ninja</a>. An earlier candidate to replace IPS and fell out of favour for various reasons. Some patches have been seen to use it and in many ways it works quite well.</li>
 <li><a href="http://www.quickpar.org.uk/">PAR2</a>. Not a patching method per se and more of a corruption detection and data recovery format. Changed data is no different to corrupt data as far as it is concerned so can patch programs though it has some trouble with data shifts. Better yet though assuming you have enough redundancy you can be certain your patch will make the original ROM into exactly what you need which is quite useful when there are various corrupt or otherwise modified dumps out in the wild (headers on SNES ROM files for instance).</li>

@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -485,11 +549,17 @@
 <div id="finding-the-object-of-your-interest." class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Finding the object of your interest.<a href="finding-the-object-of-your-interest..html#finding-the-object-of-your-interest." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Games come as ROM images, or if they come from optical media originally then ISO images, but common to both is that they are one large lump of code. The previous section took care of methods to pull apart these initial files but that is only the start of things as you will want to find the relevant file or section that houses the thing you want to look at or change.</p>
-<p>There are techniques here ranging from the obvious to the subtle, from the basic to the complex and from the crude to the precise and many will be useless to you without knowing several other things detailed elsewhere in this document. Many ROM hackers starting out will see the more advanced methods of locating data and panic but for the likes of the DS and most other file system sporting devices the main method people use to find the files they want is the file names (most games feature them even if they do not use them directly), file sizes and extensions either directly (English.bmg might well be the text in a DS ROM) or indirectly (sound_data.sdat will probably be the sound so you can eliminate that chunk from your search for the text for a game which is doubly nice as sound is usually a good portion of space in a ROM) with a quick look at directory names alongside that (sound will probably contain sound, 3d will probably contain 3d and dwc\utility.bin is probably download play<a href="romhacking20203.html#fn2x0">2</a> ).</p>
+<p>There are techniques here ranging from the obvious to the subtle, from the basic to the complex and from the crude to the precise and many will be useless to you without knowing several other things detailed elsewhere in this document. Many ROM hackers starting out will see the more advanced methods of locating data and panic but for the likes of the DS and most other file system sporting devices the main method people use to find the files they want is the file names (most games feature them even if they do not use them directly), file sizes and extensions either directly (English.bmg might well be the text in a DS ROM) or indirectly (sound_data.sdat will probably be the sound so you can eliminate that chunk from your search for the text for a game which is doubly nice as sound is usually a good portion of space in a ROM) with a quick look at directory names alongside that (sound will probably contain sound, 3d will probably contain 3d and dwc\utility.bin is probably download play<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> ).</p>
 <p>Alongside this there are several known extensions and header values for various formats where the first few bytes decode as a known ASCII or hexadecimal string. Many more examples later but for now sdat is an extremely common sound format on the DS and bmg is a fairly common text format. It should be noted that extensions can often give away the presence of compression with common examples being if a file ends with “.l” , “.lz”, “._” or something along those lines, especially if it has another known extension before it, then it might well be compressed and you can act accordingly.</p>
 <p>ROM corruption should also be mentioned here. It gets a bit costly to do if you have to burn discs each time but when emulators and flash carts are available you can corrupt a part of the ROM, run it and when it errors or crashes you get to see what parts do what. The simple method is to use one of the hex operations you learned about earlier but there are dedicated corruption tools. Likewise the technique might need to be refined for certain things as things like graphics can only use a select series of values that the corruption tool might inadvertently use. You can also refine the concept to a point where alteration is probably a better term, for instance when trying to figure out how text is encoded it can be useful to repeat a value or sequence rather than using random garbage.</p>
 <p>After this you start heading towards more programming level techniques like relative searching which uses the fact that in Roman character using languages A is followed by B which is followed by C and so should you know the word CAB is in a ROM you can search for a string what has one value followed by a value two less than it and that followed by a value one less than the opening value (although in practice a longer search term is more useful).</p>
 <p>Tracing is understood to the be the ultimate method and it is still quite different to simple hex analysis and file names, however it is not that hard to follow along with the basic idea. In tracing you find the thing you want to look at in the memory (if it is on the screen or coming out of the speakers then it is likely in memory), find what put it there, find where that was told to look and so on until you have the location of the file in the ROM or enough data to find it, and possibly also the means by which it is all decoded. Naturally it is quite an involved technique but very accurate and very reliable. When dealing with PC games and to a lesser extent with some emulators you can observe which files are open and loaded when running the game but this is not always available/viable for the consoles. There is the lesser method of watching BIOS calls (BIOS often being used to handle compression can lead you right to the location on the GBA) and you can do things like search for a field of pointers (on the GBA this often means a list of 08 with 3 bytes afterwards as the most common GBA address is of the form 08XXXXXX) which can help.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>The download play component of a ROM sometimes acts as a cut down version of the main game but pulling it apart and using data gleaned there to attempt to reverse engineer the main ROM is not that useful. It can sometimes net nice artwork maybe provide a few more example files but it is not the first port of call when reverse engineering a DS ROM for most.<a href="finding-the-object-of-your-interest..html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

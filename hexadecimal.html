@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -586,7 +650,7 @@
 <p>Stick two hexadecimal numbers together (sometimes called nibbles/nybbles) and you have a byte. From there it can stack further although it can get a bit tricky as it varies between computer architectures (32 vs 64 bit for instance), operating systems and sometimes programming languages. In general most people will stick to the 32 bit C programming language interpretations of all this and that is what this document will be using unless otherwise stated.</p>
 <p>Going further the terms halfword, word, double word (dword), quad word, short, long and int are what is interesting and are probably worth knowing.</p>
 <p>Most of the time it follows on from bytes with half word being 16 bits aka 2 bytes, words being 32 bits aka 4 bytes, dwords being 64 bits and so on. In ROM hacking few people will use the terms short and long and especially not the term “int” as the “bit” of the processor in question will vary this, the main exception being if they are defining a format in a similar manner used in a programming language (in which case uint for unsigned integer, u8, u16 and similar things appear). If you do go looking “typedef” is the usual catch all term to describe this sort of thing, and many programming tutorials will quite rightly spend a lot of time covering these concepts. In many ways it is not that useful to ROM hacking until you get to analysing what might have happened in the original source to get to here, at this point you probably already know the/a programming language.</p>
-<p>An important extra term when discussing this is boundary/alignment. Unless you are writing poetry you probably do not have to make your sentences a given number of letters/words but computers tend to like it more if the data starts on a multiple of a given value (sometimes it might be “byte aligned” but more often it is word aligned or even higher<a href="romhacking20202.html#fn1x0">1</a> ) or involves manipulating a given length of memory (various internal functions of the DS and GBA prefer to only operate on similarly aligned sections of memory).</p>
+<p>An important extra term when discussing this is boundary/alignment. Unless you are writing poetry you probably do not have to make your sentences a given number of letters/words but computers tend to like it more if the data starts on a multiple of a given value (sometimes it might be “byte aligned” but more often it is word aligned or even higher<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> ) or involves manipulating a given length of memory (various internal functions of the DS and GBA prefer to only operate on similarly aligned sections of memory).</p>
 <p>One link that has some good stuff if you want to go further is the <a href="http://www.plantation-productions.com/Webster/www.artofasm.com/Windows/HTML/DataRepresentation.html#998834">art of assembly</a> but if things are preferred a little closer to conventional maths <a href="http://www.cs.grinnell.edu/~rebelsky/Courses/CS152/97F/Readings/student-binary.html">grinnell.edu</a> have a nice page.</p>
 </div>
 <div id="bcd-binary-coded-decimal" class="section level3 hasAnchor" number="1.1.2">
@@ -727,62 +791,75 @@
 <div id="signed-values-floating-point-and-fixed-point" class="section level3 hasAnchor" number="1.1.4">
 <h3><span class="header-section-number">1.1.4</span> Signed values, floating point and fixed point<a href="hexadecimal.html#signed-values-floating-point-and-fixed-point" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is also the matter of signed bytes and (floating) point values for as with computers not being able to easily write subscript they tend not to have provisions for negative symbols and values after the “decimal” point either. Do note that some of these methods have since made their way into silicon as well, though the GBA and DS are somewhat lacking here.</p>
-<p>Signed values Various methods exist here with popular ones including ones complement, twos complement and excess 7. Each have advantages and some disadvantages depending upon what you are doing although the biggest disadvantages to some of the simpler methods are the inability to do simple maths without conversion and the existence of two values for 0 which makes comparing and acting on the results tricky.</p>
+<p><strong>Signed values</strong> Various methods exist here with popular ones including ones complement, twos complement and excess 7. Each have advantages and some disadvantages depending upon what you are doing although the biggest disadvantages to some of the simpler methods are the inability to do simple maths without conversion and the existence of two values for 0 which makes comparing and acting on the results tricky.</p>
 <p>Signed numbers are also one of the reasons for some stats ending at 511 or 127 or similar (it should become apparent why this is very shortly) with the other big reason, assuming the first bit is not simply ignored, is that programmers frequently like using the first bit to encode something or act as a flag of some form (for instance the DS archive format NARC uses it so signify a subdirectory). For another source on the subject <a href="http://www.cs.grinnell.edu/~rebelsky/Courses/CS152/97F/Readings/student-binary.html">grinnell.edu’s CS152 has a nice version</a>.</p>
-<p>Sign and magnitude Here the first bit of a value is given over and called a negative flag which is also another name for the method (although the term can be used more generally when dealing with signed numbers), another name is signed magnitude.</p>
+<p><strong>Sign and magnitude</strong> Here the first bit of a value is given over and called a negative flag which is also another name for the method (although the term can be used more generally when dealing with signed numbers), another name is signed magnitude.</p>
 <p>Here the first bit is given over to being a sign with the rest of the numbers being interpreted as usual. It is the most similar method to conventional counting/maths. 0 means positive while 1 means negative. 0000 0001 equals 1 and 1000 0001 equals -1</p>
-<p>Ones complement For the ones complement a bitwise NOT operation (covered in more detail later but in short it changes every 0 into a 1 and every 1 into a 0) is applied to a positive number making the negative counterpart. It has problems as basic maths can not be done so easily and it has the problem of two values for 0.</p>
-<p>0001 becomes 1110</p>
-<p>0010 becomes 1101</p>
-<p>0011 becomes 1100</p>
-<p>Twos complement Marginally more complex than the others mentioned so far is twos complement but as it does not have the pitfalls of the other numbers (two representations of zero and simple maths is possible) it is popular. Here the ones complement is made (bitwise NOT to all the digits) and then 1 is added to the result using conventional binary addition. 0000 becomes 1111 and then 0001 0000 but the other part is ignored.</p>
+<p><strong>Ones complement</strong> For the ones complement a bitwise NOT operation (covered in more detail later but in short it changes every 0 into a 1 and every 1 into a 0) is applied to a positive number making the negative counterpart. It has problems as basic maths can not be done so easily and it has the problem of two values for 0.</p>
+<p align="center">
+<code>0001 becomes 1110</code>
+</p>
+<p align="center">
+<code>0010 becomes 1101</code>
+</p>
+<p align="center">
+<code>0011 becomes 1100</code>
+</p>
+<p><strong>Twos complement</strong> Marginally more complex than the others mentioned so far is twos complement but as it does not have the pitfalls of the other numbers (two representations of zero and simple maths is possible) it is popular. Here the ones complement is made (bitwise NOT to all the digits) and then 1 is added to the result using conventional binary addition. 0000 becomes 1111 and then 0001 0000 but the other part is ignored.</p>
 <p>Examples</p>
-<p>Example 1</p>
-<p>-1</p>
-<p>Postive one is 0001</p>
-<p>NOT gives 1110</p>
-<p>adding 0001 gives 1111</p>
-<p>Example 2</p>
-<p>-3</p>
-<p>Positive three is 0011</p>
-<p>A bitwise NOT gives 1100</p>
-<p>Adding one 0001 gives 1101</p>
+<p><strong>Example 1</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="hexadecimal.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb1-2"><a href="hexadecimal.html#cb1-2" aria-hidden="true" tabindex="-1"></a>Postive one is <span class="dv">0001</span></span>
+<span id="cb1-3"><a href="hexadecimal.html#cb1-3" aria-hidden="true" tabindex="-1"></a>NOT gives <span class="dv">1110</span></span>
+<span id="cb1-4"><a href="hexadecimal.html#cb1-4" aria-hidden="true" tabindex="-1"></a>adding <span class="dv">0001</span> gives <span class="dv">1111</span></span></code></pre></div>
+<p><strong>Example 2</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="hexadecimal.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb2-2"><a href="hexadecimal.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="hexadecimal.html#cb2-3" aria-hidden="true" tabindex="-1"></a>Positive three is <span class="dv">0011</span></span>
+<span id="cb2-4"><a href="hexadecimal.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="hexadecimal.html#cb2-5" aria-hidden="true" tabindex="-1"></a>A bitwise NOT gives <span class="dv">1100</span></span>
+<span id="cb2-6"><a href="hexadecimal.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="hexadecimal.html#cb2-7" aria-hidden="true" tabindex="-1"></a>Adding one <span class="dv">0001</span> gives <span class="dv">1101</span></span></code></pre></div>
 <p>Maths example</p>
 <p>Similar to the example of 0 above 2 decimal (0010) added to -1 (1111) which gives 0001 0001 and has the leftmost “spillover” ignored.</p>
-<p>“Excess 7” Although twos complement and the others will serve you well and form the bulk of everything you come into contact with there is another somewhat more complex method in common use. It can vary a bit depending upon your implementation (the technical/concept name is excess 2^(m-1) where m is the number or binary digits you have to work with) but excess 7 will be used for now.</p>
+<p><strong>“Excess 7</strong> Although twos complement and the others will serve you well and form the bulk of everything you come into contact with there is another somewhat more complex method in common use. It can vary a bit depending upon your implementation (the technical/concept name is excess 2^(m-1) where m is the number or binary digits you have to work with) but excess 7 will be used for now.</p>
 <p>It becomes more complex and somewhat more important when fractional numbers arise (covered in the section below). In practice it is a kind of combination of the basic signed magnitude idea and twos compliment. As mentioned this is sticking with excess 7 for the example but scaling up is fairly logical.</p>
 <p>In this system the the first bit is used to indicate the sign (although not necessarily the sign of the final number) leaving the remaining 7 (excess 7) to do what needs to be done. So far not very different to anything covered but this is where the trick happens although an example before it is covered in earnest.</p>
 <p>In years past you might have been encouraged to just make numbers huge as a workaround for having to deal with negative numbers.</p>
 <p>The equation</p>
+<p align="center">
 <div class="figure">
 <img src="images/romhacking20200x.png" alt="" />
 <p class="caption">8 - 1- 3+ 6 +9 = 19</p>
 </div>
+</p>
 <p>A simple equation but with a calculator or in your head it is quite possible to make a mistake and mess the whole thing up.</p>
 <p>Adding in this case ten to all the numbers makes them all positive</p>
+<p align="center">
 <div class="figure">
 <img src="images/romhacking20201x.png" alt="" />
 <p class="caption">18+ 9 +7 + 16+ 19 = 69</p>
 </div>
+</p>
 <p>Five numbers all 10 larger makes the result “out” by 50 but plain addition is far easier to avoid making a mistake in.</p>
 <p>The reason for the digression to simple maths tricks is a similar principle gets used for excess 7.</p>
 <p>In the case of the excess 7 (also called 8 bit excess 127) this is usually 01111111 or 127 in decimal. Here the value you want to encode is either taken (positive numbers) or added to (negative numbers) from this value. In theory, and so probably somewhere in a game out there, the excess does not have to be 127.</p>
 <p>If you prefer it could be seen as counting starting at the lowest possible number which would be “-(-1 +2^m)” or for 8 bits “-(-1 + 2^7)” which is negative 127 and call that the starting / “zero” value. 0 (as in nought) is then the bias value. It has the advantage of being easily compared with other numbers so it is worth knowing about.</p>
-<p>Examples</p>
-<p>Number to encode -7 or (-) 0000 0111</p>
-<p>0111 1111 – 0000 0111 = 0111 1000</p>
-<p>Number to encode 18 or 0001 0010</p>
-<p>0111 1111 + 0001 0010 = 1001 0001</p>
-<p>Examples</p>
-<p>0000 0000 -127</p>
-<p>0000 0001 -126</p>
-<p>0000 0010 -125</p>
-<p>0111 1111 0</p>
-<p>1000 0000 +1</p>
-<p>1000 0001 1111 1111 +128</p>
+<p><strong>Examples</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="hexadecimal.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number to encode -7 or (-) 0000 0111</span></span>
+<span id="cb3-2"><a href="hexadecimal.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0111</span> <span class="dv">1111</span> – <span class="dv">0000</span> <span class="dv">0111</span> <span class="ot">=</span> <span class="dv">0111</span> <span class="dv">1000</span></span>
+<span id="cb3-3"><a href="hexadecimal.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Number to encode 18 or 0001 0010</span></span>
+<span id="cb3-4"><a href="hexadecimal.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0111</span> <span class="dv">1111</span> <span class="sc">+</span> <span class="dv">0001</span> <span class="dv">0010</span> <span class="ot">=</span> <span class="dv">1001</span> <span class="dv">0001</span></span></code></pre></div>
+<p><strong>Examples</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="hexadecimal.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0000</span> <span class="dv">0000</span> <span class="sc">-</span><span class="dv">127</span></span>
+<span id="cb4-2"><a href="hexadecimal.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0000</span> <span class="dv">0001</span> <span class="sc">-</span><span class="dv">126</span></span>
+<span id="cb4-3"><a href="hexadecimal.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0000</span> <span class="dv">0010</span> <span class="sc">-</span><span class="dv">125</span></span>
+<span id="cb4-4"><a href="hexadecimal.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0111</span> <span class="dv">1111</span> <span class="dv">0</span></span>
+<span id="cb4-5"><a href="hexadecimal.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="dv">0000</span> <span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb4-6"><a href="hexadecimal.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="dv">0001</span> <span class="dv">1111</span> <span class="dv">1111</span> <span class="sc">+</span><span class="dv">128</span></span></code></pre></div>
 <p>In practice/the real world this is covered by the near universal standard IEEE 754 which is more commonly seen when dealing with floating point numbers. You could make another method but nobody really does and hardware is built to use it so again nobody does, give or take a few things using fixed point numbers. Here 32bits or more can be used with the first being the sign, the next being the bias value and the rest being the encoded number in question. Speaking of fractional numbers though</p>
-<p>Fractional numbers and real numbers Fractional numbers are usually done using a so called “floating point”, however the GBA and DS do make extensive use of fixed point numbers for various parts of the hardware including 2d transformations and 3d and will be covered shortly. The idea of leaving things as values and only calculating them at the last moment is encouraged in programming but in hardware or the final representation this can be tricky and as that is where ROM hackers spend most of their time it will be noted and nothing much else said on the subject.</p>
-<p>Floating point On the face of it floating point appears related to the excess 7 method of displaying signed numbers, in practice it is actually closer to the standard scientific notation for displaying large numbers. The concept of this then is the idea of floating point numbers, in essence they are</p>
+<p><strong>Fractional numbers and real numbers</strong> Fractional numbers are usually done using a so called “floating point”, however the GBA and DS do make extensive use of fixed point numbers for various parts of the hardware including 2d transformations and 3d and will be covered shortly. The idea of leaving things as values and only calculating them at the last moment is encouraged in programming but in hardware or the final representation this can be tricky and as that is where ROM hackers spend most of their time it will be noted and nothing much else said on the subject.</p>
+<p><strong>Floating point</strong> On the face of it floating point appears related to the excess 7 method of displaying signed numbers, in practice it is actually closer to the standard scientific notation for displaying large numbers. The concept of this then is the idea of floating point numbers, in essence they are</p>
 <ol style="list-style-type: decimal">
 <li>A sign value</li>
 <li>A multiplier (actually an exponent) to make sure the “decimal” point gets where it needs to be</li>
@@ -791,10 +868,10 @@
 <p>For 3. above much like you would never write 0.31x10^-3, unless you are an engineer where the used powers are usually a multiple of three, it is always assumed the first bit is 1, as you are working in binary that means the only value it can be is 1 and you can leave it out of the number that is transmitted as long as you remember to reconstruct it.</p>
 <p>It probably does not take a great leap of imagination to see how this gets very complex to operate with multiple values (different “powers” or not) very fast. To this end even though most software development kits and systems will feature abilities to handle such things their use is ideally saved for when there is no other option, indeed newer/high performance systems often have their computer power compared by how many flops (floating point operations per second) or indeed criticised on their lack of support for various versions of floating point (single precision, double precision…..). Unlike binary and hexadecimal above the ability to decode it is something you should be able to run through but most will expect you to use tools to handle it.</p>
 <p>There is a class of compression based on this idea known as arithmetic coding. It works on the idea that for the file might represent it is still a number and some numbers can can be represented shorter by encoding them as a floating point.</p>
-<p>The short version</p>
+<p><strong>The short version</strong></p>
 <p>32 bits long the first bit is the sign of the multiplier, the next 8 bits are the value of the exponent of the multiplier in excess 7 notation and the final bits are the basic value that needs multiplying save for the “hidden” 1 value which the fractional part gets added to.</p>
 <p>That is a bit wordy so examples</p>
-<p>Decoding 40a4cccd hex</p>
+<p><strong>Decoding 40a4cccd hex</strong></p>
 <p>The binary representation is as follows</p>
 <p>0100 0000 1010 0100 1100 1100 1100 1101</p>
 <p>0 starting means it is positive.</p>
@@ -809,7 +886,7 @@
 <p>Using just the numbers there 1.28125</p>
 <p>Multiplying by 4 gives 5.125</p>
 <p>Short of the actual number it is supposed to represent which is 5.15 but if you continued adding numbers from the binary pattern it would get very near there.</p>
-<p>Representing 3.14</p>
+<p><strong>Representing 3.14</strong></p>
 <p>Positive so first is 0</p>
 <p>Dividing by 2 renders it as 1. something and 2^1 = 2</p>
 <p>2 in excess 7 is 10000000</p>
@@ -824,7 +901,7 @@
 <p>10010001111010111000011</p>
 <p>Which combined with the rest gives</p>
 <p>4048f5c3 hex.</p>
-<p>The slightly longer version</p>
+<p><strong>The slightly longer version</strong></p>
 <p>Single precision (32 bits) and double precision (64 bits) are the most common versions of floating point with anything beyond that (save perhaps quad precision in some hardware) usually being relegated to (very slow) software methods.</p>
 <p>Also the exponent values in theory at least range from -126 to 127 (00000001 and 11111110) meaning the all 0 and the all 1 values are not available. In practice these are used as follows</p>
 <p>0</p>
@@ -833,14 +910,20 @@
 <p>All 1 indicates either positive or negative infinity for the all 1 values assuming the mantissa section has nothing in it. If the mantissa does have something in it then it means an error like divide by 0 or something similar (NaN aka not a number).</p>
 <p>For more <a href="http://www.math.grin.edu/~rebelsky/Courses/152/97F/Readings/IEEE-reals.html">IEEE floating-point representations of real numbers</a>has a basic overview and <a href="http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a> has a far more in depth discussion and historical analysis. If you just want something to toy with to get it sorted in your head <a href="http://www.h-schmidt.net/FloatConverter/IEEE754.html">FloatConverter</a> is quite good.</p>
 <p>To make up for some of the shortcomings of the method there are two common functions that are used when dealing with such things.</p>
-<p>Ceiling In short round up to a given value (or multiple thereof) regardless of what a conventional round would do. Not necessarily limited to fractional numbers either.</p>
-<p>Floor In short round down to a given value regardless of what a conventional round would do. Also not necessarily limited to fractional numbers.</p>
-<p>Fixed point values Floating point is used everywhere in computing (especially in 3d and mapping of things in 3d, something you may have seen the occasional game do) and it is quite costly in terms of resources so fixed point appears.</p>
+<p><strong>Ceiling</strong> In short round up to a given value (or multiple thereof) regardless of what a conventional round would do. Not necessarily limited to fractional numbers either.</p>
+<p><strong>Floor</strong> In short round down to a given value regardless of what a conventional round would do. Also not necessarily limited to fractional numbers.</p>
+<p><strong>Fixed point values</strong> Floating point is used everywhere in computing (especially in 3d and mapping of things in 3d, something you may have seen the occasional game do) and it is quite costly in terms of resources so fixed point appears.</p>
 <p>Fixed point attempts to work around some of the issues with floating point at the potential cost of some accuracy and some flexibility. It is seen in parts of the DS 3d system among other things where 4 bits “natural number” 12 bits “fractional” is often of the order of the day. That is to say the computer assumes all numbers after a given binary digit are fractional. Some instead prefer to view it as a range type function with 0000 to 1111 representing the difference between two whole numbers (or in the case of sine and cosine -1 to 1).</p>
 <p>Timers are quite commonly made like this although they can also just be a multiple, the “timer” used for the DS SSEQ audio format being a good example of the latter.</p>
 <p>What the numbers mean is usually either the logical extension of the binary “powers” (2^-1=0.5 decimal, 2^-2 = 0.25 decimal…..) or they count again and the number after the point is effectively assumed to be a normal number. Binary coded decimal, almost invariably in the 8421 arrangement, can also appear here.</p>
 <p>As with signed values their use prevents the number from being read as a simple integer and used in simple maths although with a bit of shifting, rotating and such you can get quite a bit done and even do some basic comparing and maths. Speaking of shifting and rotating</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>There are hardware limits on the GBA and DS depending upon what you are doing (it will be covered in graphics and compression later) but in theory nothing needs to be word aligned. Most things will be word or aligned to an even larger multiple though so unless you can demonstrate otherwise stick with what you first see. Certainly for the initial passes of most files assume at least byte alignment.<a href="hexadecimal.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

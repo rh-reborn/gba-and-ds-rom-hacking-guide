@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -517,26 +581,26 @@
 <p>Often a more useful set of techniques than basic shifts and the other operations covered already. There are several types although you will probably see patterns soon enough (mainly that the NAND, NOR and XNOR are just the inverse of their counterparts). Boolean logic exists in two big areas ROM hacking and related pursuits might be concerned with; one is programming and the other is electronic logic where they perform identical functions but in some ways are thought of a bit differently.</p>
 <p>Here is probably useful to discuss the idea of high and low as it applies to computing and electronics. In the vast majority of cases (especially software and ROM hacking) you should always assume that unless otherwise stated a high value corresponds to 1 and a low value corresponds to 0. This is unlike some other things in this section where you will usually want to seek clarification for things (what method of negative or point numbers you are using for instance). There is however a variation on this called negative edge logic (referring to certain chips that change on the falling edge of a clock pulse) that can be described with the opposite where 0 is high and 1 is low.</p>
 <p>Examples will be done in binary.</p>
-<p>NOT aka inverse Does what it says and flips every bit.</p>
+<p><strong>NOT aka inverse</strong> Does what it says and flips every bit.</p>
 <p>1001 1110 becomes 0110 0001</p>
-<p>AND Here you take two numbers (preferably of equal length but if not the shorter sequence is repeated as appropriate in most cases) and combine the outcome so that only if both inputs are high the result is high</p>
+<p><strong>AND</strong> Here you take two numbers (preferably of equal length but if not the shorter sequence is repeated as appropriate in most cases) and combine the outcome so that only if both inputs are high the result is high</p>
 <p>1100 1111 AND 1010 0100 becomes 1000 0100</p>
-<p>NAND Much like AND you take two numbers and put them together but rather than if both are high this is if both are low. It is most useful as it is a fundamental logic operation; you can stack NAND operations or indeed NAND gates in such a way that you can make any other Boolean operation.</p>
+<p><strong>NAND</strong> Much like AND you take two numbers and put them together but rather than if both are high this is if both are low. It is most useful as it is a fundamental logic operation; you can stack NAND operations or indeed NAND gates in such a way that you can make any other Boolean operation.</p>
 <p>1100 1111 NAND 1010 0100 becomes 0111 1011</p>
-<p>OR Again two numbers but if any one of the inputs it high the result is high.</p>
+<p><strong>OR</strong> Again two numbers but if any one of the inputs it high the result is high.</p>
 <p>1100 1111 OR 1010 0100 becomes 1110 1111</p>
-<p>NOR Two numbers but only high if both inputs are low</p>
+<p><strong>NOR</strong> Two numbers but only high if both inputs are low</p>
 <p>1100 1111 NOR 1010 0100 becomes 0001 0000</p>
-<p>XOR Two numbers but only high if only one input is high. Useful as encryption by itself and the basis of many more useful encryption methods. As a quick aside there are serious downsides when it comes to actually being used as encryption, if done properly it is one of the few that can not be broken with enough computing power. Also where the others can easily have multiple inputs in electronics a multiple input XOR is tricky at best.</p>
+<p><strong>XOR</strong> Two numbers but only high if only one input is high. Useful as encryption by itself and the basis of many more useful encryption methods. As a quick aside there are serious downsides when it comes to actually being used as encryption, if done properly it is one of the few that can not be broken with enough computing power. Also where the others can easily have multiple inputs in electronics a multiple input XOR is tricky at best.</p>
 <p>1100 1111 XOR 1010 0100 becomes 0110 1011</p>
-<p>XNOR Two inputs, only high outputs when none or both inputs are the same. Being the inverse of XOR it has similar problems to it.</p>
+<p><strong>XNOR</strong> Two inputs, only high outputs when none or both inputs are the same. Being the inverse of XOR it has similar problems to it.</p>
 <p>1100 1111 XNOR 1010 0100 becomes 1001 0100</p>
-<p>Discussion of Boolean logic. The most useful in day to day ROM hacking are probably NOT, AND, OR and, purely because of the encryption, XOR.</p>
+<p><strong>Discussion of Boolean logic.</strong> The most useful in day to day ROM hacking are probably NOT, AND, OR and, purely because of the encryption, XOR.</p>
 <p>NOT aka inverse is useful on many occasions for many things especially in graphics (it might not be quite that simple in practice but inverting colours is quite common). Also useful to corrupt data and recover it easily (you just invert it back).</p>
 <p>AND is useful to remove certain bits, for instance if you want to remove the highest bit in a byte just AND the result with 0111 1111 and whatever the rest is will stay the same but the highest bit will be 0 regardless.</p>
 <p>OR is useful if you want to set a certain bit high, for instance to set the highest bit in a byte high just OR the result with 1000 0000 and the first bit will be set high regardless but the rest will only be high if they were to begin with.</p>
 <p>XOR is also used a few times in the internals of the GBA and DS and is used extensively as simple protection at points in cheat devices and things like the GBA e reader.</p>
-<p>An aside on logical/relational operators They share the same name and broad function as the boolean logic but here they are used as checks to see if both inputs meet a given condition. In C type languages it runs as follows</p>
+<p><strong>An aside on logical/relational operators</strong> They share the same name and broad function as the boolean logic but here they are used as checks to see if both inputs meet a given condition. In C type languages it runs as follows</p>
 <p>AND checks to see if both inputs are non 0 and returns true if it is the case</p>
 <p>OR checks to see if just one input is non 0 and returns true if it is the case</p>
 <p>NOT merely reverses the output of the other functions.</p>
@@ -552,8 +616,8 @@
 <p>Multiplication is easy enough</p>
 <p>1D x 09 is 10 x 9 + 0D x 9 or 90 + 75 = 105</p>
 <p>Division is a pain and more importantly depends on the programming language function used; many basic methods will chop off the stuff after the “decimal” point where others will turn it into a floating number. Floating point might not be that accurate as hex is somewhat less capable of displaying the results of common divisions, not to mention it will be rounded at some point. Such a trick is often used to confuse, and so teach, new programmers and even catches out older ones; finance packages are especially troubled by this for if they miss a couple of rounding points it can result in big amounts of money not going where it needs to go. There are however a few concepts worth noting as they crop up in programming languages and the processors they run on</p>
-<p>Mod As mentioned some basic hexadecimal divide functions will leave you with just the whole number part of the result (99 divided by 6 is 16.5 but many divide functions would just give you 16). Mod is then a function that gives you the remainder as a whole number (99 divided by 6 is 16 remainder 3) which you can leave in the hope it will be multiplied back later or feed to another command (many divide functions struggle with large numbers and prefer small ones).</p>
-<p>Abs(olute) Potentially confusingly regular maths sometimes also calls this modulus with the shorthand sometimes being “mod”. Depending upon how far you want to take maths it can get quite complex but the short version is abs value of a number is just the number (always positive) without the sign. It is then quite useful to feed into functions so you can simplify them or the resulting maths.</p>
+<p><strong>Mod</strong> As mentioned some basic hexadecimal divide functions will leave you with just the whole number part of the result (99 divided by 6 is 16.5 but many divide functions would just give you 16). Mod is then a function that gives you the remainder as a whole number (99 divided by 6 is 16 remainder 3) which you can leave in the hope it will be multiplied back later or feed to another command (many divide functions struggle with large numbers and prefer small ones).</p>
+<p><strong>Abs(olute)</strong> Potentially confusingly regular maths sometimes also calls this modulus with the shorthand sometimes being “mod”. Depending upon how far you want to take maths it can get quite complex but the short version is abs value of a number is just the number (always positive) without the sign. It is then quite useful to feed into functions so you can simplify them or the resulting maths.</p>
 </div>
 </div>
             </section>

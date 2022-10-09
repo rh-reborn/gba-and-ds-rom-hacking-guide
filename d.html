@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -511,7 +575,7 @@
 </ul>
 <p>Depending upon your point of view scalars are either regular numbers or a 1x1 matrix.</p>
 <p><span class="math display">\[To finish\]</span></p>
-<p>The decimal point Floating point was covered back in the introduction and it is surely not hard to see what the ability to represent numbers after the decimal point is useful in 3d modelling. Combined with the need to do operations on lots of data all at once (a problem “solved” by the introduction of Single Instruction Multiple Data/ SIMD instructions) this is why 3d tends to have a piece of dedicated hardware inside the system and systems will have their performance measured in FLOPS (floating point operations per second). The DS specifically tends to eschew floating point in favour of fixed point using a variety of different formats for fixed point depending upon the operation.</p>
+<p><strong>The decimal point</strong> Floating point was covered back in the introduction and it is surely not hard to see what the ability to represent numbers after the decimal point is useful in 3d modelling. Combined with the need to do operations on lots of data all at once (a problem “solved” by the introduction of <strong>S</strong>ingle <strong>I</strong>nstruction <strong>M</strong>ultiple <strong>D</strong>ata/ SIMD instructions) this is why 3d tends to have a piece of dedicated hardware inside the system and systems will have their performance measured in FLOPS (floating point operations per second). The DS specifically tends to eschew floating point in favour of fixed point using a variety of different formats for fixed point depending upon the operation.</p>
 <p>A couple of different fixed point methods are used depending where you are</p>
 <p>1bit sign, 3bit integer, 12bit fraction for a lot of the vectors (usually involving light and view)</p>
 <p>1 bit sign + 3 bit integer + 6bit fractional for the 32 bit vertex set command (X,Y and Z in the same command each with 10 bits)</p>
@@ -534,7 +598,7 @@
 <p><img src="images/56_home_fast6191_romhackingguide_unrenamed_file___ders_romhackingguidegraphics3dtexturehack_1.png" alt="PIC" /><img src="images/57_home_fast6191_romhackingguide_unrenamed_file___ders_romhackingguidegraphics3dtexturehack_2.png" alt="PIC" /></p>
 <p>Also worth noting is 3d has seen several titles allow the player to create their own textures with Mario Kart being on the more notable ones and other common ones include clothing games and games like the sims. There has been a bit of this in 2d as well but not half as much although for the most part textures will tend to manifest as 2d images anyway (certainly some editing has been done with 2d tile editors where necessary).</p>
 <p>This brings a secondary issue up that developers and hackers alike have long had to think about when attempting to map a 2d image to a 3d object. Doing as such tends to make for some distortion so models will tend to be painted in 3d with a program and then converted to a 2d texture for storage; for more on that subject “Texture unwrapping” and “UV Mapping” are good search terms.</p>
-<p>DS textures When being editing many will resemble custom size 2d formats. Equally much like 2d there are additional options and textures can be repeated, flipped and more.</p>
+<p><strong>DS textures</strong> When being editing many will resemble custom size 2d formats. Equally much like 2d there are additional options and textures can be repeated, flipped and more.</p>
 <p><a href="http://problemkaputt.de/gbatek.htm#ds3dtextureattributes">GBAtek</a> has more on the various methods and although at times they resemble things seen in the 2d palette/tile world other times see something quite custom in comparison.</p>
 </div>
 <div id="models" class="section level3 hasAnchor" number="2.5.4">
@@ -556,40 +620,40 @@
 <li>Cuboids</li>
 </ul>
 <p>Either way when reverse engineering a model should developers have been kind enough to leave a selection of these primitives and when reverse engineering a format seeking these out and/or creating them is a useful step but more on that later.</p>
-<p>Parent and child This is often where the idea of multiple coordinate systems comes into play.</p>
+<p><strong>Parent and child</strong> This is often where the idea of multiple coordinate systems comes into play.</p>
 <p>The basic idea is there is a primary set of coordinates known as the world (although do note some call the entire level the world and it is a separate concept) and from here several extra coordinate systems can be defined and known as children; children can have further children but are each tied to the parent going right back to the world.</p>
 <p>It becomes useful as having a large level and defining it only to want to move an item within it or worse it relative to another item it touches can get to be a nightmare very fast and even more so when there are say 300 points defining that item which all have to be accounted for possibly using a coordinate system with an origin several hundred of a given unit from the location of the model at the time.</p>
 </div>
 <div id="lightingshadows" class="section level3 hasAnchor" number="2.5.5">
 <h3><span class="header-section-number">2.5.5</span> Lighting/shadows<a href="d.html#lightingshadows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Where 2d is inherently assumed to be lit, indeed the whole colour scheme is designed around differences in brightness of the component colours, lighting and shadows as an extra concept do not really exist but most 3d systems will allow the phenomenon to me modelled and so lighting and shadows needs to be discussed.</p>
-<p>Theory There are three types of light reflection known as specular, diffuse and emissive and the DS supports all three in hardware. Where light is blocked it makes shadows and where it is partially blocked it changes the colour of the light coming in but the DS has very limited support for both of these concepts.</p>
-<p>Light There are the three sources and they all combine to make for images humans are used to seeing. Although the DS supports them most of it is precalculated/nice approximation. Approximation however is common in much of 3d regardless of where it is at.</p>
-<p>Specular</p>
+<p><strong>Theory</strong> There are three types of light reflection known as specular, diffuse and emissive and the DS supports all three in hardware. Where light is blocked it makes shadows and where it is partially blocked it changes the colour of the light coming in but the DS has very limited support for both of these concepts.</p>
+<p><strong>Light</strong> There are the three sources and they all combine to make for images humans are used to seeing. Although the DS supports them most of it is precalculated/nice approximation. Approximation however is common in much of 3d regardless of where it is at.</p>
+<p><strong>Specular</strong></p>
 <p>This is the traditional concept of reflection where a single beam, provided it is below the critical angle for a material, will be reflected out.</p>
-<p>Diffuse</p>
+<p><strong>Diffuse</strong></p>
 <p>This is the “scattered” light as often seen in crystalline structures but many materials will have a measure of diffuse reflection.</p>
-<p>Emissive</p>
+<p><strong>Emissive</strong></p>
 <p>As the name implies this is light generated by an object.</p>
 <p>There are also three types of light source and although it is key to most light modelling which are a spherical source (light in every direction and dropping in intensity with distance), a conical source (light expanding as a cone with distance and also dropping with intensity) and a tube/parallel source (think laser beam where a single set of parallel light beams and not dropping in intensity with distance). They are not quite so key here as only the parallel sources are available to the DS although there can be multiple ones coming from various locations and are reflected accordingly. GBAtek also notes that the DS diffuse light engine is bugged and does not reflect properly if the camera is turned so in those cases diffuse is not used or the entire world is rotated instead.</p>
-<p>Shadows If there is light there must be shadows to go with it. The DS lighting engine provides only light to the camera but it does have the ability to generate shadows as separate entities too. As mentioned in 2d the lack of shadows is fairly notable to the human eye but it can be placated by adding a simple circle shadow a lot of the time.</p>
-<p>DS basics The DS supports light in the three forms although it is only reflected to the camera and not to other objects. As mentioned it does however provide the option to make shadows using a polygon so developers can precalculate shadows and add them to images and they often choose to also add a basic shadow (no shadow is quite noticeable but even a basic blob/circle shadow will help believability).</p>
+<p><strong>Shadows</strong> If there is light there must be shadows to go with it. The DS lighting engine provides only light to the camera but it does have the ability to generate shadows as separate entities too. As mentioned in 2d the lack of shadows is fairly notable to the human eye but it can be placated by adding a simple circle shadow a lot of the time.</p>
+<p><strong>DS basics</strong> The DS supports light in the three forms although it is only reflected to the camera and not to other objects. As mentioned it does however provide the option to make shadows using a polygon so developers can precalculate shadows and add them to images and they often choose to also add a basic shadow (no shadow is quite noticeable but even a basic blob/circle shadow will help believability).</p>
 </div>
 <div id="d-smoke-and-fog" class="section level3 hasAnchor" number="2.5.6">
 <h3><span class="header-section-number">2.5.6</span> 3d smoke and fog<a href="d.html#d-smoke-and-fog" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Although in real life the fog and smoke are roughly treated as similar concepts as far as physics modelling is concerned in games the differences are quite extreme although developers have often been known to make one stand in for another.</p>
 <p>Fog is most commonly associated with draw distance and indeed is usually there to make up for the hardware being unable to draw far enough ahead in real time although games like Silent Hill used it as part of the gameplay. It should be noted though that developers will also do things like make winding corridors, use a skybox, make things have trees/buildings either side of the level itself and use low light conditions to mask the inability to draw at long distances to say nothing of things like mip mapping and 2d overlays but more on that in animations and developer tricks in part 3.</p>
 <p>Back on topic the DS hardware has a fog option as do most other 3d hardware/engines that aspire to be useful; it provides the ability to define fog colour (including alpha), location and density (typically to allow for things to fade out but not restricted to it).</p>
-<p>Smoke Assuming it is not the result of the fog engine being used most smoke is a simple 2d animation maybe as a texture to an item with an animated texture or as conventional 2d imagery. On other computers there have been several smoke generation algorithms that are considerably less demanding but they are usually well out of reach of the DS and certainly not supported in hardware.</p>
+<p><strong>Smoke</strong> Assuming it is not the result of the fog engine being used most smoke is a simple 2d animation maybe as a texture to an item with an animated texture or as conventional 2d imagery. On other computers there have been several smoke generation algorithms that are considerably less demanding but they are usually well out of reach of the DS and certainly not supported in hardware.</p>
 </div>
 <div id="animations" class="section level3 hasAnchor" number="2.5.7">
 <h3><span class="header-section-number">2.5.7</span> Animations<a href="d.html#animations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Basic animation was alluded to elsewhere but it takes three main forms.</p>
-<p>Bones animation The traditional transformation types of rotation, scaling and translation return and provide most of the ideas here.</p>
-<p>Texture animation Textures can be added, removed, have their level of alpha changed, combined with other textures (the result of an explosion say), have mirroring and expansion/scaling turned off and on more advanced systems which does include the DS the texture origin can be changed creating a similar effect to the scrolling BG from 2d animation. Also why go to the effort of uncoupling the wheel from a car and making it move when you can just rotate the texture of the wheel (or indeed just have a white shiny line move up and down or flicker).</p>
-<p>Camera animation Much like real life although you can rotate the entire world to have something appear upside down it is usually easier to change turn the thing viewing it upside down and similarly for the other types of transformations. The do remember the bug with rotation on the DS and diffuse reflection (if a camera does a Dutch angle then it is probably the world that rotated instead).</p>
-<p>Clipping Yet another area worthy of a section to itself. 3d by itself is just an imagery method and the camera itself can go anywhere within the space provided without restriction. Naturally this is not desirable for games so clipping comes into play and it can take many forms with some hardware and game engines even providing a measure of support for it. Sometimes clipping can be detected by using the 3d hardware itself similar to some level systems that use OAM for 2d but on the DS much of the time it is another file that will mirror the level (as a developer it is not terribly hard to generate one if you have the level sitting in front of you) will be made instead with a nice example being the KCL format used in many first party Nintendo games like the Mario Kart series.</p>
-<p>2d overlays Although things can be done in 3d all proper 3d systems will work with the 2d hardware as well ranging from things as simple as skyboxes where the horizon is visible but rather than being a single colour there will be a 2d image placed on it of what the horizon would look like (or the sky above it) and as it is incredibly far away at this point. Some 2d engines go a step further than this and will replace actual objects in the distance with 2d representations and swap them out for 3d as the distance to them becomes less.</p>
+<p><strong>Basic animation</strong> was alluded to elsewhere but it takes three main forms.</p>
+<p><strong>Bones animation</strong> The traditional transformation types of rotation, scaling and translation return and provide most of the ideas here.</p>
+<p><strong>Texture animation</strong> Textures can be added, removed, have their level of alpha changed, combined with other textures (the result of an explosion say), have mirroring and expansion/scaling turned off and on more advanced systems which does include the DS the texture origin can be changed creating a similar effect to the scrolling BG from 2d animation. Also why go to the effort of uncoupling the wheel from a car and making it move when you can just rotate the texture of the wheel (or indeed just have a white shiny line move up and down or flicker).</p>
+<p><strong>Camera animation</strong> Much like real life although you can rotate the entire world to have something appear upside down it is usually easier to change turn the thing viewing it upside down and similarly for the other types of transformations. The do remember the bug with rotation on the DS and diffuse reflection (if a camera does a Dutch angle then it is probably the world that rotated instead).</p>
+<p><strong>Clipping</strong> Yet another area worthy of a section to itself. 3d by itself is just an imagery method and the camera itself can go anywhere within the space provided without restriction. Naturally this is not desirable for games so clipping comes into play and it can take many forms with some hardware and game engines even providing a measure of support for it. Sometimes clipping can be detected by using the 3d hardware itself similar to some level systems that use OAM for 2d but on the DS much of the time it is another file that will mirror the level (as a developer it is not terribly hard to generate one if you have the level sitting in front of you) will be made instead with a nice example being the KCL format used in many first party Nintendo games like the Mario Kart series.</p>
+<p><strong>2d overlays</strong> Although things can be done in 3d all proper 3d systems will work with the 2d hardware as well ranging from things as simple as skyboxes where the horizon is visible but rather than being a single colour there will be a 2d image placed on it of what the horizon would look like (or the sky above it) and as it is incredibly far away at this point. Some 2d engines go a step further than this and will replace actual objects in the distance with 2d representations and swap them out for 3d as the distance to them becomes less.</p>
 <p>Others rather than creating a full model of a plant (traditionally quite a hard thing to do and demanding once it is done) will instead make a very thin box, make it transparent save for the plant and display that. An example of the idea can be seen in the map_point.nsbmd from New Super Mario Brothers on the DS.</p>
 <p>In fact it is the little marker for the levels that have been done from the world map show as it is in the game, as wireframe and as it is without a texture. Note also the potential for a specular highlight which in in this case is done in textures.</p>
 <p><img src="images/58_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_1.png" alt="PIC" /><img src="images/59_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_2.png" alt="PIC" /><img src="images/60_home_fast6191_romhackingguide_unrenamed_file___s_romhackingguidegraphics3dtextureclear2d_3.png" alt="PIC" /></p>
@@ -602,7 +666,7 @@
 <p>The general idea is that there is a geometry engine and a rendering engine. The geometry engine is what the DS communicates with and it calculates the changes required before passing it to the rendering engine (a process triggered by a Swap Buffers command) which puts everything together and makes a picture out of the result or would but rather than an entire rendered frame (otherwise known as using a framebuffer) only 48 lines are rendered at a time and put into a cache.</p>
 <p>Communication is typically done via write only registers starting at 4000330 hex and ending at 40006A4 hex, the display control register for 3d (DISP3DCNT) is however found at 4000060 hex and controls what modes are selected. Buried within the 3d IO range is the geometry command range which is either accessed directly or send a series of commands via the GXFIFO arrangement where geometry commands can be called by type instead.</p>
 <p>Although some maths can be done it is a fairly low level arrangement and there is little in the way of high level constructs compared to say programming for a modern PC or console targeted 3d game engine where models themselves are essentially data types.</p>
-<p>Matrices The DS emulators desmume and no$gba dev version will allow you to view the matrices.</p>
+<p><strong>Matrices</strong> The DS emulators desmume and no$gba dev version will allow you to view the matrices.</p>
 <div class="figure">
 <img src="images/61_home_fast6191_romhackingguide_unrenamed_file___l_borders_romhackingguidegraphics3dmatrix_1.png" alt="" />
 <p class="caption">PIC</p>
@@ -613,13 +677,13 @@
 </div>
 <p>Although there is a matrix stack which allows things to be swapped out in very short order there are four main ones that are useful at any one point in time. Once you know the Direction matrix refers to the light direction most are fairly self explanatory and if you recall affine transformation and mode7 from the 2d side of things most of it drops into place.</p>
 <p>Still</p>
-<p>Projection</p>
+<p><strong>Projection</strong></p>
 <p>handles the change between orthogonal and perspective view and although those are the main two it can handle everything in between.</p>
-<p>Position</p>
+<p><strong>Position</strong></p>
 <p>handles the ultimate locations of vertices</p>
-<p>Direction</p>
+<p><strong>Direction</strong></p>
 <p>used for light and the testing vectors (light is the most commonly handled).</p>
-<p>Texture</p>
+<p><strong>Texture</strong></p>
 <p>handles the texture mapping using the texture modes the hardware supports.</p>
 <p>They are set by selecting the mode by writing to 4000440 hex aka the MTX_MODE register aka command 10h after which there are write matrix commands, read commands (for clipping), various multiplication and read as well as stack handling commands.</p>
 <p><a href="http://problemkaputt.de/gbatek.htm#ds3dmatrixloadmultiply">GBAtek</a> covers the basics here.</p>
@@ -686,13 +750,13 @@
 <p>Textures are usually just stored as 2d images of some format, although do remember it might not be a colour format commonly seen in regular 2d editing (see the hardware notes for DS 3d textures). This is not usually so bad for much like editing without the proper palette by using a somewhat abstract method (if you know this green corresponds to that red in the image it is still possible to edit) a tile editor is little more than a hex editor that shows coloured pixels instead of letters and can arrange it in a few more orders, just make sure you have all unique colours if you do this or you risk getting quite confused. You could try exporting the texture in something to a bitmap format and importing the palette from that as well.</p>
 <p>Game is Fire Emblem - Shin Monshou no Nazo Hikari to Kage no Eiyuu. It used (as did most DS fire emblem titles) 3d textures to help with 2d images.</p>
 <p>File is title_logo.md (the series has the curious habit of using only the last two letters from the SDK extensions) from title12 directory.</p>
-<p>NSBMDtool output</p>
+<p><strong>NSBMDtool output</strong></p>
 <p>Nsbmdtool, despite being old and not working on a lot of NSBMD files, can provide some useful output.</p>
 <div class="figure">
 <img src="images/69_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_1.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Tinke output</p>
+<p><strong>Tinke output</strong></p>
 <p>Tinke provides two windows with useful output information.</p>
 <div class="figure">
 <img src="images/70_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_2.png" alt="" />
@@ -703,7 +767,7 @@
 <img src="images/73_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_5.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Palette finding Plenty of information was given but no direct address of the palette in question.</p>
+<p><strong>Palette finding</strong> Plenty of information was given but no direct address of the palette in question.</p>
 <p>The palette offset is given at 38 hex in the TEX0 section.</p>
 <div class="figure">
 <img src="images/74_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_7.png" alt="" />
@@ -714,7 +778,7 @@
 <p>This gives 0001 C898 as the start of the palette section. It is not however the first palette in the palette section (it is the third although numbering starts at 0 so 2 is the actual number if using internal logic)</p>
 <p>Tinke says 13E0 which needs a shift/divide by 2 to get 09F0. Adding that on gives</p>
 <p>0001D288 hex</p>
-<p>Crystaltile2 filtering Setting the appropriate locations as given in tinke and the nsbmdtool output.</p>
+<p><strong>Crystaltile2 filtering</strong> Setting the appropriate locations as given in tinke and the nsbmdtool output.</p>
 <p>The offset was given by nsbmdtool and tinke. 16 colours aka 4bpp.</p>
 <div class="figure">
 <img src="images/75_home_fast6191_romhackingguide_unrenamed_file___gguidegraphics3dminorNSMBDtexturedecoding_6.png" alt="" />
@@ -743,7 +807,7 @@
 <p class="caption">PIC</p>
 </div>
 <p>Being a single quadrilateral it is defined anticlockwise with the first command being point 0.</p>
-<p>Point 0 Cmd 24 hex aka VTX_10 sets the vertex coordinate with 3 ten bit (signed bit, 3 bits, 6 bits fraction) with the upper 2 bits ignored.</p>
+<p><strong>Point 0</strong> Cmd 24 hex aka VTX_10 sets the vertex coordinate with 3 ten bit (signed bit, 3 bits, 6 bits fraction) with the upper 2 bits ignored.</p>
 <p>19028270 hex</p>
 <p>0001 1001 0000 0010 1000 0010 0111 0000 binary</p>
 <p>Splitting it up</p>
@@ -754,7 +818,7 @@
 <p>Z</p>
 <p>Y</p>
 <p>X</p>
-<p>Point 1 Command 25 hex aka VTX_XY is just two points with the Z point taken to be the same as the previous.</p>
+<p><strong>Point 1</strong> Command 25 hex aka VTX_XY is just two points with the Z point taken to be the same as the previous.</p>
 <p>Full bits used (0 to 15 being X, 16 to 32 being Y)</p>
 <p>signed, 12 bits given over to the fractional part</p>
 <p>28006400 hex</p>
@@ -764,7 +828,7 @@
 <p>0 110 0100 0000 0000 = + 6.25</p>
 <p>Y</p>
 <p>X</p>
-<p>Point 2 Command 26 hex aka VTX_XZ assumes the Y point is the same as the previous and sets the X and Z. Same bit breakdown as the other two point commands.</p>
+<p><strong>Point 2</strong> Command 26 hex aka VTX_XZ assumes the Y point is the same as the previous and sets the X and Z. Same bit breakdown as the other two point commands.</p>
 <p>9C006400 hex</p>
 <p>1001 1100 0000 0000 0110 0100 0000 0000 binary</p>
 <p>Splitting it up</p>
@@ -772,7 +836,7 @@
 <p>0 110 0100 0000 0000 = + 6.25</p>
 <p>Z</p>
 <p>X</p>
-<p>Point 3 Command 25 hex aka VTX_XY returns</p>
+<p><strong>Point 3</strong> Command 25 hex aka VTX_XY returns</p>
 <p>28009c00 hex</p>
 <p>0010 1000 0000 0000 1001 1100 0000 0000 hex</p>
 <p>Splitting it up</p>
@@ -785,7 +849,7 @@
 <h3><span class="header-section-number">2.5.15</span> Non NSBMD<a href="d.html#non-nsbmd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Although NSBMD is a pretty good format developers have attempted to make their own for various reasons including additional features the NSBMD format might well lack, what has been seen says most of the SDK for it requires the use of certain expensive (although industry standard) modelling packages, ports from other platforms (although no conventional high level formats of any form have been seen thus far and any that are seen are more likely to be a developer left extra) or that NSBMD was not finalised at this point (Metriod Prime Hunters being a good example of this and also one of the earlier tools for it in <a href="http://filetrip.net/nds-downloads/utilities/download-dsgraph-10-f29517.html">DSGraph</a>).</p>
 <p>As has been mentioned a few times and will be a few more before this is done the formats the end product will use in embedded systems will try to stay reasonably close to the hardware that will eventually use them (see things like custom audio formats on the DS tending to be wrappers for PCM or ADPCM audio which is what the DS hardware supports) which is why the hardware itself was covered and NSBMD given a section rather than it being the main focus of 3d hacking. It did not use standard 3d formats but <a href="http://gbatemp.net/topic/109587-model-swapping-in-soma-bringer/">model swapping</a> was still able to be done.</p>
-<p>Yu Gi Oh WC 2011 <a href="http://gbatemp.net/topic/322715-yu-gi-oh-world-championship-2011-model-ripping/">An attempt to rip</a> the models from Yu-Gi-Oh World Championship 2011 soon revealed the game be one that did not use the NSBMD formats and what was there did not <a href="http://www.youtube.com/watch?&amp;v=ccqzbFvC3Vg">look especially like</a> the sort of thing NSBMD is usually brought in to handle.</p>
+<p><strong>Yu Gi Oh WC 2011</strong> <a href="http://gbatemp.net/topic/322715-yu-gi-oh-world-championship-2011-model-ripping/">An attempt to rip</a> the models from Yu-Gi-Oh World Championship 2011 soon revealed the game be one that did not use the NSBMD formats and what was there did not <a href="http://www.youtube.com/watch?&amp;v=ccqzbFvC3Vg">look especially like</a> the sort of thing NSBMD is usually brought in to handle.</p>
 <p>After breaking through the wrapper formats to reveal NARC and after extracting that many files were obtained with an example being</p>
 <p>m8970_matanm.bin</p>
 <p>m8970_mdl.bin</p>

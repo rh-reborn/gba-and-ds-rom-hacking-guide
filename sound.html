@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -484,7 +548,7 @@
             <section class="normal" id="section-">
 <div id="sound" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Sound<a href="sound.html#sound" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sound exists as a wave and it was discovered long ago if you sampled the sound wave at twice the highest frequency you wanted to capture (the concept became known as the Nyquist–Shannon sampling theorem although there are others although it is fairly logical when you think of it as wanting to capture the rise and the fall of the pulse) and depending upon what you read the young and healthy human ear works up to the low 20KHz hence the 40KHz range and upwards being used for higher quality sound capture<a href="romhacking202013.html#fn12x0">12</a> although the human voice is usually far lower than that limit not to mention the all sounds are not equal (higher frequencies are harder to hear) so you can often get away with sampling at a lower rate.</p>
+<p>Sound exists as a wave and it was discovered long ago if you sampled the sound wave at twice the highest frequency you wanted to capture (the concept became known as the Nyquist–Shannon sampling theorem although there are others although it is fairly logical when you think of it as wanting to capture the rise and the fall of the pulse) and depending upon what you read the young and healthy human ear works up to the low 20KHz hence the 40KHz range and upwards being used for higher quality sound capture<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> although the human voice is usually far lower than that limit not to mention the all sounds are not equal (higher frequencies are harder to hear) so you can often get away with sampling at a lower rate.</p>
 <p>There are two types of audio commonly used in games (and most other places)</p>
 <ul>
 <li>Wave replication</li>
@@ -512,10 +576,10 @@
 <li>Headroom - certain processes and capture methods result in an unavoidable amount of amplification in one form or another. Headroom is the difference between the audio and the clipping limit.</li>
 <li>Decibels (Db) - a logarithmic scale used to measure power of sound and other things but mainly sound as far as this is concerned. Note there is a difference between Db in audio and Db in some aspects of electronics.</li>
 </ul>
-<p>The GBA and DS audio hardware With regards to playback of some of the common compressed audio formats, the GBA and DS feature somewhat limited audio hardware compared to consoles like the 360 which have hardware level support for it. That said they do have various interesting features that allow for some interesting things to be done on the both sound generation and wave replication fronts alike. The GBA BIOS also has some fairly extensive abilities and the standard DS audio format SDAT, which has its own section, also affords a lot of nice things. Additionally the GBA has a format Nintendo provided which is usually known as Sappy and, although it did not quite as much as use as the likes of the DS SDAT format, it too has serious scope for changing things and is well worth knowing about.</p>
+<p><strong>The GBA and DS audio hardware</strong> With regards to playback of some of the common compressed audio formats, the GBA and DS feature somewhat limited audio hardware compared to consoles like the 360 which have hardware level support for it. That said they do have various interesting features that allow for some interesting things to be done on the both sound generation and wave replication fronts alike. The GBA BIOS also has some fairly extensive abilities and the standard DS audio format SDAT, which has its own section, also affords a lot of nice things. Additionally the GBA has a format Nintendo provided which is usually known as Sappy and, although it did not quite as much as use as the likes of the DS SDAT format, it too has serious scope for changing things and is well worth knowing about.</p>
 <p>In practice most audio formats abstract the handling of the audio hardware to such a level that you are better off either editing the audio format directly (most are extensible enough that you can do whatever you need, quite often including changing from wave to sound generation) or editing the ROM to change what audio is played if that is your goal.</p>
 <p>Realistically you will probably not spend as much time fiddling with the audio hardware compared to those times you hack text, levels, stats and graphics which see you do far better if you have an appreciation for the lower level concepts there. In the long run this is a good thing.</p>
-<p>The GBA The GBA supported stereo in headphones but the actual unit only had the one speaker. The GBA has six audio channels although their uses are somewhat restricted.</p>
+<p><strong>The GBA</strong> The GBA supported stereo in headphones but the actual unit only had the one speaker. The GBA has six audio channels although their uses are somewhat restricted.</p>
 <p>The four primary channels similar to those seen on the original gameboy and gameboy color are there mainly for noise, short samples and tone generation so basically the sound generation support and the latter two (usually referred to as A and B) can be used for direct reads of wave audio, usually triggered by direct memory access (DMA) although interrupts can be used as well.</p>
 <ol style="list-style-type: decimal">
 <li>Tone with sweep capabilities (sweep is where the frequency is changed in a continuous manner)</li>
@@ -525,10 +589,10 @@
 </ol>
 <p><a href="http://belogic.com/gba/">belogic.com</a> houses arguably the best public collection of information and worked examples on the GBA audio hardware (navigation at the top of the page). Naturally <a href="http://problemkaputt.de/gbatek.htm#gbasoundcontroller">GBAtek</a> has a fair bit on the DS sound controller as well.</p>
 <p>Typically 1 and 3 are used and indeed that is where most of the BIOS functions (of which there are many) focus their efforts.</p>
-<p>BIOS The GBA BIOS features several sound controller handling functions (which are not present in the DS). <a href="http://problemkaputt.de/gbatek.htm#biossoundfunctions">GBAtek</a> has more but most are for the hardware to function properly and are what gets called to initialise and maintain the sound system, save for “SoundBias” which can change the internal sampling rate.</p>
-<p>The DS The DS actually gained a fairly appreciable upgrade in terms of internal capabilities with support for 16 channels of audio, support for onboard PCM (8 or 16 bit) and ADPCM audio decoding, and a second speaker in hardware (the GBA also supported stereo but only for headphones).</p>
+<p><strong>BIOS</strong> The GBA BIOS features several sound controller handling functions (which are not present in the DS). <a href="http://problemkaputt.de/gbatek.htm#biossoundfunctions">GBAtek</a> has more but most are for the hardware to function properly and are what gets called to initialise and maintain the sound system, save for “SoundBias” which can change the internal sampling rate.</p>
+<p><strong>The DS</strong> The DS actually gained a fairly appreciable upgrade in terms of internal capabilities with support for 16 channels of audio, support for onboard PCM (8 or 16 bit) and ADPCM audio decoding, and a second speaker in hardware (the GBA also supported stereo but only for headphones).</p>
 <p>Each of the 16 channels/registers can be told what volume to play things at and whether to pan the audio to a given speaker as well as hold and loop options for short samples. The channels 8 through 13 can be told to generate various types of PSG noise (a square wave you can change the duty cycle of) and 14 and 15 (numbers start at 0) can be used for white noise. Noise is important for various effects in audio (for one absolute silence is not something most humans can abide) and can make things sound more complex than they actually are, not to mention noise is hard to compress and being noise there is no real need for it to be repeated exactly so generating it is both useful and quite doable by “dumb” hardware.</p>
-<p>Basic music theory One of the many sections that has guides to it longer than this one but a knowing a few things about how music has traditionally been formulated can help and much like learning a bit about how various creative works are often constructed can help you work with others in a team, put into words why you find something not to your liking or indeed why it works and more importantly give an educated guess as to the limits, design and capabilities of a given setup. Much like ROM hacking though many of these ideas and techniques are not hard and fast and those that know what they are doing can break from them to great effect although also much like ROM hacking and other scientific pursuits those attempting to take shortcuts and twist techniques without a somewhat deep understanding of why they are doing it will often come up short with little chance of being able to move backwards and make something good from their efforts.</p>
+<p><strong>Basic music theory</strong> One of the many sections that has guides to it longer than this one but a knowing a few things about how music has traditionally been formulated can help and much like learning a bit about how various creative works are often constructed can help you work with others in a team, put into words why you find something not to your liking or indeed why it works and more importantly give an educated guess as to the limits, design and capabilities of a given setup. Much like ROM hacking though many of these ideas and techniques are not hard and fast and those that know what they are doing can break from them to great effect although also much like ROM hacking and other scientific pursuits those attempting to take shortcuts and twist techniques without a somewhat deep understanding of why they are doing it will often come up short with little chance of being able to move backwards and make something good from their efforts.</p>
 <p>For the most part these will be more useful for the times you are dealing with tracker type formats as other times you will usually just be injecting wave type sound of some form which if you know the header and encoding format is probably just a long winded and tedious task at worst.</p>
 <p>Although human hearing is relatively continuous it became useful to classify certain frequencies (and multiples thereof) as notes. Typically there are seven which in most of the English speaking world and much outside it are given the letters A through G before they wrap around and start counting upwards again in the next octave which at this point is double the starting frequency. There are all sorts of relations and breakdowns after this with two of the most useful ones being the circles of fifths and the idea of musical scales.</p>
 <p>Two or more notes (typically three) that sound like they were played together can make a chord. In general parlance a chord should be sounds that sound pleasant to the ear.</p>
@@ -536,13 +600,13 @@
 <p>Tempo refers to the speed at which notes are played and has large implications for how a piece of music is perceived even going to so far as to be a hallmark of a genre; in games an increase in speed will often be used in a panic scenario with the drowning/low air warning in early Sonic platformers or the increase in tempo when you near the top of a Tetris playing field being great examples. The ability to easily and controllably change tempo on the fly is then one of the main reasons sound generation has stuck around as opposed to simply opting for waves all the time.</p>
 <p>Most music is based on repetition, anticipation and buildup and indeed most find such arrangements pleasant to listen to. A popular example of this being ignored in part is the drop where something will be played repeatedly, quite often at a faster pace for each repeat, in an attempt to build up a pattern before intentionally being halted (technically it is just a change in rhythm or occasionally the instrument doing bass as they tend to provide rhythm for a song or are perceived to) and moved into something else; sometime Tetris backing track and Russian folk song Kalinka is a fairly noted for using a drop.</p>
 <p>Not such a concept as much as a technique commonly is used is layering where various instruments (or indeed noise) are played at all over the top of each other with the adjustment of volume levels for each and timing thereof being known as mixing. Although it is more associated with video and dubbing of audio should there be a noticeable pop as the sound recording is started or silence be replaced with some noise (often referred to as room noise) and that makes it into the final cut people have a tendency to notice. This is not so commonly seen on handhelds and older consoles but as games have gained increasingly larger amounts of voice acting this idea has not been observed as well as it might.</p>
-<p>Today games consoles are reasonably able to play sounds even a trained ear can not distinguish from one another and thus are often afforded full compositions no different to standalone music but corners can be cut<a href="romhacking202014.html#fn13x0">13</a> and ROM hackers can be called in to drag it back to form.</p>
+<p>Today games consoles are reasonably able to play sounds even a trained ear can not distinguish from one another and thus are often afforded full compositions no different to standalone music but corners can be cut<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> and ROM hackers can be called in to drag it back to form.</p>
 <div id="sdat-nds" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> SDAT (NDS)<a href="sound.html#sdat-nds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Although several other formats have since been discovered to be quite popular (for years the list of non SDAT games stood at less than ten) the dominant format for audio on the DS is known as SDAT.</p>
-<p>Format overview The SDAT format is a fully featured if not very extensible or compressible audio format for the audio engine supplied with the DS SDK.</p>
+<p><strong>Format overview</strong> The SDAT format is a fully featured if not very extensible or compressible audio format for the audio engine supplied with the DS SDK.</p>
 <p>It features the ability to do tracker/midi style audio in the format known as SSEQ, short samples in the likes of SWAV and full length audio tracks in the form of STRM and anything else is a helper format to allow the above formats to do their job.</p>
-<p>Format and formats within</p>
+<p><strong>Format and formats within</strong></p>
 <ul>
 <li>SDAT - the main format that both stores the files and stores the relations to each other.</li>
 <li>SSEQ - the tracker (midi) like format that plays instruments according to a scripting language.</li>
@@ -553,53 +617,55 @@
 <li>STRM - longer wave files (PCM or ADPCM) that can extend for several minutes and include full vocal audio tracks. Can be found outside the SDAT</li>
 </ul>
 <p>There are a few other formats sometimes seen alongside them including SMAP and SADL but they are usually considered leftovers from the build process. Useful to look at and indeed the finding of an SMAP file played a key role in the early reverse engineering of the format but not usually necessary to do anything to for hacking purposes. SMAP files can be generated with tools like vgmtoolbox and although other parsing tools are available these are often in a very readable format.</p>
-<p>SSEQ basics SSEQ is a scripting language of sorts aimed at tracker style audio and things people like to do there. It is probably closer to midi than some of the more advanced tracker formats like XM but unlike midi rather than an instrument being turned on and then off the instruments are called with a duration value inbuilt into the call.</p>
+<p><strong>SSEQ basics</strong> SSEQ is a scripting language of sorts aimed at tracker style audio and things people like to do there. It is probably closer to midi than some of the more advanced tracker formats like XM but unlike midi rather than an instrument being turned on and then off the instruments are called with a duration value inbuilt into the call.</p>
 <p>The scripting commands are not always the same length, sometimes contain a payload and such so decoding them from an arbitrary point can be a bit trickier than simply reading things. You can however get a full text decoding of the format though using sseq2mid and the - l option (you might want to pipe it to a text file with &gt;﻿&gt;sometextfile.txt) and VGMtoolbox will also provide the same output (it has sseq2mid as part of the toolchain).</p>
 <p>It will produce something like</p>
-<p>SEQ_BGM_C_01.sseq:<br />
-00000000: 53 53 45 51 | Signature | SSEQ<br />
-00000004: FF FE | | Unknown<br />
-00000006: 00 01 | | Unknown<br />
-00000008: EC 0F 00 00 | SSEQ file size | 4076<br />
-0000000C: 10 00 | | Unknown<br />
-0000000E: 01 00 | | Unknown</p>
-<p>00000010: 44 41 54 41 | Signature | DATA<br />
-00000014: DC 0F 00 00 | DATA chunk size | 4060<br />
-00000018: 1C 00 00 00 | Offset Base | 0000001C</p>
-<p>0000001C: FE 77 02 | Signify Multi Track | <strong><em>-</em></strong>–*——<br />
-0000001F: 93 01 D4 02 00 | Open Track | Track 02 at 000002F0h<br />
-00000024: 93 02 D7 05 00 | Open Track | Track 03 at 000005F3h<br />
-00000029: 93 04 EF 06 00 | Open Track | Track 05 at 0000070Bh<br />
-0000002E: 93 05 23 0B 00 | Open Track | Track 06 at 00000B3Fh<br />
-00000033: 93 06 A8 0C 00 | Open Track | Track 07 at 00000CC4h<br />
-00000038: 93 09 F9 0D 00 | Open Track | Track 10 at 00000E15h<br />
-0000003D: C7 00 | Mono/Poly | Poly (0)<br />
-0000003F: E1 69 00 | Tempo | 105<br />
-00000042: 81 2D | Program Change | 45<br />
-00000044: C0 40 | Pan | 0<br />
-00000046: C5 0C | Pitch Bend Range | 12<br />
-00000048: C6 40 | Priority | 64<br />
-0000004A: CA 00 | Modulation Depth | 0<br />
-0000004C: CB 10 | Modulation Speed | 16<br />
-0000004E: CC 00 | Modulation Type | Pitch<br />
-00000050: CD 01 | Modulation Range | 1<br />
-00000052: E0 00 00 | Modulation Delay | 0<br />
-00000055: C1 7F | Volume | 127<br />
-00000057: D5 7F | Expression | 127<br />
-00000059: C0 4D | Pan | 13<br />
-0000005B: 48 6E 0B | Note with Duration | C 5 <span class="math display">\[72\]</span> vel:110 dur:11<br />
-0000005E: 80 0C | Rest | 12<br />
-00000060: 47 6E 0B | Note with Duration | B 4 <span class="math display">\[71\]</span> vel:110 dur:11<br />
-00000063: 80 0C | Rest | 12<br />
-00000065: 48 6E 0B | Note with Duration | C 5 <span class="math display">\[72\]</span> vel:110 dur:11<br />
-00000068: 80 0C | Rest | 12<br />
-0000006A: 43 57 0B | Note with Duration | G 4 <span class="math display">\[67\]</span> vel:87 dur:11<br />
-0000006D: 80 0C | Rest | 12<br />
-0000006F: 45 62 0B | Note with Duration | A 4 <span class="math display">\[69\]</span> vel:98 dur:11<br />
-00000072: 80 0C | Rest | 12<br />
-00000074: 47 6E 0B | Note with Duration | B 4 <span class="math display">\[71\]</span> vel:110 dur:11<br />
-00000077: 80 0C | Rest | 12<br />
-00000079: 48 6E 0B | Note with Duration | C 5 <span class="math display">\[72\]</span> vel:110 dur:11</p>
+<pre><code>SEQ\_BGM\_C_01.sseq:   
+00000000: 53 53 45 51 | Signature | SSEQ   
+00000004: FF FE | | Unknown   
+00000006: 00 01 | | Unknown   
+00000008: EC 0F 00 00 | SSEQ file size | 4076   
+0000000C: 10 00 | | Unknown   
+0000000E: 01 00 | | Unknown   
+  
+00000010: 44 41 54 41 | Signature | DATA   
+00000014: DC 0F 00 00 | DATA chunk size | 4060   
+00000018: 1C 00 00 00 | Offset Base | 0000001C   
+  
+0000001C: FE 77 02 | Signify Multi Track | ***-***--*------   
+0000001F: 93 01 D4 02 00 | Open Track | Track 02 at 000002F0h   
+00000024: 93 02 D7 05 00 | Open Track | Track 03 at 000005F3h   
+00000029: 93 04 EF 06 00 | Open Track | Track 05 at 0000070Bh   
+0000002E: 93 05 23 0B 00 | Open Track | Track 06 at 00000B3Fh   
+00000033: 93 06 A8 0C 00 | Open Track | Track 07 at 00000CC4h   
+00000038: 93 09 F9 0D 00 | Open Track | Track 10 at 00000E15h   
+0000003D: C7 00 | Mono/Poly | Poly (0)   
+0000003F: E1 69 00 | Tempo | 105   
+00000042: 81 2D | Program Change | 45   
+00000044: C0 40 | Pan | 0   
+00000046: C5 0C | Pitch Bend Range | 12   
+00000048: C6 40 | Priority | 64   
+0000004A: CA 00 | Modulation Depth | 0   
+0000004C: CB 10 | Modulation Speed | 16   
+0000004E: CC 00 | Modulation Type | Pitch   
+00000050: CD 01 | Modulation Range | 1   
+00000052: E0 00 00 | Modulation Delay | 0   
+00000055: C1 7F | Volume | 127   
+00000057: D5 7F | Expression | 127   
+00000059: C0 4D | Pan | 13   
+0000005B: 48 6E 0B | Note with Duration | C 5 \[72\] vel:110 dur:11   
+0000005E: 80 0C | Rest | 12   
+00000060: 47 6E 0B | Note with Duration | B 4 \[71\] vel:110 dur:11   
+00000063: 80 0C | Rest | 12   
+00000065: 48 6E 0B | Note with Duration | C 5 \[72\] vel:110 dur:11   
+00000068: 80 0C | Rest | 12   
+0000006A: 43 57 0B | Note with Duration | G 4 \[67\] vel:87 dur:11   
+0000006D: 80 0C | Rest | 12   
+0000006F: 45 62 0B | Note with Duration | A 4 \[69\] vel:98 dur:11   
+00000072: 80 0C | Rest | 12   
+00000074: 47 6E 0B | Note with Duration | B 4 \[71\] vel:110 dur:11   
+00000077: 80 0C | Rest | 12   
+00000079: 48 6E 0B | Note with Duration | C 5 \[72\] vel:110 dur:11</code></pre>
 <p>Also available is a graphical decoding in VGMtrans but editing is not really possible in VGMtrans.</p>
 <p>Being a fairly straightforward scripting language you can then change whatever you like in whatever fashion the engine is capable of with one of the most common hacks is looping which will be covered later. High level options are available where you convert things from midi to SSEQ and use looping flags afforded by various programs however it is reasonably easy to do manually and allows for a greater range of methods.</p>
 <p>General commands Most programming languages from assembly up to the highest level programming languages will have a huge selection of inbuilt commands but most of the time it will boil down a handful of key commands or classes thereof used over and over again. SSEQ is no different and the four main classes of item are</p>
@@ -614,12 +680,12 @@
 <p>Volume (including panning) and tempo manipulation do what they say. Maximum tempo is 240 beats per minute (see timing section in a few lines)</p>
 <p>Mathematical and file operations are typically designed to be used to augment other areas rather than anything general purpose.</p>
 <p>Multitrack is possible if it is declared at the start of the first track , up to 16 tracks can be done in one SSEQ.</p>
-<p>Timing The timing engine underpinning the SSEQ sound engine stems from the ARM7 timer and works in an overflow manner where each pulse (cycle) the tempo value (units of it known as ticks) is added to a counter and if the value exceeds 240 the SDAT/SSEQ is processed processed for one instruction and 240 is taken from the counter before it starts all over again. A quarter note aka a crotchet is 48 ticks and is fixed as such.</p>
-<p>Ripping STRM and SWAR/SWAV files can be easily converted/extracted and manipulated seen as they are little more than wave files but ripping the SSEQ tracks themselves has a variety of methods that can be used, converting too them takes some more thought and will hopefully become apparent after basic SSEQ manipulation is covered. Some of the earliest methods here after the use of loop back cables from headphones ports and emulators were tools that just attempted to translate the standard SSEQ sounds to a midi interface and it kind of worked although was often nothing like the original. Crystaltile2 has the ability to parse SDAT and supposedly play it back but for the most part it is broken so it is not mentioned as a ripping tool.</p>
+<p><strong>Timing</strong> The timing engine underpinning the SSEQ sound engine stems from the ARM7 timer and works in an overflow manner where each pulse (cycle) the tempo value (units of it known as ticks) is added to a counter and if the value exceeds 240 the SDAT/SSEQ is processed processed for one instruction and 240 is taken from the counter before it starts all over again. A quarter note aka a crotchet is 48 ticks and is fixed as such.</p>
+<p><strong>Ripping</strong> STRM and SWAR/SWAV files can be easily converted/extracted and manipulated seen as they are little more than wave files but ripping the SSEQ tracks themselves has a variety of methods that can be used, converting too them takes some more thought and will hopefully become apparent after basic SSEQ manipulation is covered. Some of the earliest methods here after the use of loop back cables from headphones ports and emulators were tools that just attempted to translate the standard SSEQ sounds to a midi interface and it kind of worked although was often nothing like the original. Crystaltile2 has the ability to parse SDAT and supposedly play it back but for the most part it is broken so it is not mentioned as a ripping tool.</p>
 <p>On more than a few occasions hidden tracks and tracks that did not make the final game have been recovered from games.</p>
 <p>All the tools linked should also be open source as well.</p>
-<p>Emulators and loopback The easiest method and often the crudest; has three main advantages in that you can mute audio tracks in emulators (and if you get creative with cheats hardware as well), you can edit the ROM to play the audio in whatever order you wish with filesystem level hacks and it also works on the occasions a custom format you do not wish to reverse engineer has appeared. Desmume has featured audio grabbing capabilities for a long time now.</p>
-<p>SSEQ2midi <a href="https://github.com/loveemu/loveemu-lab">loveemu</a></p>
+<p><strong>Emulators and loopback</strong> The easiest method and often the crudest; has three main advantages in that you can mute audio tracks in emulators (and if you get creative with cheats hardware as well), you can edit the ROM to play the audio in whatever order you wish with filesystem level hacks and it also works on the occasions a custom format you do not wish to reverse engineer has appeared. Desmume has featured audio grabbing capabilities for a long time now.</p>
+<p><strong>SSEQ2midi</strong> <a href="https://github.com/loveemu/loveemu-lab">loveemu</a></p>
 <p>The earliest method that attempted to decode the SSEQ format into another format. It attempted to approximate the standard banks/logic to midi controllers and worked fairly well for the most part but things did not sound exactly as they did on the originals.</p>
 <p>Usage is command line only and here is the output of the usage</p>
 <p>usage : sseq2mid (options) <span class="math display">\[input-files\]</span></p>
@@ -634,46 +700,46 @@
 <p>-m –modify-ch modify midi channel to avoid rhythm channel</p>
 <p>____ sseq2mid <span class="math display">\[20070314\]</span> by loveemu</p>
 <p>There are also STRM and SWAR conversion tools available from the same author.</p>
-<p>NDSSNDEXT <a href="http://filetrip.net/nds-downloads/utilities/latest-nds-sound-extractor-f28818.html">Download mirror</a></p>
+<p><strong>NDSSNDEXT</strong> <a href="http://filetrip.net/nds-downloads/utilities/latest-nds-sound-extractor-f28818.html">Download mirror</a></p>
 <p>Technically called NDS Sound Extractor it usually gets called for the name of the exe file (NDSSNDEXT) and it is a self contained tool for ripping DS audio files. Much like SSEQ2midi and some aspects of VGMtrans it attempts to approximate the original sounds but in a different way to standard SSEQ which frequently had better results than the original SSEQ2midi and it also converts SWAR archives by default. It is command line only and usage is quite simple</p>
 <p>&lt;﻿&lt;NDS Sound Extractor v0.3 by TENDON&gt;﻿&gt;</p>
 <p>Usage : ndssndext.exe <span class="math display">\[options\]</span> &lt;file…&gt;</p>
 <p>Options: -x extract files only(no decoding)</p>
 <p>-s show processing status</p>
 <p>–help show this usage</p>
-<p>VGMtrans (DLS) <a href="http://filetrip.net/nds-downloads/utilities/download-vgmtrans-92909-f27960.html">Download mirror</a></p>
+<p><strong>VGMtrans (DLS)</strong> <a href="http://filetrip.net/nds-downloads/utilities/download-vgmtrans-92909-f27960.html">Download mirror</a></p>
 <p>Arrived around the same time as NDS Sound extractor and eventually got more stable. Still used today primarily as it has the ability to create DLS files although certain programs can have issues (awave studio usually cuts through it and can put things in rmi format which carries instruments) which some midi playback methods can use to make the sounds match more closely to the original hardware; the trained ear can still tell the difference between hardware and midi DLS but it is not the night and day different the other methods often exhibit. It does also feature graphical parsing of SSEQ and similar files which is invaluable when actually editing SSEQ tracks even if you have to actually edit thing in another editor. Usage is drag and drop onto the file (SDAT or NDS) and right click on various sections to get what the allow for. GUI is quite customisable as well with toolboxes able to be dragged around at will.</p>
 <div class="figure">
 <img src="images/136_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackguidevgmtrans.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>vgmtoolbox <a href="http://sourceforge.net/projects/vgmtoolbox/files/vgmtoolbox/">Homepage</a></p>
+<p><strong>vgmtoolbox</strong> <a href="http://sourceforge.net/projects/vgmtoolbox/files/vgmtoolbox/">Homepage</a></p>
 <p>You will also need to find the relevant decoder kit (Caitsith2’s testpack.nds) that is not included with the standard download.</p>
-<p>CRC32</p>
-<p>FB16DF0E</p>
-<p>MD5</p>
-<p>3D902DED2E237D9D0A329E3BC8C0A577</p>
-<p>SHA1</p>
-<p>7B23ABA82BA2957B3D5FC12B4FA99F02DA6FF766</p>
+<p><strong>CRC32</strong></p>
+<p><code>FB16DF0E</code></p>
+<p><strong>MD5</strong></p>
+<p><code>3D902DED2E237D9D0A329E3BC8C0A577</code></p>
+<p><strong>SHA1</strong></p>
+<p><code>7B23ABA82BA2957B3D5FC12B4FA99F02DA6FF766</code></p>
 <p>DLS files from VGMtrans are very useful so it sticks around to this day but in many ways VGMtoolbox is the best method available for ripping. Much like earlier audio formats the playback methods actually use an emulation of the DS sound hardware (foobar compatible plugins are available in <a href="http://filetrip.net/nds-downloads/utilities/download-vio2sf-2011-05-27-foobar-f29356.html">vio2sf</a>) although the playback side of things has since been abandoned so it is not up to par with the latest DS emulation.</p>
 <p>Also features the ability to generate SMAP files and other such niceties (also highlighted green on the picture below).</p>
 <div class="figure">
 <img src="images/137_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackguidevgmtoolbox1.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>NCSF This was a replacement made in 2013 to cater to some of the failings of the ageing 2sf format. Still aimed at the SDAT format it adopts a high level approach which works better in some instances.</p>
-<p>Other tools Various tools have been made to convert to and from various things and play them back and they will be mentioned quickly</p>
-<p>MKDS_Course_modifier</p>
+<p><strong>NCSF</strong> This was a replacement made in 2013 to cater to some of the failings of the ageing 2sf format. Still aimed at the SDAT format it adopts a high level approach which works better in some instances.</p>
+<p><strong>Other tools</strong> Various tools have been made to convert to and from various things and play them back and they will be mentioned quickly</p>
+<p><strong>MKDS_Course_modifier</strong></p>
 <p><a href="http://gbatemp.net/topic/299444-mkds-course-modifier/">GBAtemp thread</a>. Along the way MKDS course modifier picked up several pretty good abilities in the conversion to and from SDAT audio stakes including the ability to generate DLS files.</p>
-<p>Kazowar’s_Player</p>
+<p><strong>Kazowar’s_Player</strong></p>
 <p><a href="http://gbatemp.net/topic/306997-nds-music-player/">GBAtemp thread</a>. Although more or a playback tool than anything else Kazowar and a handful of others developed a tool that could play back the SDAT audio format on DS hardware.</p>
-<p>swavtoswar</p>
+<p><strong>swavtoswar</strong></p>
 <p><a href="http://gbatemp.net/t243430-swav-to-swar-converter">GBAtemp thread</a>.A simple tool that can convert from swav to swar and from wave to swav.</p>
-<p>midi2sseq</p>
+<p><strong>midi2sseq</strong></p>
 <p><a href="http://fincs.drunkencoders.com/2011/07/03/mid-to-sseq-converter/">fincs mid to SSEQ</a>. Usually the subject of a lot longer tutorial the idea was if SSEQ could turn to midi then midi could be turned to SSEQ. Between slightly troubled conversion and different sound banks reproduction is not always 100 percent accurate but combined with other techniques and injection methods a lot can be done and it can be used as an intermediate format for those that want some higher level editing options. Two main versions exist and additionally looping hacks are quite commonly done on top of this although the later version of midi2sseq linked there does support a lot more in that field.</p>
-<p>tinke</p>
+<p><strong>tinke</strong></p>
 <p><a href="https://github.com/pleonex/tinke">Github page</a>. Mentioned elsewhere in the guide as it has some serious abilities in a lot of fields it is definitely worth having if you are undertaking any sound work on the DS (SDAT or otherwise). It is also one of the few tools able to insert files into SDAT files and repoint accordingly.</p>
-<p>Rebuilding Rebuilding a SDAT file after a minor edit (that changed a file length) is possible and <a href="http://filetrip.net/nds-downloads/utilities/download-nds-editor-01-f5658.html">Kiwi.DS’ NDS editor</a> has a rebuilding option available but the reliability is suspect at best so most opt to either repoint the relevant file to the end of the SDAT file and change various lengths in the file (the SDAT length, the File Block size and the location in the FAT section).</p>
+<p><strong>Rebuilding</strong> Rebuilding a SDAT file after a minor edit (that changed a file length) is possible and <a href="http://filetrip.net/nds-downloads/utilities/download-nds-editor-01-f5658.html">Kiwi.DS’ NDS editor</a> has a rebuilding option available but the reliability is suspect at best so most opt to either repoint the relevant file to the end of the SDAT file and change various lengths in the file (the SDAT length, the File Block size and the location in the FAT section).</p>
 <p>More recently <a href="https://github.com/pleonex/tinke">Tinke</a> has gained a measure of injection ability (with the ability to repoint) so it is worth having a look here. Usage is quite similar to the rest of the program but the general order of operations is open the SDAT file and view it, press “Change file”, find the replacement file, repeat as necessary and finally press “Save SDAT”.</p>
 <div class="figure">
 <img src="images/138_home_fast6191_romhackingguide_unrenamed_fil____borders_romhackguidesoundtinkereplacement1.png" alt="" />
@@ -684,20 +750,20 @@
 <h3><span class="header-section-number">4.1.2</span> Others<a href="sound.html#others" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Although SDAT is very common there are other formats used by several games and worth knowing about. There have been a few occasions where some of the SDAT stuff has been found external to an SDAT file and if there is an archive/packing format on top of the standard nitro file system the SDAT component will usually be found separate to it but not always (recall the packing example from El Tigre) but this is not what this section is about. With the exception of music games most games with that use a custom format will be a known format or at best a simple wrapper to PCM audio. Midi was seen in Rhythm N Notes but it might well have been a developer leftover.</p>
 <p><a href="http://gbatemp.net/threads/the-various-audio-formats-of-the-ds.305167/" class="uri">http://gbatemp.net/threads/the-various-audio-formats-of-the-ds.305167/</a></p>
-<p>DAT format Seen in Disgaea it appears to be a wrapper format for the files usually contained within SDAT. Composed mainly of .dat files which are archives starting with the magic stamp “DSARC FL” and followed by the amount of files to come (in hex) and then a listing of the file names and 0000 0100 0000 before starting the file name, size and location (each subfile is padded/aligned to 100 hex). On top of this there is a file with the extension .tbl which appears to contain various pieces of information about the files.</p>
+<p><strong>DAT format</strong> Seen in Disgaea it appears to be a wrapper format for the files usually contained within SDAT. Composed mainly of .dat files which are archives starting with the magic stamp “DSARC FL” and followed by the amount of files to come (in hex) and then a listing of the file names and 0000 0100 0000 before starting the file name, size and location (each subfile is padded/aligned to 100 hex). On top of this there is a file with the extension .tbl which appears to contain various pieces of information about the files.</p>
 <p>The SSEQ side of things is further wrapped in MSND files which start with a DSEQ section and some of the other files appear to be followed by other sections.</p>
-<p>Procyon Audio (DSE audio format) <a href="http://www.procyon-studio.co.jp/dse/">Developer information page (Japanese)</a></p>
+<p><strong>Procyon Audio (DSE audio format)</strong> <a href="http://www.procyon-studio.co.jp/dse/">Developer information page (Japanese)</a></p>
 <p><a href="http://projectpokemon.org/wiki/Digital_Sound_Elements">Some notes on the format from project pokemon</a></p>
 <p>Usually better known by the extension it commonly comes in known as SAD (SD and SADL as well). Seen in several notable games in the DS library including Luminous Arc and Professor Layton. In practice it is a wrapper format for some IMA-adpcm. It differs from system to system depending upon their implementation of ADPCM but for the most part it holds. Some versions (mainly ones similar to Professor Layton) are supported by the VGMstream library which has had frontends made in several programs and additionally is used by tinke.</p>
-<p>SMD, SED and SWD Occasionally seen in wrapper formats (SIR0 in Zombie daisuki and various versions of PH in Inazuma Eleven) this is actually a sequenced format as well and one of the few to use a truly custom format to do it.</p>
-<p>PCM audio N+ used raw PCM audio (although it is minimal the wave format does actually provide some more information). Import and export with Audacity should be possible.</p>
-<p>Conventional wave files Electroplankton was observed to use standard windows style wave files and could be edited as such. Brothers in arms also used standard wave files but every file in the game was put into the BAR packaging format (a fairly basic offset pointer affair) first. Luminous arc despite using other formats also had a wave file for the opening section.</p>
-<p>OGG files Some of the official wrestling games were seen to use the OGG audio format and it is popular on other systems; WWE SmackDown vs Raw 2010 was the original source and looking at some of the other information it is likely to hold for other entries in the series as well. OGG is a fairly complex format that arose in an attempt to provide an audio (and later video) compression format free from patents and the associated issues (for commercial use you may have to pay codec creators for using their format). VGMtrans can search for and extract OGG files from container formats.</p>
-<p>ADH/AHX/ADX Cri middleware made a series of audio and video formats that first rose to prominence back on the Dreamcast although it was spotted on the DS and really came to the fore when it was seen to be used in The World Ends With You (TWEWY) which allowed remixes to be made with some simple tools.</p>
+<p><strong>SMD, SED and SWD</strong> Occasionally seen in wrapper formats (SIR0 in Zombie daisuki and various versions of PH in Inazuma Eleven) this is actually a sequenced format as well and one of the few to use a truly custom format to do it.</p>
+<p><strong>PCM audio</strong> N+ used raw PCM audio (although it is minimal the wave format does actually provide some more information). Import and export with Audacity should be possible.</p>
+<p><strong>Conventional wave files</strong> Electroplankton was observed to use standard windows style wave files and could be edited as such. Brothers in arms also used standard wave files but every file in the game was put into the BAR packaging format (a fairly basic offset pointer affair) first. Luminous arc despite using other formats also had a wave file for the opening section.</p>
+<p><strong>OGG files</strong> Some of the official wrestling games were seen to use the OGG audio format and it is popular on other systems; WWE SmackDown vs Raw 2010 was the original source and looking at some of the other information it is likely to hold for other entries in the series as well. OGG is a fairly complex format that arose in an attempt to provide an audio (and later video) compression format free from patents and the associated issues (for commercial use you may have to pay codec creators for using their format). VGMtrans can search for and extract OGG files from container formats.</p>
+<p><strong>ADH/AHX/ADX</strong> Cri middleware made a series of audio and video formats that first rose to prominence back on the Dreamcast although it was spotted on the DS and really came to the fore when it was seen to be used in The World Ends With You (TWEWY) which allowed remixes to be made with some simple tools.</p>
 <p><a href="http://www.geocities.co.jp/Playtown/2004/dcdev/dcdev.html">DCDEV</a> has ADX2WAV and WAV2ADX tools which do much of what is wanted but newer versions of Tinke also support it as does VGMToolbox (Misc. Tools -&gt; Extractions tools -&gt; Streams) and as popular game music format libraries have existed for a long time with support for it there are plugins and support for it in lots of places.</p>
 <p><a href="http://www.cri-mw.com/product/adoption/platform/ds.html">Cri middleware</a> maintains a list of games that use their technology (note that not all are the audio as they do video and file management formats as well). If you want some more on how the format is implemented and some of the abilities of it there is <a href="http://wiki.multimedia.cx/index.php?title=CRI_ADX_file">multimedia.cx CRI ADX format discussion</a> and <a href="http://wiki.multimedia.cx/index.php?title=CRI_ADX_ADPCM">multimedia.cx CRI ADX ADPCM discussion</a>.</p>
 <p>It should be noted they Cri middleware have made a new ADX format seen on a few PSP games known as ADX2.</p>
-<p>Proper custom stuff This is usually reserved for music games that need extra formats as part of their method of operation although this gets closer to level formats. Taiko no Tatsujin used SDAT and a custom format known as DSB, Daigasso Band brothers which uses a format known as BDX and another called gak and has a selection of tools at <a href="http://home.usay.jp/pc/etc/nds/">Yasu soft</a> and information at <a href="http://www.auby.no/wiki/index.php?title=Band_Brothers_DX">Auby.no</a>.</p>
+<p><strong>Proper custom stuff</strong> This is usually reserved for music games that need extra formats as part of their method of operation although this gets closer to level formats. Taiko no Tatsujin used SDAT and a custom format known as DSB, Daigasso Band brothers which uses a format known as BDX and another called gak and has a selection of tools at <a href="http://home.usay.jp/pc/etc/nds/">Yasu soft</a> and information at <a href="http://www.auby.no/wiki/index.php?title=Band_Brothers_DX">Auby.no</a>.</p>
 </div>
 <div id="tracker-formats" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Tracker formats<a href="sound.html#tracker-formats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -830,13 +896,13 @@
 <img src="images/151_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidesdatinjection_8.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Music creation and injection Injection from another source just means making a SSEQ or some other file, tools like midi2SSEQ which admittedly have some of the same pitfalls as the original SSEQ2midi tools do exist though (different instruments leading to a different sound), on the GBA some people created an instrument library from the standard midi controller and allowed that where some on the DS use the DLS format VGMtrans (and MK DS course editor) can create to guide Anvil studio to do things (DLS files from VGMtrans and open MPT have some issues). On top of this looping is common thing for tracker/sequenced audio and even some wave files to do and will have to be taken care of. There are various ways to get looping done and some of the later versions of midi2sseq did support looping flags after a fashion.</p>
+<p><strong>Music creation and injection</strong> Injection from another source just means making a SSEQ or some other file, tools like midi2SSEQ which admittedly have some of the same pitfalls as the original SSEQ2midi tools do exist though (different instruments leading to a different sound), on the GBA some people created an instrument library from the standard midi controller and allowed that where some on the DS use the DLS format VGMtrans (and MK DS course editor) can create to guide Anvil studio to do things (DLS files from VGMtrans and open MPT have some issues). On top of this looping is common thing for tracker/sequenced audio and even some wave files to do and will have to be taken care of. There are various ways to get looping done and some of the later versions of midi2sseq did support looping flags after a fashion.</p>
 <p>Replacing tracked/sequenced audio with wave based audio has not really been attempted, it might work as the SDAT seems to call based on file listings more than anything else but the information it also carries might trip it up.</p>
 </div>
 <div id="propercomplex-undub" class="section level3 hasAnchor" number="4.1.9">
 <h3><span class="header-section-number">4.1.9</span> Proper/complex undub<a href="sound.html#propercomplex-undub" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Note that quite often if an undub fails it is more likely to be the fault of the tool/process rebuilding the ROM after it is unpacked but occasionally ROM images do change layout between regions and not usually for the better. For those few you might have to relink the file in such a manner that it plays back in an acceptable manner on the localised game but there are other occasions like Spectral Force Genesis that had voice acting (in AHX format no less) in the Japanese game but lost it in the move out of Japan; here it would either be ASM to add it back in or more likely try to translate the game by getting the official translation and putting it in the Japanese game (Suikoden Tierkreis had a hack that did just that as part of an undub). Megaman ZX is an early example of a game that got somewhat gutted when being localised so it might prove to be interesting to look at as well.</p>
-<p>Castlevania portrait of ruin The game actually features the hidden option to change voices to Japanese (hold L and press A to make a selection at the menu with an audio cue for doing it successfully<a href="romhacking202015.html#fn14x0">14</a> ) but for the sake of this example it will be assumed that the setup there is sub optimal as maybe only a minor remix is wanted/only a select few things want to be undubbed. As they are quite long voices (sometimes several seconds in length) SSEQ and such is probably not the order of the day and indeed the STRM files were chosen. A quick sample from Crystaltile2</p>
+<p><strong>Castlevania portrait of ruin</strong> The game actually features the hidden option to change voices to Japanese (hold L and press A to make a selection at the menu with an audio cue for doing it successfully<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> ) but for the sake of this example it will be assumed that the setup there is sub optimal as maybe only a minor remix is wanted/only a select few things want to be undubbed. As they are quite long voices (sometimes several seconds in length) SSEQ and such is probably not the order of the day and indeed the STRM files were chosen. A quick sample from Crystaltile2</p>
 <div class="figure">
 <img src="images/152_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguideSDATcomplexundub_1.png" alt="" />
 <p class="caption">PIC</p>
@@ -846,7 +912,7 @@
 <div id="sseq-editing" class="section level3 hasAnchor" number="4.1.10">
 <h3><span class="header-section-number">4.1.10</span> SSEQ editing<a href="sound.html#sseq-editing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Editing commands is occasionally useful so here a few notes will be changed in one file, the header will be messed with to effect a speed change and then a loop added in another with image representations of the resulting waveforms for each being shown.</p>
-<p>Tetris DS zelda victory sounds Tetris DS featured a bunch of minigames based on tetris and featuring some of Nintendo characters as the artwork in the background and providing some backing audio. One of these minigames featured Zelda characters in a quickfire mission mode with the classic Zelda victory sound when you succeeded however there were a few notes that came out as drum hits after it as a lead back in for the game that play when ripped.</p>
+<p><strong>Tetris DS zelda victory sounds</strong> Tetris DS featured a bunch of minigames based on tetris and featuring some of Nintendo characters as the artwork in the background and providing some backing audio. One of these minigames featured Zelda characters in a quickfire mission mode with the classic Zelda victory sound when you succeeded however there were a few notes that came out as drum hits after it as a lead back in for the game that play when ripped.</p>
 <p>VGMtrans shot (ignore the later highlighting as it breaks down later on although actual worked breakdown on the right is OK).</p>
 <div class="figure">
 <img src="images/153_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_1.png" alt="" />
@@ -870,7 +936,7 @@
 <img src="images/156_home_fast6191_romhackingguide_unrenamed_fil___original_borders_romhackguideSDATSSEQedit_4.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Tetris DS Korobeiniki speed change A good starting place for audio hacking is the crystaltile2 SDAT information.</p>
+<p><strong>Tetris DS Korobeiniki speed change</strong> A good starting place for audio hacking is the crystaltile2 SDAT information.</p>
 <div class="figure">
 <img src="images/157_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_1.png" alt="" />
 <p class="caption">PIC</p>
@@ -891,7 +957,7 @@
 <p class="caption">PIC</p>
 </div>
 <p>Although it is quite possible to do this with a wave file to do it in real time on the DS hardware would push it to the limit where just modifying a sequenced piece of audio is not only easy it is catered for.</p>
-<p>Tetris DS Korobeiniki looping At one point looping was mostly done for those injecting custom files that were first converted to midi or never started life as a SSEQ, however the newest versions of midi2SSEQ support multiple looping flags and will add things into the resulting SSEQ accordingly. This means today it is largely done for improvement style hacks or those porting SSEQ files between games. Methods here typically involved adding in dummy commands that could be replaced with a loop flag.</p>
+<p><strong>Tetris DS Korobeiniki looping</strong> At one point looping was mostly done for those injecting custom files that were first converted to midi or never started life as a SSEQ, however the newest versions of midi2SSEQ support multiple looping flags and will add things into the resulting SSEQ accordingly. This means today it is largely done for improvement style hacks or those porting SSEQ files between games. Methods here typically involved adding in dummy commands that could be replaced with a loop flag.</p>
 <p>Although the song itself is a classic for this example hack the first few bars are all that is desired.</p>
 <div class="figure">
 <img src="images/157_home_fast6191_romhackingguide_unrenamed_fil____original_borders_romhackguideSDATlooping_1.png" alt="" />
@@ -935,27 +1001,27 @@ FC | 0 | - | End marker for D4 command | * * * |</div>
 <img src="images/165_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidesappy2006_mod16_1.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>Quick overview of format <a href="http://www.romhacking.net/documents/462/">Romhacking.net’s copy of Bregalad’s sappy audio notes</a></p>
+<p><strong>Quick overview of format</strong> <a href="http://www.romhacking.net/documents/462/">Romhacking.net’s copy of Bregalad’s sappy audio notes</a></p>
 <p>Bregalad (who did the Final Fantasy audio restoration hacks among other things) wrote up a nice overview of the format.</p>
-<p>midi2GBA Occasionally known as mid2AGB or midi2AGB it started out as part of the official GBA SDK and so is not linked here. Probably the main tools other than sappy that get used for GBA audio hacking as it is very capable of turning midi files into sappy audio. It should be noted the toolkit does not seem to deal with metadata well and several midi tracks have been observed to use dummy tracks as a type of metadata.</p>
-<p>wave2gba <a href="http://www.darkfader.net/gba/">Darkfader GBA section</a></p>
+<p><strong>midi2GBA</strong> Occasionally known as mid2AGB or midi2AGB it started out as part of the official GBA SDK and so is not linked here. Probably the main tools other than sappy that get used for GBA audio hacking as it is very capable of turning midi files into sappy audio. It should be noted the toolkit does not seem to deal with metadata well and several midi tracks have been observed to use dummy tracks as a type of metadata.</p>
+<p><strong>wave2gba</strong> <a href="http://www.darkfader.net/gba/">Darkfader GBA section</a></p>
 <p>Darkfader made a tool ostensibly for homebrew but as part of the “close to hardware” idea it became able to be used to make custom samples. Supposedly the Sappy mod line renders this less useful.</p>
-<p>Zahlman’s song editor <a href="http://filetrip.net/gba-downloads/tools-utilities/latest-zahlman039s-song-editor-f29864.html">Filetrip download</a></p>
+<p><strong>Zahlman’s song editor</strong> <a href="http://filetrip.net/gba-downloads/tools-utilities/latest-zahlman039s-song-editor-f29864.html">Filetrip download</a></p>
 <p>A python script also capable of doing a lot with Sappy audio. Although it has a lot of automated functions most of it will have to be manually guided so most consider it a nice tool to flank tools like sappy with.</p>
-<p>loveemu tools <a href="https://code.google.com/p/loveemu/downloads/list?can=1&amp;q=&amp;colspec=Filename+Summary+Uploaded+ReleaseDate+Size+DownloadCount">Google code download</a></p>
+<p><strong>loveemu tools</strong> <a href="https://code.google.com/p/loveemu/downloads/list?can=1&amp;q=&amp;colspec=Filename+Summary+Uploaded+ReleaseDate+Size+DownloadCount">Google code download</a></p>
 <p><a href="https://github.com/loveemu">Github</a> has some other things.</p>
 <p>loveemu made a couple of tools for the GBA known as gba2wav and gba2midi that attempt to scan the ROM for Sappy audio and decode it.</p>
-<p>Caitsith2 saptapper <a href="http://gsf.caitsith2.net/ripping.html">Project homepage</a></p>
+<p><strong>Caitsith2 saptapper</strong> <a href="http://gsf.caitsith2.net/ripping.html">Project homepage</a></p>
 <p>Aimed more at audio ripping than audio hacking itself it does still generate some interesting information.</p>
-<p>GBA audio ripper <a href="http://filetrip.net/gba-downloads/tools-utilities/latest-gba-audio-ripper-f29863.html">Filetrip download</a></p>
+<p><strong>GBA audio ripper</strong> <a href="http://filetrip.net/gba-downloads/tools-utilities/latest-gba-audio-ripper-f29863.html">Filetrip download</a></p>
 <p>Atrius made a simple tool somewhat in line with saptapper above that aims to rip audio for 1:1 playback (in this case in the author’s GBAjukebox program.</p>
 <div class="figure">
 <img src="images/166_home_fast6191_romhackingguide_unrenamed_fil___rs_romhackingguideGBAaudio_GBAaudioripper_1.png" alt="" />
 <p class="caption">PIC</p>
 </div>
-<p>VGMtrans VGMtrans supposedly features a measure of support for the Sappy audio format.</p>
-<p>Others There are various other tools that can be used like <a href="http://www42.atwiki.jp/_pub/blackonix/Tools/">LoopMaker</a> from blackonix as well as assorted plugins/wrappers for sappy and midi2agb usually aimed at specific games.</p>
-<p>Basic Sappy audio injection hack XXXXXXXXXXXXXXXX</p>
+<p><strong>VGMtrans</strong> VGMtrans supposedly features a measure of support for the Sappy audio format.</p>
+<p><strong>Others</strong> There are various other tools that can be used like <a href="http://www42.atwiki.jp/_pub/blackonix/Tools/">LoopMaker</a> from blackonix as well as assorted plugins/wrappers for sappy and midi2agb usually aimed at specific games.</p>
+<p><strong>Basic Sappy audio injection hack</strong> XXXXXXXXXXXXXXXX</p>
 <p>There are three methods commonly seen</p>
 <ol style="list-style-type: decimal">
 <li>tr.exe strip and inject</li>
@@ -971,11 +1037,19 @@ FC | 0 | - | End marker for D4 command | * * * |</div>
 <div id="notable-gba-audio-hacks" class="section level3 hasAnchor" number="4.1.13">
 <h3><span class="header-section-number">4.1.13</span> Notable GBA audio hacks<a href="sound.html#notable-gba-audio-hacks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Although some hacks have been noted elsewhere for the most part this document is not a collection of hacks but here there are a few hacks well worth reverse engineering if some of the other and the latter two titles have some fairly extensive game specific documentation included.</p>
-<p>Final fantasy The last SNES final fantasy games (using Japanese numbering 5 and 6) were ported later in the GBA lifetime to the GBA. One of the main criticisms was that the highly regarded audio from the SNES games did not make the transition (we have since seen a few other hacks aimed at improving other aspects of the games) but Bregalad made a series of hacks aimed at improving the audio and indeed the final hacks are nigh on perfect reproductions of the SNES audio. If you want an example of a Sappy style audio format hack these are well worth having a look at.</p>
-<p>Advance Wars <a href="http://forums.warsworldnews.com/viewtopic.php?t=2002">warsworldnews guide to it</a></p>
-<p>Golden Sun Atrius did a lot of work with the sappy audio format and Golden Sun was the base ROM for a lot of it up to and including adding <a href="http://forum.goldensunhacking.net/index.php?action=downloads;sa=view;down=4">voice acting</a> to the game. Hacker led voice dubs have happened in the past but it is very rare and exceptionally so on low power systems that do not have a filesystem for their code.</p>
-<p>Fire emblem Fire emblem on the GBA saw several audio hacks. An overview of some of the audio hacking work and a bit of general audio hacking can be seen at <a href="http://www.feshrine.net/ultimatetutorial/">feshrine</a>.</p>
+<p><strong>Final fantasy</strong> The last SNES final fantasy games (using Japanese numbering 5 and 6) were ported later in the GBA lifetime to the GBA. One of the main criticisms was that the highly regarded audio from the SNES games did not make the transition (we have since seen a few other hacks aimed at improving other aspects of the games) but Bregalad made a series of hacks aimed at improving the audio and indeed the final hacks are nigh on perfect reproductions of the SNES audio. If you want an example of a Sappy style audio format hack these are well worth having a look at.</p>
+<p><strong>Advance Wars</strong> <a href="http://forums.warsworldnews.com/viewtopic.php?t=2002">warsworldnews guide to it</a></p>
+<p><strong>Golden Sun</strong> Atrius did a lot of work with the sappy audio format and Golden Sun was the base ROM for a lot of it up to and including adding <a href="http://forum.goldensunhacking.net/index.php?action=downloads;sa=view;down=4">voice acting</a> to the game. Hacker led voice dubs have happened in the past but it is very rare and exceptionally so on low power systems that do not have a filesystem for their code.</p>
+<p><strong>Fire emblem</strong> Fire emblem on the GBA saw several audio hacks. An overview of some of the audio hacking work and a bit of general audio hacking can be seen at <a href="http://www.feshrine.net/ultimatetutorial/">feshrine</a>.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="12">
+<li id="fn12"><p>Some go further for various reasons although that gets into interesting territory and less useful for the end users than it is for those working with the audio in the first place<a href="sound.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>There is also the case of games doing it better with a notable case being guitar hero where Death Magnetic from Metallica was often considered to be mastered better in the game than the CD version. This is something of an aside though and moves into territory known as the loudness wars where tracks are amplified to the point of clipping (the point at which the amplification can not happen any more without a loss of information also known as normalising) and then often more if only a handful of instruments will be cut out (typically drums) and then often a bit more to make sure all parts of the track are as loud as they can be. <a href="http://www.youtube.com/watch?&amp;v=u9Fb3rWNWDA">Bob Katz - Loudness: War &amp; Peace</a> is a nice video on the subject and <a href="http://www.youtube.com/watch?&amp;v=DRyIACDCc1I">Metallica Death Magnetic - How to lose the Loudness War</a> is a link to the Metallica song in question and a side by side compare of the versions.<a href="sound.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Despite the L and A button combo/option the US game was eventually returned to some time after this section was written. At that point it was observed that 020e0200 in memory in the US version of the ROM held a value/flag. By holding it at 00 hex (the basic Action Replay format cheat being “220e0200 00000000”) it always played Japanese, 01 hex was the value it used for English and everything else was still English. More interestingly though if it changed during runtime the voices would change as well.<a href="sound.html#fnref14" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
