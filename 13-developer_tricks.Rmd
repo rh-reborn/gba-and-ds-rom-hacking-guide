@@ -50,21 +50,21 @@ Also coming off that a method of copy protection seen on the DS in the game Houk
 
 The 3d imagery field has provided a whole host of techniques developers can use to make things look better (and will often be picked up on when they fall short).Techniques include
 
-2d texture replacement Various methods here including the basic things like skyboxes but also including distant objects being replaced by 2d rendered versions of what they appear to be to save rendering efforts.
+**2d texture replacement** Various methods here including the basic things like skyboxes but also including distant objects being replaced by 2d rendered versions of what they appear to be to save rendering efforts.
 
-Texture mip mapping Read a book from across the room. The text which would be so very clear when up close probably looks like a grey black blur until you get closer. By the same token distant objects can have their textures reduced in resolution so as to have to render less detail.
+**Texture mip mapping** Read a book from across the room. The text which would be so very clear when up close probably looks like a grey black blur until you get closer. By the same token distant objects can have their textures reduced in resolution so as to have to render less detail.
 
-Viewpoint rendering Fairly obvious really but you only really need to render everything the camera sees. Some interest effects can be seen where gamecube games which were typically made to use a 4:3 aspect ratio [were hacked to use 480p](http://www.youtube.com/watch?&v=qombIUAadOs).
+**Viewpoint rendering** Fairly obvious really but you only really need to render everything the camera sees. Some interest effects can be seen where gamecube games which were typically made to use a 4:3 aspect ratio [were hacked to use 480p](http://www.youtube.com/watch?&v=qombIUAadOs).
 
-Backface culling Parts of 3d models that are not rendered at that point will often be made clear/not rendered in an attempt to cut down on the amount of detail that needs rendering.
+**Backface culling** Parts of 3d models that are not rendered at that point will often be made clear/not rendered in an attempt to cut down on the amount of detail that needs rendering.
 
-Backface alternate usages If you have an item that is not normally seen or not seen from a given angle you can use the reverse side to hold something else. The sign from New Super Mario Brothers on the DS is a good example.
+**Backface alternate usages** If you have an item that is not normally seen or not seen from a given angle you can use the reverse side to hold something else. The sign from New Super Mario Brothers on the DS is a good example.
 
-Not rendering hidden objects Surprisingly not done in relatively recently in many 3d games. Here if an item is blocked from view it will tend not to be rendered at all.
+**Not rendering hidden objects** Surprisingly not done in relatively recently in many 3d games. Here if an item is blocked from view it will tend not to be rendered at all.
 
-Dynamic mapping of textures Here in addition to all the methods above textures themselves might not be mapped until the last moment.
+**Dynamic mapping of textures** Here in addition to all the methods above textures themselves might not be mapped until the last moment.
 
-Shadows and lighting Although the other methods have very interesting things happen in them the things that go into replicating light and the related concept of shadows is once more the subject of documents far longer than this one. “Basic” things include the various mathematical model approximations for things ranging from shadows, types of reflection/colouring (ambient, diffuse, emissive and specular) and the reflection models. On a more basic front the lack of a shadow on an item, especially one on an ostensibly real world, is quite noticeable (it is arguably a variation on the uncanny valley concept) but if you stick a simple circular shadow it goes a long way to preventing it from being quite as noticeable.
+**Shadows and lighting** Although the other methods have very interesting things happen in them the things that go into replicating light and the related concept of shadows is once more the subject of documents far longer than this one. “Basic” things include the various mathematical model approximations for things ranging from shadows, types of reflection/colouring (ambient, diffuse, emissive and specular) and the reflection models. On a more basic front the lack of a shadow on an item, especially one on an ostensibly real world, is quite noticeable (it is arguably a variation on the uncanny valley concept) but if you stick a simple circular shadow it goes a long way to preventing it from being quite as noticeable.
 
 Most older systems will use basic circular shadows or have them and a more conventional type of shadow at the same time.
 

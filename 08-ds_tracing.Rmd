@@ -8,15 +8,15 @@ With the possible exception of no$gba DS debugging emulators are not as advanced
 
 To this end there are three main emulators with any real debugging support. It is unknown if no$gba debug version can still be legitimately obtained.
 
-no$gba
+**no$gba**
 
 will not work on later ROMs unless you otherwise bypass any included anti piracy but has a lot of abilities including the ability to set a variety of breakpoints.
 
-desmume
+**desmume**
 
 although it features disassembly support and a variety of memory viewing, dumping and editing options (in general and as part of cheats) as well as a full complement of tile, map and other viewers much of the debugging functionality is aimed at homebrew via the GDB stub.
 
-iDeaS
+**iDeaS**
 
 the main claim to debugging status alongside the other two is the support for run to selection and then the step function after that as well as the ability to manipulate registers.
 
@@ -28,7 +28,7 @@ the main claim to debugging status alongside the other two is the support for ru
 
 The command itself more or less sets a window into the ROM image which can be read accordingly
 
-Compression aside With the DS cart not being memory mapped there will occasionally be a copy to ram of data as seen on the cart and a subsequent copy to where it needs to end up (in the case of audio or graphics) can happen not to mention compression will often operate like this.
+**Compression aside** With the DS cart not being memory mapped there will occasionally be a copy to ram of data as seen on the cart and a subsequent copy to where it needs to end up (in the case of audio or graphics) can happen not to mention compression will often operate like this.
 
 ### Header reverse engineering/generated values
 

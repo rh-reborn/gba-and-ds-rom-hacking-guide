@@ -118,38 +118,35 @@ Seen as most people code on a PC, or a device that is emulating a PC setup, it i
 
 There is also the matter of signed bytes and (floating) point values for as with computers not being able to easily write subscript they tend not to have provisions for negative symbols and values after the “decimal” point either. Do note that some of these methods have since made their way into silicon as well, though the GBA and DS are somewhat lacking here.
 
-Signed values Various methods exist here with popular ones including ones complement, twos complement and excess 7. Each have advantages and some disadvantages depending upon what you are doing although the biggest disadvantages to some of the simpler methods are the inability to do simple maths without conversion and the existence of two values for 0 which makes comparing and acting on the results tricky.
+**Signed values** Various methods exist here with popular ones including ones complement, twos complement and excess 7. Each have advantages and some disadvantages depending upon what you are doing although the biggest disadvantages to some of the simpler methods are the inability to do simple maths without conversion and the existence of two values for 0 which makes comparing and acting on the results tricky.
 
 Signed numbers are also one of the reasons for some stats ending at 511 or 127 or similar (it should become apparent why this is very shortly) with the other big reason, assuming the first bit is not simply ignored, is that programmers frequently like using the first bit to encode something or act as a flag of some form (for instance the DS archive format NARC uses it so signify a subdirectory). For another source on the subject [grinnell.edu’s CS152 has a nice version](http://www.cs.grinnell.edu/~rebelsky/Courses/CS152/97F/Readings/student-binary.html).
 
-Sign and magnitude Here the first bit of a value is given over and called a negative flag which is also another name for the method (although the term can be used more generally when dealing with signed numbers), another name is signed magnitude.
+**Sign and magnitude** Here the first bit of a value is given over and called a negative flag which is also another name for the method (although the term can be used more generally when dealing with signed numbers), another name is signed magnitude.
 
 Here the first bit is given over to being a sign with the rest of the numbers being interpreted as usual. It is the most similar method to conventional counting/maths. 0 means positive while 1 means negative. 0000 0001 equals 1 and 1000 0001 equals -1
 
-Ones complement For the ones complement a bitwise NOT operation (covered in more detail later but in short it changes every 0 into a 1 and every 1 into a 0) is applied to a positive number making the negative counterpart. It has problems as basic maths can not be done so easily and it has the problem of two values for 0.
+**Ones complement** For the ones complement a bitwise NOT operation (covered in more detail later but in short it changes every 0 into a 1 and every 1 into a 0) is applied to a positive number making the negative counterpart. It has problems as basic maths can not be done so easily and it has the problem of two values for 0.
 
-0001 becomes 1110
+<p align="center">`0001 becomes 1110`</p>
 
-0010 becomes 1101
+<p align="center">`0010 becomes 1101`</p>
 
-0011 becomes 1100
+<p align="center">`0011 becomes 1100`</p>
 
-Twos complement Marginally more complex than the others mentioned so far is twos complement but as it does not have the pitfalls of the other numbers (two representations of zero and simple maths is possible) it is popular. Here the ones complement is made (bitwise NOT to all the digits) and then 1 is added to the result using conventional binary addition. 0000 becomes 1111 and then 0001 0000 but the other part is ignored.
+**Twos complement** Marginally more complex than the others mentioned so far is twos complement but as it does not have the pitfalls of the other numbers (two representations of zero and simple maths is possible) it is popular. Here the ones complement is made (bitwise NOT to all the digits) and then 1 is added to the result using conventional binary addition. 0000 becomes 1111 and then 0001 0000 but the other part is ignored.
 
 Examples
 
-Example 1
-
+**Example 1**
+```r
 -1
-
 Postive one is 0001
-
 NOT gives 1110
-
 adding 0001 gives 1111
-
-Example 2
-
+```
+**Example 2**
+```r
 -3
 
 Positive three is 0011
@@ -157,12 +154,13 @@ Positive three is 0011
 A bitwise NOT gives 1100
 
 Adding one 0001 gives 1101
+```
 
 Maths example
 
 Similar to the example of 0 above 2 decimal (0010) added to -1 (1111) which gives 0001 0001 and has the leftmost “spillover” ignored.
 
-“Excess 7” Although twos complement and the others will serve you well and form the bulk of everything you come into contact with there is another somewhat more complex method in common use. It can vary a bit depending upon your implementation (the technical/concept name is excess 2^(m-1) where m is the number or binary digits you have to work with) but excess 7 will be used for now.
+**“Excess 7** Although twos complement and the others will serve you well and form the bulk of everything you come into contact with there is another somewhat more complex method in common use. It can vary a bit depending upon your implementation (the technical/concept name is excess 2^(m-1) where m is the number or binary digits you have to work with) but excess 7 will be used for now.
 
 It becomes more complex and somewhat more important when fractional numbers arise (covered in the section below). In practice it is a kind of combination of the basic signed magnitude idea and twos compliment. As mentioned this is sticking with excess 7 for the example but scaling up is fairly logical.
 
@@ -172,15 +170,13 @@ In years past you might have been encouraged to just make numbers huge as a work
 
 The equation
 
-![8 - 1- 3+ 6 +9 = 19
-](images/romhacking20200x.png)
+<p align="center">![8 - 1- 3+ 6 +9 = 19](images/romhacking20200x.png)</p>
 
 A simple equation but with a calculator or in your head it is quite possible to make a mistake and mess the whole thing up.
 
 Adding in this case ten to all the numbers makes them all positive
 
-![18+ 9 +7 + 16+ 19 = 69
-](images/romhacking20201x.png)
+<p align="center">![18+ 9 +7 + 16+ 19 = 69](images/romhacking20201x.png)</p>
 
 Five numbers all 10 larger makes the result “out” by 50 but plain addition is far easier to avoid making a mistake in.
 
@@ -190,35 +186,29 @@ In the case of the excess 7 (also called 8 bit excess 127) this is usually 01111
 
 If you prefer it could be seen as counting starting at the lowest possible number which would be “-(-1 +2^m)” or for 8 bits “-(-1 + 2^7)” which is negative 127 and call that the starting / “zero” value. 0 (as in nought) is then the bias value. It has the advantage of being easily compared with other numbers so it is worth knowing about.
 
-Examples
+**Examples**
 
-Number to encode -7 or (-) 0000 0111
-
+```r
+# Number to encode -7 or (-) 0000 0111
 0111 1111 – 0000 0111 = 0111 1000
-
-Number to encode 18 or 0001 0010
-
+# Number to encode 18 or 0001 0010
 0111 1111 + 0001 0010 = 1001 0001
-
-Examples
-
+```
+**Examples**
+```r
 0000 0000 -127
-
 0000 0001 -126
-
 0000 0010 -125
-
 0111 1111 0
-
 1000 0000 +1
-
 1000 0001 1111 1111 +128
+```
 
 In practice/the real world this is covered by the near universal standard IEEE 754 which is more commonly seen when dealing with floating point numbers. You could make another method but nobody really does and hardware is built to use it so again nobody does, give or take a few things using fixed point numbers. Here 32bits or more can be used with the first being the sign, the next being the bias value and the rest being the encoded number in question. Speaking of fractional numbers though
 
-Fractional numbers and real numbers Fractional numbers are usually done using a so called “floating point”, however the GBA and DS do make extensive use of fixed point numbers for various parts of the hardware including 2d transformations and 3d and will be covered shortly. The idea of leaving things as values and only calculating them at the last moment is encouraged in programming but in hardware or the final representation this can be tricky and as that is where ROM hackers spend most of their time it will be noted and nothing much else said on the subject.
+**Fractional numbers and real numbers** Fractional numbers are usually done using a so called “floating point”, however the GBA and DS do make extensive use of fixed point numbers for various parts of the hardware including 2d transformations and 3d and will be covered shortly. The idea of leaving things as values and only calculating them at the last moment is encouraged in programming but in hardware or the final representation this can be tricky and as that is where ROM hackers spend most of their time it will be noted and nothing much else said on the subject.
 
-Floating point On the face of it floating point appears related to the excess 7 method of displaying signed numbers, in practice it is actually closer to the standard scientific notation for displaying large numbers. The concept of this then is the idea of floating point numbers, in essence they are
+**Floating point** On the face of it floating point appears related to the excess 7 method of displaying signed numbers, in practice it is actually closer to the standard scientific notation for displaying large numbers. The concept of this then is the idea of floating point numbers, in essence they are
 
 1.  A sign value
 2.  A multiplier (actually an exponent) to make sure the “decimal” point gets where it needs to be
@@ -230,13 +220,13 @@ It probably does not take a great leap of imagination to see how this gets very 
 
 There is a class of compression based on this idea known as arithmetic coding. It works on the idea that for the file might represent it is still a number and some numbers can can be represented shorter by encoding them as a floating point.
 
-The short version
+**The short version**
 
 32 bits long the first bit is the sign of the multiplier, the next 8 bits are the value of the exponent of the multiplier in excess 7 notation and the final bits are the basic value that needs multiplying save for the “hidden” 1 value which the fractional part gets added to.
 
 That is a bit wordy so examples
 
-Decoding 40a4cccd hex
+**Decoding 40a4cccd hex**
 
 The binary representation is as follows
 
@@ -266,7 +256,7 @@ Multiplying by 4 gives 5.125
 
 Short of the actual number it is supposed to represent which is 5.15 but if you continued adding numbers from the binary pattern it would get very near there.
 
-Representing 3.14
+**Representing 3.14**
 
 Positive so first is 0
 
@@ -296,7 +286,7 @@ Which combined with the rest gives
 
 4048f5c3 hex.
 
-The slightly longer version
+**The slightly longer version**
 
 Single precision (32 bits) and double precision (64 bits) are the most common versions of floating point with anything beyond that (save perhaps quad precision in some hardware) usually being relegated to (very slow) software methods.
 
@@ -314,11 +304,11 @@ For more [IEEE floating-point representations of real numbers](http://www.math.g
 
 To make up for some of the shortcomings of the method there are two common functions that are used when dealing with such things.
 
-Ceiling In short round up to a given value (or multiple thereof) regardless of what a conventional round would do. Not necessarily limited to fractional numbers either.
+**Ceiling** In short round up to a given value (or multiple thereof) regardless of what a conventional round would do. Not necessarily limited to fractional numbers either.
 
-Floor In short round down to a given value regardless of what a conventional round would do. Also not necessarily limited to fractional numbers.
+**Floor** In short round down to a given value regardless of what a conventional round would do. Also not necessarily limited to fractional numbers.
 
-Fixed point values Floating point is used everywhere in computing (especially in 3d and mapping of things in 3d, something you may have seen the occasional game do) and it is quite costly in terms of resources so fixed point appears.
+**Fixed point values** Floating point is used everywhere in computing (especially in 3d and mapping of things in 3d, something you may have seen the occasional game do) and it is quite costly in terms of resources so fixed point appears.
 
 Fixed point attempts to work around some of the issues with floating point at the potential cost of some accuracy and some flexibility. It is seen in parts of the DS 3d system among other things where 4 bits “natural number” 12 bits “fractional” is often of the order of the day. That is to say the computer assumes all numbers after a given binary digit are fractional. Some instead prefer to view it as a range type function with 0000 to 1111 representing the difference between two whole numbers (or in the case of sine and cosine -1 to 1).
 
@@ -370,35 +360,35 @@ Here is probably useful to discuss the idea of high and low as it applies to com
 
 Examples will be done in binary.
 
-NOT aka inverse Does what it says and flips every bit.
+**NOT aka inverse** Does what it says and flips every bit.
 
 1001 1110 becomes 0110 0001
 
-AND Here you take two numbers (preferably of equal length but if not the shorter sequence is repeated as appropriate in most cases) and combine the outcome so that only if both inputs are high the result is high
+**AND** Here you take two numbers (preferably of equal length but if not the shorter sequence is repeated as appropriate in most cases) and combine the outcome so that only if both inputs are high the result is high
 
 1100 1111 AND 1010 0100 becomes 1000 0100
 
-NAND Much like AND you take two numbers and put them together but rather than if both are high this is if both are low. It is most useful as it is a fundamental logic operation; you can stack NAND operations or indeed NAND gates in such a way that you can make any other Boolean operation.
+**NAND** Much like AND you take two numbers and put them together but rather than if both are high this is if both are low. It is most useful as it is a fundamental logic operation; you can stack NAND operations or indeed NAND gates in such a way that you can make any other Boolean operation.
 
 1100 1111 NAND 1010 0100 becomes 0111 1011
 
-OR Again two numbers but if any one of the inputs it high the result is high.
+**OR** Again two numbers but if any one of the inputs it high the result is high.
 
 1100 1111 OR 1010 0100 becomes 1110 1111
 
-NOR Two numbers but only high if both inputs are low
+**NOR** Two numbers but only high if both inputs are low
 
 1100 1111 NOR 1010 0100 becomes 0001 0000
 
-XOR Two numbers but only high if only one input is high. Useful as encryption by itself and the basis of many more useful encryption methods. As a quick aside there are serious downsides when it comes to actually being used as encryption, if done properly it is one of the few that can not be broken with enough computing power. Also where the others can easily have multiple inputs in electronics a multiple input XOR is tricky at best.
+**XOR** Two numbers but only high if only one input is high. Useful as encryption by itself and the basis of many more useful encryption methods. As a quick aside there are serious downsides when it comes to actually being used as encryption, if done properly it is one of the few that can not be broken with enough computing power. Also where the others can easily have multiple inputs in electronics a multiple input XOR is tricky at best.
 
 1100 1111 XOR 1010 0100 becomes 0110 1011
 
-XNOR Two inputs, only high outputs when none or both inputs are the same. Being the inverse of XOR it has similar problems to it.
+**XNOR** Two inputs, only high outputs when none or both inputs are the same. Being the inverse of XOR it has similar problems to it.
 
 1100 1111 XNOR 1010 0100 becomes 1001 0100
 
-Discussion of Boolean logic. The most useful in day to day ROM hacking are probably NOT, AND, OR and, purely because of the encryption, XOR.
+**Discussion of Boolean logic.** The most useful in day to day ROM hacking are probably NOT, AND, OR and, purely because of the encryption, XOR.
 
 NOT aka inverse is useful on many occasions for many things especially in graphics (it might not be quite that simple in practice but inverting colours is quite common). Also useful to corrupt data and recover it easily (you just invert it back).
 
@@ -408,7 +398,7 @@ OR is useful if you want to set a certain bit high, for instance to set the high
 
 XOR is also used a few times in the internals of the GBA and DS and is used extensively as simple protection at points in cheat devices and things like the GBA e reader.
 
-An aside on logical/relational operators They share the same name and broad function as the boolean logic but here they are used as checks to see if both inputs meet a given condition. In C type languages it runs as follows
+**An aside on logical/relational operators** They share the same name and broad function as the boolean logic but here they are used as checks to see if both inputs meet a given condition. In C type languages it runs as follows
 
 AND checks to see if both inputs are non 0 and returns true if it is the case
 
@@ -436,9 +426,9 @@ Multiplication is easy enough
 
 Division is a pain and more importantly depends on the programming language function used; many basic methods will chop off the stuff after the “decimal” point where others will turn it into a floating number. Floating point might not be that accurate as hex is somewhat less capable of displaying the results of common divisions, not to mention it will be rounded at some point. Such a trick is often used to confuse, and so teach, new programmers and even catches out older ones; finance packages are especially troubled by this for if they miss a couple of rounding points it can result in big amounts of money not going where it needs to go. There are however a few concepts worth noting as they crop up in programming languages and the processors they run on
 
-Mod As mentioned some basic hexadecimal divide functions will leave you with just the whole number part of the result (99 divided by 6 is 16.5 but many divide functions would just give you 16). Mod is then a function that gives you the remainder as a whole number (99 divided by 6 is 16 remainder 3) which you can leave in the hope it will be multiplied back later or feed to another command (many divide functions struggle with large numbers and prefer small ones).
+**Mod** As mentioned some basic hexadecimal divide functions will leave you with just the whole number part of the result (99 divided by 6 is 16.5 but many divide functions would just give you 16). Mod is then a function that gives you the remainder as a whole number (99 divided by 6 is 16 remainder 3) which you can leave in the hope it will be multiplied back later or feed to another command (many divide functions struggle with large numbers and prefer small ones).
 
-Abs(olute) Potentially confusingly regular maths sometimes also calls this modulus with the shorthand sometimes being “mod”. Depending upon how far you want to take maths it can get quite complex but the short version is abs value of a number is just the number (always positive) without the sign. It is then quite useful to feed into functions so you can simplify them or the resulting maths.
+**Abs(olute)** Potentially confusingly regular maths sometimes also calls this modulus with the shorthand sometimes being “mod”. Depending upon how far you want to take maths it can get quite complex but the short version is abs value of a number is just the number (always positive) without the sign. It is then quite useful to feed into functions so you can simplify them or the resulting maths.
 
 ## Patching and patch making
 
@@ -446,7 +436,7 @@ ROM hackers change ROM images, copyright lengths being what they are it means su
 
 * [IPS](https://www.romhacking.net/utilities/13/). The original ROM hacking patching method of choice. It is a truly basic format (the basic form contains a magic stamp/value, a list of patches to apply (which consist of a location, length and payload) and a signal for the end of the file) although there are a few custom versions that are not widely supported. It can not handle location changes which is not a problem for older consoles but with consoles that have filesystems (which is to say most optical media using and post GBA consoles) it is a dealbreaker. It is also limited to files of 16 megabytes in size or less, again this is not a problem on older consoles but even the GBA allowed code up to 32 megabytes to be run.
 * [UPS](http://www.romhacking.net/utilities/519/). Made as a direct successor to IPS it has found some use in older consoles and later GBA patches but came a bit too late and the patching methods below had stolen the spotlight. [Upset](http://www.romhacking.net/utilities/677/%20), [Tsukuyomi UPS](http://www.romhacking.net/utilities/519/) and [NUPS](http://www.romhacking.net/utilities/606/) are all good tools for UPS.
-* [PPF](http://www.romhacking.net/utilities/514/). Made originally to patch PS1 games (Playstation Patching Format being the longer form) it went through a few revisions and as such some are wary, however it saw some use on the Wii and continues to kick around. Size limits are not really a problem (it is unknown what the upper limit is) and shifts are handled OK. [PPF-O-Matic](http://filetrip.net/pc-downloads/applications/download-ppf-o-matic-30-f29416.html) is a nice GUI patching program and the original [PPF](http://www.romhacking.net/utilities/353/) program should provide a nice multiplatform patching and patch making alternative.
+* [PPF](http://www.romhacking.net/utilities/514/). Made originally to patch PS1 games (**P**laystation **P**atching **F**ormat being the longer form) it went through a few revisions and as such some are wary, however it saw some use on the Wii and continues to kick around. Size limits are not really a problem (it is unknown what the upper limit is) and shifts are handled OK. [PPF-O-Matic](http://filetrip.net/pc-downloads/applications/download-ppf-o-matic-30-f29416.html) is a nice GUI patching program and the original [PPF](http://www.romhacking.net/utilities/353/) program should provide a nice multiplatform patching and patch making alternative.
 * [Xdelta](http://xdelta.org/)and [BSDiff](http://www.daemonology.net/bsdiff/). Both general patching formats (indeed they tend to position themselves as rival formats) that got used for the DS and newer consoles (ROM hackers have tended to favour Xdelta where BSDiff saw more use in the form of Scene trainers and patches). Shifts are handled well enough (although they might not be perfect) and sizes are not likely to get to a limit any time soon (although some implementations of BSDiff are rather low). Features some support for original file checking and hashing. The current version of Xdelta was linked but there is an [older version](http://www.evanjones.ca/software/xdelta-win32.html) that was used for a while and there have been some compatibility issues.
 * [Ninja](http://www.romhacking.net/utilities/329/). An earlier candidate to replace IPS and fell out of favour for various reasons. Some patches have been seen to use it and in many ways it works quite well.
 * [PAR2](http://www.quickpar.org.uk/). Not a patching method per se and more of a corruption detection and data recovery format. Changed data is no different to corrupt data as far as it is concerned so can patch programs though it has some trouble with data shifts. Better yet though assuming you have enough redundancy you can be certain your patch will make the original ROM into exactly what you need which is quite useful when there are various corrupt or otherwise modified dumps out in the wild (headers on SNES ROM files for instance).
@@ -488,23 +478,23 @@ The executable formats for the DS are ARM9, ARM7 and overlay files that usually 
 
 [GBAtek](http://problemkaputt.de/gbatek.htm) is the main reference document for hardware for the DS.
 
-NDStool
+**NDStool**
 
 [NDStool on filetrip](http://filetrip.net/nds-downloads/utilities/download-nintendo-ds-rom-tool-ndstool-1501-f29352.html) Command line and very quick and easy but fails to rebuild certain ROM images properly (most still work).
 
-Nitroexplorer
+**Nitroexplorer**
 
 [Nitroexplorer filetrip](http://filetrip.net/nds-downloads/utilities/download-nitroexplorer-2b-f7301.html) Built to make up for shortcomings in NDStool methods. Short of manual editing the go to tool for most.
 
-NDSTS
+**NDSTS**
 
 [No-Intro tools page](http://www.no-intro.org/tools.htm) Able to extract files and insert files of the same size (you can pad them if you want), if it crashes when you have edited it where it worked before with this then it is definitely your fault.
 
-Crystaltile2
+**Crystaltile2**
 
 [Crystaltile2 filetrip](http://filetrip.net/nds-downloads/utilities/download-crystaltile2-20100906-f23649.html) Able to parse the DS file system as well as extract individual files. Support at this level for compression as well as certain container files as well as support for all sorts of known formats and additional functionality. Click the DS icon on the the icon bar to open the viewer.
 
-Tinke
+**Tinke**
 
 [Github link](https://github.com/pleonex/tinke/) A tool similar in capability to Crystlatile2 and also supports decompression of files, in ROM and extensive support for other formats.
 
@@ -548,13 +538,13 @@ Method - Softmod loading from external USB. Modchips and some softmods support g
 
 Wii games and files come in two original flavours and one used by some iso loading types.
 
-Discs Several tools available but Wii scrubber will be the method of choice here
+**Discs** Several tools available but Wii scrubber will be the method of choice here
 
 [Wii scrubber filetrip download](http://filetrip.net/wii-downloads/other-files/download-wiiscrubber-kit-with-multiloader-140-f4399.html)
 
 You might however also consider [Wiimms ISO Tools](http://wit.wiimm.de/) for a nice command line alternative and support for some of the custom formats that became quite popular on the Wii.
 
-Virtual console and Wiiware aka WAD files Not to be confused with doom wad files.
+**Virtual console and Wiiware aka WAD files** Not to be confused with doom wad files.
 
 One of the former tools for this was WWpacker but better examples exist in
 
@@ -568,7 +558,7 @@ Many titles also nest things in a format known as u8 (and often combine it yaz0 
 
 [showmiiwads github page](https://github.com/Plombo/showmiiwads)
 
-HDD Most people do not use whole iso images or the minor tweaks to them any more and will instead use a USB hard drive and maybe a custom format. These come in various formats and layers of support but WBFS is the main method that is often stacked on top of FAT or NTFS filesystems. Wiimms ISO Tools linked above have a measure of support for some of this.
+**HDD** Most people do not use whole iso images or the minor tweaks to them any more and will instead use a USB hard drive and maybe a custom format. These come in various formats and layers of support but WBFS is the main method that is often stacked on top of FAT or NTFS filesystems. Wiimms ISO Tools linked above have a measure of support for some of this.
 
 ### Xbox
 
@@ -594,13 +584,13 @@ Method - no real softmod. DVD mod (does not allow altered games, XBLA or DLC unl
 
 Xbox 360 games come in two broad flavours with a third method mentioned. The executable format for the 360 is .xex files. These can be extracted further (they are based on the Windows PE/portable executable format used in exe and dll files).
 
-Xex Xextool and xextool GUI are tools that can help here. They can unpack the format, apply various patches both to the files themselves and apply the title update patches.
+**Xex** Xextool and xextool GUI are tools that can help here. They can unpack the format, apply various patches both to the files themselves and apply the title update patches.
 
 [Xextool filetrip download](http://filetrip.net/360-downloads/iso-tools/latest-xextool-f29383.html)
 
 [XextoolGUI filetrip download](http://filetrip.net/360-downloads/iso-tools/latest-xextool-gui-f29384.html)
 
-Discs Various programs will extract things, including the ISO checking tool known as ABGX360, but many are unwieldy so e-xiso is the main go to method.
+**Discs** Various programs will extract things, including the ISO checking tool known as ABGX360, but many are unwieldy so e-xiso is the main go to method.
 
 [Extract xiso homepage](http://alecsis.free.fr/Extract-xiso/)
 
@@ -610,7 +600,7 @@ GOD and NXE/hard drive installs have come from discs and have but a few bytes di
 
 XEX files are the binaries of the 360, there can be several. Patches exist in the form of title updates and can be applies to the XEX files if you really want.
 
-XBLA/DLC PIRS, LIVE and CON. PIRS are signed by MS and can be installed on any 360 without issue. They are mainly sourced from Bethesda game of the year and Borderlands double pack games but there are several more.
+**XBLA/DLC** PIRS, LIVE and CON. PIRS are signed by MS and can be installed on any 360 without issue. They are mainly sourced from Bethesda game of the year and Borderlands double pack games but there are several more.
 
 LIVE is the format of XBLA and DLC. XBLA demos are full games but a little string is swapped to allow play of the full one (naturally this breaks signing and needs a developer or JTAG/RGH box to run it).
 
@@ -620,7 +610,7 @@ A related set of formats and usually handled by all the same tools. Le Fluffie i
 
 [Filetrip download](http://filetrip.net/360-downloads/other-files/download-le-fluffie-690025-f28975.html)
 
-USB Not really a format but one of the main methods of access so it is noted. Later in the life of the 360 Microsoft added support for a custom USB format (in practice it was a reserved section of a USB drive). XTAF.
+**USB** Not really a format but one of the main methods of access so it is noted. Later in the life of the 360 Microsoft added support for a custom USB format (in practice it was a reserved section of a USB drive). XTAF.
 
 Supported by several tools but USBXTAF is the main method.
 
@@ -708,27 +698,27 @@ Various executable formats depending upon development language and operating sys
 
 A tiny bit more on PC hacking is mentioned later but for simple unpacking.
 
-PE
+**PE**
 
 Windows main format is the PE format which is usually known by the extensions exe and dll. This can be unpacked with many things including the likes of 7zip.
 
-ELF
+**ELF**
 
 Used as the basis for a lot of executable formats (including many of the consoles covered elsewhere).
 
-Iso
+**Iso**
 
 Broad term for images of optical discs (and sometimes other things) and there are various formats for it (many things will be called iso and burn as one but be unable to be extracted). Can be extracted by many tools including [7zip](http://www.7-zip.org/) and [Ultraiso (paid software)](http://www.ezbsystems.com/ultraiso/)
 
-Batch/bash
+**Batch/bash**
 
 Most operating systems provide a command line where commands can be typed and layered on top of this is are the concept of small text scripts that can do fairly extensive things but in practice are just a list of commands with a few extras.
 
-Scripts
+**Scripts**
 
 (Python, lua, Java, visual basic and many more). Many programming languages operate outside the realms of the standard executable (or have it for a wrapper) and can have their original code, or something close to it, recovered by various means.
 
-SD/CF/XD
+**SD/CF/XD**
 
 A points you may have to copy a SD,CF, XD or some other memory card at the sector by sector level. On these occasions there is a program called DD which is popular on linux and has a [Windows port](http://www.chrysocome.net/dd) too.
 
@@ -787,41 +777,41 @@ The features that make life easier for ROM hackers are
 
 Raw disk editing, program/memory editing, X86 disassembly, base64 decode and similar things are other features that an editor might be sold as having are great but they have been of limited use to ROM hackers in the past, even program/memory editing is usually taken care of by specialist programs as you will see when cheats are discussed.
 
-Paid The freeware editors in many ways provide a more than adequate replacement for the commercial tools but many still like the commercial offerings. The two best ones are quite pricey and are roughly equal in ability.
+**Paid** The freeware editors in many ways provide a more than adequate replacement for the commercial tools but many still like the commercial offerings. The two best ones are quite pricey and are roughly equal in ability.
 
-Hex workshop [Hex Workshop homepage](http://www.hexworkshop.com/)
+**Hex workshop** [Hex Workshop homepage](http://www.hexworkshop.com/)
 
 Probably the most popular paid editor among ROM hackers.
 
 ![PIC](images/1_home_fast6191_romhackingguide_unrenamed_files___mhackingguidehexeditorsshowcasehexworkshop1.png)
 
-010 editor [010 editor homepage](http://www.sweetscape.com/010editor/)
+**010 editor** [010 editor homepage](http://www.sweetscape.com/010editor/)
 
 Another paid editor on a par with hex workshop
 
 ![PIC](images/2_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcase010editor1.png)
 
-Freeware The freeware offerings here, unlike some other areas of computing, are not on a par but with a slightly different GUI. However when the suggestions in the freeware category are combined it makes for all the functionality of the commercial offerings.
+**Freeware** The freeware offerings here, unlike some other areas of computing, are not on a par but with a slightly different GUI. However when the suggestions in the freeware category are combined it makes for all the functionality of the commercial offerings.
 
-ICY Hexplorer [Sourceforge page](http://hexplorer.sourceforge.net/)
+**ICY Hexplorer** [Sourceforge page](http://hexplorer.sourceforge.net/)
 
 Almost at the level where you could drop it in as a replacement for the commercial offerings (save for the lack of ability to have multiple files open at once). Needs some setup to get the GUI functioning well but once done it is suitable for use as a day to day editor.
 
 ![PIC](images/3_home_fast6191_romhackingguide_unrenamed_files___hackingguidehexeditorsshowcaseICYHexplorer1.png)
 
-XVI32 [Homepage](http://www.chmaas.handshake.de/delphi/freeware/xvi32/xvi32.htm)
+**XVI32** [Homepage](http://www.chmaas.handshake.de/delphi/freeware/xvi32/xvi32.htm)
 
 Still being actively developed and it is mainly here as it features a powerful scripting language which can accomplish most tasks the paid and function heavy freeware editors sport with a bit more after that owing to it being a true scripting language.
 
 ![PIC](images/4_home_fast6191_romhackingguide_unrenamed_files___rs_romhackingguidehexeditorsshowcaseXVI32_1.png)
 
-Tiny Hexer [Filetrip download](http://filetrip.net/pc-downloads/applications/download-tiny-hexer-1816-f29009.html)
+**Tiny Hexer** [Filetrip download](http://filetrip.net/pc-downloads/applications/download-tiny-hexer-1816-f29009.html)
 
 A discontinued editor but has some very impressive features the equal of, and sometimes even better than, the commercial offerings.
 
 ![PIC](images/5_home_fast6191_romhackingguide_unrenamed_files___romhackingguidehexeditorsshowcasetinyhexer1.png)
 
-HxD [Homepage](http://mh-nexus.de/en/hxd/)
+**HxD** [Homepage](http://mh-nexus.de/en/hxd/)
 
 [Filetrip download](http://filetrip.net/pc-downloads/applications/download-hxd-hex-editor-1770-f12907.html)
 
@@ -829,9 +819,9 @@ Probably the simplest editor on this list but the go to freeware editor for a lo
 
 ![PIC](images/6_home_fast6191_romhackingguide_unrenamed_files___rders_romhackingguidehexeditorsshowcaseHxD1.png)
 
-ROM hacking specific As wonderful as the editors, commercial or otherwise, above are they lack things like high grade table support (most of the above will support a measure of custom characters but nothing truly custom like that which is seen in hacking) which is fairly essential for text hacking purposes.
+**ROM hacking specific** As wonderful as the editors, commercial or otherwise, above are they lack things like high grade table support (most of the above will support a measure of custom characters but nothing truly custom like that which is seen in hacking) which is fairly essential for text hacking purposes.
 
-Crystaltile2 [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
+**Crystaltile2** [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
 
 Supports many character sets out of the box and more importantly supports table files.
 
@@ -849,7 +839,7 @@ Support for a fair few SDK and common formats (NARC, SDAT, NFTR, DS 2d formats, 
 
 ![PIC](images/7_home_fast6191_romhackingguide_unrenamed_files___ackingguidehexeditorsshowcasecrystaltile2_1.png)
 
-Windhex32 Not to be confused with the popular disk forensics grade hex editor “[winhex](https://www.x-ways.net/winhex/)” which is not in the paid list owing to a lack of bitwise features and similar things (it is very good at disk forensics though).
+**Windhex32** Not to be confused with the popular disk forensics grade hex editor “[winhex](https://www.x-ways.net/winhex/)” which is not in the paid list owing to a lack of bitwise features and similar things (it is very good at disk forensics though).
 
 [Romhacking.net page](http://www.romhacking.net/utilities/291/)
 
@@ -859,7 +849,7 @@ Great table and text support (including multitable support you can switch betwee
 
 ![PIC](images/9_home_fast6191_romhackingguide_unrenamed_files___omhackingguidehexeditorsshowcasewindhex32_2.png)
 
-Goldfinger [Romhacking.net page](http://www.romhacking.net/utilities/204/) Not to be confused with the GBA assembler Goldroad, the common translation of the Chinese term for cheats or the the common translation of the Chinese term for cart pins.
+**Goldfinger** [Romhacking.net page](http://www.romhacking.net/utilities/204/) Not to be confused with the GBA assembler Goldroad, the common translation of the Chinese term for cheats or the the common translation of the Chinese term for cart pins.
 
 Support for 9 tables at once, it does not come with ASCII readout as standard so you will have to find/make one. It does feature some table editing abilities.
 
@@ -867,7 +857,7 @@ Although not quite suited to full text display it is unlike most other editors i
 
 ![PIC](images/10_home_fast6191_romhackingguide_unrenamed_file___omhackingguidehexeditorsshowcasegoldfinger1.png)
 
-Translhextion [Romhacking.net page](http://www.romhacking.net/utilities/219/%20)
+**Translhextion** [Romhacking.net page](http://www.romhacking.net/utilities/219/%20)
 
 New fork/version [Romhacking.net forum thread](http://www.romhacking.net/forum/topic,14373.0.html)
 
@@ -887,13 +877,13 @@ No undo support but a nice read only option by pressing tab.
 
 Although you can edit anything with a hex editor it gets very complex to do anything other than the most basic editing using one and the first thing to move to a higher level tool is 2d graphics which get a tile editor. There are several available although only a handful will be focused on here. Various homebrew development kits have some nice programs as well aimed at conversion from common formats to the somewhat odd formats used by the handhelds and other consoles.
 
-Crystaltile2 [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
+**Crystaltile2** [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
 
 Features one of the best tile editors out there (support even for the odd custom hardware display formats and a tile editor capable of being set to arbitrary widths) and has support for various DS image formats on top of the DS file system itself. Exporting and importing images is also possible.
 
 ![PIC](images/12_home_fast6191_romhackingguide_unrenamed_file___kingguidetileeeditorsshowcasecrystaltile2_1.png)
 
-TileEd2002 [Homepage](http://home.arcor.de/minako.aino/TilEd2002/)
+**TileEd2002** [Homepage](http://home.arcor.de/minako.aino/TilEd2002/)
 
 [Filetrip download](http://filetrip.net/gba-downloads/tools-utilities/download-tiled2002-064b-f7846.html)
 
@@ -905,7 +895,7 @@ Also the palette as held in the GBA.
 
 ![PIC](images/14_home_fast6191_romhackingguide_unrenamed_file___detileeeditorsshowcasetiled2002VBApalette_1.png)
 
-TileGGD [Github page](https://github.com/barubary/tiledggd)
+**TileGGD** [Github page](https://github.com/barubary/tiledggd)
 
 [Romhacking.net download](http://www.romhacking.net/utilities/646/)
 
@@ -917,7 +907,7 @@ Although the above two should do for most editing purposes this program has huge
 
 The following is a few basic tools that can be used to help out when ROM hacking when existing tools fall short and before/instead of jumping to programming a game/format specific tool.
 
-Libreoffice usage [Office suite homepage](http://www.libreoffice.org/)
+**Libreoffice usage** [Office suite homepage](http://www.libreoffice.org/)
 
 [Calc usage/help page](http://help.libreoffice.org/Calc/Welcome_to_the_Calc_Help)
 
@@ -925,27 +915,27 @@ Calc is the libreoffice spreadsheet program and it supports hexadecimal after a 
 
 There are seven main operations that get done beyond the basic addition, subtraction and multiplication.
 
-Pasting At least one of your hex editors should have a text export option that when you have set the appropriate amount of columns can export a text list of the hexadecimal (effectively making an array) and equally a search option should be able to export the results. Either way you will need to paste this into the spreadsheet which for the most part is fairly intuitive and automated but you will occasionally have to import as a fixed width or as a delimited set of text (usually a space or tab doing the delimiting). Merging cells (say for a 32 bit value spread across 2 columns where you do not want to change your editor’s behaviour) can be done but the quick and easy way is to paste the columns into a text editor and search and replace for the delimiting value.
+**Pasting** At least one of your hex editors should have a text export option that when you have set the appropriate amount of columns can export a text list of the hexadecimal (effectively making an array) and equally a search option should be able to export the results. Either way you will need to paste this into the spreadsheet which for the most part is fairly intuitive and automated but you will occasionally have to import as a fixed width or as a delimited set of text (usually a space or tab doing the delimiting). Merging cells (say for a 32 bit value spread across 2 columns where you do not want to change your editor’s behaviour) can be done but the quick and easy way is to paste the columns into a text editor and search and replace for the delimiting value.
 
 If you must though you are better off abusing a maths function and multiplying by the appropriate hexadecimal value (65025 and 255 to shift the hex equivalent by 2 and 1 bytes respectively) and the reverse using mod, floor and other functions.
 
 Bitwise, boolean and flipping operations are best done in a hex editor and given the option you will also want to import as text (all the functions will still work) as numbers have a habit of being parsed to something.
 
-Fill A basic command/option but not one everybody knows about. In the bottom right corner of a given cell when selected there will be a small square which you can click and hold before dragging down or up (or across) and the cells have the contents replicated in the cells covered by the drag range. If you have a pattern it will tend to be continued and if you have a formula that will tend to be continued but the cell contents aligned to the same thing (if the original was c4 - c3 the next will likely be c5-c4), it is not foolproof and some of the more advanced things you want want to do can be tricky to pull off but it has worked far more often than it has not.
+**Fill** A basic command/option but not one everybody knows about. In the bottom right corner of a given cell when selected there will be a small square which you can click and hold before dragging down or up (or across) and the cells have the contents replicated in the cells covered by the drag range. If you have a pattern it will tend to be continued and if you have a formula that will tend to be continued but the cell contents aligned to the same thing (if the original was c4 - c3 the next will likely be c5-c4), it is not foolproof and some of the more advanced things you want want to do can be tricky to pull off but it has worked far more often than it has not.
 
-Dec2hex and hex2dec Although calc does support hexadecimal and you can combine items into one function it is usually easier to have the initial hexadecimal values, the decimal equivalents and the conversion back again.
+**Dec2hex and hex2dec** Although calc does support hexadecimal and you can combine items into one function it is usually easier to have the initial hexadecimal values, the decimal equivalents and the conversion back again.
 
 In calc the commands are dec2hex to convert from decimal to hexadecimal and hex2dec to do the opposite.
 
-Differences Granted this is more of a technique than an actual function but it is the most used concept that actually changes/generate data. If you have a field of pointers (covered later but the general idea is a value that contains the location of another value) and the results of a search for something that indicates the start of a value you might need them to line up but it might not be readily apparent. Most of the time with pointers values change between them (if the data is a fixed distance apart there is no need to incur the time penalty for looking up the pointer and maybe doing some operations upon it) and this can give things away. To do this simply take the next pointer value and subtract the current one. The result will be the difference and if you do it for an unknown pointer set you can quite easily match things up and determine if they are “out” by a given amount. You can do a similar thing in reverse to generate new file lengths to save calculating and changing an entire pointer table by hand but by this point it is probably better to build a proper program.
+**Differences** Granted this is more of a technique than an actual function but it is the most used concept that actually changes/generate data. If you have a field of pointers (covered later but the general idea is a value that contains the location of another value) and the results of a search for something that indicates the start of a value you might need them to line up but it might not be readily apparent. Most of the time with pointers values change between them (if the data is a fixed distance apart there is no need to incur the time penalty for looking up the pointer and maybe doing some operations upon it) and this can give things away. To do this simply take the next pointer value and subtract the current one. The result will be the difference and if you do it for an unknown pointer set you can quite easily match things up and determine if they are “out” by a given amount. You can do a similar thing in reverse to generate new file lengths to save calculating and changing an entire pointer table by hand but by this point it is probably better to build a proper program.
 
 Rounding function As mentioned data tends to like to be found at 8,16 or 32 bits or some other interval (several file formats on the DS have been observed to align to an address that is a multiple of 100h). CEILING is the main function here although remember it takes decimal input for the number to round to. MROUND can also be used in a pinch but remember it can also round down which would be bad so best to add an amount if you are going to use that.
 
-Sort function Not quite so useful in ROM hacking as it is in day to day use is the ability to sort by a value (either letter order or number order)
+**Sort function** Not quite so useful in ROM hacking as it is in day to day use is the ability to sort by a value (either letter order or number order)
 
-True/false queries and parsed data Humans are not so good at recognising and interpreting numbers at pace but nice coloured squares are a different matter and quite possible in various spreadsheets. Still if you must use numbers 1 and 0 are easier to account for than lengthy values and spreadsheets can then help with this. The basic method uses the IF command and is typically formed “IF(some value/cell, equals/is less than/is greater than, then FALSE/TRUE)” but deleting as appropriate.
+**True/false queries and parsed data** Humans are not so good at recognising and interpreting numbers at pace but nice coloured squares are a different matter and quite possible in various spreadsheets. Still if you must use numbers 1 and 0 are easier to account for than lengthy values and spreadsheets can then help with this. The basic method uses the IF command and is typically formed “IF(some value/cell, equals/is less than/is greater than, then FALSE/TRUE)” but deleting as appropriate.
 
-Filecutter [crackerscrap.com (click on downloads)](http://crackerscrap.com/)
+**Filecutter** [crackerscrap.com (click on downloads)](http://crackerscrap.com/)
 
 Usage: filecutter file.in length file.out &lt;-s start&gt;
 
@@ -953,13 +943,13 @@ As windows lacks the ability to slice up files from the command line you have th
 
 Input is in decimal by default but hex can be used if you stick 0x in front of the relevant numbers.
 
-Getmyhex [Romhacking.net download](http://www.romhacking.net/utilities/504/)
+**Getmyhex** [Romhacking.net download](http://www.romhacking.net/utilities/504/)
 
 [Filetrip download](http://filetrip.net/pc-downloads/applications/download-getmyhex-1500-f29200.html)
 
 A simple tool to get the hexadecimal readout of various short sections of text.
 
-Radare(2) [Project homepage](http://radare.org/y/)
+**Radare(2)** [Project homepage](http://radare.org/y/)
 
 Now taking the place of the Romulan program featured in earlier editions. It is a scripting language but not quite, it is aimed at reverse engineering purposes though the focus is more on the PC and related platforms.
 
@@ -967,47 +957,47 @@ Now taking the place of the Romulan program featured in earlier editions. It is 
 
 Compression was once the bane of ROM hackers but it got a lot easier to handle on the DS and is not so bad for the GBA either. At this point it might even have reduced to making for a simple extra step using a known tool when extracting something from a ROM or putting it back in but not much else.
 
-DSdecmp [Github page](https://github.com/barubary/dsdecmp)
+**DSdecmp** [Github page](https://github.com/barubary/dsdecmp)
 
 Supports compression and decompression of LZSS formats seen on the GBA and DS (type 10, 11, 40 and binary/BLZ), RLE and Huffman.
 
-Cue’s GBA DS compressors [GBAtemp thread](http://gbatemp.net/topic/313278-nintendo-dsgba-compressors/)
+**Cue’s GBA DS compressors** [GBAtemp thread](http://gbatemp.net/topic/313278-nintendo-dsgba-compressors/)
 
 [Filetrip download](http://filetrip.net/nds-downloads/utilities/download-cues-gba-ds-compressors-10-f29010.html)
 
 Also supports compression and decompression of LZSS formats seen on the GBA and DS (type 10, 11, 40 and binary/BLZ), RLE and Huffman as well as LZE (used in Luminous arc titles).
 
-Crystaltile2 [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
+**Crystaltile2** [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
 
 Has a measure of compression support built into the file manager (type 10, type 11, binary decompression support some RLE and maybe Huffman) and support for some compression searching options. Somewhat buggy but you can learn them and play to them well enough.
 
-GBA specific BIOS and to a lesser extent general LZ compression can be searched for as it makes fairly distinctive changes to the hex. There are also a few tools geared towards being able to deal with GBA ROM images directly and work around issues stemming from a lack of a filesystem.
+**GBA specific** BIOS and to a lesser extent general LZ compression can be searched for as it makes fairly distinctive changes to the hex. There are also a few tools geared towards being able to deal with GBA ROM images directly and work around issues stemming from a lack of a filesystem.
 
-GBA Multi DeCompressor [romhacking.net download](http://www.romhacking.net/utilities/431/)
+**GBA Multi DeCompressor** [romhacking.net download](http://www.romhacking.net/utilities/431/)
 
 Can be directed and fed VBA SWI logs (SWI being the name for the BIOS calls and as mentioned the BIOS in the GBA and DS feature decompression functions).
 
-NLZ-GBA Advance [romhacking.net download](http://www.romhacking.net/utilities/529/)
+**NLZ-GBA Advance** [romhacking.net download](http://www.romhacking.net/utilities/529/)
 
 Ostensibly a graphics editor but one with compression support and compression searching.
 
-unLZ-GBA [romhacking.net download](http://www.romhacking.net/utilities/362/)
+**unLZ-GBA** [romhacking.net download](http://www.romhacking.net/utilities/362/)
 
 A slightly older tool but one of the few ones capable of compression searching.
 
-Lz77restructor2 [Filetrip download](http://filetrip.net/gba-downloads/tools-utilities/latest-lz77restructor2-f29641.html)
+**Lz77restructor2** [Filetrip download](http://filetrip.net/gba-downloads/tools-utilities/latest-lz77restructor2-f29641.html)
 
 A newer tool with abilities in graphics and text extraction and insertion/edition on top of the ability to search for compression and restrict those searches.
 
-GBADecmp [romhacking.net download](http://www.romhacking.net/utilities/433/)
+**GBADecmp** [romhacking.net download](http://www.romhacking.net/utilities/433/)
 
 A simple tool to decompress and recompress data from/to a known location.
 
-Crystaltile2 [Filetrip link](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
+**Crystaltile2** [Filetrip link](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
 
 Supports type 10 LZ which is the same as the GBA BIOS LZ compression. Also supports compression searching.
 
-GBACrusher [Filetrip link](http://filetrip.net/gba-downloads/tools-utilities/download-gba-crusher-010-f28823.html)
+**GBACrusher** [Filetrip link](http://filetrip.net/gba-downloads/tools-utilities/download-gba-crusher-010-f28823.html)
 
 A tool to compress files using GBA BIOS compatible compression methods like the 8 and 4 bit Huffman compressions, Differential, Run length encoding, LZ (type 10) for VRAM and for WRAM. Command line version included.
 
@@ -1017,19 +1007,19 @@ A tool to compress files using GBA BIOS compatible compression methods like the 
 
 Format and console specific tools will be covered in the relevant sections. However a few high level tools are useful to have.
 
-Wave editing - Audacity [Audacity Sourceforge page](http://audacity.sourceforge.net/)
+**Wave editing - Audacity** [Audacity Sourceforge page](http://audacity.sourceforge.net/)
 
 Imports most wave, PCM and ADPCM variations and features editing, some mixing ability and filters.
 
-Tracker format - Open MPT [Open MPT homepage](http://openmpt.org/)
+**Tracker format - Open MPT** [Open MPT homepage](http://openmpt.org/)
 
 A fairly advanced program with support for playing, editing and exporting various tracker formats. Should have a measure of DLS support although it can be problematic. Formerly known as ModPlug Tracker which is what some tutorials written before the rename will refer to it as.
 
-Midi specific - Anvil Studio [Anvil studio homepage](http://www.anvilstudio.com/)
+**Midi specific - Anvil Studio** [Anvil studio homepage](http://www.anvilstudio.com/)
 
 A freeware program that several of those editing audio for the GBA like to use.
 
-General editing - Awave studio [Awave studio homepage](http://www.fmjsoft.com/awframe.html)
+**General editing - Awave studio** [Awave studio homepage](http://www.fmjsoft.com/awframe.html)
 
 A largely paid piece of software that can help convert files and deal with less than perfect implementations of some audio formats various game specific tools might output. Midi and DLS support is available.
 
@@ -1037,31 +1027,31 @@ A largely paid piece of software that can help convert files and deal with less 
 
 Usage is often as extensive as assembly itself but some tools none the less
 
-Emulators (debugging/hacking grade) The following is a list of emulators that possess debug functions of a grade that is useful to ROM hacking without going to abstract methods of debugging.
+**Emulators (debugging/hacking grade)** The following is a list of emulators that possess debug functions of a grade that is useful to ROM hacking without going to abstract methods of debugging.
 
-DS there are a handful of emulators available but only three have any real support for commercial ROM images and debugging.
+**DS** there are a handful of emulators available but only three have any real support for commercial ROM images and debugging.
 
-Desmume
+**Desmume**
 
 [Desmume download page](http://desmume.org/download/)
 
 The developer and regular versions feature memory viewers, disassemblers, VRAM, OAM and other such viewers. Also features support for GDB and [LUA type](http://wiki.desmume.org/index.php?title=Faq#What_is_this_Lua_stuff_I_see.3F) debugging as seen in high grade hacking focused emulators like [FCEUX](http://www.fceux.com/web/help/LuaScripting.html). Its cheat making options are fairly well developed nowadays as well.
 
-no$gba
+**no$gba**
 
 [no$gba developer version page](http://problemkaputt.de/gba-dev.htm)
 
 The gaming version of no$gba features very few debugging features (although there are some memory editors that interface with it) but there is a debugging version, which is now free to download, available with extensive debugging abilities. Note that ROM images may well need to have their secure area encrypted to run but [eNDryptS Advanced](http://www.no-intro.org/tools.htm) should be able to handle that.
 
-iDeaS
+**iDeaS**
 
 [iDeaS homepage](http://ciacin.site90.com/ideas.php)
 
 Though slightly less developed than Desmume on the commercial ROM front it does however support something closer to breakpoints as seen in no$gba and the GBA emulators as standard. Function logs and run to selection command are more prominent in the debugging section though and it is not quite a full replacement for no$gba.
 
-GBA The GBA has a somewhat larger and more featured collection of debugging grade emulators.
+**GBA** The GBA has a somewhat larger and more featured collection of debugging grade emulators.
 
-VBA-SDL-h
+**VBA-SDL-h**
 
 [VBA-SDL-h Homepage](http://labmaster.bios.net.nz/vba-sdl-h/)
 
@@ -1071,19 +1061,19 @@ VBA-SDL-h
 
 Version of the popular GBA emulator reworked to add debugging support like the ability to set breakpoints.
 
-VBA-h
+**VBA-h**
 
 [Filetrip download](http://filetrip.net/gba-downloads/emulators/download-vba-h-172-f28913.html)
 
 VBA-sdl-h above is geared towards assembly hacking and lacks much in the way of a GUI where VBA-h is geared towards memory viewing and cheat making.
 
-no$gba
+**no$gba**
 
 [no$gba developer version page](http://problemkaputt.de/gba-dev.htm)
 
 Along with the DS the GBA is well supported in the debugging editions of no$gba.
 
-BoycottAdvance
+**BoycottAdvance**
 
 [Filetrip download](http://filetrip.net/gba-downloads/emulators/download-boycottadvance-028-windows-f28912.html)
 
@@ -1091,22 +1081,22 @@ Some prefer this to VBA-SDL-h and it certainly is a bit more GUI happy. It can t
 
 ![PIC](images/17_home_fast6191_romhackingguide_unrenamed_file___ackingguideemulatorshowcaseboycottadvance_1.png)
 
-Disassemblers Disassemblers are tools that can be directed to turn machine code and related information back into assembly code. They are pretty dumb for the most part and their output will tend not even to be able to be reassembled without some modification by a human, however take the time to set one up properly for the task you want and they are invaluable.
+**Disassemblers** Disassemblers are tools that can be directed to turn machine code and related information back into assembly code. They are pretty dumb for the most part and their output will tend not even to be able to be reassembled without some modification by a human, however take the time to set one up properly for the task you want and they are invaluable.
 
-GBA and DS Emulators will usually provide some disassembly and as they know what mode the processor is running in at the time and have various viewers for memory (video, normal or otherwise) they can be even more useful but standalone disassembly tools do exist. Note that the DS does feature a custom, albeit widely supported, compression format that its binaries can and do use.
+**GBA and DS** Emulators will usually provide some disassembly and as they know what mode the processor is running in at the time and have various viewers for memory (video, normal or otherwise) they can be even more useful but standalone disassembly tools do exist. Note that the DS does feature a custom, albeit widely supported, compression format that its binaries can and do use.
 
 * Crystaltile2[Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html). Has a basic disassembler for ARM9 and ARM7 built into the program and the ability to interface with other programs.
 * NDSDIS2 [NDSDSI2 homepage](http://hp.vector.co.jp/authors/VA018359/nds/ndshack.html) [Filetrip download](http://filetrip.net/nds-downloads/utilities/download-ndsdis2-223-f28977.html). A basic standalone disassembler aimed at the DS.
 * arm-eabi-objdump [Part of devkitpro/GNU toolchains](http://devkitpro.org/). Not so useful on ROM images/for single files only and does not support compression but should work well if you can get it something it can sink its teeth into. If dealing with newer systems then looking at these sorts of toolchains will get you something.
 * IDA [IDA homepage](http://www.hex-rays.com/products/ida/overview.shtml) Paid software, the freeware edition is quite locked down though (basically X86 or nothing). This is the go to general purpose disassembler/debugging tool and one all new disassemblers and debugging plugins/tools for various platforms tend to be written for.
 
-Assemblers The processors in the GBA and DS are quite similar so you can usually go from one to the other. Developer no$gba and crystaltile2 feature single instruction editing and IDA has some abilities in this arena too. Also tending to be 16 or 32 bits in length you can often edit instructions by hand. This will focus more on hacker grade assemblers, mainly as programming grade assemblers have great features like the ability to create variables/human readable references and similar things by default where hacker grade ones tend to require more raw input (although armips does have a lot of niceties here).
+**Assemblers** The processors in the GBA and DS are quite similar so you can usually go from one to the other. Developer no$gba and crystaltile2 feature single instruction editing and IDA has some abilities in this arena too. Also tending to be 16 or 32 bits in length you can often edit instructions by hand. This will focus more on hacker grade assemblers, mainly as programming grade assemblers have great features like the ability to create variables/human readable references and similar things by default where hacker grade ones tend to require more raw input (although armips does have a lot of niceties here).
 
 The GBA ARM7 and DS ARM9 are very similar and the added instructions for the DS ARM9 (all of three which are not all that commonly used) you can live dangerously and switch between them. Since the earlier versions of this document ARM have risen up even further in the world (they basically own all of mobile phones and tablets) so if you are using newer tools, or ones not suggested here, then make sure you are using the right modes.
 
 Again assembly will be covered later (including some links to the official specifications) but in the meantime [imrannazar.com ARM Opcode Map](http://imrannazar.com/ARM-Opcode-Map) has a full listing in a more readable form.
 
-armips
+**armips**
 
 [romhacking.net download](http://www.romhacking.net/utilities/635/)
 
@@ -1114,41 +1104,41 @@ armips
 
 A relative newcomer in the ROM hacking assembler world (the first release was back in September 2009). Geared towards GBA and DS ROM hacking (also MIPS R3000 for the PS1) it has the option to use macros, labels (global and local), can load tables so as to be able to load custom strings and something closer to C/C++ family maths than the average assembler. Owing to the way it works it has pretty good support for overlays as well.
 
-ARMeabitoolchain
+**ARMeabitoolchain**
 
 ARMeabi deals with the underlying assembler for the GNU development toolchains (although for the GBA/DS specific stuff you will want to be looking at [devkitpro](http://devkitpro.org/)).
 
 As part of an earlier hacking project a kit was made to assemble small file fragments into things that could be dropped into the ROM. Two main methods aimed at hacking here
 
-cracker’s ARM ASM kit
+**cracker’s ARM ASM kit**
 
 [crackerscrap.com (click on projects)](http://crackerscrap.com/)
 
 [gbatemp download (older version)](http://gbatemp.net/up/cr-dstmt.zip)
 
-Garmy
+**Garmy**
 
 [romhacking.net download](http://www.romhacking.net/utilities/456/)
 
 For the GBA you may also like [this script from Dwedit.](http://forums.nesdev.com/viewtopic.php?f=5&t=10176&start=0#p113532)
 
-goldroad
+**goldroad**
 
 [romhacking.net download](http://www.romhacking.net/utilities/343/)
 
 For quite a while the main assembler available for the GBA as far as ROM hacking was concerned. It is not the cleanest tool out there but can get things done and for some armips replaced it but the above tools are now the preferred method.
 
-armish
+**armish**
 
 [Project homepage](http://common-lisp.net/project/armish/)
 
 Written in lisp and aimed more at homebrew programming it is another assembler for the ARM processor family.
 
-arm sdt
+**arm sdt**
 
 More of a programming assembler and features some very nice functions to help with program development. Many of the GBA homebrew emulators, and some versions of moonshell on the DS, were coded using this in preference to the GNU toolchains, something which made maintenance, forking and third party contributions more difficult in some cases.
 
-FASMARM
+**FASMARM**
 
 An ARM plugin for the X86 and x86-64 assembler [FASM](http://flatassembler.net/). You can find FASMARM [here](http://arm.flatassembler.net/).
 
@@ -1156,19 +1146,19 @@ An ARM plugin for the X86 and x86-64 assembler [FASM](http://flatassembler.net/)
 
 Much of the rest of this guide revolves around being able to pull part file formats and it will be covered and related back a bit to the underlying hardware and the concepts the area is based on but there are things to look for when pulling apart a file.
 
-Identifiers
+**Identifiers**
 
 also known as magic stamps these are small lengths of usually ASCII text or hexadecimal that are “unique” to the start of a given file format, section thereof or command.
 
-Lengths
+**Lengths**
 
 most times the lengths of a file or the files contained within an archive format are very important to have. It need not be present if you can calculate the lengths otherwise.
 
-Pointers
+**Pointers**
 
 as well as lengths the locations of the files are useful to have as are the sub sections of a complex file format and these will tend to have values that state the location of them (point if you will).
 
-Header
+**Header**
 
 the start (or sometimes end) of a file that often houses information on the rest of the file.
 

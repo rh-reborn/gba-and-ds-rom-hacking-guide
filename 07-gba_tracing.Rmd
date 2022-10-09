@@ -6,15 +6,15 @@ GBA tracing was mentioned back in the discussion of assembly hacking and the the
 
 It is unknown if no$gba debug version can still be legitimately obtained.
 
-no$gba
+**no$gba**
 
 One of the fullest debugging emulators available anywhere. GUI driven with the option to set breakpoints and fiddle with assembly at runtime.
 
-VBA-SDL-h
+**VBA-SDL-h**
 
 A more command line driven program but on a par with no$gba as far as useful functions goes.
 
-boycott-advance
+**boycott-advance**
 
 Less featured than vba-sdl-h but more GUI focused and still has breakpoints and a few other nice features.
 

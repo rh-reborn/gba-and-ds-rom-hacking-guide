@@ -33,13 +33,13 @@ The following is a list of a few more well developed tools for the DS and some s
 
 There are plenty of other editors you can find for various games if you go searching.
 
-New Super Mario Brothers [Treeki’s New Super Mario Bros Documentation](http://treeki.rustedlogic.net/romhacking/docs.html)
+**New Super Mario Brothers** [Treeki’s New Super Mario Bros Documentation](http://treeki.rustedlogic.net/romhacking/docs.html)
 
 New Super Mario Brothers was Nintendo’s throwback to some of the original 2d Mario games but as already covered it instead opted to use the 3d hardware. This did not stop the levels from being hacked fairly shortly after launch although it would be a while before more fully featured programs and listings appeared.
 
-Advance Wars [Wars World News](http://www.warsworldnews.com/index.php?page=mapsindex.html) which is probably the foremost advance wars hacking related website has a lot of information on the various games in the advance wars franchise.
+**Advance Wars** [Wars World News](http://www.warsworldnews.com/index.php?page=mapsindex.html) which is probably the foremost advance wars hacking related website has a lot of information on the various games in the advance wars franchise.
 
-Mario 64 The DS got an enhanced port of the N64 version of Mario 64 and level editors eventually appeared for it.
+**Mario 64** The DS got an enhanced port of the N64 version of Mario 64 and level editors eventually appeared for it.
 
 [Homepage](http://kuribo64.cjb.net/downloads.php) [Google code page](http://sm64dse.googlecode.com/svn/trunk/)
 
@@ -49,7 +49,7 @@ The image below shows a nice test map which are always good to search for as the
 
 ![PIC](images/167_home_fast6191_romhackingguide_unrenamed_fil___nal_borders_romhackguideleveleditingMario64.png)
 
-Mario kart [MKDS course modifier](http://gbatemp.net/topic/299444-mkds-course-modifier/)
+**Mario kart** [MKDS course modifier](http://gbatemp.net/topic/299444-mkds-course-modifier/)
 
 Mario kart had filesystem level swaps fairly early on (indeed it was probably one of the first games to see DS level hacks) and eventually the actual formats were reverse engineered and level editors started to be made.
 
@@ -109,7 +109,7 @@ Before going on with the items now that we armed with the knowledge that things 
 
 It is well worth a try to look for such things/patterns in memory if you can.
 
-Items The level editor also made mention of the potential for items and the above work would seem to confirm that they were elsewhere but checking anyway the fully zeroed out level section (here presumed to be where the 0,4 and 1 stuff stopped being the norm) still had items and continuing to zero things out after the end of the level broke it and removed some of the items.
+**Items** The level editor also made mention of the potential for items and the above work would seem to confirm that they were elsewhere but checking anyway the fully zeroed out level section (here presumed to be where the 0,4 and 1 stuff stopped being the norm) still had items and continuing to zero things out after the end of the level broke it and removed some of the items.
 
 ![PIC](images/176_home_fast6191_romhackingguide_unrenamed_fil___ers_romhackingguideleveleditingworkedNplus9.png)
 
@@ -189,7 +189,7 @@ Cheat search was used to see what changed when things were added or removed from
 
 \[to finish\]
 
-The beginning of the levels 3 hex through 9 hex always seemed to be ??306945EA1004 where ?? could be 00,01,02,03,05,07,08 and 09 with 03 being the most common by far and 09 only seen in nds194, nds175 and nds165 and 08 once in nds182
+**The beginning of the levels** 3 hex through 9 hex always seemed to be ??306945EA1004 where ?? could be 00,01,02,03,05,07,08 and 09 with 03 being the most common by far and 09 only seen in nds194, nds175 and nds165 and 08 once in nds182
 
 00 through 02 hex appeared to be **$$ where ** was usually 84 or 04 and but was changed to 7C in nds052, nds026 and nds160
 
@@ -199,7 +199,7 @@ Also as the items stayed in place it would appear there was something to possibl
 
 \[to finish\]
 
-Timers Timers in levels were of interest so an item section was transplanted wholesale from another level and the difference being zero padded. It created not a perfect replica of the items but a close one as there were additional items, the timer however was the same as the what the original level would have been thus implying that it was not stored in the level file. As a further test a level was outright replaced with another yet the timer for the level remained the same as the original level’s; it was different when that donor level rolled around but do make sure of this when you change things as there are few worse feelings than realising you wasted a lot of time over a coincidence.
+**Timers** Timers in levels were of interest so an item section was transplanted wholesale from another level and the difference being zero padded. It created not a perfect replica of the items but a close one as there were additional items, the timer however was the same as the what the original level would have been thus implying that it was not stored in the level file. As a further test a level was outright replaced with another yet the timer for the level remained the same as the original level’s; it was different when that donor level rolled around but do make sure of this when you change things as there are few worse feelings than realising you wasted a lot of time over a coincidence.
 
 ### Stats
 
@@ -239,19 +239,19 @@ Various DS games have been seen to use lossy methods to encode audio, graphics a
 
 Lossless compression will manifest in one of four basic ways, although the first three will be the most common.
 
-Dictionary
+**Dictionary**
 
 (sometimes called referencing) - here the compression will reference an earlier part of the file (be it the whole file or a “sliding window”). LZ compression and the special case of it known as run length encoding (RLE), which was popular back on earlier systems, are the two main types. Here the file will reference a premade dictionary of terms (rare in modern implementations) or use the file itself to generate a dictionary which, depending upon the method, will either be the file itself or shipped with the file.
 
-Statistical
+**Statistical**
 
 Huffman is the main type of compression to use this sort of technique. The idea is the compression uses reference values of various lengths to refer to sections of original file with the most common types getting shorter values and the less common types getting longer values.
 
-Filtering
+**Filtering**
 
 depending upon how you look at it this is not really a compression and more of an encoding but the GBA and DS hardware treat a version of it much like compression (BIOS functions to handle it) so it is here. The graphics format known as NDS 1bpp (1 bit per pixel) uses the idea that even if it eventually gets turned to 4bpp if you have a two colour image (usually a font) you can be assured that each pixel be one of two values and as such can be turned into a simple 1 or 0.
 
-Predictive
+**Predictive**
 
 Technically another statistical method but it relies on the idea that certain parts of the file might be predictable and is usually very application specific.
 
@@ -263,13 +263,13 @@ Additionally, and as has hopefully be made clear by this point, game developers 
 
 This section will detail the basics behind the most common compression methods seen on the GBA and DS and some techniques that can be used to handle them. Actual programming level discussion is reserved for the next section. Note that custom compression has been seen several times in the wild but it is usually not that different to regular compression (it is hard to define a useful type of compression that is truly new), this means that even though most existing tools will fail if they are set upon custom compression that as most are open source it should not be that hard to get them running again once you figure out the minor differences between the methods.
 
-GBA compression More so than the earlier consoles, which tended to have the occasion bit of RLE and later on some LZ, the GBA took to compression in a big way and it became a fixture of the system. Various things were made to handle it in the hardware side of things and from the hacker perspective. [headspin’s guide](http://members.iinet.net.au/~freeaxs/gbacomp/) details a lot about compression and how it can be used on the GBA and that feeds quite a bit into the DS as well.
+**GBA compression** More so than the earlier consoles, which tended to have the occasion bit of RLE and later on some LZ, the GBA took to compression in a big way and it became a fixture of the system. Various things were made to handle it in the hardware side of things and from the hacker perspective. [headspin’s guide](http://members.iinet.net.au/~freeaxs/gbacomp/) details a lot about compression and how it can be used on the GBA and that feeds quite a bit into the DS as well.
 
-SWI calls (BIOS supported compression) The GBA (and DS for that matter) feature some basic decompression algorithms as part of the readily accessible BIOS, this means anything can call the BIOS functions to decompress the files into memory. Naturally the debugging grade (and for that matter some more general use) emulators can watch and list any BIOS calls and allow you to get a rough idea of where files are, how they are compressed and even when in the game they are reached for, many tools compression tools can then use these lists to extract files.
+**SWI calls (BIOS supported compression)** The GBA (and DS for that matter) feature some basic decompression algorithms as part of the readily accessible BIOS, this means anything can call the BIOS functions to decompress the files into memory. Naturally the debugging grade (and for that matter some more general use) emulators can watch and list any BIOS calls and allow you to get a rough idea of where files are, how they are compressed and even when in the game they are reached for, many tools compression tools can then use these lists to extract files.
 
-VRAM and WRAM safe The VRAM is the video ram and the WRAM is otherwise known as the main memory or work ram. With the GBA cart being memory mapped on the GBA things could be copied right into the VRAM by various methods but the VRAM carried a restriction that all destination addresses had to be aligned to 16 bit aligned (WRAM could do 8 bit). This also meant that any writing, say from decompression, had to occur 16 bits at a time and necessitated VRAM safe compression methods be devised and implemented.
+**VRAM and WRAM safe** The VRAM is the video ram and the WRAM is otherwise known as the main memory or work ram. With the GBA cart being memory mapped on the GBA things could be copied right into the VRAM by various methods but the VRAM carried a restriction that all destination addresses had to be aligned to 16 bit aligned (WRAM could do 8 bit). This also meant that any writing, say from decompression, had to occur 16 bits at a time and necessitated VRAM safe compression methods be devised and implemented.
 
-Searching and dealing with compression There are three methods of dealing with compression on the GBA
+**Searching and dealing with compression** There are three methods of dealing with compression on the GBA
 
 1.  SWI logs
 2.  Assembly/known locations
@@ -281,15 +281,15 @@ Known locations is fairly obvious and the idea runs if someone before you has fo
 
 Compression searching will probably become more obvious after the worked example and relies on the idea that the compressed file will usually start with 10 hex in the case of GBA/DS BIOS compatible LZ and after that there will be flags and similar mechanisms the compression method uses to function/allow decompression. Various tools have been made but as far as most people working in GBA are concerned
 
-NLZ-GBA Advance (which doubles up as a graphics editor)
+**NLZ-GBA Advance** (which doubles up as a graphics editor)
 
 ![PIC](images/186_home_fast6191_romhackingguide_unrenamed_fil___ngguidecompressionsearching_NLZGBAadvance_1.png)
 
-unLZ-GBA
+**unLZ-GBA**
 
 ![PIC](images/187_home_fast6191_romhackingguide_unrenamed_fil___mhackingguidecompressionsearching_unLZGBA_1.png)
 
-Crystaltile2
+**Crystaltile2**
 
 Crystaltile2 also features compression searching support and can do it for custom flags of various forms as well. It is available on the tools pulldown menu of the hex editor window but be warned that mass decompression has a tendency to make the program crash if it encounters too many false hits for compression.
 
@@ -297,23 +297,23 @@ Crystaltile2 also features compression searching support and can do it for custo
 
 ![PIC](images/189_home_fast6191_romhackingguide_unrenamed_fil___ingguidecompressionsearching_crystaltile2_2.png)
 
-Lz77Restructor 2
+**Lz77Restructor 2**
 
 A relatively new tool but a nice one; you may want to play with the filters option as it can restrict by pointers, widths, sizes and as well as deal with text (using custom tables if necessary).
 
 ![PIC](images/190_home_fast6191_romhackingguide_unrenamed_fil___gguidecompressionsearching_LZ77restructor_1.png)
 
-GBACrusher Decompression tools were fairly common and they did a fair bit of compression as well but for most the dominant tool for generated compressed files was known as GBA Crusher. It should be able to do all the BIOS compatible methods.
+**GBACrusher** Decompression tools were fairly common and they did a fair bit of compression as well but for most the dominant tool for generated compressed files was known as GBA Crusher. It should be able to do all the BIOS compatible methods.
 
-DS compression Compression took off on the DS but owing to it being reasonably well implemented few companies ever made their own custom compression formats in the traditional sense and just used ones from the SDK or other known formats so it went from being the bane of ROM hackers to just a minor irritation.
+**DS compression** Compression took off on the DS but owing to it being reasonably well implemented few companies ever made their own custom compression formats in the traditional sense and just used ones from the SDK or other known formats so it went from being the bane of ROM hackers to just a minor irritation.
 
-SWI aka BIOS calls The DS BIOS has support for various forms of compression and new to the DS compared to the GBA was the idea of callback which helped work around the DS ROM not being mapped to memory (gbatek calls it slow but it allows larger files to be decompressed without the developer having to provide a checking function to see when parts have been decompressed and the next one can be fed into it).
+**SWI aka BIOS calls** The DS BIOS has support for various forms of compression and new to the DS compared to the GBA was the idea of callback which helped work around the DS ROM not being mapped to memory (gbatek calls it slow but it allows larger files to be decompressed without the developer having to provide a checking function to see when parts have been decompressed and the next one can be fed into it).
 
-DS firmware compression Not really relevant to ROM hacking but the DS firmware has all sorts of compression stacked together in it and the source code makes for nice reading.
+**DS firmware compression** Not really relevant to ROM hacking but the DS firmware has all sorts of compression stacked together in it and the source code makes for nice reading.
 
 [Download from Chishm’s website](http://chishm.drunkencoders.com/NDS_Projects/fwunpack.zip)
 
-Types You will often see mention of types of compression in DS ROM hacking discussion and this refers mainly to various implementations of LZ compression seen on the DS. They are so named because the files using the type of compression usually start with the number (in hexadecimal) but it is also worth noting compression will often also be indicated by the file name (typically LZ in the name or the name/extension ending with an underscore).
+**Types** You will often see mention of types of compression in DS ROM hacking discussion and this refers mainly to various implementations of LZ compression seen on the DS. They are so named because the files using the type of compression usually start with the number (in hexadecimal) but it is also worth noting compression will often also be indicated by the file name (typically LZ in the name or the name/extension ending with an underscore).
 
 * LZSS - more or less what the GBA/DS BIOS use and other common compression methods seen on both the GBA and DS use.
 * Type 10 - this is the classic GBA WRAM safe LZSS based BIOS compression and only one supported by SWI calls.
@@ -342,7 +342,7 @@ Some implementations stick flags here and there in the file for various reasons 
 
 The instruction component is usually a two part operation merged into one. One part will be the length of the previously seen string and the next will be the location of it (either as an address or reference). Common deviations from the method discussed above include the order of length and location can be swapped, how many bits will be used for each can be changed, what sort of alignment is used and how things are addressed. Remember LZ is often dubbed a sliding window compression so when operating on a big file (or when limited to a compression instruction with few bits for the location component) the start address can vary throughout decompression and will not always be at the start of the file.
 
-Worked example The following is the text output from simply running the gbacrusher program from WRAM LZ.
+**Worked example** The following is the text output from simply running the gbacrusher program from WRAM LZ.
 
 ![PIC](images/191_home_fast6191_romhackingguide_unrenamed_fil___omhackingguidecompressionsLZworkedexample_1.png)
 
@@ -378,11 +378,11 @@ A bytes + 3 = D hex long
 
 Repeat as appropriate until file is decoded.
 
-An aside on editing and viewing compressed files Editing a compressed file at hexadecimal level is possible and some find it tempting to do however you never know if a fragment will be used later in the file unless you check (which usually means you decompress the whole file anyway) and although it is fairly obvious with text if you are dealing with graphics or a function that operates on an unaligned bit level it is worse so it is usually best to decompress, edit and recompress.
+**An aside on editing and viewing compressed files** Editing a compressed file at hexadecimal level is possible and some find it tempting to do however you never know if a fragment will be used later in the file unless you check (which usually means you decompress the whole file anyway) and although it is fairly obvious with text if you are dealing with graphics or a function that operates on an unaligned bit level it is worse so it is usually best to decompress, edit and recompress.
 
 Equally compression when done to text usually means most of it is still fairly readable (especially as it tends to be aligned to bytes or higher) and to a slightly lesser extent so are some levels and early parts of headers (give or take flags) meaning although it renders a lot of graphics near unreadable a lot can be seen and guessed at without having to deal with compression.
 
-Working around compression Just because a file was compressed in the original game does not mean it has to be compressed in the end hack you make. It is not always as simple as just turning up with an uncompressed file, though this can work for proper functions that attempt to detect compression and act accordingly. Sometimes it can be as simple as changing a flag somewhere (recall the example from El Tigre) but it can also be a fairly basic assembly hack, speaking of assembly and binaries the DS binary compression tends to be noted with a flag in the overlay table, to this end you can clear this flag (1 = compressed, 0 = uncompressed http://gbatemp.net/threads/recompressing-an-overlay-file.329576/#post-4387691). In the case of an assembly hack the general idea is compression has a source and a destination with operations beyond straight copying in between but if you replace it with regular copying all will work as it was. The slightly more crude workaround is figure out the uncompressed flags (harder but not impossible with RLE and Huffman) and insert them throughout the file and another take on it can be seen in some of Labmaster’s work in dealing with compression in the GBA game [Golden Sun](http://www.romhacking.net/documents/253/).
+**Working around compression** Just because a file was compressed in the original game does not mean it has to be compressed in the end hack you make. It is not always as simple as just turning up with an uncompressed file, though this can work for proper functions that attempt to detect compression and act accordingly. Sometimes it can be as simple as changing a flag somewhere (recall the example from El Tigre) but it can also be a fairly basic assembly hack, speaking of assembly and binaries the DS binary compression tends to be noted with a flag in the overlay table, to this end you can clear this flag (1 = compressed, 0 = uncompressed http://gbatemp.net/threads/recompressing-an-overlay-file.329576/#post-4387691). In the case of an assembly hack the general idea is compression has a source and a destination with operations beyond straight copying in between but if you replace it with regular copying all will work as it was. The slightly more crude workaround is figure out the uncompressed flags (harder but not impossible with RLE and Huffman) and insert them throughout the file and another take on it can be seen in some of Labmaster’s work in dealing with compression in the GBA game [Golden Sun](http://www.romhacking.net/documents/253/).
 
 Equally if you are dealing with a custom compression the data will usually be uncompressed to run so you can often snatch things from the ram and work around the compression later or use it to help work around the compression for if it is just a slight tweak on an existing method which you already know this can practically give the game away.
 
@@ -408,7 +408,7 @@ There are many types of cheat code and devices with different implementations, t
 
 The main reason for covering this is understanding how cheats work and how they work with the system often leads to a deeper understanding of how the system works in general and provides a nice in for those wanting to start to learn how to code in assembly (the type of operation, location and payload concept will return there).
 
-Useful links [Enhacklopedia](http://bsfree.org/hack/)
+**Useful links** [Enhacklopedia](http://bsfree.org/hack/)
 
 ### General cheat making
 
@@ -421,7 +421,7 @@ You have several scanning options available to you including
 * Fuzzy search. Here you can note everything with an eye to coming back later to see what has changed. Can be combined with greater or less than most of the time as well. This is quite useful when you have a health or timer bar without a direct display of the value to be searched for.
 * Range search. Not always available and doable if you think about it with greater than and less than this quite literally searches for values within a given range.
 
-Exotic codes and terms Various cheat devices allow for some quite custom and far reaching codes to be made over devices from competitors. Some of these are to change the internal handling of the cheats but many more can have quite far reaching effects. First though some terms that often come up
+**Exotic codes and terms** Various cheat devices allow for some quite custom and far reaching codes to be made over devices from competitors. Some of these are to change the internal handling of the cheats but many more can have quite far reaching effects. First though some terms that often come up
 
 * Slide codes. A technique used to generate codes to do the same change to multiple locations at once, usually used if you have something like 30 troops, each with their own health value and ammo value and you do not want to use 30 codes.
 * Master code. More associated with game genies where they usually bypass protection and for cheat devices that needed to be set up to work on certain ROM images.
@@ -434,7 +434,7 @@ VBA has a basic cheat option which should be available in nearly all versions (n
 
 ![PIC](images/194_home_fast6191_romhackingguide_unrenamed_files_and_original_borders_romhackingguideGBAcheat.png)
 
-VBA-H has some slightly expanded options in cheats and elsewhere.
+**VBA-H** has some slightly expanded options in cheats and elsewhere.
 
 ![PIC](images/195_home_fast6191_romhackingguide_unrenamed_fil___ginal_borders_romhackingguidegbavbahcheats1.png)
 
@@ -458,7 +458,7 @@ About the only thing it is lacking is a floating point search but those are tric
 
 This varies a bit depending upon the person doing the cheat making. Desmume has some cheat/memory manipulation abilities but many will use tools like HasteDS and renegade64 or more general purpose tools to hook into emulators and provide similar abilities. Many more will use tools like Datel’s trainer toolkit which has fairly extensive debugging abilities and even flash carts like the Supercard DSTWO and iSmart MM will have minor cheat making options although their search and functionality is somewhat less than a proper tool they can still be used for basic cheats.
 
-Desmume Should be available in all versions of the program (no need for the dev version), for Linux you may need a given version.
+**Desmume** Should be available in all versions of the program (no need for the dev version), for Linux you may need a given version.
 
 \[note 2014 update\] This is a somewhat older version, the newer builds have a significantly improved cheat engine.
 
@@ -478,7 +478,7 @@ On the comparative search > ,<, = and != have their usual means of greater than,
 
 Perhaps counter intuitively you have to close the cheat window to get the game to run again before jumping back to the search and refining it.
 
-Emuhaste [Emuhaste project homepage](http://i486.client.jp/emuhaste/)
+**Emuhaste** [Emuhaste project homepage](http://i486.client.jp/emuhaste/)
 
 [Filetrip download](http://filetrip.net/nds-downloads/utilities/latest-emucr-emuhaste-f29424.html)
 
@@ -534,27 +534,27 @@ MS - multi-search
 
 There was a previous version of the tool known as hasteDS that stuck around for a while as the rewrite to emuhaste was missing some features but that should now be a thing of the past.
 
-no$gba As the developer version of no$gba features a full memory editor it too can be used for cheat making. However it lacks the more in depth cheat making features seen elsewhere, this is fine though as various versions are widely supported by other programs which also support the standard version.
+**no$gba** As the developer version of no$gba features a full memory editor it too can be used for cheat making. However it lacks the more in depth cheat making features seen elsewhere, this is fine though as various versions are widely supported by other programs which also support the standard version.
 
-Others Most of the cheating tools are more or less a specialised class of memory viewer of which there are many (several of the suggested hex editors have the ability to read process memory)
+**Others** Most of the cheating tools are more or less a specialised class of memory viewer of which there are many (several of the suggested hex editors have the ability to read process memory)
 
-Artmoney [Artmoney homepage](http://www.artmoney.ru/)
+**Artmoney** [Artmoney homepage](http://www.artmoney.ru/)
 
 A more general editor but one that found a fair audience in game hacking circles owing to some more cheat making specific features.
 
-RenegadeEX [Filetrip download](http://filetrip.net/pc-downloads/applications/download-renegadeex-105-f29011.html)
+**RenegadeEX** [Filetrip download](http://filetrip.net/pc-downloads/applications/download-renegadeex-105-f29011.html)
 
 A general program also geared towards editing with support for several emulators but only no$gba for the DS (although it does support several GBA emulators). The previous incarnation known as Renegade64 was also a no$gba specific program but for a long time far more stable than HasteDS and emuhaste.
 
 ![PIC](images/200_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidecheatsrenegadeEX1.png)
 
-Emucheat [Emucheat homepage](http://www.emucheat.com/)
+**Emucheat** [Emucheat homepage](http://www.emucheat.com/)
 
 Another no$gba oriented program and for a while somewhat more advanced than the other options so it became fairly popular among those seeking to make more advanced cheats or cut down on the unnecessary
 
-Crystaltile2 Not so much for cheats but can interface with no$gba to retrieve VRAM and WRAM data. Available under the “DS emulator” option in the file pulldown menu.
+**Crystaltile2** Not so much for cheats but can interface with no$gba to retrieve VRAM and WRAM data. Available under the “DS emulator” option in the file pulldown menu.
 
-Datel’s Trainer Toolkit This one is actually something more than a memory viewer, here you have to use a trainer toolkit to connect to a live DS via a GBA slot at which point you can tap into the memory and edit from there.
+**Datel’s Trainer Toolkit** This one is actually something more than a memory viewer, here you have to use a trainer toolkit to connect to a live DS via a GBA slot at which point you can tap into the memory and edit from there.
 
 ### Basic making of a cheat
 
@@ -594,7 +594,7 @@ Such things often trouble ROM hackers as well owing to the way they work but eit
 
 Probably the most basic version of this always on cheat problem is if a cheat is always on but for a time in the initial boot sequence the game will use the memory for something else (this is more troubling on the DS if you are doing something in the overlays that are designed to be swapped out of memory many times during the game) but that is usually solved either by hooking the game to use a button activator or similar, changing the nature of a cheat (especially when dealing with timers that the game might use elsewhere) or having a cheat engine that can turn cheats on at a given time. The rest of this section has some examples of techniques seen over the years and there is nothing stopping games from hybridising methods either.
 
-Mirrored, encrypted, checked and calculated values Although all four are different techniques they work along similar principles
+**Mirrored, encrypted, checked and calculated values** Although all four are different techniques they work along similar principles
 
 * Mirror values tend to mean the value is written in multiple locations (see also pointers below) and if one does not match up you can use the others or crash or something.
 * Encrypted do as they say and turn a plain number into meaningless gibberish unless you can decrypt it (usually this is a very simple method of encryption like a plain XOR or a shift or something).
@@ -604,7 +604,7 @@ Mirrored, encrypted, checked and calculated values Although all four are differe
 Most of these are easy to work around as if you are searching for infinite health it does not matter if you have an infinite health of 7 or the maximum value for the most part^[If you have a forced health of 7 there might be an attack that always does ten damage and thus would kill your character and maybe faster than the cheat engine can keep up with, this value of 7 might be lower or higher than the maximum value a game normally allows which can mean you can always reload if it is a gun or always use healing magic or conversely if you have infinite money but only appear to have 7 in your wallet you might not be able to buy something. This is not usually so bad as by making the cheat you know the locations in question and can just play the game/turn them off and allow the game to generate a bigger and better set.
 A good example of this can be seen in the N64 version of Goldeneye where even with infinite health you can die from a big enough explosion and even with infinite ammo you can probably always reload your gun.] so if you have a working set of values just force the game to use them always. If you do want to figure something out you tend to have to watch values that change at all rather than higher or lower and figure out the method used which is usually quite easily managed or dive into assembly probably guided or initially aimed by a basic cheat search.
 
-Pointers In a DS game the pointers in the header which every DS can read points to the filesystem which points to a file which points to parts of the file which may point for further parts of the file and possibly further (rare but quite possible). There is nothing stopping ROMs from using similar methods and indeed several games have been seen to use these over the years which has several effects including cheats that only work some of the time, cheats that do not work at all (usually thanks to a combination of the previously mentioned methods), cheats that are impossible to find by basic methods (most cheating methods assume the value remains in the same location).
+**Pointers** In a DS game the pointers in the header which every DS can read points to the filesystem which points to a file which points to parts of the file which may point for further parts of the file and possibly further (rare but quite possible). There is nothing stopping ROMs from using similar methods and indeed several games have been seen to use these over the years which has several effects including cheats that only work some of the time, cheats that do not work at all (usually thanks to a combination of the previously mentioned methods), cheats that are impossible to find by basic methods (most cheating methods assume the value remains in the same location).
 
 Workarounds include finding all the locations that can be pointed at (even with pointers many games will do it in a round robin fashion) and controlling the lot (a bit brute force but quite acceptable), you can try reading the pointer at a given point and reacting accordingly if your cheat engine is powerful enough and you can instead force the pointer to stick at one location and make sure that now fixed location gets edited.
 
@@ -620,9 +620,9 @@ Another nice tool is available in [Demonic722’s hacking toolkit](http://filetr
 
 The idea behind it should you have to go manual is in each game there will be an instruction or memory value addressing the location you are looking at for your cheats, find this place referencing the varying location and it is fairly easy going from there. It is easier to and indeed most tools want to use a couple of dumps from plays of the game that use the different locations (they are for the most part generated at runtime/boot/launch so it should just be a matter of reloading the game save but it is easy enough to test) for similar reasons that to doing multiple rounds of tests to narrow down the possibilities is when making basic cheats. Most of the time the pointer location is fixed so finding the thing that points at the would be cheat location will usually solve the problem although again pointers pointing to other pointers has been seen several times in the wild. Equally there is nothing stopping a game from calculating a pointer by adding a simple number to an address as per C style pointer arithmetic; technically this is pointer in a pointer but if the base value is used in several other places you might not be able to change it so easily.
 
-Dual values Although this probably is covered by the basic cheat making methods and in the other things that make life harder it should be noted that some games can maintain a couple of values for what ostensibly should be a single piece of data. RPGs make good examples and a similar thing can be seen in some of the GBA Final Fantasy ports where values can be held say one for the life bar, one for the on screen value and another for the actual value used as a basis to form all the others. This gets especially fun when the values are not just display only and may effect what happens in the game for if you have maximum health according to the numbers you may not be able to use a potion but the internal health value means you will eventually die as you are losing health. Those which try to hold timers quite often get tripped up by this.
+**Dual values** Although this probably is covered by the basic cheat making methods and in the other things that make life harder it should be noted that some games can maintain a couple of values for what ostensibly should be a single piece of data. RPGs make good examples and a similar thing can be seen in some of the GBA Final Fantasy ports where values can be held say one for the life bar, one for the on screen value and another for the actual value used as a basis to form all the others. This gets especially fun when the values are not just display only and may effect what happens in the game for if you have maximum health according to the numbers you may not be able to use a potion but the internal health value means you will eventually die as you are losing health. Those which try to hold timers quite often get tripped up by this.
 
-Stack/register values The ideas behind the terms are covered in later sections but alongside conventional memory there are two other areas known as the stack (which might well be part of memory but should not be considered as such) and registers which sit inside the CPU and in the case of the GBA/DS is the only thing the CPU can read directly within an instruction (naturally you can use the CPU to manipulate memory but it takes a separate instruction).
+**Stack/register values** The ideas behind the terms are covered in later sections but alongside conventional memory there are two other areas known as the stack (which might well be part of memory but should not be considered as such) and registers which sit inside the CPU and in the case of the GBA/DS is the only thing the CPU can read directly within an instruction (naturally you can use the CPU to manipulate memory but it takes a separate instruction).
 
 Here values can be put into a register and/or the stack as appropriate and referred to/operated upon repeatedly before being written back to the memory when all is said and done. There is the related idea of a function specific pointer where all the health, stats and such will be passed into a function for a given period (say a battle) and operated on there but this does not tend to happen on the GBA/DS but on more conventional systems (and especially with “safer” programming langauges) it happens all the time.
 
@@ -732,37 +732,37 @@ Alan Turing is in many ways considered the father of modern computing and this i
 
 Assembly gets a full writeup wherein the GBA and DS are covered in great depth but to prevent that section from becoming bogged down with minutia some of the fundamental concepts are being covered here. Assembly language is usually characterised by the use of small usually three or four letter mnemonics to represent instructions as opposed to the more elaborate instructions and functions higher level languages afford. It gets to be quite different as you change architectures and systems but knowing the following will mean you know much of what underpins it all with many of the big differences coming in the fact that several instructions have various implementations on the processors covered here.
 
-Timing Even on ARM, which shies away from the lengthy instructions (it is one of the core concepts of a “Reduced Instruction” Set Computing which Advanced Risc Machines specialise in), some instructions take multiple clock cycles to do so you have to account for this. Unlike the X86 stuff from PCs there is not much need to consider multithreading, instruction prediction and other such things which make timing calculations and coding to get the best speed that much more complex when dealing with X86/X64 processors (such features are why you are discouraged from simply comparing CPU speeds to determine the better processor).
+**Timing** Even on ARM, which shies away from the lengthy instructions (it is one of the core concepts of a “Reduced Instruction” Set Computing which Advanced Risc Machines specialise in), some instructions take multiple clock cycles to do so you have to account for this. Unlike the X86 stuff from PCs there is not much need to consider multithreading, instruction prediction and other such things which make timing calculations and coding to get the best speed that much more complex when dealing with X86/X64 processors (such features are why you are discouraged from simply comparing CPU speeds to determine the better processor).
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#cpuinstructioncycletimes) has more on the timings for instructions and if you recall the graphics section a lot of things on the DS operate in Vblank time in which there is just shy of 80000 cycles to get things done in before the next screen draw starts. To time things to such an occasion interrupts are used and vblank interrupt is one of the main ones used.
 
-Interrupts It was mentioned a little while back but the general idea is you do not always want to be checking to see if something has happened so instead you use interrupts. There are various types with various priorities (the big ones being Vblank (for screen refresh), timer based, DMA (memory transfer), keypad press and further down the list and coming from an instruction is SWI (BIOS functions for things like decompression and division in the case of the GBA) and you can enable and set them at will.
+**Interrupts** It was mentioned a little while back but the general idea is you do not always want to be checking to see if something has happened so instead you use interrupts. There are various types with various priorities (the big ones being Vblank (for screen refresh), timer based, DMA (memory transfer), keypad press and further down the list and coming from an instruction is SWI (BIOS functions for things like decompression and division in the case of the GBA) and you can enable and set them at will.
 
-DMA Direct Memory Access is a technique available to all modern systems that allows a transfer from one part of the memory to the other to be conducted independent of the CPU. It is essential as the CPU is very bandwidth limited even if you could afford to tie up the CPU with simple data transfer (the CPU is halted for the GBA and DS during this but it avoids having to lose or save and restore state information stored in the CPU). That said [DS DMA and other memory transfer benchmarks for the curious](http://drunkencoders.com/2013/03/some-memory-benchmarks/).
+**DMA** Direct Memory Access is a technique available to all modern systems that allows a transfer from one part of the memory to the other to be conducted independent of the CPU. It is essential as the CPU is very bandwidth limited even if you could afford to tie up the CPU with simple data transfer (the CPU is halted for the GBA and DS during this but it avoids having to lose or save and restore state information stored in the CPU). That said [DS DMA and other memory transfer benchmarks for the curious](http://drunkencoders.com/2013/03/some-memory-benchmarks/).
 
-Registers The fastest pieces of memory in any computer is almost always the registers. The trouble is they are limited in number, limited in size and quite often come with a list of provisos which will not be covered right now (ARM is fairly rational but X86 is less so at first glance and probably second glance as well). In the case of the GBA and DS the ARM7 ARM mode has 13 general purpose ones you can use for anything called R0 through R12 where THUMB mode is even more restricted and each mode has a selection of specific purpose ones too that are very useful and as the ARM7 is a 32 bit processor so each register is 32 bits although it does not always follow like that across computing.
+**Registers** The fastest pieces of memory in any computer is almost always the registers. The trouble is they are limited in number, limited in size and quite often come with a list of provisos which will not be covered right now (ARM is fairly rational but X86 is less so at first glance and probably second glance as well). In the case of the GBA and DS the ARM7 ARM mode has 13 general purpose ones you can use for anything called R0 through R12 where THUMB mode is even more restricted and each mode has a selection of specific purpose ones too that are very useful and as the ARM7 is a 32 bit processor so each register is 32 bits although it does not always follow like that across computing.
 
 However as no mainstream processor at time of writing is 128 bit in most senses of the definition and few have even an order of magnitude more registers than the lowly ARM7^[Although this is mainly focusing on the ARM processors as seen in the GBA and DS you might want to look at the rather extensive [Software Developer Manuals](http://www.intel.com/content/www/us/en/processors/architectures-.html) Intel put out for their processors. ARM ones will be linked when they are discussed.] it is fairly obvious you can do a great deal with said small registers and the relative handful of them you have to work with.
 
 The term registers is also used to the specific parts of the GBA and DS memory that control various functions in the hardware and are not part of the CPU.
 
-Types of instruction and how they work The following details various good things to know about instructions in general. A note at this stage is that the idea of an instruction is just that and things can be arranged in any order; generally it will be something like “instruction, destination register, source register, immediate value” give or take the source register as appropriate but this can change depending upon your assembler (certain assemblers aimed at a given family of processors as a whole do have favoured orders for things but again it is not set in silicon so to speak).
+**Types of instruction and how they work** The following details various good things to know about instructions in general. A note at this stage is that the idea of an instruction is just that and things can be arranged in any order; generally it will be something like “instruction, destination register, source register, immediate value” give or take the source register as appropriate but this can change depending upon your assembler (certain assemblers aimed at a given family of processors as a whole do have favoured orders for things but again it is not set in silicon so to speak).
 
-ARM The “main” mode of the DS and GBA processors, has the most access to everything of modes and the most powerful instructions for the most part.
+**ARM** The “main” mode of the DS and GBA processors, has the most access to everything of modes and the most powerful instructions for the most part.
 
-Thumb The 16bit mode (although it can still access and process 32 bit registers and data) but has access to fewer registers and has several restrictions. Allows for smaller code and smaller access time penalties on things like the GBA 16 bit cart read bus and games frequently spend large portions of their runtime in THUMB mode.
+**Thumb** The 16bit mode (although it can still access and process 32 bit registers and data) but has access to fewer registers and has several restrictions. Allows for smaller code and smaller access time penalties on things like the GBA 16 bit cart read bus and games frequently spend large portions of their runtime in THUMB mode.
 
-Immediate values Instructions can carry values to use within the operation as part of themselves (MOV R1, #0x1F would store the value 1F in register R1)
+**Immediate values** Instructions can carry values to use within the operation as part of themselves (MOV R1, #0x1F would store the value 1F in register R1)
 
-Register values As seen above instructions can read from and to registers so it can be used to store values and use them as the basis for further instructions.
+**Register values** As seen above instructions can read from and to registers so it can be used to store values and use them as the basis for further instructions.
 
-Memory values You will eventually want to write something to memory or read it from it into a register. On ARM processors this requires an additional instruction but some processors will allow memory locations to be read directly from the instruction.
+**Memory values** You will eventually want to write something to memory or read it from it into a register. On ARM processors this requires an additional instruction but some processors will allow memory locations to be read directly from the instruction.
 
-SPSR and CPSR Program Status Registers are used to hold things relating to whether a value is signed, any carry values and other such things as well as being able to disable interrupts. CPSR is the current one where SPSR holds values in the case of an exception.
+**SPSR and CPSR** Program Status Registers are used to hold things relating to whether a value is signed, any carry values and other such things as well as being able to disable interrupts. CPSR is the current one where SPSR holds values in the case of an exception.
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#cpuflags) has more as per usual.
 
-PC, LR and SP Depending upon your assembly tools they will otherwise be known as R13, R14 and R15.
+**PC, LR and SP** Depending upon your assembly tools they will otherwise be known as R13, R14 and R15.
 
 PC is the program counter and stores where the code is presently running from.
 
@@ -770,21 +770,21 @@ LR (link register) is used to hold where to jump back to if you branch away; mak
 
 SP is an optional (but quite advised to use) register to store where the stack (a section of memory used for the CPU to hold stuff when registers run out) is held and there is one for each CPU mode.
 
-NOP Short for No-OPeration. It is not that useful in general operations although it would be missed if it went but ROM hackers find it immensely useful as it quite literally does nothing and replacing another instruction with it can be done in place without having to worry about some other code jumping from somewhere else and getting confused as you effectively just messed up the pointers. For instance if you had say a branch IF ELSE arrangement and you did not care for the IF part you could make it so it defaults to the ELSE instruction. There is no official NOP on the ARM processors so most read from a register back into the same register.
+**NOP** Short for No-OPeration. It is not that useful in general operations although it would be missed if it went but ROM hackers find it immensely useful as it quite literally does nothing and replacing another instruction with it can be done in place without having to worry about some other code jumping from somewhere else and getting confused as you effectively just messed up the pointers. For instance if you had say a branch IF ELSE arrangement and you did not care for the IF part you could make it so it defaults to the ELSE instruction. There is no official NOP on the ARM processors so most read from a register back into the same register.
 
-Push and Pop Although you can get stuff done with the 13 general registers you will run out and PUSH simply puts the contents into a portion of general memory (or sometimes cache depending upon the processor) called the stack and notes where it is whereas POP restores it. Quite often if you have to write your own new function you will PUSH everything out of the current registers, do what needs to be done and POP it all back in before jumping back to where it was before.
+**Push and Pop** Although you can get stuff done with the 13 general registers you will run out and PUSH simply puts the contents into a portion of general memory (or sometimes cache depending upon the processor) called the stack and notes where it is whereas POP restores it. Quite often if you have to write your own new function you will PUSH everything out of the current registers, do what needs to be done and POP it all back in before jumping back to where it was before.
 
-MOV There are a few variations in the ARM instruction set but in general it either copies the value from one register to another or sets a value in a register. One should note that unlike what MOV implies the original register is not cleared or anything and this applies to most processors.
+**MOV** There are a few variations in the ARM instruction set but in general it either copies the value from one register to another or sets a value in a register. One should note that unlike what MOV implies the original register is not cleared or anything and this applies to most processors.
 
-Add Does what it is named for and either adds two registers together, adds a value to a register or in some cases/processors adds a value held in memory to the value in the register.
+**Add** Does what it is named for and either adds two registers together, adds a value to a register or in some cases/processors adds a value held in memory to the value in the register.
 
-Subtract Much like add except it subtracts. It uses the Current Program Status Register (CPSR) to help with signed values and such.
+**Subtract** Much like add except it subtracts. It uses the Current Program Status Register (CPSR) to help with signed values and such.
 
-Multiply Another instruction with an obvious use although there are several variations that allow you to do things like add value and then multiply and slightly more complex functions as well. Floating point multiplication if done on the CPU will require some thought and fixed point is not much better. It should be noted the ARM processors used lack a divide instruction although the DS and GBA provide abilities to do so in other parts of the hardware and there are other ways like log tables.
+**Multiply** Another instruction with an obvious use although there are several variations that allow you to do things like add value and then multiply and slightly more complex functions as well. Floating point multiplication if done on the CPU will require some thought and fixed point is not much better. It should be noted the ARM processors used lack a divide instruction although the DS and GBA provide abilities to do so in other parts of the hardware and there are other ways like log tables.
 
-Branch The usage is twofold on the GBA and DS. The BX instruction by itself switches between ARM and THUMB modes but in general the branch instruction is used to trigger a jump to another piece of code (usually another function) to do something and then jump back after it has done what it needs to. The more useful branching instructions are be and bne which are branch if equal and branch if not equal.
+**Branch** The usage is twofold on the GBA and DS. The BX instruction by itself switches between ARM and THUMB modes but in general the branch instruction is used to trigger a jump to another piece of code (usually another function) to do something and then jump back after it has done what it needs to. The more useful branching instructions are be and bne which are branch if equal and branch if not equal.
 
-Memory Load/Store Something of an ARM specific thing for processors like those in the x86 family can directly access memory in almost any instruction but the ARM processors need to manually load and store things using separate instructions. Generally they are referred to as LDR and STR with a few variations depending upon what you want to do.^[There is a security measure present in Windows systems called ASLR (address space layout randomisation) which means many assembly using programs which naturally have to handle their own memory are in some ways considered insecure as the feature has to be disabled for these programs to run. Indeed it has been cited as one of the reasons the ability to do inline assembly (having small sections of your code in assembly when using a language like C) has been dropped from some newer development environments.]
+**Memory Load/Store** Something of an ARM specific thing for processors like those in the x86 family can directly access memory in almost any instruction but the ARM processors need to manually load and store things using separate instructions. Generally they are referred to as LDR and STR with a few variations depending upon what you want to do.^[There is a security measure present in Windows systems called ASLR (address space layout randomisation) which means many assembly using programs which naturally have to handle their own memory are in some ways considered insecure as the feature has to be disabled for these programs to run. Indeed it has been cited as one of the reasons the ability to do inline assembly (having small sections of your code in assembly when using a language like C) has been dropped from some newer development environments.]
 
 ## Assembly
 
@@ -826,7 +826,7 @@ A selection of links dealing with the various processors
 
 [microcross.com GNU ARM assembly quick reference](http://microcross.com/GNU-ARM-Assy-Quick-Ref.pdf) A small reference document to some of the directives supported.
 
-Silicon errata Programs can have bugs, chips can have bugs and as processors are increasingly a combination of the two they can definitely have bugs to say nothing of the architecture as a whole; as various points in this document have spent time covering the GBA and DS augment their processors with fixed onboard hardware also capable of processing at some level. Now where there are certainly undocumented features at time of writing there is not much known about any silicon errata for the GBA or DS compared to the likes of x86 processors although GBAtek covers several errors and odd design choices (remember ARM stuff tends to be custom/application specific where the likes of the x86/x64 processors are largely standard and almost certainly are until you get to very high levels of science, industry or enterprise). This is further abstracted away from programmers by most compilers, in some cases assemblers and toolchains being updated to work around them which could trouble ROM hackers as it will not tend to filter down to them. In practice it is more likely to be the hacker that is at fault or the emulator that does not handle a specific condition (remember in practice emulation is usually an attempt to make an approximation of a system in code that runs at a reasonable speed) and maybe an assembler issue; games consoles are often said to use off the shelf CPUs but they do occasionally have some tweaks as indeed was seen on the “Z80” the GB/GBC used.
+**Silicon errata** Programs can have bugs, chips can have bugs and as processors are increasingly a combination of the two they can definitely have bugs to say nothing of the architecture as a whole; as various points in this document have spent time covering the GBA and DS augment their processors with fixed onboard hardware also capable of processing at some level. Now where there are certainly undocumented features at time of writing there is not much known about any silicon errata for the GBA or DS compared to the likes of x86 processors although GBAtek covers several errors and odd design choices (remember ARM stuff tends to be custom/application specific where the likes of the x86/x64 processors are largely standard and almost certainly are until you get to very high levels of science, industry or enterprise). This is further abstracted away from programmers by most compilers, in some cases assemblers and toolchains being updated to work around them which could trouble ROM hackers as it will not tend to filter down to them. In practice it is more likely to be the hacker that is at fault or the emulator that does not handle a specific condition (remember in practice emulation is usually an attempt to make an approximation of a system in code that runs at a reasonable speed) and maybe an assembler issue; games consoles are often said to use off the shelf CPUs but they do occasionally have some tweaks as indeed was seen on the “Z80” the GB/GBC used.
 
 On a slightly higher level if you read hardware documents for the GBA and DS you will probably come across prohibited modes and a few mentions of hardware bugs which usually are related to each other and are about as close as you will get to seeing something like silicon errata.
 
@@ -834,7 +834,7 @@ On a slightly higher level if you read hardware documents for the GBA and DS you
 
 The following section has details on the GBA hardware itself and key things to know and some basic techniques to employ that make assembly hacking easier.
 
-GBA memory The GBA has several memory sections although most are usually concerned with the VRAM, the OAM, the WRAM, some IO and the cart itself.
+**GBA memory** The GBA has several memory sections although most are usually concerned with the VRAM, the OAM, the WRAM, some IO and the cart itself.
 
 The cart itself is usually read from the 08000000-09FFFFFF region (a full 32 megabytes) hence most pointers on the GBA being assumed to be either to the WRAM or the 08XXXXXX region (most ROM images are 16 megabytes or less so the 09 section and equivalents are rarely seen^[Of course with no bank switching to speak of that usually means there is 16 megabytes or of free space quite able to be used just by pointing there which many hacks have done. It should be noted that several of the dominant GBA compatible flash cards and some of the embedded emulators are not so fond of files larger than 16 megabytes although the former can still handle them. To this end if you can repoint and keep it under 16 megabytes do so and if you have an 8 megabyte ROM then use the remaining 8 megabytes first.] ). There are however two other waitstate locations also running for 1FFFFFF known as WS1 and WS2 at 0A000000 and 0C000000 and by default they are slower/have lower priority than the WS0 location. By default was the key word in the previous sentence as 4000204 hex otherwise known as the WAITCNT register can change this.
 
@@ -852,11 +852,11 @@ The cart itself is usually read from the 08000000-09FFFFFF region (a full 32 meg
 | 0A and 0C | 1FFFFFF | Cartridge location WS1 and WS2 |
 | 0E000000 | Varies | SRAM location |
 
-Basic overview At boot the binary is loaded and run (covered below) and runs from the cart itself with everything usually^[Various programmers in both the homebrew and commercial side of things have been seen to attempt to do things to the memory using standard CPU memory write/read functions and although they are not unbearably slow they are far from suggested practice.] being streamed to the memory as necessary via a combination of DMA and SWI calls that effect a memory transfer by the way they work. Owing to the somewhat low resources things are fairly tightly managed on the GBA and things in memory tend to be there for a reason.
+**Basic overview** At boot the binary is loaded and run (covered below) and runs from the cart itself with everything usually^[Various programmers in both the homebrew and commercial side of things have been seen to attempt to do things to the memory using standard CPU memory write/read functions and although they are not unbearably slow they are far from suggested practice.] being streamed to the memory as necessary via a combination of DMA and SWI calls that effect a memory transfer by the way they work. Owing to the somewhat low resources things are fairly tightly managed on the GBA and things in memory tend to be there for a reason.
 
-DMA [GBAtek](http://problemkaputt.de/gbatek.htm#gbadmatransfers) covers them is great detail but there are four channels numbered 0 to 3 and have an ascending priority (the others are paused until the higher priority channels are done). Each has an independent control register (which can disable the channel it is responsible for) and three write only registers to control source (DMA0 can do only internal memory and will not read higher than 7FFFFFF but the others can do for carts as well), length of read (word count) and destination. The control register does more than just control it and can be set to start immediately, at a vblank, at a hblank (this is aimed at DMA0) and special cases which depend on the channel.
+**DMA** [GBAtek](http://problemkaputt.de/gbatek.htm#gbadmatransfers) covers them is great detail but there are four channels numbered 0 to 3 and have an ascending priority (the others are paused until the higher priority channels are done). Each has an independent control register (which can disable the channel it is responsible for) and three write only registers to control source (DMA0 can do only internal memory and will not read higher than 7FFFFFF but the others can do for carts as well), length of read (word count) and destination. The control register does more than just control it and can be set to start immediately, at a vblank, at a hblank (this is aimed at DMA0) and special cases which depend on the channel.
 
-GBA Binary The GBA protocol known as multiboot is not really going to be covered here as most hackers do not tend to deal with it mainly as most commercial ROM images do not fit in it, not to mention it is covered in hardware documents.
+**GBA Binary** The GBA protocol known as multiboot is not really going to be covered here as most hackers do not tend to deal with it mainly as most commercial ROM images do not fit in it, not to mention it is covered in hardware documents.
 
 The GBA binary (as in actual executable code) is mixed in with the ROM image itself but it is easily found for the vast majority of games. Trainers for ROM images (be they the ones Scene groups put on games or ones used for trainers) will tend to subvert this to run before the game.
 
@@ -866,11 +866,11 @@ This jump usually jumps to the end of the header where things start getting set 
 
 Some games like Phantasy star collection will have multiple executables in the game (after an initial load menu) but this is rare and for these you will have to use an emulator like VBA-SDL-h or no$gba debug or manually run through the assembly in long form to find it. Although technically possible no full commercial game, homebrew is a different matter, at time of writing has been observed to copy executable code to WRAM and operate there like the DS does with its binaries. This is presumably owing to the GBA cart being reasonably fast, low latency, having a prefetch command, the WRAM not being that large (288 kilobytes or 256 if you only use the system WRAM) and the GBA cart being mapped to memory. Indeed this is expected by many ROMs which will crash if you use slower memory which is why the simpler (and usually better) GBA flash carts use PSRAM or NOR as opposed to the cheaper and easier to work with NAND flash memory. There are a couple of games that might run the odd decompressed function from WRAM though, multiboot can make use of it and GBAtek notes that many save functions need to be executed from instructions in the WRAM.
 
-Screenshot of VBA’s dissassembler showing how to find the binary The image displayed below shows what the basic disassembly looks like with a few extras to help you out. The data bounded by the yellow box (which has been shrunk for the purposes of readability) is what the disassembler makes of the header and is a nice reminder that disassemblers, for all they might allow, are just like hex editor ASCII windows in that any good they display is luck, good standards (which do not apply so much here) or the end user guiding it to display something useful. The general process in words is the start of the ROM houses a jump, usually to the end of the header but otherwise slightly later in the ROM, which is the start of the real binary but most of what immediately follows that is basic setup so the first thing to deal with something in the GBA binary region (that is to say not the stuff setting the stack pointer) is where the meat of the binary is.
+**Screenshot of VBA’s dissassembler showing how to find the binary** The image displayed below shows what the basic disassembly looks like with a few extras to help you out. The data bounded by the yellow box (which has been shrunk for the purposes of readability) is what the disassembler makes of the header and is a nice reminder that disassemblers, for all they might allow, are just like hex editor ASCII windows in that any good they display is luck, good standards (which do not apply so much here) or the end user guiding it to display something useful. The general process in words is the start of the ROM houses a jump, usually to the end of the header but otherwise slightly later in the ROM, which is the start of the real binary but most of what immediately follows that is basic setup so the first thing to deal with something in the GBA binary region (that is to say not the stuff setting the stack pointer) is where the meat of the binary is.
 
 ![PIC](images/214_home_fast6191_romhackingguide_unrenamed_fil___borders_romhackingguidegbabinarylocationVBA.png)
 
-Tracing Tracing is the process of finding out where something started out at in the ROM and how it got to where it is which is usually just a read of some form but there is occasionally compression in the way meaning you will have to find where the compressed data got into memory from and then repeat the process with that.
+**Tracing** Tracing is the process of finding out where something started out at in the ROM and how it got to where it is which is usually just a read of some form but there is occasionally compression in the way meaning you will have to find where the compressed data got into memory from and then repeat the process with that.
 
 [Locating graphics with VBA-SDL-H](http://www.romhacking.net/documents/361/)by Labmaster provides a great introduction to the subject and there are a few worked examples to come in part III.
 
@@ -905,7 +905,7 @@ Logging has been seen in the past (SWI logs being used to assist with compressed
 
 Much like the GBA section above this section contains information on the DS hardware, general modes of operation and some techniques you can use to help get the most out of assembly.
 
-DS Binaries Types of binary
+**DS Binaries** Types of binary
 
 There are three main locations you will find DS binaries.
 
@@ -917,7 +917,8 @@ The standard binaries are the arm9.bin and arm7.bin files you will find in every
 
 As for what overlays actually are there are occasions where you might want to extend the functionality of your code but you do not want to have to take up a chunk of valuable memory at all times despite the game only needing it every 3 hours or so. This is a common occurrence throughout computing and the way the DS chose to handle it was too look back in time to overlays which amount to having small fragments of code you can load into a given memory location and then run before releasing them and swapping in another fragment. It is quite possible to have overlays with different intended running locations and having multiple overlays run at the same time. Most header viewers like NDSTS will tell you where the ARM9 is found in the ROM, located in the RAM (it can vary between games) and has the initial point of execution and although you can read the data out yourself you might have to go to a program like Crystaltile2 to get information on the overlays.
 
-DS memory The DS avoids mapping some things to the main memory bus with full read/write access (some parts of the firmware, the cartridge itself, the 3d RAM and some aspects of the touch screen to name a few big ones) which troubles some things but a lot of it is still mapped to the main memory bus and it is definitely still a useful concept. Equally the two processors have slightly different maps although there is a lot of overlap.
+**DS memory** The DS avoids mapping some things to the main memory bus with full read/write access (some parts of the firmware, the cartridge itself, the 3d RAM and some aspects of the touch screen to name a few big ones) which troubles some things but a lot of it is still mapped to the main memory bus and it is definitely still a useful concept. Equally the two processors have slightly different maps although there is a lot of overlap.
+
 
 |     |     |     |
 | --- | --- | --- |
@@ -955,27 +956,27 @@ DS memory The DS avoids mapping some things to the main memory bus with full rea
 
 On shared WRAM The DS allows a small section of ram to be shared/split between the ARM9 and ARM7 and it is mirrored repeatedly although in this case 37F8000 hex is the interesting one which allows for (and a couple of programs have been seen to use) a single 96 kilobyte block for the ARM7 as it has WRAM right after it. [WRAMCNT](http://problemkaputt.de/gbatek.htm#dsmemorycontrolwram) controls the allocation although only the ARM9 can do anything about it.
 
-TCM On the face of it most people would assume the TCM is a type of CPU memory cache and although it could be used as such a feature in practice it is a small memory block that can continue to operate during DMA transfer (assuming all it needs is inside it) although DMA can not access it. [GBAtek](http://problemkaputt.de/gbatek.htm#armcp15tightlycoupledmemorytcm) has more.
+**TCM** On the face of it most people would assume the TCM is a type of CPU memory cache and although it could be used as such a feature in practice it is a small memory block that can continue to operate during DMA transfer (assuming all it needs is inside it) although DMA can not access it. [GBAtek](http://problemkaputt.de/gbatek.htm#armcp15tightlycoupledmemorytcm) has more.
 
-DS IO section 04000000 for both the ARM9 and ARM7 house IO for the DS which includes values of controller input, DMA, screen handling, sound as well as the locations to used for the maths coprocessor/functions (a signed 32 or 64 bit division function clocking around 18 clocks for all 32 bits or 34 clocks otherwise although it has a finished flag and a 64 bit square root function lasting 13 clocks with a 32 bit output).
+**DS IO section** 04000000 for both the ARM9 and ARM7 house IO for the DS which includes values of controller input, DMA, screen handling, sound as well as the locations to used for the maths coprocessor/functions (a signed 32 or 64 bit division function clocking around 18 clocks for all 32 bits or 34 clocks otherwise although it has a finished flag and a 64 bit square root function lasting 13 clocks with a 32 bit output).
 
 [GBAtek](http://problemkaputt.de/gbatek.htm#dsiomaps) naturally has a complete listing and covers their contents and usage in the relevant sections and a lot of it was already covered when graphics and sound were covered.
 
-On DS memory usage With most DS files using file level pointers there can be the impression you are granted as much memory as the pointers will afford and indeed many games will within reason be able to manage it to the point you are more likely to run into problems with screen positioning. Some games however do load say the entire script or file into RAM and use it from there meaning you either get to limit your text (or more likely if it is a Japanese game do an 8 bit text encoding conversion), code in a streaming ability or try something more exotic like trying to store things on the GBA cart or abusing the file level pointers to point somewhere in RAM and injecting it there somehow (remember values are probably calculated from pointers in the file to guide things once it is found in RAM so you could get something working there by using a far larger number than it expects).
+**On DS memory usage** With most DS files using file level pointers there can be the impression you are granted as much memory as the pointers will afford and indeed many games will within reason be able to manage it to the point you are more likely to run into problems with screen positioning. Some games however do load say the entire script or file into RAM and use it from there meaning you either get to limit your text (or more likely if it is a Japanese game do an 8 bit text encoding conversion), code in a streaming ability or try something more exotic like trying to store things on the GBA cart or abusing the file level pointers to point somewhere in RAM and injecting it there somehow (remember values are probably calculated from pointers in the file to guide things once it is found in RAM so you could get something working there by using a far larger number than it expects).
 
 VRAM on the other hand you will frequently run into problems when manipulating and developers will often have pushed it to the limit here.
 
-On cart access The cart access is controlled through IO (usually the B7 command to 40001A8) and that is a good thing to watch as games are not necessarily restricted to a single read function (indeed the Bink video format from Rad game tools boasts the ability to handle file reads in library [in the Bink video format sales patter](http://www.radgametools.com/binksdk.htm)) so watching a single function might not net you what you want. This being said it is by no means a bad idea to watch a single read function if you find one for a while to get a handle on things and owing to the nature of the DS filesystem it quite often can boil down to a small bunch of functions attempting to figure out enough pointers to find the given section in the ROM itself (think in SDAT there might be a track within an SSEQ which is within a section which will have a point to that section as part of the SDAT file which will have a pointer in the FAT section of the DS ROM which itself will have a pointer listed in the header).
+**On cart access** The cart access is controlled through IO (usually the B7 command to 40001A8) and that is a good thing to watch as games are not necessarily restricted to a single read function (indeed the Bink video format from Rad game tools boasts the ability to handle file reads in library [in the Bink video format sales patter](http://www.radgametools.com/binksdk.htm)) so watching a single function might not net you what you want. This being said it is by no means a bad idea to watch a single read function if you find one for a while to get a handle on things and owing to the nature of the DS filesystem it quite often can boil down to a small bunch of functions attempting to figure out enough pointers to find the given section in the ROM itself (think in SDAT there might be a track within an SSEQ which is within a section which will have a point to that section as part of the SDAT file which will have a pointer in the FAT section of the DS ROM which itself will have a pointer listed in the header).
 
-crystaltile2/no$gba ASM markup aka NEF Nintendo developed a kind of markup format for their debuggers to use which no$gba (at the time the premier debugging grade emulator for the DS) and, eventually, crystaltile2 gained support for. no$gba also supports a format it calls sym which at times almost feels like an extension of nef.
+**crystaltile2/no$gba ASM markup aka NEF** Nintendo developed a kind of markup format for their debuggers to use which no$gba (at the time the premier debugging grade emulator for the DS) and, eventually, crystaltile2 gained support for. no$gba also supports a format it calls sym which at times almost feels like an extension of nef.
 
 The format allows you to assign names to memory locations (be they variables, names for IO or locations of functions/loops), declare sections to be data (8,16 or 32 bits per entry for a given number of bytes), declare sections to be just THUMB or ARM mode code and write comments and such similar to a development assembly environment for although assembly is about getting right down to the bare metal it is trivial and of no concern to the resulting speed of a program to have a nice name for a memory location defined when programming, used in the programming and replaced at time of assembly.
 
-SRL/download play SRL files are binaries output by debugging tools. For the most part if they are seen in ROM images they are usually a developer left extra, sometimes though they are there as or in download play components as the main binary. Download play ROMs can and frequently do use a regular style DS binary instead (usually called utility.bin), do note they usually use a lot of compression and just about everything in a utility.bin file will be compressed.
+**SRL/download play** SRL files are binaries output by debugging tools. For the most part if they are seen in ROM images they are usually a developer left extra, sometimes though they are there as or in download play components as the main binary. Download play ROMs can and frequently do use a regular style DS binary instead (usually called utility.bin), do note they usually use a lot of compression and just about everything in a utility.bin file will be compressed.
 
 ![PIC](images/215_home_fast6191_romhackingguide_unrenamed_fil___riginal_borders_romhackguide_downloadplay_1.png)
 
-Binary compression It was mentioned back when compression was covered but it should be noted the DS binaries and overlays can be compressed, some Scene groups even compressed them if the original ROM had not compressed it. The standard compression method used in DS binaries is a type of LZ compression sometimes known as BLZ (backwards LZ) or more often DS binary compression. Tools like crystaltile2 handle the decompression (although with crystaltile2 you are advised to rip the file normally and decompress with one of the following tools if you plan to reinsert it, crystaltile2 has also been seen to say there is compression where there is none) as will tools like Cue’s compression tools and DSdecmp. Equally the binary has to be decompressed to run so you could always snatch it out of RAM, which was actually something many did do before the format had tools made for it.
+**Binary compression** It was mentioned back when compression was covered but it should be noted the DS binaries and overlays can be compressed, some Scene groups even compressed them if the original ROM had not compressed it. The standard compression method used in DS binaries is a type of LZ compression sometimes known as BLZ (backwards LZ) or more often DS binary compression. Tools like crystaltile2 handle the decompression (although with crystaltile2 you are advised to rip the file normally and decompress with one of the following tools if you plan to reinsert it, crystaltile2 has also been seen to say there is compression where there is none) as will tools like Cue’s compression tools and DSdecmp. Equally the binary has to be decompressed to run so you could always snatch it out of RAM, which was actually something many did do before the format had tools made for it.
 
 No binary encryption has been observed, though some called the binary compression a type of encryption at times and obfuscation is seen on many occasions. Equally there are a few scripting languages available for DS programmers so there may be some amount of just in time compilation and similar things.
 
@@ -1025,7 +1026,7 @@ DS Touch screen The DS has a touch screen in addition to the buttons. Various ha
 
 Looking back to the level editor in the N+ level editing section where 020E0840 was a touch screen driven location of the selection box it might have done to instead select that as the intended destination of a controller hack.
 
-Extra peripherals The GBA and DS carts both have GPIO (general purpose IO) options built into them which have been used at various points to do various things. On the DS this was mostly the GBA slot used for rumble, the taito game pad and the guitar grip for guitar hero. Indeed the cheats made to allow buttons to be used instead of the guitar grip saw the memory section that the guitar pad button states were copied/debounced to be fiddled with.
+**Extra peripherals** The GBA and DS carts both have GPIO (general purpose IO) options built into them which have been used at various points to do various things. On the DS this was mostly the GBA slot used for rumble, the taito game pad and the guitar grip for guitar hero. Indeed the cheats made to allow buttons to be used instead of the guitar grip saw the memory section that the guitar pad button states were copied/debounced to be fiddled with.
 
 Other hacks here included support for the the Taito paddle controller (originally intended for the Japanese version of Arkanoid) to other games like Mario Kart DS.
 
@@ -1125,7 +1126,7 @@ In an ideal world you would just be able to add your function to the end of the 
 
 If you are not up for that though there is the “proper” route of branching, binary extension and optimisation however on the DS once you add in binary overlays and other aspects of memory mapping this can get very tricky indeed as the memory on most DS games is aggressively managed both by design and because it has to be (4 megabytes give or take a bit for TCM and extras for video and such can do some amazing things but it is not enough to sustain a slightly sloppier style of coding that cares not about memory leaks and freeing unused information).
 
-DEADBEEF padding and finding free memory A technique which is common enough outside DS hacking, the idea is you flood the RAM (or save file in some occasions) with a series of values unlikely to come up in everyday code and DEADBEEF is quite valid hexadecimal so it is often chosen (some older computers even initialised their RAM to it and other machines use similar plays on words for various things). After you have run the ROM for as long as you need anything with DEADBEEF in the RAM is possibly fair game to put something in.
+**DEADBEEF padding and finding free memory** A technique which is common enough outside DS hacking, the idea is you flood the RAM (or save file in some occasions) with a series of values unlikely to come up in everyday code and DEADBEEF is quite valid hexadecimal so it is often chosen (some older computers even initialised their RAM to it and other machines use similar plays on words for various things). After you have run the ROM for as long as you need anything with DEADBEEF in the RAM is possibly fair game to put something in.
 
 It is probably not going to be that hard to make your own (you are making something do a simple task once early in the boot sequence) but [DSATM 4.3.4](http://filetrip.net/nds-downloads/utilities/download-dsatm-434-f27609.html%20) should have the option to add it in (it was dropped from later versions of the program which you can get from the same link).
 
@@ -1141,7 +1142,7 @@ No GBA or DS game has ever been observed to do it but reading “uninitialised�
 
 There are various methods available to programmers to change code and use existing code to do things using information gathered at runtime and these can trouble assembly hacking.
 
-Polymorphic Usually a term that comes up in the discussion of modern virus programming and signature analysis it is worth being mentioned here.
+**Polymorphic** Usually a term that comes up in the discussion of modern virus programming and signature analysis it is worth being mentioned here.
 
 The idea is that if you can read and write the binary location in memory you can change how it runs at runtime but with a few exceptions this is rarely seen in commercial games for the likes of the GBA and DS; indeed the anti piracy protection for commercial games on the DS often revolves around checking the binary has not changed which prevents this method from being that useful (any potential speedboosts and memory savings usually being negated by the checks or having to work around the checks). On the flip side though some of the interpreted languages and emulators using techniques like just in time compilation and dynamic recompilation can be said to use this although that usually devolves into a semantic debate.
 
@@ -1153,7 +1154,7 @@ Although the binary itself might be protected other parts of memory are not so �
 
 Heading into the future although it is a valuable technique some of the protection systems do a lot to prevent it from working with consoles like the 360 even gaining encrypted memory thus preventing simple manipulation (some of the hacks actually added an area of unencrypted memory to allow emulators that use related techniques to work) and home computers often now a memory protection technique known on Windows as ASLR (address space layout randomisation) that randomises the memory layout in an attempt to avoid having data at a given location; just quickly every windows program is compiled to run in a certain memory location but Windows itself hides and changes the commands into what they need to be which is how multiple programs work at once on Windows. On the other hand there are languages that get classed as reflective languages that do have such abilities as something of a core function but this again risks returning to the semantic debate.
 
-Dynamic (calculated values) It could be said most pointers on the DS are a variation on this and although it is not strictly a type of polymorphic code it is related to it and a lot more common than by virtue of it being used in calculated pointers and similar code; it is quite common in C type languages but if you recall back to the cheat to assembly ports and the instructions that would add things to values later used as memory locations. Such things are also the reason it is not often advised to even try changing locations of things in RAM or in ROM for things like the GBA even if you are willing to undertake the near Herculean task of repointing everything. It is quite often seen in games programmed largely in assembly or plain C which is to say just about everything older than a PS1.
+**Dynamic (calculated values)** It could be said most pointers on the DS are a variation on this and although it is not strictly a type of polymorphic code it is related to it and a lot more common than by virtue of it being used in calculated pointers and similar code; it is quite common in C type languages but if you recall back to the cheat to assembly ports and the instructions that would add things to values later used as memory locations. Such things are also the reason it is not often advised to even try changing locations of things in RAM or in ROM for things like the GBA even if you are willing to undertake the near Herculean task of repointing everything. It is quite often seen in games programmed largely in assembly or plain C which is to say just about everything older than a PS1.
 
 Here if you know the memory location of something the next thing might well be a known/fixed distance away so rather than fetching a new pointer from memory or worse the cart and incurring a speed penalty you could just add this fixed distance to a value already in memory and then direct it to a new location with this new value. Related to this is the idea of dodging having to call a function and spend several cycles setting up for it (even if it is as simple function everything will have to be pushed, new values written, the function jumped to and done, values returned and everything popped back before returning (although the last few things can be swapped around a bit).
 
@@ -1163,7 +1164,7 @@ Cheat makers quite often face a similar problem with pointer codes where a game 
 
 Occasionally it is useful to slow a game down or speed it up and there are several ways to do this but if you are on an emulator just use the inbuilt features as they will be far more stable and easy to do than these hacks.
 
-Slowdown Slowdown can be caused in one of several ways
+**Slowdown** Slowdown can be caused in one of several ways
 
 The way most DS flash carts and programs like DSATM use aims to interrupt and then flood the CPU with useless instructions (maybe a selectable amount of them) that mean it can not do everything it normally would and will slow down the game as a result (and might well crash a game not coded to take it).
 
@@ -1240,9 +1241,9 @@ Here are the requirements for checksums/hashes used for security (if you hash fo
 * Each hash must be unpredictable, aka each minor change to a message must produce a big change in the resulting hash
 * Each hash function must make the same hash for the same message (no randomness in the output)
 
-Salting This is the act of introducing another piece of data to the data to be hashed. In the better cases something unique to that piece of data but in lesser cases something common to all the hashes to be made for a system. It is mainly used where password databases are kept; storing raw passwords is risky as they might be exposed in a leak and if you are given a password then a hash of said password can also be used to verify it (remember each message should produce a unique but unpredictable hash). It came about as rainbow tables, tables which list hashes for every combination of values (occasionally just dictionary words or a given character set) up to a certain length, became viable for even general use in the early 2000s as a result of increasing disc space. By changing the data being hashed to something else you stop basic rainbow tables from being useful, however as they are easily generated it is then desirable for a unique/different salt for each hash of a password.
+**Salting** This is the act of introducing another piece of data to the data to be hashed. In the better cases something unique to that piece of data but in lesser cases something common to all the hashes to be made for a system. It is mainly used where password databases are kept; storing raw passwords is risky as they might be exposed in a leak and if you are given a password then a hash of said password can also be used to verify it (remember each message should produce a unique but unpredictable hash). It came about as rainbow tables, tables which list hashes for every combination of values (occasionally just dictionary words or a given character set) up to a certain length, became viable for even general use in the early 2000s as a result of increasing disc space. By changing the data being hashed to something else you stop basic rainbow tables from being useful, however as they are easily generated it is then desirable for a unique/different salt for each hash of a password.
 
-Encryption As mentioned this is the process by which data or, to use the standard parlance, the message is made so that it can not be read by someone without the required key values. As far as the GBA and DS are concerned encryption is not in common use but other consoles have been seen to use it and on the PC games and other programs use it extensively so it is worth knowing about
+**Encryption** As mentioned this is the process by which data or, to use the standard parlance, the message is made so that it can not be read by someone without the required key values. As far as the GBA and DS are concerned encryption is not in common use but other consoles have been seen to use it and on the PC games and other programs use it extensively so it is worth knowing about
 
 There are two main classes of encryption known as
 
@@ -1251,7 +1252,7 @@ There are two main classes of encryption known as
 
 There are ways to blur the lines and the terms do not always match up precisely and it is also possible to combine the two; commonly your bank will use public key to allow you to send a key to them to then do private key for the rest of the transaction and you can nest encryptions if you want. Private/Symmetric key is in many ways inferior but as it is less computationally expensive to do and when done right it works well it has stuck around since the invention of asymmetric encryption.
 
-Symmetric XOR
+**Symmetric** XOR
 
 Going back to the binary XOR example
 
@@ -1267,7 +1268,7 @@ XORing the two
 
 1000 1101
 
-Asymmetric The basis of asymmetric cryptography is the idea of one way/trapdoor functions.
+**Asymmetric** The basis of asymmetric cryptography is the idea of one way/trapdoor functions.
 
 Typically the functions employed for encryption are that it is hard to factor numbers (with cryptography techniques being available for prime numbers as a result) and a related problem with ellipses (leading to elliptical encryption).
 
@@ -1281,19 +1282,19 @@ The answer is 691 multiplied 263 but other than being told or trying every possi
 
 RSA is a popular prime number based encryption method which you can read about [Berkley’s website](http://mathcircle.berkeley.edu/BMC3/rsa/node4.html)
 
-Basic attacks Some of the methods you will learned to find text have their roots in attacks on encryption, and indeed technically speaking text encodings are a type of substitution cipher which is a technique which has been in use for thousands of years. Being so well known by themselves these attacks are not typically of great use but as many methods derive from basic principles they are worth knowing of.
+**Basic attacks** Some of the methods you will learned to find text have their roots in attacks on encryption, and indeed technically speaking text encodings are a type of substitution cipher which is a technique which has been in use for thousands of years. Being so well known by themselves these attacks are not typically of great use but as many methods derive from basic principles they are worth knowing of.
 
-Known plaintext The simplest form of this is for XOR and was seen on the 3ds save encryption. Here the last bytes of the save chip which are typically larger than the save they contain was padded with 00 and XORing your password with 00 leaves the password as plain text.. Even if it was not 00 just knowing the original text (or enough of it) allows you to get the XOR key by simply doing the XOR.
+**Known plaintext** The simplest form of this is for XOR and was seen on the 3ds save encryption. Here the last bytes of the save chip which are typically larger than the save they contain was padded with 00 and XORing your password with 00 leaves the password as plain text.. Even if it was not 00 just knowing the original text (or enough of it) allows you to get the XOR key by simply doing the XOR.
 
-Chosen plaintext Again if you go back to XOR if you can choose a file of all 00 (this also works on many more advanced algorithms at various levels) and get the program to encrypt it you will have valuable information about the key if not the key itself. If you use an action replay cheat to change a value in memory and then let the game make the save thus not having to work out how a game hashes the save you are doing a variation on this.
+**Chosen plaintext** Again if you go back to XOR if you can choose a file of all 00 (this also works on many more advanced algorithms at various levels) and get the program to encrypt it you will have valuable information about the key if not the key itself. If you use an action replay cheat to change a value in memory and then let the game make the save thus not having to work out how a game hashes the save you are doing a variation on this.
 
-Key recovery This is more of an assembly level thing but most of the time developers will not manage the key well and leave it in memory or leave it in an obvious place at a given point in time thus allowing you to extract it. Equally if you are dealing with a PC or an emulator then much of encryption is merely designed to frustrate those basic skills or those without much patience so you can watch what happens and figure things out here if you want.
+**Key recovery** This is more of an assembly level thing but most of the time developers will not manage the key well and leave it in memory or leave it in an obvious place at a given point in time thus allowing you to extract it. Equally if you are dealing with a PC or an emulator then much of encryption is merely designed to frustrate those basic skills or those without much patience so you can watch what happens and figure things out here if you want.
 
-Oracle abuse The idea of an oracle is actually a specific thing within cryptography but in loose terms it can be summarised as a black box of unknown mechanism that assists in cryptography related problems and if you have/gain unfettered access to the oracle you can do some interesting things. The PSP saw a related attack with the game decryption program that allowed decrypting of game files for later firmwares (the PSP allowed for new game encryption keys to be introduced), several other late stage hacks in consoles use it as a core mechanic rather than hack things more extensively (although in some cases this may be viewed as exploiting a different bug), compression workarounds have been made where rather than figure out the compression form then if you just wait for it to appear in uncompressed form... and if you ever inject content into the ram and have the save created (and hashed) using the content you just injected that would be another example, or alternatively if you disabled the hash check on a save knowing that it would eventually redo the hash properly for you that would be another.
+**Oracle abuse** The idea of an oracle is actually a specific thing within cryptography but in loose terms it can be summarised as a black box of unknown mechanism that assists in cryptography related problems and if you have/gain unfettered access to the oracle you can do some interesting things. The PSP saw a related attack with the game decryption program that allowed decrypting of game files for later firmwares (the PSP allowed for new game encryption keys to be introduced), several other late stage hacks in consoles use it as a core mechanic rather than hack things more extensively (although in some cases this may be viewed as exploiting a different bug), compression workarounds have been made where rather than figure out the compression form then if you just wait for it to appear in uncompressed form... and if you ever inject content into the ram and have the save created (and hashed) using the content you just injected that would be another example, or alternatively if you disabled the hash check on a save knowing that it would eventually redo the hash properly for you that would be another.
 
-Example of known and chosen plaintext For an example of why using a long run of 0 with XOR is a bad idea if you want security and a further example of known plaintext
+**Example of known and chosen plaintext** For an example of why using a long run of 0 with XOR is a bad idea if you want security and a further example of known plaintext
 
-Message of all 0
+**Message of all 0**
 
 0000 0000
 
@@ -1305,7 +1306,7 @@ XOR
 
 0110 1110
 
-Message longer than key but padded with 0
+**Message longer than key but padded with 0**
 
 1101 1111 0000 0000
 
@@ -1317,7 +1318,7 @@ XOR
 
 1011 0001 0110 1110
 
-Known/chosen plaintext
+**Known/chosen plaintext**
 
 So you have not padded with 0 but you have padded with a repeated value of 7h (0111)
 
@@ -1353,13 +1354,13 @@ To get 0 from 1 XOR has to be 1
 
 0101 is the key.
 
-Signatures In brief a signature is just like a hash in that it produces a number that represents the data signed but it uses cryptography (typically asymmetric but not always) to mean only someone with the keys can create and/or check the signature. Any encryption algorithm can be turned into a signature although in many cases you will want to read up and make sure it is a wise idea lest you end up like the [original xbox](http://web.archive.org/web/20090212084156/http://xbox-linux.org/wiki/17_Mistakes_Microsoft_Made_in_the_Xbox_Security_System) ([PDF version of the article](http://events.ccc.de/congress/2005/fahrplan/attachments/591-paper_xbox.pdf)).
+**Signatures** In brief a signature is just like a hash in that it produces a number that represents the data signed but it uses cryptography (typically asymmetric but not always) to mean only someone with the keys can create and/or check the signature. Any encryption algorithm can be turned into a signature although in many cases you will want to read up and make sure it is a wise idea lest you end up like the [original xbox](http://web.archive.org/web/20090212084156/http://xbox-linux.org/wiki/17_Mistakes_Microsoft_Made_in_the_Xbox_Security_System) ([PDF version of the article](http://events.ccc.de/congress/2005/fahrplan/attachments/591-paper_xbox.pdf)).
 
 Many times though making a signature for a large file is less than ideal for various reasons, the big two being speed and the possibility of key leakage, so the file will instead be hashed and the list of hashes (which remember should change if the file does) are then treated as a message which can be signed; changing the file changes the resulting hash which makes the signature, which is in essence a hash itself, incorrect and thus things can be treated appropriately.
 
 A popular implementation of the signed list of hashes/checksums goes by the name HMAC.
 
-Checks and workarounds Hashes and signatures are great but if you fail to verify them properly they are useless. Several consoles have failed to verify them properly over the years, most notably in the Wii which used a text compare function and thus could be made to only needed the first byte to match (a trivial thing to “brute force”) and early PSP which checked one folder and launched another if you put a $ in front of the name. A related failure can be seen in the xbox 360 DVD attacks (the basis for flashed DVD drives on the 360) where the disc is verified solely by the drive firmware, said drive firmware can be overwritten (no bad thing per se as it eases manufacturing) but the original console is also unable to check it properly.
+**Checks and workarounds** Hashes and signatures are great but if you fail to verify them properly they are useless. Several consoles have failed to verify them properly over the years, most notably in the Wii which used a text compare function and thus could be made to only needed the first byte to match (a trivial thing to “brute force”) and early PSP which checked one folder and launched another if you put a $ in front of the name. A related failure can be seen in the xbox 360 DVD attacks (the basis for flashed DVD drives on the 360) where the disc is verified solely by the drive firmware, said drive firmware can be overwritten (no bad thing per se as it eases manufacturing) but the original console is also unable to check it properly.
 
 Related to this are three concepts which are often used and even used in consoles, although not so much for anything ROM hacking is usually concerned with.
 
@@ -1393,7 +1394,7 @@ More modern systems and especially those with online components (Microsoft is we
 
 It should be noted some consoles like the [Wii](http://wiibrew.org/wiki/Savegame_Files) and [360](http://free60.org/STFS) have developers store files in a universal container format for that console and then allow developers to stick their custom format in that.
 
-Saves in different regions Saves are largely a custom format and although most localisation teams do not really touch much in the source code as far as games running goes it is quite nice to have saves work between different regions. In many cases you can use the saves directly with any region or version but occasionally there can be problems with the most common although not so troubling problem being where a Japanese game might have used a 16 bit encoding and the European or North American localisation will more likely use an 8 bit one or simply not include all the glyphs from the original encoding making the names of characters display oddly.
+**Saves in different regions** Saves are largely a custom format and although most localisation teams do not really touch much in the source code as far as games running goes it is quite nice to have saves work between different regions. In many cases you can use the saves directly with any region or version but occasionally there can be problems with the most common although not so troubling problem being where a Japanese game might have used a 16 bit encoding and the European or North American localisation will more likely use an 8 bit one or simply not include all the glyphs from the original encoding making the names of characters display oddly.
 
 More troubling is that game saves are usually a fairly specific affair with locations hard coded so if a variable is changed in length between versions every subsequent variable will be out by a given amount and things will go sideways and if multiple variables are changed in length it can get even worse; here is might even be better to build a full save editor or collection of cheats instead of “fixing” the save.
 
@@ -1456,7 +1457,7 @@ Game theory It has been mentioned and partially covered several times now but so
 
 Breaking a game or sections thereof using this concept can be used to create a good AI or good game mechanics and be used to compel certain types of play which leads into mechanism design.
 
-Mechanism design By combining terms of game theory and creating rules you can aim to create certain play styles or indeed AI to conform to certain play styles. In Tetris for instance you have the option to do an infinite spin but when you are playing against an AI/player then you are allowing them effectively free reign for several “turns” which in turn will mean you probably end up with a screen of garbage, equally the game lessens garbage if you make lines but you might want to take some and thus allow yourself the potential to give more lines of garbage to the other side. This further feeds into AI as you can build a series of strategies for a game and turn one or more of them off to make the game easier for the human players, and going back to Tetris, in this case have a look at Tetris DS, then if you play the AI on easier modes it will stop doing things like hard drops or even soft drops, it might stop holding pieces to make for a tetris at a slightly later time and similar things.
+**Mechanism design** By combining terms of game theory and creating rules you can aim to create certain play styles or indeed AI to conform to certain play styles. In Tetris for instance you have the option to do an infinite spin but when you are playing against an AI/player then you are allowing them effectively free reign for several “turns” which in turn will mean you probably end up with a screen of garbage, equally the game lessens garbage if you make lines but you might want to take some and thus allow yourself the potential to give more lines of garbage to the other side. This further feeds into AI as you can build a series of strategies for a game and turn one or more of them off to make the game easier for the human players, and going back to Tetris, in this case have a look at Tetris DS, then if you play the AI on easier modes it will stop doing things like hard drops or even soft drops, it might stop holding pieces to make for a tetris at a slightly later time and similar things.
 
 Further to this you have things like scoring systems and experience rates which also bring on aspects of psychology in greater and greater amounts, however as a ROM hacker you might be interested in lessening or furthering the game engine. For instance in an RPG you might not wish to have to “grind” to gain experience for a couple of hours to further the story but the game more or less demands it (a trade off developers of RPGs almost invariably have to make) and you can bypass this. Equally minigames have been extracted from larger games on several occasions and in others gameplay was radically altered, albeit within the same engine, to do something like a boss rush mode in a game like Castlevania or Metroid (both titles noted for their exploration elements) or even a rush/“boss”alley in a game like pokemon via a premade save and level hack which negates the entire explore, capture and train (possibly/normally to overpowered) element the games are based on.
 
@@ -1482,17 +1483,17 @@ A related discipline to emulator theory is in-hardware extras. Flash carts and m
 
 The following has information on the custom things and things that flash cart designers had to handle
 
-AP and Saves What little AP that was seen was traditional save check types launched outside the standard save routine or related things and in most cases just caused the ROM to fail to launch (usually with an error screen), fail to save or possibly in the case of Samurai Deeper Kyo might have caused the game to be unbeatable past the first boss although that is unconfirmed at present. [The author of mgba has some nice analysis of the classic NES anti emulation measures.](https://mgba.io/2014/12/28/classic-nes/)
+**AP and Saves** What little AP that was seen was traditional save check types launched outside the standard save routine or related things and in most cases just caused the ROM to fail to launch (usually with an error screen), fail to save or possibly in the case of Samurai Deeper Kyo might have caused the game to be unbeatable past the first boss although that is unconfirmed at present. [The author of mgba has some nice analysis of the classic NES anti emulation measures.](https://mgba.io/2014/12/28/classic-nes/)
 
 Most issues running GBA carts historically and to this day came from either new save types (long since sorted) or extra hardware (solar sensors, tilt sensors, GBA wireless adapter support and games like Plaston Gate and Legendz - Yomigaeru Shiren no Shima has a connection peripheral you had to connect a device that looked like it had some processing ability onboard) although there are undumped games like the Shrek video purportedly using bankswitching that would also need to be sorted to play on flash cards.
 
-Saves on the GBA The GBA does not have a value in the header or anything to indicate save type but if you do an ASCII text search for EEPROM, FLASH or SRAM and one comes up (if not you probably have a ROM that uses passcodes to save or maybe some types of homebrew) you have the broad category and emulators like VBA used to and maybe still do stop here causing some problems like having to manually select the save type for things like pokemon but after that there will be some numbers to indicate sub type of which there are a few for each. This search is quite hard to do on limited hardware and with most cart software being derived from devices using NOR memory which is very hard to change things in place for or custom flashing tools to manage it is why most GBA flash carts tend to need ROMs patched before being put onto devices.
+**Saves on the GBA** The GBA does not have a value in the header or anything to indicate save type but if you do an ASCII text search for EEPROM, FLASH or SRAM and one comes up (if not you probably have a ROM that uses passcodes to save or maybe some types of homebrew) you have the broad category and emulators like VBA used to and maybe still do stop here causing some problems like having to manually select the save type for things like pokemon but after that there will be some numbers to indicate sub type of which there are a few for each. This search is quite hard to do on limited hardware and with most cart software being derived from devices using NOR memory which is very hard to change things in place for or custom flashing tools to manage it is why most GBA flash carts tend to need ROMs patched before being put onto devices.
 
 After this a handful set patches (no memory locations or relative locations to trouble things here) that vary in distance from the name are used to change the game to using different save types.
 
 Related to this and seen again on the DS was the gamecube linkup for certain games that also needed to read from a given save type or indeed a given header (modern flash carts load a loader and then load a game making them a bit harder to have appear as simple carts in some cases). At present no game has been seen to be fixed here and it is unknown whether it is a thing that will need to be fixed in multiboot (ARM code), gamecube side (powerPC variant code) or instead it is timing related or possibly a combination of all three.
 
-Extra hardware Extra hardware was twofold or maybe threefold depending upon how you want to look at it.
+**Extra hardware** Extra hardware was twofold or maybe threefold depending upon how you want to look at it.
 
 1.  Seen only in flash cards, Hong Kong/lucky lucky man/tourist trap specials (the 30 in 1 devices you commonly found (find?) in holiday resorts) and some undumped GBA video ROMs (there were some feature films like Shrek released) was bankswitching. The GBA could only address 32 megabytes of space but there is nothing stopping you from sending a signal to the card to change to a new page/bank/section to gain a bit more space to work with. It is a a technique used extensively on earlier cartridge systems and systems where cartridges were used for memory cards but not on the GBA. In laste 2015 the games were finally [dumped and analysed](https://mgba.io/2015/10/20/dumping-the-undumped/).
 2.  GPIO and SRAM. The GBA cart features some extra buses or carts could just use the SRAM mapping to have the extra hardware be available to the GBA CPU and memory in general. RTC, solar sensors, tilt sensors, the e-Reader (although this gets somewhat more complex) and more used variations on this theme and it would also return for the DS in various manners. Much like the button presses much of this was copied/debounced to another area to be used and that was where hackers could come in and inject data to fix things.
@@ -1502,7 +1503,7 @@ Extra hardware Extra hardware was twofold or maybe threefold depending upon how 
 
 The following section contains information on the DS AP, saves and extra hardware. DS saves are not really going to be covered as they were largely the domain of flash cart makers who either patched the game or physically emulated down to a protocol level (originally in carts that used save lists to change the onboard FPGA or CPLD into a pin for pin compatible version of the original save chip and later in carts that added clean/special/ghost mode in an attempt to allow games to be played before proper fixes were made). Still if you are interested [GBAtek](http://problemkaputt.de/gbatek.htm#dscartridgebackup) has more but the general idea is the SPI bus was more or less mapped to memory and that had access features. The DSi and 3ds checks that are done to check for flash carts are a bit elsewhere. Mainly as the carts themselves pretended to be one of the games on the whitelist of older games (newer games saw further signing and were unsuitable for this) it was a fairly classic example of check to see it was like the original, counter the checks, new checks, counter...
 
-AP Three principle types of AP have been seen on the DS although realistically more could be generated and the existing methods could be made harder to detect and remove.
+**AP** Three principle types of AP have been seen on the DS although realistically more could be generated and the existing methods could be made harder to detect and remove.
 
 1.  Save timing check. EEPROM takes a known time to save and the types of memory/emulation most flash carts use in their general operation will save in a different time (usually far quicker) which can be detected. Carts with clean mode, special mode, ghost mode..... and old savetype list cards being the main exception and most of those only have those modes to allow things to be played pending a proper fix.
 2.  Binary checks - here the binary or a section thereof would be hashed and if it did not match the ROM would see a failed AP check and act accordingly. Again clean mode, special mode, ghost mode..... and old savetype list cards would often dodge this.
@@ -1514,14 +1515,14 @@ On a programming front companies a first did develop their own basic methods tha
 
 If you are at the point where you can do something about it the solution is probably obvious but never the less it will be covered. Your three main choices are patching out the check entirely so it never happens (the proper and not really any harder way), make the check return the expected value (depending upon how it works this might be harder than stopping the check entirely) and making it so the “IF ELSE” (or in ASM more likely branch if) routine it stemmed from has the failure condition changed to jump to the “all is well” condition instead (another sub optimal method for most occasions). With the hundreds of checks that eventually became default the games did actually often see noticeable although not necessarily game breaking slowdown so preventing the check from happening is the better route.
 
-Extras Various methods existed here to expand the abilities of the DS beyond that of the original hardware.
+**Extras** Various methods existed here to expand the abilities of the DS beyond that of the original hardware.
 
-GBA slot extras The options were twofold here
+**GBA slot extras** The options were twofold here
 
 1.  GBA cart reading. Various DS games could read the GBA port to see if an earlier version of a game in the franchise or a related one (Megaman and Boktai/Solar Boy Django are linked in many ways) was present and usually unlocking some token extras as a result. This usually amounted to just reading the header so you could indeed trick it but having a small portion there but some games and most notably Pokemon diamond and platinum that could read entire saves from earlier GBA games allowing people to trade up through the series. This troubled flash cart users as their saves would be in the SRAM and the DS game would naturally be hardcoded to use the Flash type memory used by the original GBA games. Cory1492 made [Pokepatch](http://filetrip.net/nds-downloads/rom-hacks/download-pokepatch-42-f27240.html) however that fixed it for many different GBA carts. Also the DS version of the Opera web browser has some more memory (12 megabytes that was mapped oddly making it useless for GBA ROMs) that was used for the web browser (homebrew later got support for it added thanks to a library/API and the web browser was later hacked to support some types of flash cart RAM instead).
 2.  GBA slot expansions. Arkanoid had a paddle controller (which mario kart and a few other games were later hacked to support) and guitar hero had a guitar grip. These mainly worked on the buses like others mentioned here but most people that had to hack them instead used the fact that the readouts were debounced to regular memory and then attacked those areas but if you want more see the touchscreen to dpad hacks as it is much the same idea.
 
-DS slot extras A handful of things happened here.
+**DS slot extras** A handful of things happened here.
 
 Pokemon Black and White came with a small device called a pokewalker that was a step counter than provided experience for the pokemon it held. It communicated via an infrared port on the back of the DS cart that used the save bus (via a selector) to activate it and this troubled traditional save grabbing techniques that had not seen this before as they did not know how to trigger the use the save option. Before software save grabbing tools were made hardware tools had the magic packet sent (kind of related to an attack called a replay attack) or people could solder the save section to be always on (or selected via a switch) and use the older software.
 

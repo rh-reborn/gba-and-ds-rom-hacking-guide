@@ -15,35 +15,35 @@ The combination of the two allows you to dart around the ROM setting the viewers
 
 Some screenshots of the program
 
-Main hex editor view
+**Main hex editor view**
 
 ![PIC](images/220_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguidecrystaltile2usage1.png)
 
-Basic file system viewer and pulldown menus
+**Basic file system viewer and pulldown menus**
 
 ![PIC](images/221_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguidecrystaltile2usage2.png)
 
-Basic file system viewer with a right click
+**Basic file system viewer with a right click**
 
 When compressed files are detected decompression and compression (import compressing as you do) become available.
 
 ![PIC](images/222_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguidecrystaltile2usage3.png)
 
-Image viewer using custom view size
+**Image viewer using custom view size**
 
 Each “frame” has a separate palette for some reason so ignore the broken colours in this one.
 
 ![PIC](images/223_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguidecrystaltile2usage4.png)
 
-Assembly viewer set to view an overlay
+**Assembly viewer set to view an overlay**
 
 ![PIC](images/224_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguidecrystaltile2usage5.png)
 
-Tile editor
+**Tile editor**
 
 ![PIC](images/225_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguidecrystaltile2usage6.png)
 
-Memory viewer/emulator hookup
+**Memory viewer/emulator hookup**
 
 Crystaltile2 can interface with no$gba debug version to grab main ram and VRAM data.
 
@@ -57,7 +57,7 @@ From there click whichever you wish for and most of the time it will produce a n
 
 ![PIC](images/227_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackguidecrystaltile2usage8.png)
 
-Script editor
+**Script editor**
 
 Crystaltile2 features a basic but well featured quick script dumping tool which has several options. Typically the file is loaded, any tables selected in the tbl pulldown menu (and made to use it in the same). After this ambassador search is pressed and it returns a list of what it thinks are viable sections of text. From here the special search methods pulldown menu will allow selections to be made. The final option of special search methods allows an export of the selected findings to a text file containing the location, length and decoded text in whatever codepage you deem necessary. Double clicking on a result takes you to the hex editor. Basic pointer options are available but they pale compared to the more traditional text extraction programs.
 

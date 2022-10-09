@@ -28,7 +28,7 @@ As far as ROM hackers are concerned this branches into three types
 
 Although it is rarely seen any more games can do a type of compression where if the first hex character/byte is repeated in a 16 bit value the game can take one 16 bit value and assume all the following ones are also to be decoded with the first hex character/byte until told otherwise (for instance in shiftJIS the entire Roman alphabet, Hiragana and katakana will have the first byte as 82 or 83 even though it allows for a 16 bit encoding). A second interesting concept that is also rarely seen these days is games can swap out encodings at will by signalling as such but do not get hung up on this as it is very rare indeed (it is far more likely to be something else).
 
-A note on Unicode. [Joel on Software’s unicode post](http://www.joelonsoftware.com/articles/Unicode.html) details a lot that is good to know about the encoding standard known as Unicode. Now unlike the fairly simplistic encoding that most games use Unicode is actually quite far reaching and not necessarily hard to implement but not a simple translation of a set length of hex to a known character most of ROM hacking is concerned with (any fancy extras usually being a set option that the coding team gets the call to deal with). There is however a simplified version of Unicode that forms the basis of a few encodings in ROM hacking known as UTF16 Unicode (sometimes u16 Unicode) that is always 16 bits (no flags or other such things) that is definitely worth knowing about as games tend to use it; in short it eschews the abilities like right to left text and variable length characters in favour of set 16 bit lengths and as far as most games are concerned no extras. Still if you want a nice tool to help with it have a look at [The unisearcher](http://www.isthisthingon.org/unicode/index.phtml).
+**A note on Unicode.** [Joel on Software’s unicode post](http://www.joelonsoftware.com/articles/Unicode.html) details a lot that is good to know about the encoding standard known as Unicode. Now unlike the fairly simplistic encoding that most games use Unicode is actually quite far reaching and not necessarily hard to implement but not a simple translation of a set length of hex to a known character most of ROM hacking is concerned with (any fancy extras usually being a set option that the coding team gets the call to deal with). There is however a simplified version of Unicode that forms the basis of a few encodings in ROM hacking known as UTF16 Unicode (sometimes u16 Unicode) that is always 16 bits (no flags or other such things) that is definitely worth knowing about as games tend to use it; in short it eschews the abilities like right to left text and variable length characters in favour of set 16 bit lengths and as far as most games are concerned no extras. Still if you want a nice tool to help with it have a look at [The unisearcher](http://www.isthisthingon.org/unicode/index.phtml).
 
 Assuming it is not a known encoding or a known encoding only accounts for part of it after this you have to actually figure out what is going on.
 
@@ -37,27 +37,18 @@ There are several ways of doing this ranging from simple and not unreliable but 
 ### Relative searching
 
 Going back to the Golden Sun table and looking at the Roman character side of things
-
+```r
 41=A
-
 42=B
-
 43=C
-
 44=D
-
 45=E
-
 46=F
-
 47=G
-
 48=H
-
 49=I
-
 4A=J
-
+```
 The word BAD would be encoded as 424144
 
 If you then searched the ROM of better yet a file you suspect of being text (assuming you had no compression or had dealt with it) for any strings with one value and the next one lower and the new two higher than the original you will quite often get the text you want. Most relative searching tools are 8 bit but you can get 16, 24 and even 32 bit relative searching tools.
@@ -73,17 +64,17 @@ There are several tricks and things you can do to make you more likely to get wh
 
 Many ROM hacking text grade hex editors tools feature relative search but for the purposes of this guide there are two main tools you will want to look at
 
-Monkey Moore [Monkey Moore github page](https://github.com/rjricken/monkey-moore)
+**Monkey Moore** [Monkey Moore github page](https://github.com/rjricken/monkey-moore)
 
 [Monkey Moore filetrip downloads](http://filetrip.net/pc-downloads/applications/download-monkey-moore-05-f29133.html)
 
 A standalone relative search tool and one geared towards this sort of thing (where others are often very much simple implementations of the theory/search technique this has a few more options and works better with language).
 
-Crystaltile2 [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
+**Crystaltile2** [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
 
 In some ways not as polished as Monkey Moore (you can have a fairly well realised table from Monkey Moore inside 30 seconds where you would struggle to do that with this) but it does feature a nice 16 and 32 bit relative search you can use.
 
-Examples of relative search The game of choice here is Megaman ZX, although the table has actually been seen in several Capcom games. By chance the lower case letters in the table line up with the ASCII upper case equivalents which means relative search is probably not that useful, give or take a minor shortcut in table making. However it is a bit less abstract than some other tables so it makes a good example for this.
+**Examples of relative search** The game of choice here is Megaman ZX, although the table has actually been seen in several Capcom games. By chance the lower case letters in the table line up with the ASCII upper case equivalents which means relative search is probably not that useful, give or take a minor shortcut in table making. However it is a bit less abstract than some other tables so it makes a good example for this.
 
 ![PIC](images/80_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackingguiderelativesearch1.png)
 
@@ -99,7 +90,7 @@ Later versions included kana support using the Gojuon order (although you will p
 
 ![PIC](images/83_home_fast6191_romhackingguide_unrenamed_file___al_borders_romhackingguiderelativesearchmm6.png)
 
-Crystaltile2 relative search
+**Crystaltile2 relative search**
 
 Available in the hex editor window from the tools pulldown menu.
 
@@ -171,7 +162,7 @@ If you manage to catch the data in memory before it gets turned into graphics yo
 
 Example from Mr Driller 2 on the GBA. Cheat finding methods were used to narrow down what memory locations changed as a character was entered and by increasing the character by one value each time it was noticed a particular value increased by 1 each time.
 
-Pointing the memory window at it. There were a lot of changes noted here but 02001CDC displayed interesting changes and perhaps more interestingly the blank character at the bottom right was quite far in value from the smiley face before it. In this case relative search actually worked on the ROM and it turned out it was quite different (upper and lower case available and decoded as a different set of values- 0A=A and 24=a) but the potential of the method is quite clear to see.
+**Pointing the memory window at it.** There were a lot of changes noted here but 02001CDC displayed interesting changes and perhaps more interestingly the blank character at the bottom right was quite far in value from the smiley face before it. In this case relative search actually worked on the ROM and it turned out it was quite different (upper and lower case available and decoded as a different set of values- 0A=A and 24=a) but the potential of the method is quite clear to see.
 
 ![PIC](images/93_home_fast6191_romhackingguide_unrenamed_file___inal_borders_romhackguidetextmemoryviewing1.png)
 
@@ -213,7 +204,7 @@ Pointer analysis is twofold depending upon what you are doing. On the GBA if you
 
 Furigana, markup, links and such. As mentioned elsewhere things like commas, spaces, full stops and more can give away lots of information but that is not the whole story as Japanese has a concept named Furigana (in practice game makers and others often use it to hold little hints, notes and other such things), most languages will allow for text to be changed to emphasize something (making it bold, italic and such), you might have a mini encyclopedia that links to other entries in the text and more. Unlike relative searching if you suspect one of these follow up on it and it might give away a lot of the encoding and even part of the text engine itself.
 
-Compression searching Alongside conventional hex analysis various compression searching tools exist (some worked examples of compression can be seen later but standard compression methods have quite distinct fingerprints which can be searched for) and conventional compression tends not to be used on sound and video so by searching for compressed items and combining it with other methods you can often quite quickly locate and decode text.
+**Compression searching** Alongside conventional hex analysis various compression searching tools exist (some worked examples of compression can be seen later but standard compression methods have quite distinct fingerprints which can be searched for) and conventional compression tends not to be used on sound and video so by searching for compressed items and combining it with other methods you can often quite quickly locate and decode text.
 
 ### Assembly tracing
 
@@ -249,7 +240,7 @@ The 16 bit entries option from the edit pulldown menu
 
 Import from file and add series are quite useful.
 
-Oriton [Homepage](http://www.magicteam.net/index.php?page=programs&show=Oriton)
+**Oriton** [Homepage](http://www.magicteam.net/index.php?page=programs&show=Oriton)
 
 [Filetrip download](http://filetrip.net/pc-downloads/applications/latest-oriton-f29376.html)
 
@@ -287,11 +278,11 @@ Most pointers are kept apart from the rest of the data they concern (either by b
 
 Pointers being part of the header might also house extra data, the DS format NARC for instance uses the highest bit in a pointer to indicate a subdirectory.
 
-Pointer compression “fire megafire ultramegafire”
+**Pointer compression** “fire megafire ultramegafire”
 
 A poor example of a spell name progression perhaps but the last version contains the previous two spell names. Even on older systems it was uncommon but games have been seen to just encode ultramegafire and point to the appropriate fragments when necessary.
 
-File format pointers and flags File formats can see several sorts of pointers in their main table (which is usually found at the start of the file and is usually thought of as part of the header) although the three most common are file location and file length (sometimes all three, two of them or sometimes just the one) with further ones including number of files contained within, header length, flags for compression, both compressed and uncompressed sizes, intended locations in memory, files linked to the file in question (SDAT SBNK and SSEQ).
+**File format pointers and flags** File formats can see several sorts of pointers in their main table (which is usually found at the start of the file and is usually thought of as part of the header) although the three most common are file location and file length (sometimes all three, two of them or sometimes just the one) with further ones including number of files contained within, header length, flags for compression, both compressed and uncompressed sizes, intended locations in memory, files linked to the file in question (SDAT SBNK and SSEQ).
 
 A nice example can be found in El Tigre- make my mule. A basic example of the system as shown back in the introduction section but it will be returned to shortly with an eye towards reverse engineering it properly.
 
@@ -505,7 +496,7 @@ When it comes to computers the handling of fonts is a whole game unto itself and
 
 Additionally much like music there is a whole raft of [field specific terms and concepts](http://www.fontshop.com/glossary/) that come into play and as such font design/construction has long been a highly specialised field/skill. Equally the concepts have largely fallen out of favour in recent years but 16 bit “flags” similar to scripting have been seen in games. Such things were used to allow a given number of 8 bit commands to follow (if you look at the shiftJIS encoding every Hiragana entry will start with 82 and every katakana will start with 83, this means 8 bits is quite viable if you script it in), the game to enter 8 bit decoding mode, and some games will have a command to switch out the table/font switching to use Dakuten and Handakuten or punctuation or custom characters (this is not to be confused with games just having multiple fonts and tables to match as that is annoying but nothing uncommon).
 
-Dual/multi tile encoding Perhaps more commonly known by the initialisms DTE or MTE the idea is selections of multiple tiles/characters are encoded in the length of space one character would normally occupy (no technical reason beyond space saving for using the length of a “single” character space but it usually is the case). Very strictly speaking DTE, which is a special case of MTE, refers to when a single value has a result encoded across dual (two) or multiple (the M in MTE wouldn’t you know) tiles, however nowadays many use it as a catch all term for dealing with values that see something other than a single character encoded on a single tile (two characters on tile, a character split horizontally across multiple tiles, an entire phrase split across tiles, an encoding that generates a phrase from a single value but uses the tiles normally....). Naturally this can really frustrate a relative searching session.
+**Dual/multi tile encoding** Perhaps more commonly known by the initialisms DTE or MTE the idea is selections of multiple tiles/characters are encoded in the length of space one character would normally occupy (no technical reason beyond space saving for using the length of a “single” character space but it usually is the case). Very strictly speaking DTE, which is a special case of MTE, refers to when a single value has a result encoded across dual (two) or multiple (the M in MTE wouldn’t you know) tiles, however nowadays many use it as a catch all term for dealing with values that see something other than a single character encoded on a single tile (two characters on tile, a character split horizontally across multiple tiles, an entire phrase split across tiles, an encoding that generates a phrase from a single value but uses the tiles normally....). Naturally this can really frustrate a relative searching session.
 
 If your characters/glyphs are split vertically across tiles you probably just have to set the height value with the three main exceptions to this rule being
 
@@ -519,7 +510,7 @@ The NFTR font format was previously mentioned and it is a fairly complete font f
 
 Three tools will be focused on here.
 
-Crystaltile2 [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
+**Crystaltile2** [Filetrip download](http://filetrip.net/f23649-CrystalTile2-2010-09-06.html)
 
 Crystaltile2 features NFTR parsing and decoding support including the ability to run a basic OCR (optical character recognition) on the font to help with deciphering the encoding.
 
@@ -557,13 +548,13 @@ Once you are happy with the results press save and it will transfer them to the 
 
 ![PIC](images/114_home_fast6191_romhackingguide_unrenamed_fil___rders_romhackingguidefontnftrcrystaltile2_5.png)
 
-Tinke [Github page](https://github.com/pleonex/tinke)
+**Tinke** [Github page](https://github.com/pleonex/tinke)
 
 Although the self contained tools focused on thus far has more or less been limited to Crystaltile2 with a few mentions of the others Tinke does feature a good amount of support for it and is one of the few tools that will try to add a character to NFTR which is often not such an easy task owing to the more complex nature of the format.
 
 ![PIC](images/115_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidefontnftrtinke_1.png)
 
-NFTRedit [Filetrip download](http://filetrip.net/nds-downloads/utilities/download-nftredit-19-f29196.html)
+**NFTRedit** [Filetrip download](http://filetrip.net/nds-downloads/utilities/download-nftredit-19-f29196.html)
 
 Although Crystaltile2 has some very nice abilities this is the go to tool for most needing to do something with the NFTR font format.
 
@@ -601,13 +592,13 @@ Testing it in another editor
 
 Pulling back from NFTR there are a group of fairly common things to do when hacking game fonts. How easy any one might be varies from game to game.
 
-Variable width font hack (VFW) Along with the 16 bit to 8 bit font conversion mentioned later this is considered one of the hardest things to do as far as fonts go. Japanese fonts are all fixed width where Roman character set using languages are very much not when it comes to characters and especially punctuation. Alas “add 16 pixels to horizontal location” is considerably easier to program than “read value from table and position item accordingly, repeat for every character, maybe also handling line breaks” and as it would be unnecessary for Japanese games the programmers will tend not to add it to the game, although it is getting better as time goes on, development gets forced to have to have to consider the international versions and people start using standard libraries/text handling engines.
+**Variable width font hack (VFW)** Along with the 16 bit to 8 bit font conversion mentioned later this is considered one of the hardest things to do as far as fonts go. Japanese fonts are all fixed width where Roman character set using languages are very much not when it comes to characters and especially punctuation. Alas “add 16 pixels to horizontal location” is considerably easier to program than “read value from table and position item accordingly, repeat for every character, maybe also handling line breaks” and as it would be unnecessary for Japanese games the programmers will tend not to add it to the game, although it is getting better as time goes on, development gets forced to have to have to consider the international versions and people start using standard libraries/text handling engines.
 
 As the previous sentence intimated the object here is to find the text drawing routine and get it to determine a value for the width of the text (a premade table usually being the best choice of method) before using that value to set locations accordingly and handle any troubles with line wrapping; it might be set to break and jump when something equals some set value which is quite possible with a fixed character size (16 + 16 + 16 will always pass through 160), with variable though it is far from a certainty. Almost invariably needing to do all this means assembly level hacking, creation of new functions and subverting old ones, hence it being dubbed one of the harder hacks to do. The main exception to this would be NFTR and similar formats that might well have a fixed width character set coming out of Japan but the format itself (and presumably the libraries used to decode it) supports VFW which reduces the hack to image editing and adjusting values.
 
 A nice worked example of the assembly side of things for the GBA exists thanks to KaioShin which can get on [Romhacking.net](http://www.romhacking.net/documents/337/).
 
-Font handling hack This comes in two forms
+**Font handling hack** This comes in two forms
 
 1.  Line handling
 2.  Skinny font/font size change
@@ -620,7 +611,7 @@ This is a bit simpler than a true variable width font for all you have to do is 
 
 On top of this you might wish to use a sort of dual tile encoding and split wide characters like w and m over two characters if you head down this path and encode one half of each on a tile to itself. Speaking of tiles containing something other than just a single character
 
-Pseudo variable width font hack In practice this adds a kind of dual tile encoding to a font and all sorts of things can be done with it. A basic example would be to add two lower case l (as in lemur) to a single tile. Returning to megaman ZX the font_bin.pal file was decoded (it is a NDS 1BPP 8 by 16 pixel straight decode) and changed accordingly to change the game from the original to the one next to it which should hopefully look a bit nicer.
+**Pseudo variable width font hack** In practice this adds a kind of dual tile encoding to a font and all sorts of things can be done with it. A basic example would be to add two lower case l (as in lemur) to a single tile. Returning to megaman ZX the font_bin.pal file was decoded (it is a NDS 1BPP 8 by 16 pixel straight decode) and changed accordingly to change the game from the original to the one next to it which should hopefully look a bit nicer.
 
 ![PIC](images/108_home_fast6191_romhackingguide_unrenamed_fil___iginal_borders_romhackingguidemarkupexedit3.png)![PIC](images/122_home_fast6191_romhackingguide_unrenamed_fil___inal_borders_romhackingguidefontpseudoedit1.png)
 
@@ -632,7 +623,7 @@ For an example of the serifs idea the ll was left but the font was replaced with
 
 Making fonts nicer is certainly a common improvement hack and changing a font when translating a game is too, however one of the more useful things you can do with this pseudo variable width font concept is should you encounter a fixed width/fixed length menu (older Japanese RPGs are especially fond of this and the problem is magnified by Japanese having Kanji which can say a great deal in a few characters) and are faced with the choice of butchering the language/name, possibly doing a 16 to 8 bit conversion (although that might not help screen real estate issues) or hacking the game to support longer sections (both in code and in the screen real estate department). As menus are made up of set and commonly used text it is then quite often beneficial to encode multiple characters across tiles (no need to fit only whole characters on tiles unless the game spaces things) thus allowing you a few more characters if you do it right.
 
-Encoding change Replacing a single character with another has largely already been covered so it will be left out of this discussion.
+**Encoding change** Replacing a single character with another has largely already been covered so it will be left out of this discussion.
 
 You might want to change how the game encodes characters at some point with the the classic hack being the 16 bit to 8 bit conversion. It does not tend to happen much today save for where there are memory restrictions but is definitely a skill worth having. You may also wish to change the game so where it might have decoded 33 hex as the character 3 it will now decode 23 hex as the character 3.
 
@@ -666,13 +657,13 @@ The initial things are the setup for the maps and scenes but are a nice example
 
 Initial analysis of the scripting engine as it was reverse engineered mimicked the markup reverse engineering techniques, which is to say a combination of static analysis and testing things to see what happens. Also of possible interest is the opening few lines which appear to be setting up a debug scene, for as mentioned elsewhere the things developers leave in for debugging are often simple examples of the engine/concept in question and can demonstrate concepts that might otherwise have to be extrapolated from the complex ones in the game itself.
 
-Zombie daisuki Of course the scripting seen is not always so complex as the example above and a nice example can be seen in the game Zombie Daisuki which has scripting as seen in the following picture. If you want to look then in the data directory of the game itself there are some files with the extension .ini which are shiftJIS compatible. Note the variable names including spelling mistakes which can see the hacker accidentally correcting them and causing lots of issues, as well as markup and lack of pointers.
+**Zombie daisuki** Of course the scripting seen is not always so complex as the example above and a nice example can be seen in the game Zombie Daisuki which has scripting as seen in the following picture. If you want to look then in the data directory of the game itself there are some files with the extension .ini which are shiftJIS compatible. Note the variable names including spelling mistakes which can see the hacker accidentally correcting them and causing lots of issues, as well as markup and lack of pointers.
 
 ![PIC](images/126_home_fast6191_romhackingguide_unrenamed_fil____borders_romhackingguidescriptingzombiedai1.png)
 
-Lua The programming language lua was seen a handful of times on the DS. It was however converted to a bytecode esque arrangement compared to the plaintext it is usually left as on the PC.
+**Lua** The programming language lua was seen a handful of times on the DS. It was however converted to a bytecode esque arrangement compared to the plaintext it is usually left as on the PC.
 
-El Tigre- make my mule The game features a nice archive format worth exploring a bit as it showcases a lot of things seen in archive formats.
+**El Tigre- make my mule** The game features a nice archive format worth exploring a bit as it showcases a lot of things seen in archive formats.
 
 ![PIC](images/127_home_fast6191_romhackingguide_unrenamed_fil___al_borders_romhackingguidearchive_eltigre_1.png)
 
@@ -708,7 +699,7 @@ In the swav examples the first and second of the three numbers is the same (and 
 
 The first of the three values is the uncompressed size, the second the compressed size and the third the location.
 
-pkg archive data table
+**pkg archive data table**
 
 Defined as follows
 
@@ -738,7 +729,7 @@ pkg is clearly the magic stamp for this format.
 
 008B F7E2 plus 9C64 (the location of the first file and end of the header) is 008C 9446 and having lengths ignore headers is quite common.
 
-Header format
+**Header format**
 
 4 bytes 706B6700 hex (pkg\[00\])
 
@@ -760,7 +751,7 @@ Header format
 
 12 bytes 00 filled (padding?).
 
-The compression The header is a nice example of a custom file format and most of the time that is where it ends (give or take building something to remake the archive) but compression was detected. Sadly it is one of the few times a custom format for compression has been seen on the DS. The extensions appear as though they can be trusted so for the time being they were. This section might be more useful once compression (covered in game logic) us covered.
+**The compression** The header is a nice example of a custom file format and most of the time that is where it ends (give or take building something to remake the archive) but compression was detected. Sadly it is one of the few times a custom format for compression has been seen on the DS. The extensions appear as though they can be trusted so for the time being they were. This section might be more useful once compression (covered in game logic) us covered.
 
 Other than the swav files there were a handful of uncompressed files but they were usually quite small. That it happened is nice as it points to file level compression rather than archive wide library compression (formats like 7zip do this to achieve very high compression rates for groups of similar files at the cost of decompression time, resources, potential for the archive to be corrupted beyond recovery of anything via simple means and not able to be extracted without a complete archive set in the case of split archives).
 
@@ -782,13 +773,13 @@ Memory viewing reverse engineering (files have to be decompressed to run)
 
 dat files (some naturally decompressed and compressed, partial known plaintext analysis).
 
-The lua The header is a nice example of a custom file format but later in the file there are some files with the extension lua which is the chosen extension of a fairly powerful scripting language of the same name that has been seen on the DS (the puzzle quest series and several times in homebrew). These were all compressed using the custom compression format.
+**The lua** The header is a nice example of a custom file format but later in the file there are some files with the extension lua which is the chosen extension of a fairly powerful scripting language of the same name that has been seen on the DS (the puzzle quest series and several times in homebrew). These were all compressed using the custom compression format.
 
 \[to finish\]
 
-Puzzle Quest and Theta \[to add\]
+**Puzzle Quest and Theta** \[to add\]
 
-Further reading A scripting engine for the Wii game Tales of Symphonia: Dawn of the New World was reverse engineered and although GBA and DS games rarely require anything so extensive it is well worth a read. Links to the matter at hand at [blog.delroth.net part 1](http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-1/) and [blog.delroth.net part 2](http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-2/).
+**Further reading** A scripting engine for the Wii game Tales of Symphonia: Dawn of the New World was reverse engineered and although GBA and DS games rarely require anything so extensive it is well worth a read. Links to the matter at hand at [blog.delroth.net part 1](http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-1/) and [blog.delroth.net part 2](http://blog.delroth.net/2011/06/reverse-engineering-a-wii-game-script-interpreter-part-2/).
 
 ### Layout and limits
 
@@ -796,15 +787,15 @@ Covered in part earlier (the megaman ZX markup) but worth a quick subsection. Wh
 
 The methods games employ to do things here and what you will run up against are as varied as any other area of hacking. The first thing to note is it might not be the screen dimensions that causes you trouble but a text box or, worse, an imaginary/invisible text box which usually means an ASM hack to change. Equally important and somewhat more troubling are memory limits, be it in the console’s memory (the DS cart is not available in normal memory so everything has to be copied in), cart memory (seldom a problem on the GBA or DS) or format memory (if the game only uses 16 bit pointers you might have limitations). Strictly speaking this too is an assembly hack but you can get a lot done by simply viewing the memory and adjusting your habits accordingly.
 
-Auto screen (press to continue) making Not really in the same class as the others mentioned, save for some quite annoying to handle games, but definitely worth knowing about as it is something you will probably run into sooner or later. The game might have more text in a given conversation than can be displayed in the text box given and as such it will either have to auto change to the next one or allow the user to control what happens. Equally some games are fairly concise and there might not be provisions for it, or will require editing of the game’s text engine itself.
+**Auto screen (press to continue) making** Not really in the same class as the others mentioned, save for some quite annoying to handle games, but definitely worth knowing about as it is something you will probably run into sooner or later. The game might have more text in a given conversation than can be displayed in the text box given and as such it will either have to auto change to the next one or allow the user to control what happens. Equally some games are fairly concise and there might not be provisions for it, or will require editing of the game’s text engine itself.
 
 The possibilities here are extensive. Some will have a basic end of section command which the game will pause on pending user input and others will scroll automatically. The eventually ends up at the choices menus in games (the classic “yes/no” option in a game, a concept that very frequently sees dual tile encoding used for it) which can a sort of linked list/level design approach or something buried deep in the game.
 
-OAM/tile driven wrapping This is more reserved for text in images/tile maps like those often seen in puzzles, however those doing a variable width font hack might use reads of the OAM or BG tile management to direct things. There have been games like [Kenshuui Tendo Dokuta](http://gbatemp.net/topic/320192-japanese-programming-madness/) that used a font representation and a nitroSDK graphics format to repeat tiles as necessary to display the scene.
+**OAM/tile driven wrapping** This is more reserved for text in images/tile maps like those often seen in puzzles, however those doing a variable width font hack might use reads of the OAM or BG tile management to direct things. There have been games like [Kenshuui Tendo Dokuta](http://gbatemp.net/topic/320192-japanese-programming-madness/) that used a font representation and a nitroSDK graphics format to repeat tiles as necessary to display the scene.
 
-Line wrapping Much like pointers being used to indicate the location and end of a section of text a game might not have the ability to automatically wrap a line when it comes to the edge of the screen/boundary box. Sometimes it is automatic, sometimes it is pointer driven, sometimes it has a unique character or set of values (Megaman ZX used FC if you recall) and sometimes it uses the same character as another ending value.
+**Line wrapping** Much like pointers being used to indicate the location and end of a section of text a game might not have the ability to automatically wrap a line when it comes to the edge of the screen/boundary box. Sometimes it is automatic, sometimes it is pointer driven, sometimes it has a unique character or set of values (Megaman ZX used FC if you recall) and sometimes it uses the same character as another ending value.
 
-Section wrapping Much the same as line wrapping but note that it is not always the same as the line wrapping used in the game you are dealing with, it may not even be the same concept (pointers to end a section and characters to wrap a line is actually a pretty good way for devs to do a lot of this).
+**Section wrapping** Much the same as line wrapping but note that it is not always the same as the line wrapping used in the game you are dealing with, it may not even be the same concept (pointers to end a section and characters to wrap a line is actually a pretty good way for devs to do a lot of this).
 
 ## Text extraction and insertion
 
@@ -826,7 +817,7 @@ Flag and massive flag is kind of like the XML stuff above but instead the actual
 
 A nice example might be that in basic editors in windows new line in text is indicated by 0D0A hex (other operating systems like Apple (0D) and Unix systems (0A) are different but they will tend to support the windows version as well), here you might make it so the original end of line is indicated with a symbol like # or @ (one not likely to be used in the game), has an extra line added in the actual hex (or not if you prefer that) and then you can replace easily in a hex editor at the end. Massive flag just uses a long run of symbols so you can be sure it is not part of the normal game.
 
-Crystaltile2 scripting window One of the earlier projects of the original author of Crystaltile2 was a tool known as Crystalscript which aimed to unite table support, programming approaches and some more linguistic/language driven approaches to text extraction. Its functionality more or less made it into crystaltile2 and is available in the little discussed text editing window.
+**Crystaltile2 scripting window** One of the earlier projects of the original author of Crystaltile2 was a tool known as Crystalscript which aimed to unite table support, programming approaches and some more linguistic/language driven approaches to text extraction. Its functionality more or less made it into crystaltile2 and is available in the little discussed text editing window.
 
 This is where the hastily translated (with the aid of some machine translation) nature of crystaltile2 brings the process down a bit.
 
@@ -836,15 +827,15 @@ After this you can click on the search pulldown menu and press “Ambassador” 
 
 ![PIC](images/132_home_fast6191_romhackingguide_unrenamed_fil___l_borders_romhackingguiderCT2textextraction.png)
 
-Conventional text extraction Despite the potential troubles enough games have done things in similar ways that some programs have been made that can help facilitate text extraction. The two most popular tools are Cartographer and Kruptar 7 although romjuice (one of the earlier tools) remains quite popular as well.
+**Conventional text extraction** Despite the potential troubles enough games have done things in similar ways that some programs have been made that can help facilitate text extraction. The two most popular tools are Cartographer and Kruptar 7 although romjuice (one of the earlier tools) remains quite popular as well.
 
-Cartographer [Romhacking.net download](http://www.romhacking.net/utilities/647/)
+**Cartographer** [Romhacking.net download](http://www.romhacking.net/utilities/647/)
 
 A command line only tool which you feed file and a commands list (which includes a table) before it spits out a fairly nicely formatted text dump. The included readme contains full usage and a few examples. Most of it is fairly straight forward but it does also support pointers of various types (though no explicit command to support GBA games).
 
 If your GBA game sports some new line/end of section tokens those might be worth using but if you are using pointers the addition of a 08 or similar at the start of the value (it does support an endianness swap) might make things tricky. You can attempt to use the “#POINTER SPACE” command to skip bytes and you might try using the relative pointers option but a large negative value might not work well. Failing that a search and replace or better 32 bit bitwise AND with 00FFFFFF (FFFFFF00 if you account for endianness) across the pointer field will allow you to get things done; workarounds like this are commonplace if you have to use premade tools and having the ability to do them is usually a sign of a good hacker.
 
-Kruptar 7 [Romhacking.net download](http://www.romhacking.net/utilities/612/)
+**Kruptar 7** [Romhacking.net download](http://www.romhacking.net/utilities/612/)
 
 A newer graphical tool (or at least the current rewrite is fairly new) and one that interfaces with the table making tool Oriton fairly well (they come from the same hacking group/site). It does also have some editing and insertion abilities as well as table editing.
 
@@ -873,7 +864,7 @@ On the subject of character encodings it is usually best to match the original e
 
 Other than that it should be fairly easy to determine if you have things of legal lengths (although in practice you would probably have someone act as a script editor for this in a big project).
 
-Conventional text insertion Much like text extraction there have been attempts to make general purpose tools. They are quite often limited in ability or so complex as to be nearly a programming language unto themselves but it is worth knowing about Atlas. Atlas is something of a standard in general purpose ROM hacking text insertion and most extraction tools aim to have a measure of compatibility with it, not to mention most other insertion tools will copy part of the functionality as well. Equally even if the encoding has not been changed it is not uncommon for there to be tables for text extraction and modified versions thereof for text insertion.
+**Conventional text insertion** Much like text extraction there have been attempts to make general purpose tools. They are quite often limited in ability or so complex as to be nearly a programming language unto themselves but it is worth knowing about Atlas. Atlas is something of a standard in general purpose ROM hacking text insertion and most extraction tools aim to have a measure of compatibility with it, not to mention most other insertion tools will copy part of the functionality as well. Equally even if the encoding has not been changed it is not uncommon for there to be tables for text extraction and modified versions thereof for text insertion.
 
 [Atlas (romhacking.net)](http://www.romhacking.net/reviews/62/)
 
@@ -907,11 +898,11 @@ Things one should appreciate about the Japanese language when playing ROM hacker
 
 Hiragana, Katakana and Kanji form the basis of the language
 
-Kana. A collective term for the Hiragana and Katakana they are the basic constructs of the language with Katakana usually being used for loanwords/foreign words, also where the Hiragana are fairly freeform the Katakana are somewhat angular in appearance. Hiragana tends to be reserved for native words and both are phonetic, which is to say several are combined to make words.[rikai.com shiftJIS](http://www.rikai.com/library/kanjitables/kanji_codes.sjis.shtml) has examples of both.
+**Kana**. A collective term for the Hiragana and Katakana they are the basic constructs of the language with Katakana usually being used for loanwords/foreign words, also where the Hiragana are fairly freeform the Katakana are somewhat angular in appearance. Hiragana tends to be reserved for native words and both are phonetic, which is to say several are combined to make words.[rikai.com shiftJIS](http://www.rikai.com/library/kanjitables/kanji_codes.sjis.shtml) has examples of both.
 
 There are some fairly accepted ordering/sorting methods with Gojuon order being the most popular. Common ROM hacking table making tools like [TaBuLar](http://www.romhacking.net/utilities/55/) should add it and few games deviate here. On the flip side be aware the ordering might change, that standard tools might well leave out some of less common, and possibly obsolete, ones the script writer might use (or the font that was borrowed had included) or that the game might add entire characters for characters with punctuation (see Dakuten, Youon/Yoon and Handakuten although most good table creation tools should be able to add these) so be aware of this when constructing tables. ShiftJIS and EUC-JP use the order but will also include Dakuten for the respective characters between them and many games use or take their cues from the ShiftJIS and EUC-JP encodings.
 
-Kanji Kanji are the elaborate symbols sourced from Chinese Hanzi characters (if presented with an unknown Asian language script one tends to tell Chinese and Japanese apart by looking for the simpler Kana which Chinese lacks) and there are a very large number of them. Indeed there is no upper limit, although a book known as Dai Kan-Wa Jiten is considered one of the more complete listings and almost a must for any translator. Even among native speakers they are considered the harder part of the language and many translators/language grades will reference various lists of them; most day to day language usually stops short of the 2000 mark. Unlike Kana they are ideograms and one symbol tends to represent an idea, although they can still be combined to form related concepts/compound words.
+**Kanji** Kanji are the elaborate symbols sourced from Chinese Hanzi characters (if presented with an unknown Asian language script one tends to tell Chinese and Japanese apart by looking for the simpler Kana which Chinese lacks) and there are a very large number of them. Indeed there is no upper limit, although a book known as Dai Kan-Wa Jiten is considered one of the more complete listings and almost a must for any translator. Even among native speakers they are considered the harder part of the language and many translators/language grades will reference various lists of them; most day to day language usually stops short of the 2000 mark. Unlike Kana they are ideograms and one symbol tends to represent an idea, although they can still be combined to form related concepts/compound words.
 
 Importantly for ROM hacking there are various types of works and fields (medicine for example) that aim to reduce the number of them in their text. One of the more notable examples would be that shounen manga and anime do attempt to reduce the amount seen, a practice quite favourable for ROM translation as they tend to produce a lot of fairly interesting games that do not always make it outside Japan.
 
@@ -929,7 +920,7 @@ As far as basic regular expression type searches are concerned Kanji and the kan
 
 All that said if you need to change a font as part of the game hack and keep enough characters/language for your translators to still do some ongoing play testing then Kanji are usually the better choice for something to lose.
 
-Kanji ordering Although it was stated there is no order there are groupings which you might wish to learn to recognise or at least appreciate. The most notable versions of this are the
+**Kanji ordering** Although it was stated there is no order there are groupings which you might wish to learn to recognise or at least appreciate. The most notable versions of this are the
 
 * ?-moji. Although now considered if not obsolete then not best practice by many, both in Japan and even outside it, the idea of categorising kanji into groups with the suffix moji it is still known of and influences things. Six groups exist, four of which go by the basic stroke/aesthetic and the latter two by their meaning. Lists are hard to come by and not that widespread but so you know if your translator tells you it is grouped roughly like this you will have at least heard the term before.
 * kyoiku. A list of kanji as specified by the Japanese ministry of education and broken down by school year/age range. Depending upon the person you are speaking to the complete collection/concept of the grade by grade breakdown can go by the name gakushu although that is not ideal.
@@ -937,9 +928,9 @@ Kanji ordering Although it was stated there is no order there are groupings whic
 
 Once again various game specific methods have been seen and many custom methods will share portions or even whole sections with shiftJIS, eucJP or something similar as it is just as awkward for the original programmers to define a new order as it is to do it yourself. Equally there are examples of games using an ordering based upon the order in which characters first appear in the script and orders based upon how common characters are.
 
-Furigana Furigana is supposed to be to help with pronunciation for Kanji (aimed mainly at younger people and those learning the language) but has been seen to hold little jokes, extra explanations and much more, basically turning it into the equivalent of an asterisk or a footnote/reference. It was not that common on older systems, mainly for technical reasons, but the DS sporting a nice touch screen and enough resources that you do not always have to heavily optimise things has seen it used extensively. It usually comes as a type of markup or flagged text but not always, pointers for example could handle it, and you can use the space they used to help you fit more into the file/memory if you are limited there.
+**Furigana** Furigana is supposed to be to help with pronunciation for Kanji (aimed mainly at younger people and those learning the language) but has been seen to hold little jokes, extra explanations and much more, basically turning it into the equivalent of an asterisk or a footnote/reference. It was not that common on older systems, mainly for technical reasons, but the DS sporting a nice touch screen and enough resources that you do not always have to heavily optimise things has seen it used extensively. It usually comes as a type of markup or flagged text but not always, pointers for example could handle it, and you can use the space they used to help you fit more into the file/memory if you are limited there.
 
-Others (yakumono) Although Japanese has many of the same concepts as languages using the Roman character set in terms of punctuation, shorthand and constructions stemming from them the characters they use can be radically different. [sljfaq](http://www.sljfaq.org/afaq/symbol.html) has more on this. This can allow for some hex analysis type techniques to return.
+**Others (yakumono)** Although Japanese has many of the same concepts as languages using the Roman character set in terms of punctuation, shorthand and constructions stemming from them the characters they use can be radically different. [sljfaq](http://www.sljfaq.org/afaq/symbol.html) has more on this. This can allow for some hex analysis type techniques to return.
 
 ### Japanese glyphs/characters and observations on the language
 
@@ -947,15 +938,15 @@ There was some mention of the types of fonts seen in Japanese but in general the
 
 Also note Japanese does not have space characters per se with any you see being largely aesthetic or for line wrapping purposes; you will probably encounter this when translating a game from Japanese that has a text engine built by a Japanese programmer for use with the Japanese language but the same could be said of most aspects of translation.
 
-Tategaki In short Japanese is usually written horizontally, much like English and European languages, and it is even read left to right. However it can be written vertically and read top to bottom with the name for the concept being tategaki. It is usually only reserved for introduction sequences and artwork as far as games and most modern Japanese goes so it does not tend to trouble translation, however it was seen in Sigma Harmonics on the DS.
+**Tategaki** In short Japanese is usually written horizontally, much like English and European languages, and it is even read left to right. However it can be written vertically and read top to bottom with the name for the concept being tategaki. It is usually only reserved for introduction sequences and artwork as far as games and most modern Japanese goes so it does not tend to trouble translation, however it was seen in Sigma Harmonics on the DS.
 
 Equally although it is not strictly legal in English grammar the use of it for short amounts of text (for instance how often have you see a hotel, cinema and some such use it in a sign) or simply to cause a mental association with Japan; it is a fairly recognised visual effect and given it will also probably be floating over an anime style image or ink wash painting it helps too. To that end you might wish to leave it.
 
-Romaji One of the main reasons Japanese is considered hard to learn is that unlike learning most other languages you also have to learn a new character set. To lessen this and in some cases allow Japanese to be written without a proper input method editor (IME)/Japanese keyboard (which remember could be thousands of keys in size if you wanted to include even a small subset of kanji) ways of overlaying the Japanese language to the Roman alphabet were devised. There are several with the most popular, although not necessarily most liked, being Hepburn. Very few Japanese games will use it and occasions where it might be instead often opting for all English and almost definitely Arabic numbers but it is a fairly important concept and doubly so when dealing with multiple languages at once.
+**Romaji** One of the main reasons Japanese is considered hard to learn is that unlike learning most other languages you also have to learn a new character set. To lessen this and in some cases allow Japanese to be written without a proper input method editor (IME)/Japanese keyboard (which remember could be thousands of keys in size if you wanted to include even a small subset of kanji) ways of overlaying the Japanese language to the Roman alphabet were devised. There are several with the most popular, although not necessarily most liked, being Hepburn. Very few Japanese games will use it and occasions where it might be instead often opting for all English and almost definitely Arabic numbers but it is a fairly important concept and doubly so when dealing with multiple languages at once.
 
-Sentence length Whether due to the existence of kanji or maybe just in general the written version of the Japanese language is quite often shorter than the English translation which ROM hackers and the official translation teams both run up against. Speech is a different matter and is usually roughly equivalent in length which is quite nice for the would be translation team usually as it will be peppered with honorifics and such things.
+**Sentence length** Whether due to the existence of kanji or maybe just in general the written version of the Japanese language is quite often shorter than the English translation which ROM hackers and the official translation teams both run up against. Speech is a different matter and is usually roughly equivalent in length which is quite nice for the would be translation team usually as it will be peppered with honorifics and such things.
 
-Wordplay All languages and humour using them have many examples of wordplay but Japanese is especially noted for it and indeed many translators have missed things like this and delivered a translation very different in tone to the original over the years because of it. With a few very notable exceptions (Rudra no Hihou on the SNES usually being first in that list) not many games have used language play as a core concept/mechanic similar to how English gets treated when magic gets brought up.
+**Wordplay** All languages and humour using them have many examples of wordplay but Japanese is especially noted for it and indeed many translators have missed things like this and delivered a translation very different in tone to the original over the years because of it. With a few very notable exceptions (Rudra no Hihou on the SNES usually being first in that list) not many games have used language play as a core concept/mechanic similar to how English gets treated when magic gets brought up.
 
 It is also yet another reason why machine translation is not to be trusted.
 
@@ -993,11 +984,11 @@ The following section mainly covers various tools for those that need to work wi
 
 Although given an input method editor and an appropriately configured operating system just about anything will do there are certain features that are useful to have in a text editor when you are editing Japanese. To this end a link to a couple of them
 
-NJStar [NJStar](http://www.njstar.com/cms/njstar-japanese-word-processor-download)
+**NJStar** [NJStar](http://www.njstar.com/cms/njstar-japanese-word-processor-download)
 
 This is the most commonly used text editor for the Japanese language and has found favour among the translation teams working on ROM hacking. It is largely shareware/trial although paid options do exist.
 
-JWPCE [JWPCE](http://www.physics.ucla.edu/~grosenth/japanese.html)
+**JWPCE** [JWPCE](http://www.physics.ucla.edu/~grosenth/japanese.html)
 
 An older freeware program that in many ways sits alongside NJStar above.
 
@@ -1005,7 +996,7 @@ An older freeware program that in many ways sits alongside NJStar above.
 
 A hex editor capable of reading tables is quite useful but there are a couple of other tools that are useful
 
-Get My Hex [Filetrip download](http://filetrip.net/pc-downloads/applications/download-getmyhex-1500-f29200.html)
+**Get My Hex** [Filetrip download](http://filetrip.net/pc-downloads/applications/download-getmyhex-1500-f29200.html)
 
 [Author homepage](http://watercrown.info/)
 
@@ -1017,30 +1008,30 @@ Does what it is named for and will return the hexadecimal equivalent of the inpu
 
 Although this is not a language document there are things you can do as a ROM hacker to help projects along and one of those is Computer assisted translation (CAT). This is not the same as machine translation but a kind of lookup program and database for previous translations and helps to ensure consistency in terms and other such things; for instance if you are translating a massive RPG and you meet a concept three times in a game but translate it three different ways it is not going to look good.
 
-Free and Open source tools Although the professional field is dominated by a handful of pricey tools there are some freeware/open source tools
+**Free and Open source** tools Although the professional field is dominated by a handful of pricey tools there are some freeware/open source tools
 
-Anaphraseus [Project sourceforge page](http://sourceforge.net/projects/anaphraseus/?source=recommended)
+**Anaphraseus** [Project sourceforge page](http://sourceforge.net/projects/anaphraseus/?source=recommended)
 
-OmegaT [Project sourceforge page](http://sourceforge.net/projects/omegat/?source=recommended)
+**OmegaT** [Project sourceforge page](http://sourceforge.net/projects/omegat/?source=recommended)
 
 A java based tool and one of the more popular open source programs.
 
-XLIFF Translator [Project homepage](http://felix-cat.com/tools/xliff-translator/)
+**XLIFF Translator** [Project homepage](http://felix-cat.com/tools/xliff-translator/)
 
 XLIFF is about as close as to an inter software conversion standard as it gets in CAT tool world. The program itself is an MIT licensed hook for a piece of professional software but functions none the less.
 
-Commercial tools On the paid/commercial front there are other options. Being “industrial”/professional/industry specific software though the prices have a habit of getting rather high and there is a fairly well recognised/supported format known as XLIFF (an XML based format aimed specifically at translation) many of the open source tools support as well as some of the commercial ones.
+**Commercial tools** On the paid/commercial front there are other options. Being “industrial”/professional/industry specific software though the prices have a habit of getting rather high and there is a fairly well recognised/supported format known as XLIFF (an XML based format aimed specifically at translation) many of the open source tools support as well as some of the commercial ones.
 
 Still
 
-Trados [Homepage](http://www.trados.com/en/freelance-translators/default.asp)
+**Trados** [Homepage](http://www.trados.com/en/freelance-translators/default.asp)
 
 Arguably the market leader in the professional CAT tools.
 
-memoQ [Homepage](http://kilgray.com/products/memoq)
+**memoQ** [Homepage](http://kilgray.com/products/memoq)
 
 Not as popular as the other two and similarly priced but rapidly gaining a following.
 
-Wordfast [Homepage](http://www.wordfast.net/)
+**Wordfast** [Homepage](http://www.wordfast.net/)
 
 Various tools have been released under this branding and depending where you go the term wordfast can refer to any or all of them. Still a very popular series of CAT tools and related technologies.
